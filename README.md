@@ -21,6 +21,8 @@
 |item_image_id|reference|null: false, foreign_key: true|
 |condition|string|null:false|
 |preparation_day|integer|null:false|
+|exhibitor|reference|foreign_key: true|
+|buyer|reference|foreign_key: true|
 ### Association
 - has_many :favorites
 - has_many :comments throught: :comments
