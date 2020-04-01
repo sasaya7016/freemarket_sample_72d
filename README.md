@@ -27,7 +27,6 @@
 - has_many :comments throught: :comments
 - has_many :item_images
 - belongs_to :user
-- belongs_to :category
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -70,8 +69,10 @@
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|background_image|string||
-|email|text|null: false|
-|password|text|null: false|
+|postalcode|integer||
+|prefecture|string||
+|town|string||
+|street|string||
+|building|string||
 ### Association
 - belongs_to :user
