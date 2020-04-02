@@ -13,46 +13,37 @@ $main-content--width: 700px!default;
     padding-bottom: 40px;
     .sidebar{
       margin: 0;
-      width: 280px;
       &__mypage__nav{
-        &-list{
-          width: 280px;
-          &__head{
-            width: inherit;
-            margin: 40px 0 0;
-            display: block;
-            font-weight: bold;
-          }
-          &__item{
-            border-bottom: 2px solid rgba(245,245,245,1);
-            width: inherit;
-            height: 48px;
-            line-height: 48px;
-            text-decoration: none;
-            position: relative;
-            display: block;
-            min-height: 48px;
-            padding: 16px;
-            background: #fff;
-            font-size: 14px;
-            color: #333;
-            display: flex;
-          }
-          .nav-icon{
-            color: black;
-            font-size: 15px;
-          }
-        }
       }
     }
     .main-content{
       display: block;
       width: $main-content--width;
-      margin-left: 60px;
+      margin: 0 60px;
+      text-decoration: none;
       &__user-icon{
+        text-decoration: inherit;
+        text-align: center;
         width: inherit;
         height: 200px;
         background-color: rgba(100,100,100,1.0);
+        &__space{
+        }
+        &__name{
+          
+        }
+        &__number{
+          display: flex;
+          justify-content: center;
+          &__evaluation{
+              
+
+            }
+          &__up{
+            text-decoration: none;
+            margin-left: 10px;
+          }
+          }
         }
       &__notification-todo{
           background-color: rgba(90,90,90,1.0);
@@ -85,7 +76,7 @@ $main-content--width: 700px!default;
       }
     }
 
-      .sell-btn{
+      .footer__sell-btn-icon{
     line-height: 160px;
     text-align: center;
     text-decoration: none;
@@ -95,13 +86,60 @@ $main-content--width: 700px!default;
     height: 160px;
     border-radius: 50%;
     background-color: rgba(136, 209, 255,1);
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     bottom: 64px;
     right: 64px;
     &__camera{
+      display:inline;
       color: rgba(200,200,200,1);
-      font-size: 25px;
+      font-size: 60px;
       }
     }
+}
+
+.nav-list{
+  width: 280px;
+  &__head{
+    width: inherit;
+    margin: 40px 0 0;
+    display: block;
+    font-weight: bold;
+  }
+  &__item{
+    position: relative;
+    pointer-events: auto;
+    border-bottom: 2px solid rgba(245,245,245,1);
+    width: inherit;
+    height: 32px;
+    line-height: 32px;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    min-height: 32px;
+    padding: 16px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    &:hover > .nav-icon{
+      transform: translateX(7px);
+      transition-timing-function: ease-in;
+      transition-duration: 200ms;
+      color: rgba(80,80,80,1.0);
+    }
+    &:hover{
+      background-color: rgb(220, 220, 220);
+      transition: background-color 300ms;
+    }
+    }
+  }
+.nav-icon{
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+  line-height: 32px;
+  color: rgb(140, 140, 140);
+  font-size: 15px;
 }
