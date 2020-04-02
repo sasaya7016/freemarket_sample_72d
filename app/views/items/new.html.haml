@@ -1,2 +1,56 @@
-%h1 Items#new
-%p Find me in app/views/items/new.html.erb
+.listing-contents
+  .listing
+    .listing__box
+      .listing__box--title
+        %p 出品画像
+        %p.equired 必須
+      %p.listing-attention 最大10枚まで
+      %label.exhibit-image-box
+        %input.secret-image{:type => "file"}
+        .exhibit-image 写真を選択してください
+      .listing__box--title
+        %p 商品名
+        %p.equired 必須
+      %input.listing-form{:type => "form"}
+      .listing__box--title
+        %p 商品説明
+        %p.equired 必須
+      %textarea.item-text
+      %p 商品の詳細
+      .listing__box--title
+        %p カテゴリー
+        %p.equired 必須
+      %input.listing-form{:type => "form"}
+      .listing__box--title
+        %p ブランド
+        %p.arbitrary 任意
+      %input.listing-form{:type => "form"}
+      .listing__box--title
+        %p 商品の状態
+        %p.equired 必須
+      %input.listing-form{:type => "select"}
+      %p 配送について？
+      .listing__box--title
+        %p 配送料の負担
+        %p.equired 必須
+      %input.listing-form{:type => "select"}
+      .listing__box--title
+        %p 発送元の地域
+        %p.equired 必須
+      %input.listing-form{:type => "select"}
+      .listing__box--title
+        %p 発送までの日数
+        %p.equired 必須
+      .listing__box--title
+        %p 販売価格
+        %p.equired 必須
+      %input.listing-form{:type => "form"}
+      .listing__box--fee
+        %p 販売手数料 (10%)
+        %p 合計（仮）
+      .listing__box--fee
+        %p 販売利益
+        %p 合計（仮）
+      .listing__box--btns
+        %input.btn{:type => "submit", :value => "出品する"}
+        %input.btn-back{:type => "submit", :value => "戻る"}
