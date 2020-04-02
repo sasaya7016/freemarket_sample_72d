@@ -1,2 +1,86 @@
-%h1 Items#show
-%p Find me in app/views/items/show.html.erb
+.contents
+  .product
+    .product__name
+      Product2
+    .product__image
+      =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png",class:"product__image__main"
+    %ul
+      %li
+        =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+      %li
+        =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png"
+      %li
+        =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png"
+    .product__price
+      ¥20000
+    .product__sub
+      （税込）送料込み
+    .product__introduction
+      親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+    %table.product__table
+      %tr
+        %th
+          出品者
+        %td
+          hoge
+      %tr
+        %th カテゴリー
+        %td
+          =link_to "メンズ"
+          %br/
+          =link_to "アウター"
+          %br/
+          =link_to "ジャケット"
+      %tr
+        %th ブランド
+        %td
+      %tr
+        %th 商品のサイズ
+        %td
+      %tr
+        %th 商品の状態
+        %td
+      %tr
+        %th 配送料の負担
+        %td 着払い（購入者負担）
+      %tr
+        %th 発送元の地域
+        %td
+          =link_to "青森県"
+      %tr
+        %th 発送元の目安
+        %td 1-2日で発送
+    .product__btn
+      .product__btn__like
+        %i.fa.fa-star
+        お気に入り
+      .product__btn__report
+        %i.fa.fa-flag
+        不適切な商品の通報
+    -# - if current_user.id == exhivitor_id
+    .product__link
+      .product__link__edit
+        =link_to "商品情報を編集する"
+        -# =link_to "商品情報を編集する", "/items/#{@item.id}/edit, method: :get"
+      .product__link__delete
+        =link_to "商品を削除する"
+        -# =link_to "商品を削除する", "/items/#{@item.id},method: :delete"
+        
+  .comment-box
+    %form
+      %textarea{cols:40, rows:4}
+      .comment-box__alert
+        相手のことを考え適切なコメントを心がけましょう。
+        %br>/
+        不快な言葉遣胃などは利用制限や退会処分となることがあります。
+      %button{type:"submit", value:"コメントする"}
+        %i.fa.fa-comment
+        コメントする
+  .links
+    .links__before
+      =link_to "<前の商品"
+    .links__after
+      =link_to "後ろの商品>"
+
+  .category
+    =link_to "〇〇をもっと見る"
