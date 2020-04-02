@@ -1,2 +1,85 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.erb
+.container
+  %main.main-container
+    .sidebar
+      %nav.sidebar__mypage-nav
+        %ul.sidebar__mypage__nav-list
+          %li
+            =link_to "#" , class: "sidebar__mypage__nav-list__item" do
+              マイページ
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" , class: "sidebar__mypage__nav-list__item" do
+              いいね一覧
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" , class: "sidebar__mypage__nav-list__item" do
+              出品する
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+              出品した商品-出品中
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+              出品した商品-過去の取引
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+              評価
+            %i.fas.fa-chevron-right.nav-icon
+        %h3.sidebar__mypage__nav-list__head
+          設定
+        %ul.sidebar__mypage__nav-list
+          %li
+            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+              プロフィール
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+              発送元・お届け先情報
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+              支払方法
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+              メール/パスワード
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+              本人情報
+            %i.fas.fa-chevron-right.nav-icon
+          %li
+            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+              ログアウト
+            %i.fas.fa-chevron-right.nav-icon
+
+    .main-content
+      %section.main-content__user-icon
+        
+      %section.main-content__notification-todo
+        
+      %section.main-content__mypage-tab__container
+        %h2.mypage-tab__head
+          購入した商品
+        %ul.mypage-tabs
+          %li
+            %h3
+            =link_to "取引中" ,"#"
+          %li
+            %h3
+            =link_to "過去の取引","#"
+        .mypage-tab__content
+          %ul#mypage-tab__content__transaction--now.mypage-tab__content__transaction
+            %li 
+              =link_to "none","#"
+                
+          %ul#mypage-tab__content__transaction--old.mypage-tab__content__transaction
+            %li
+              =link_to "none","#"
+                
+  =link_to "#", class: "sell-btn" do
+    出品
+    %i.fas.fa-camera-retro.sell-btn__camera
+          
