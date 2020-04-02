@@ -2,70 +2,71 @@
   %main.main-container
     .sidebar
       %nav.sidebar__mypage-nav
-        %ul.sidebar__mypage__nav-list
+        %ul.nav-list
           %li
-            =link_to "#" , class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" , class: "nav-list__item" do
               マイページ
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" , class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" , class: "nav-list__item" do
               いいね一覧
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" , class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" , class: "nav-list__item" do
               出品する
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" ,class: "nav-list__item" do
               出品した商品-出品中
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" ,class: "nav-list__item" do
               出品した商品-過去の取引
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" ,class: "nav-list__item" do
               評価
-            %i.fas.fa-chevron-right.nav-icon
-        %h3.sidebar__mypage__nav-list__head
+              %i.fas.fa-chevron-right.nav-icon
+        %h3.nav-list__head
           設定
-        %ul.sidebar__mypage__nav-list
+        %ul.nav-list
           %li
-            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+            =link_to "#", class: "nav-list__item" do
               プロフィール
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+            =link_to "#", class: "nav-list__item" do
               発送元・お届け先情報
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+            =link_to "#", class: "nav-list__item" do
               支払方法
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#", class: "sidebar__mypage__nav-list__item" do
+            =link_to "#", class: "nav-list__item" do
               メール/パスワード
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" ,class: "nav-list__item" do
               本人情報
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
           %li
-            =link_to "#" ,class: "sidebar__mypage__nav-list__item" do
+            =link_to "#" ,class: "nav-list__item" do
               ログアウト
-            %i.fas.fa-chevron-right.nav-icon
+              %i.fas.fa-chevron-right.nav-icon
 
     .main-content
-      %section.main-content__user-icon
-        =link_to "#" do
+      %section.main-content__user
+        =link_to "#", class: ".main-content__user" do
           %figure
-            =image_tag "", size: "60x60", class: "user-icon"
-          %h2.main-content__user-icon__name
-          .main-content__user-icon__number
-            .main-content__user-icon__number__evaluation
-              45
-            .main-content__user-icon__number__up
-              34
+            =image_tag "", size: "60x60", class: "user-image"
+          %h2.main-content__user__name
+            葵
+          .main-content__user__number
+            .main-content__user__number__evaluation
+              評価数  45
+            .main-content__user__number__up
+              出品数  34
       %section.main-content__notification-todo
         
       %section.main-content__mypage-tab__container
@@ -87,8 +88,8 @@
           %ul#mypage-tab__content__transaction--old.mypage-tab__content__transaction
             %li
               =link_to "none","#"
-                
-  =link_to "#", class: "sell-btn" do
+            
+  =link_to "#", class: "footer__sell-btn-icon" do
     出品
-    %i.fas.fa-camera-retro.sell-btn__camera
+    %i.fas.fa-camera-retro.footer__sell-btn-icon__camera
           
