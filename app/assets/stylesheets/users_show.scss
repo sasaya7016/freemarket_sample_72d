@@ -1,6 +1,8 @@
 html,body{
   background-color: rgba(245,245,245,1);
 }
+
+$main-content--width: 700px!default;
 .container{
   padding: 40px 33.5px 0;
   .main-container{
@@ -45,21 +47,43 @@ html,body{
     }
     .main-content{
       display: block;
-      width: 700px;
+      width: $main-content--width;
+      margin-left: 60px;
       &__user-icon{
         width: inherit;
         height: 200px;
         background-color: rgba(100,100,100,1.0);
-      &__notification-todo{
-        background-color: rgba(90,90,90,1.0);
         }
-      &__mypage-tab{
-        width: inherit;
-        background-color: rgba(120,120,120,1.0);
+      &__notification-todo{
+          background-color: rgba(90,90,90,1.0);
+        }
+      &__mypage-tab__container{
+        .mypage-tab{
+          width: inherit;
+          height: 74px;
+          display:flex;
+          width: calc($main-content--width/2);
+          background-color: rgba(120,120,120,1.0);
+          &__list{
+            display: block;
+            &__transaction{
+              &__now{
+                display: block;
+                width: inherit;
+              }
+              &__old{
+                display: block;
+              }
+              }
+            &__head{
+              width: calc($main-content--width/2);
+              height: 74px;
+              }
+            }
+          }
         }
       }
     }
-  }
 
       .sell-btn{
     line-height: 160px;
@@ -76,8 +100,8 @@ html,body{
     bottom: 64px;
     right: 64px;
     &__camera{
-      color: rgba(230,230,230,1);
-      font-size: 50px;
+      color: rgba(200,200,200,1);
+      font-size: 25px;
+      }
     }
-  }
 }

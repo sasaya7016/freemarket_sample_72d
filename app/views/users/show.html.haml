@@ -57,24 +57,33 @@
 
     .main-content
       %section.main-content__user-icon
-        
+        =link_to "#" do
+          %figure
+            =image_tag "", size: "60x60", class: "user-icon"
+          %h2.main-content__user-icon__name
+          .main-content__user-icon__number
+            .main-content__user-icon__number__evaluation
+              45
+            .main-content__user-icon__number__up
+              34
       %section.main-content__notification-todo
         
       %section.main-content__mypage-tab__container
         %h2.mypage-tab__head
           購入した商品
-        %ul.mypage-tabs
+        %ul.mypage-tab
           %li
-            %h3
-            =link_to "取引中" ,"#"
+            %h3.mypage-tab__list
+            =link_to "取引中" ,"#" , class: "mypage-tab__list__transaction--now"
           %li
-            %h3
-            =link_to "過去の取引","#"
+            %h3.mypage-tab__list
+            =link_to "過去の取引","#", class: "mypage-tab__list__transaction--old"
+        
         .mypage-tab__content
           %ul#mypage-tab__content__transaction--now.mypage-tab__content__transaction
             %li 
               =link_to "none","#"
-                
+
           %ul#mypage-tab__content__transaction--old.mypage-tab__content__transaction
             %li
               =link_to "none","#"
