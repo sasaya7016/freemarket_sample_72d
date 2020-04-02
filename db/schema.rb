@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.string "brand"
-    t.string "condition", null: false
+    t.string "status", null: false
     t.integer "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
