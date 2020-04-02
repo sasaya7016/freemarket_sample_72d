@@ -9,6 +9,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :preparation_day, null: false
       t.integer :exhibitor_id, foreign_key: true
       t.integer :buyer_id, foreign_key: true
+      t.string :delivery_time
+      t.string :delivery_fee
       t.timestamps
     end
     add_index :items, [:name, :brand]
