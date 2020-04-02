@@ -75,3 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
+#以下マージ時に消去
+gem 'font-awesome-sass'
+gem 'sprockets'
