@@ -1,0 +1,29 @@
+.header
+  .header__inner
+    .header__inner__icon
+      = image_tag("http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg",clss:"logo-top",width:"140px",height:"50px") 
+    .header__inner__search
+      .header__inner__search__form
+        %textarea{:name => "content",:class =>"seach-text",:name => "key",:placeholder => "キーワードから探す"}
+        %button{type: "submit", class:'btn'}     
+          %i.fas.fa-search
+
+
+  .header__nav
+    %ul.header__nav__list
+      %li.header__nav__list__left
+        %ul.header__nav__list__left__serect
+          %li.header__nav__list__left__serect__category
+            %h4
+              = link_to "カテゴリー", "#"
+          %li.header__nav__list__left__serect__brand
+            %h4
+              = link_to "ブランド","#"
+      %li.header__nav__list__right
+        %ul.header__nav__list__right__serect
+          %li.header__nav__list__right__serect__login
+            %h4
+              = link_to "ログイン","#"
+          %li.header__nav__list__right__serect__new
+            %h4
+              = link_to "新規登録会員","#"
