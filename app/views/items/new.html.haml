@@ -21,7 +21,7 @@
         .listing__box--title
           %p カテゴリー
           %p.equired 必須
-        =f.select :category, class: "listing-select"
+        =f.select :category, @category_parent_array, class: "listing-select", id: "parent_category"
         .listing__box--title
           %p ブランド
           %p.arbitrary 任意
