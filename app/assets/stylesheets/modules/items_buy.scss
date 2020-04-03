@@ -38,6 +38,13 @@
       .title{
       margin-top: 1rem;
       }
+      .price{
+        display: flex;
+        justify-content: center;
+        .detail{
+          margin-right: 1rem;
+        }
+      }
     }  
     &--payment_method{
       border-top: 1px solid #f5f5f5;
