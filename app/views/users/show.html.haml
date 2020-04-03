@@ -58,15 +58,17 @@
     .main-content
       %section.main-content__user
         =link_to "#", class: ".main-content__user" do
-          %figure
-            =image_tag "", size: "60x60", class: "user-image"
+          =image_tag "img01.jpg", class: "user-image"
           %h2.main-content__user__name
             葵
           .main-content__user__number
             .main-content__user__number__evaluation
-              評価数  45
+              評価数  
+              %span 34
             .main-content__user__number__up
-              出品数  34
+              出品数
+              %span 55
+              
       %section.main-content__notification-todo
         
       %section.main-content__mypage-tab__container
