@@ -1,6 +1,8 @@
-html,body{
+*{
   background-color: rgba(245,245,245,1);
+  box-sizing: border-box;
 }
+
 a{
   text-decoration: none;
 }
@@ -56,30 +58,36 @@ $text-black: rgba(70,70,70,1.0);
           height: 74px;
           display:flex;
           justify-content: space-evenly;
-          background-color: rgba(120,120,120,1.0);
+          background-color: rgba(200, 200, 200,1.0);
           &__list{
-            width: calc($main-content--width/2);
+            width: 350px;
+            height: 74px;
+            line-height: 74px;
+            font-size: 18px;
+            text-align: center;
+            color: $text-black;
             display: block;
-            &__transaction{
-              &__now{
-                display: block;
-                width: inherit;
-              }
-              &__old{
-                display: block;
-              }
-              }
+            text-decoration: none;
+            border-top: 2px solid rgba(255,255,255,0.0);
+            background-color: rgb(176, 176, 176);
+            }
+            &__transaction--now{
+              border-right: 2px solid rgb(100,100,100);
             }
           &__head{
             line-height: 74px;
             padding: 0 16px;
-            width: calc($main-content--width/2);
+            font-size: 16px;
             height: 74px;
+            color: $text-black;
+            font-weight: bold;
             }
           }
         }
       }
     }
+  }
+
 
       .footer__sell-btn-icon{
     line-height: 160px;
@@ -102,8 +110,9 @@ $text-black: rgba(70,70,70,1.0);
       font-size: 60px;
       }
     }
-}
 
+
+//以下サイドナビリスト
 .nav-list{
   width: 280px;
   &__head{
@@ -147,6 +156,26 @@ $text-black: rgba(70,70,70,1.0);
   line-height: 32px;
   color: rgb(140, 140, 140);
   font-size: 15px;
+}
+
+//商品・お知らせなどのリストスタイル
+.display{
+  display:none;
+}
+.tab-active{
+  border-top: 2px solid rgb(109, 255, 245);
+  width: 350px;
+  height: 74px;
+  background-color: rgb(230, 230, 230);
+  //JSの処理に応じて追記
+}
+
+.tab__content__list{
+  width: 700px;
+  height: 80px;
+  background-color: rgb(215, 215, 215);
+  padding:16px;
+  
 }
 
 // --------ここから発送元・お届け先住所変更--------
