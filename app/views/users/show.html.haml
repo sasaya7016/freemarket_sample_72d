@@ -76,20 +76,18 @@
           購入した商品
         %ul.mypage-tab
           %li
-            %h3.mypage-tab__list
-            =link_to "取引中" ,"#" , class: "mypage-tab__list__transaction--now"
+            %h3.mypage-tab__list#mypage-tab__list.tab-active
+              =link_to "取引中" ,"#" , class: "mypage-tab__list__transaction--now"
           %li
             %h3.mypage-tab__list
-            =link_to "過去の取引","#", class: "mypage-tab__list__transaction--old"
-        
-        .mypage-tab__content
-          %ul#mypage-tab__content__transaction--now.mypage-tab__content__transaction
-            %li 
-              =link_to "none","#"
+              =link_to "過去の取引","#", class: "mypage-tab__list__transaction--old"
 
-          %ul#mypage-tab__content__transaction--old.mypage-tab__content__transaction
-            %li
-              =link_to "none","#"
+        .tab__content
+          %ul#tab__content.tab__content.display
+            %li.tab__content__list
+              
+          %ul#tab__content.tab__content
+            %li.tab__content__list
             
   =link_to "#", class: "footer__sell-btn-icon" do
     出品
