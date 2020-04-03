@@ -16,10 +16,10 @@
     font-size: 24px;
   }
   &__image{
-    text-align: center;
     &__main{
-      width:560px;
-      height:340px;
+      width:500px;
+      height:400px;
+      margin:0 auto;
     }
     &__sub{
       width:140px;
@@ -27,8 +27,8 @@
     }
   }
   ul{
-    display: flex;
-    justify-content:center;
+    // display: flex;
+    // justify-content:center;
   }
   &__price{
     text-align: center;
@@ -173,3 +173,12 @@
     font-size: 22px;
     }
   }
+
+  .slick-slide{
+    margin-right:16px;
+  
+  }
+// .slick-list{
+//   margin-right:100px;
+
+// }
