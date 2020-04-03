@@ -1,11 +1,12 @@
+@import "modules/items_show";
+@import "modules/items_buy";
+
 html,body,ul {
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
 }
-
-@import "modules/items_show";
 
 
 // @import "config/colors";  後ほど作成→仮置き
@@ -493,3 +494,4 @@ $background-color_section:#eeeeee;
     }
   }
 }
+
