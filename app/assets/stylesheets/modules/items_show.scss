@@ -21,6 +21,10 @@
       width:560px;
       height:340px;
     }
+    &__sub{
+      width:140px;
+      height:140px;
+    }
   }
   ul{
     display: flex;
@@ -115,7 +119,7 @@
 }
   .detail-comment-box{
     padding:24px;
-    width:50%;
+    width:52%;
     margin:0 auto;
     margin-top:10px;
     background-color: white;
@@ -140,10 +144,19 @@
     }
   }
   .detail-links{
-    width:50%;
+    width:55%;
     margin:0 auto;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    &__before{
+      position: absolute;
+      left:0;
+    }
+    &__after{
+      position: absolute;
+      right:0;
+    }
     a{
       text-decoration: none;
     color: #3CCACE;
@@ -151,7 +164,7 @@
     }
   }
   .detail-category{
-    width:50%;
+    width:55%;
     margin:0 auto;
     margin-top:24px;
     a{
