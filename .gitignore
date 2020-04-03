@@ -28,3 +28,6 @@
 
 /assets/images/
 *.jpg
+
+# 画像ファイルをignore
+app/assets/images/*
