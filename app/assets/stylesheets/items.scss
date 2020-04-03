@@ -28,6 +28,10 @@ $background-color_section:#eeeeee;
     display: flex;
     &__icon {
       margin-right: 30px;
+        &__top{
+          width: 140px;
+          height: 50px;
+        }
     }
     &__search {
       width: 100%;
@@ -47,9 +51,14 @@ $background-color_section:#eeeeee;
           background-color: $font_color_oceanblue;
           color: $font_color_white;
         }
+        .search-img {
+          height: 15px;
+          width: 15px;
+        }
       }
     }
     .icon {
+
     }
   }
   &__nav {
@@ -85,7 +94,7 @@ $background-color_section:#eeeeee;
       list-style: none;
         a {
           text-decoration: none;
-          color: black;
+          color: $font_color_black;
           font-weight: lighter;
         }
     }
@@ -103,16 +112,14 @@ $background-color_section:#eeeeee;
   align-items: center;
   background-image: url(bg-mainVisual-pict_pc.jpg);
   background-size: cover;
-  padding: 50px 0 0 50px;
-  &__img {
-  }
   &__message {
     color: $font_color_white;
     position: absolute;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    padding: 100px 0 0 50px;
     &__title {
-      font-size: 35px;
-      line-height: 1.4;
+      font-size: 40px;
+      line-height: 40px;
     }
     &__text {
         font-size: 20px;
@@ -120,6 +127,15 @@ $background-color_section:#eeeeee;
     }
     &__btn {
       display: flex;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
     }
   }
 }
@@ -158,6 +174,9 @@ $background-color_section:#eeeeee;
             background-color: $font_color_oceanblue;
             color: $font_color_white;
           }
+          .pict-reason-img {
+            height: 300px;
+          }
         }
         &__text{
           font-size: 20px;
@@ -176,16 +195,15 @@ $background-color_section:#eeeeee;
 
 .article__center {
   position: relative;
-  &__img{
-    width: 100%;
-    height: 400px;
-  }
+  background-image: url(bg-topMiddleDl-pict.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 400px;
   &__message {
     color: $font_color_white;
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
     position: absolute;
-    top: 30px;
-    left: 50px;
+    padding: 50px 0 0 50px;
     &__title {
       font-size: 20px;
     }
@@ -199,6 +217,15 @@ $background-color_section:#eeeeee;
     }
     &__btn {
       display: flex;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
     }
   }
 }
@@ -222,7 +249,6 @@ $background-color_section:#eeeeee;
       justify-content: space-evenly;
       &__list {
         width: 30%;
-        
         &__image{
           span {
             display: inline-block;
@@ -235,6 +261,9 @@ $background-color_section:#eeeeee;
             background-color: $font_color_oceanblue;
             color: $font_color_white;
           }
+          .icon-img {
+              height: 300px;
+          }
         }
         &__text{
           font-size: 20px;
@@ -242,7 +271,6 @@ $background-color_section:#eeeeee;
             font-size: 17px;
             text-align: left;
           }
-
         }
       }
     }
@@ -263,7 +291,7 @@ $background-color_section:#eeeeee;
     h3 {
       font-size: 24px;
       line-height: 24px;
-      color: #3CCACE;
+      color: $font_color_oceanblue;
     }
   }
   &__product{
@@ -276,7 +304,9 @@ $background-color_section:#eeeeee;
       &__list{
         background-color: $font_color_white;
         &__img{
-
+          .product-img {
+            height: 230px;
+          }
         }
         &__text{
           padding: 10px 15px;
@@ -300,20 +330,67 @@ $background-color_section:#eeeeee;
 
 
 
+.pickup-bland {
+  height: 100%;
+  padding: 100px 0;
+  background-color: $background-color_section;
+  &__message{
+    text-align: center;
+    h2 {
+      font-size: 26px;
+      line-height: 26px;
+    }
+    h3 {
+      font-size: 24px;
+      line-height: 24px;
+      color: $font_color_oceanblue;
+    }
+  }
+  &__product{
+    width: 100%;
+    &__main{
+      display: flex; 
+      justify-content: space-evenly;
+      h3 {
+      }
+      &__list{
+        background-color: $font_color_white;
+        &__img{
+          .product-img {
+            height: 230px;
+          }
+        }
+        &__text{
+          padding: 10px 15px;
+          border: solid 0.1px $background-color_section;
+          &__details{
+            .ul {
+              display: flex;
+              justify-content: space-between;
+              .li {
+              }
+            }
+            p {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 // _footer.html.haml ---------------
 
 .article-bottom {
-  position: relative;
   height: 400px;
-  &__img {
-  }
+  width: 100%;
+  background-image: url(bg-appBanner-pict.jpg);
+  background-size: cover; 
   &__message {
-    position: absolute;
-    top: 100px;
-    left: 60px;
     text-align: center;
-    align-items: center;
-    
+    padding-top: 100px;
     &__title{
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-weight: bold;
@@ -330,6 +407,16 @@ $background-color_section:#eeeeee;
     }
     &__btn {
       display: flex;
+      justify-content: center;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
     }
   }
 }
@@ -337,6 +424,7 @@ $background-color_section:#eeeeee;
 
 .footer {
   padding: 60px 0;
+  width: 100%;
   color: $font_color_white;
   background-color: #272727;
   text-align: center;
@@ -372,6 +460,33 @@ $background-color_section:#eeeeee;
     text-align: center;
     .logo {
       width: 150px;
+    }
+  }
+}
+
+
+// _exhibition.html.haml (side-btn)---------------
+.exhibition-btn {
+  width: 100px;
+  height: 100px;
+  background: $font_color_oceanblue;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon{
+    .icon-camera {
+      width: 20px;
+      height: 20px;
     }
   }
 }

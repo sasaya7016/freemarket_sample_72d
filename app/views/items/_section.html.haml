@@ -7,9 +7,9 @@
       %p フリマアプリです
     .article-top__message__btn
       .article-top__message__btn__apple
-        = image_tag("app-store.svg",clss:"apple__btn", width:"200",height:"80")  
+        =link_to image_tag("app-store.svg",class:"apple-store"),""
       .article-top__message__btn__google
-        = image_tag("google-play.svg",clss:"google__btn",width:"200",height:"80")  
+        = link_to image_tag("google-play.svg",class:"google-play"),""
   
 
 %section.selection
@@ -20,7 +20,7 @@
       %li.selection__subtitle__lists__list
         .selection__subtitle__lists__list__image
           %span.number 1
-          = image_tag("pict-reason-01.jpg" ,height:"300");
+          = image_tag("pict-reason-01.jpg" ,class:"pict-reason-img");
         .selection__subtitle__lists__list__text
           %span 3分
           ですぐに出品
@@ -29,7 +29,7 @@
       %li.selection__subtitle__lists__list
         .selection__subtitle__lists__list__image
           %span.number 2
-          = image_tag("pict-reason-02.jpg",height:"300");
+          = image_tag("pict-reason-02.jpg",class:"pict-reason-img");
         .selection__subtitle__lists__list__text
           %span.h2 シンプル 
           で使いやすい
@@ -38,7 +38,7 @@
       %li.selection__subtitle__lists__list
         .selection__subtitle__lists__list__image
           %span.number 3
-          = image_tag("pict-reason-03.jpg",height:"300");
+          = image_tag("pict-reason-03.jpg",class:"pict-reason-img");
         .selection__subtitle__lists__list__text
           %span 手数料 
           業界最安
@@ -46,8 +46,7 @@
           %p 最大3%でお得に出品&購入！
       
 
-.section.article__center
-  = image_tag("bg-topMiddleDl-pict.jpg",class:"article__center__img",width:"100%",height:"400px" );  
+.section.article__center  
   .article__center__message
     .article__center__message__title
       %h2 会員数日本一位
@@ -57,9 +56,9 @@
       %p ほしかったあの商品に出会えるかもしれません。
     .article__center__message__btn
       .article__center__message__btn__apple
-        = image_tag("app-store.svg",clss:"apple__btn", width:"200",height:"80")  
+        = link_to image_tag("app-store.svg",class:"apple-store"),""
       .article__center__message__btn__google
-        = image_tag("google-play.svg",clss:"google__btn",width:"200",height:"80")  
+        = link_to image_tag("google-play.svg",class:"google-play"),""
 
 
 %section.feature
@@ -69,7 +68,7 @@
     %ul.feature__title__lists
       %li.feature__title__lists__list
         .feature__title__lists__list__image
-          = image_tag("icon-01.png" ,height:"300");
+          = image_tag("icon-01.png" ,class:"icon-img");
         .feature__title__lists__list__text
           %h2 簡単に売り買いできる
           %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
@@ -77,14 +76,14 @@
 
       %li.feature__title__lists__list
         .feature__title__lists__list__image
-          = image_tag("icon-03.png",height:"300");
+          = image_tag("icon-03.png",class:"icon-img");
         .feature__title__lists__list__text
           %h2 売上金は即日振込みに対応
           %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
 
       %li.feature__title__lists__list
         .feature__title__lists__list__image
-          = image_tag("icon-04.png",height:"300");
+          = image_tag("icon-04.png",class:"icon-img");
         .feature__title__lists__list__text
           %h2 様々な支払いに対応 
           %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
@@ -97,11 +96,10 @@
     %h3 新規投稿商品
   .pickup-category__product
     .pickup-category__product__main
-      -# = link_to "#"
       .pickup-category__product__main__list
-        -# =link_to "#"
+        
         .pickup-category__product__main__list__img
-          = image_tag("product3.png",height:"230");
+          =link_to image_tag("product3.png",class:"product-img"),""
         .pickup-category__product__main__list__text
           %h3.name product3
           .pickup-category__product__main__list__text__details
@@ -112,9 +110,8 @@
             %p (税込)
 
       .pickup-category__product__main__list
-        -# =link_to "#"
         .pickup-category__product__main__list__img
-          = image_tag("product2.png",height:"230");
+          = link_to image_tag("product2.png",class:"product-img"),""
         .pickup-category__product__main__list__text
           %h3.name product3
           .pickup-category__product__main__list__text__details
@@ -125,9 +122,8 @@
             %p (税込)
 
       .pickup-category__product__main__list
-        -# =link_to "#"
         .pickup-category__product__main__list__img
-          = image_tag("product1.png",height:"230");
+          = link_to image_tag("product1.png",class:"product-img"),""
         .pickup-category__product__main__list__text
           %h3.name product3
           .pickup-category__product__main__list__text__details
@@ -138,46 +134,42 @@
             %p (税込)
 
 
-.section.pickup-category
-  .pickup-category__message
+.section.pickup-bland
+  .pickup-bland__message
     %h2 ピックアップブランド
     %h3 アーカイバー
-  .pickup-category__product
-    .pickup-category__product__main
-      -# = link_to "#"
-      .pickup-category__product__main__list
-        -# =link_to "#"
-        .pickup-category__product__main__list__img
-          = image_tag("product3.png",height:"230");
-        .pickup-category__product__main__list__text
+  .pickup-bland__product
+    .pickup-bland__product__main
+      .pickup-bland__product__main__list
+        .pickup-bland__product__main__list__img
+          = link_to image_tag("product3.png",class:"product-img"),""
+        .pickup-bland__product__main__list__text
           %h3.name product3
-          .pickup-category__product__main__list__text__details
+          .pickup-bland__product__main__list__text__details
             .ul
               .li 30000円
               .li 
                 .icon ★ 0
             %p (税込)
 
-      .pickup-category__product__main__list
-        -# =link_to "#"
-        .pickup-category__product__main__list__img
-          = image_tag("product2.png",height:"230");
-        .pickup-category__product__main__list__text
+      .pickup-bland__product__main__list
+        .pickup-bland__product__main__list__img
+          = link_to image_tag("product2.png",class:"product-img"),""
+        .pickup-bland__product__main__list__text
           %h3.name product3
-          .pickup-category__product__main__list__text__details
+          .pickup-bland__product__main__list__text__details
             .ul
               .li 30000円
               .li 
                 .icon ★ 0
             %p (税込)
 
-      .pickup-category__product__main__list
-        -# =link_to "#"
-        .pickup-category__product__main__list__img
-          = image_tag("product1.png",height:"230");
-        .pickup-category__product__main__list__text
+      .pickup-bland__product__main__list
+        .pickup-bland__product__main__list__img
+          = link_to image_tag("product1.png",class:"product-img"),""
+        .pickup-bland__product__main__list__text
           %h3.name product3
-          .pickup-category__product__main__list__text__details
+          .pickup-bland__product__main__list__text__details
             .ul
               .li 30000円
               .li 
