@@ -1,14 +1,15 @@
 html,body{
   background-color: rgba(245,245,245,1);
 }
-
-$main-content--width: 700px!default;
+a{
+  text-decoration: none;
+}
+$main-content--width: 700px;
+$text-black: rgba(70,70,70,1.0);
 .container{
   padding: 40px 33.5px 0;
   .main-container{
     display: flex;
-    justify-content: space-between;
-    width: 700px;
     margin: 0;
     padding-bottom: 40px;
     .sidebar{
@@ -21,27 +22,29 @@ $main-content--width: 700px!default;
       width: $main-content--width;
       margin: 0 60px;
       text-decoration: none;
-      &__user-icon{
-        text-decoration: inherit;
+      &__user{
         text-align: center;
         width: inherit;
-        height: 200px;
-        background-color: rgba(100,100,100,1.0);
-        &__space{
+        padding: 40px 0;
+        background: url("user_image5.jpg");
+        .user-image{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
         }
         &__name{
-          
+          color:$text-black;
         }
         &__number{
+          color:$text-black;
           display: flex;
           justify-content: center;
           &__evaluation{
-              
-
+            span{font-weight: bold;}
             }
           &__up{
-            text-decoration: none;
             margin-left: 10px;
+            span{font-weight: bold;}
           }
           }
         }
@@ -50,12 +53,12 @@ $main-content--width: 700px!default;
         }
       &__mypage-tab__container{
         .mypage-tab{
-          width: inherit;
           height: 74px;
           display:flex;
-          width: calc($main-content--width/2);
+          justify-content: space-evenly;
           background-color: rgba(120,120,120,1.0);
           &__list{
+            width: calc($main-content--width/2);
             display: block;
             &__transaction{
               &__now{
@@ -66,10 +69,12 @@ $main-content--width: 700px!default;
                 display: block;
               }
               }
-            &__head{
-              width: calc($main-content--width/2);
-              height: 74px;
-              }
+            }
+          &__head{
+            line-height: 74px;
+            padding: 0 16px;
+            width: calc($main-content--width/2);
+            height: 74px;
             }
           }
         }
@@ -127,7 +132,7 @@ $main-content--width: 700px!default;
       transform: translateX(7px);
       transition-timing-function: ease-in;
       transition-duration: 200ms;
-      color: rgba(80,80,80,1.0);
+      color: $text-black;
     }
     &:hover{
       background-color: rgb(220, 220, 220);
