@@ -5,6 +5,9 @@ html,body,ul {
   left: 0;
 }
 
+@import "modules/items_show";
+
+
 // @import "config/colors";  後ほど作成→仮置き
 $font_color_white: white;
 $font_color_black: black;
