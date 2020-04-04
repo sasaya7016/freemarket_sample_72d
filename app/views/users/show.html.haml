@@ -1,5 +1,6 @@
 .container
   %main.main-container
+    / 以下サイドバーの部分テンプレート
     .sidebar
       %nav.sidebar__mypage-nav
         %ul.nav-list
@@ -55,6 +56,7 @@
               ログアウト
               %i.fas.fa-chevron-right.nav-icon
 
+    / 以下は部分テンプレートにする
     .main-content
       %section.main-content__user
         =link_to "#", class: ".main-content__user" do
@@ -89,22 +91,42 @@
                   %br
                   ここにアイコン
                 %i.fas.fa-chevron-right.nav-icon
-
             %li.tab__content__list
-              .tab__content__list-box
-                取引中
+              =link_to "url", class: "tab__content__list-box" do
+                =image_tag "sample_item_list_img01.jpg", alt: "",id: "",class: "list-image"
+                .list-text
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  %br
+                  ここにアイコン
+                %i.fas.fa-chevron-right.nav-icon
             %li.tab__content__list
-              .tab__content__list-box
-                取引中
+              =link_to "url", class: "tab__content__list-box" do
+                =image_tag "sample_item_list_img01.jpg", alt: "",id: "",class: "list-image"
+                .list-text
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  %br
+                  ここにアイコン
+                %i.fas.fa-chevron-right.nav-icon
             %li.tab__content__list
-              .tab__content__list-box
-                取引中
+              =link_to "url", class: "tab__content__list-box" do
+                =image_tag "sample_item_list_img01.jpg", alt: "",id: "",class: "list-image"
+                .list-text
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  %br
+                  ここにアイコン
+                %i.fas.fa-chevron-right.nav-icon
             %li.tab__content__list
-              .tab__content__list-box
-                取引中
+              =link_to "url", class: "tab__content__list-box" do
+                =image_tag "sample_item_list_img01.jpg", alt: "",id: "",class: "list-image"
+                .list-text
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                  %br
+                  ここにアイコン
+                %i.fas.fa-chevron-right.nav-icon
             %li.tab__content__list
-              =link_to "一覧を見る", "path", class: "tab__content__list-btn"
-          
+              .tab__content__list__index
+                =link_to "一覧を見る", "path", class: "tab__content__list__index-btn"
+            / 以下はタブ機能実装時にdisplay:noneで隠す
           %ul#tab__content.tab__content.display
             %li.tab__content__list
               購入した商品
@@ -118,6 +140,7 @@
               購入した商品
   .footer__sell-btn
     =link_to "#", class: "footer__sell-btn-icon" do
-      %span 出品
+      .footer__sell-btn-icon__text
+        出品
       %i.fas.fa-camera-retro.footer__sell-btn-icon__camera
             
