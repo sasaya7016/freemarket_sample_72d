@@ -7,9 +7,11 @@ body,html{
 $main-content--width: 700px;
 $text-black: rgba(70,70,70,1.0);
 $text-black-hover: rgba(120,120,120,1.0);
-$mypage-tab-color: rgba(194, 194, 194, 0.995);
+$mypage-tab-color: rgba(191, 191, 191, 0.995);
+$mypage-tab-shadow: rgba(130,130,130,0.99);
 $mypage-tab-hover-color: rgb(218, 218, 218);
 $sky-blue: rgba(136,201,255,1.0);
+$sky-blue-btn-bottom: rgb(116, 179, 205);
 $camera-icon-color: rgba(235,235,235,1.0);
 $mypage-tab-active:rgba(230,230,230,1.0);
 
@@ -59,6 +61,7 @@ $mypage-tab-active:rgba(230,230,230,1.0);
         .mypage-tab{
           display:flex;
           justify-content: space-evenly;
+          background-color: $mypage-tab-color;
           &__list{
             pointer-events: auto;
             width: 350px;
@@ -68,10 +71,16 @@ $mypage-tab-active:rgba(230,230,230,1.0);
             text-align: center;
             color: $text-black;
             display: block;
-            background-color: $mypage-tab-color;
+            border-bottom: 4px solid $mypage-tab-shadow;
             &:hover{
               color: $text-black-hover;
               background-color: $mypage-tab-hover-color;
+            }
+            &:active{
+              -webkit-transform: translateY(4px);
+              transform: translateY(4px);
+              box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+              border-bottom: none;
             }
           }
           #mypage-tab__list-new{
@@ -96,7 +105,6 @@ $mypage-tab-active:rgba(230,230,230,1.0);
 
 
   .footer__sell-btn{
-    line-height: 160px;
     text-align: center;
     color: rgba(230,230,230,1);
     font-size: 26px;
@@ -104,25 +112,32 @@ $mypage-tab-active:rgba(230,230,230,1.0);
     height: 160px;
     border-radius: 50%;
     background-color: $sky-blue;
+    border-bottom: 6px solid $sky-blue-btn-bottom;
     position: fixed;
     bottom: 64px;
     right: 64px;
     &-icon{
+      display: flex;
+      flex-direction: column;
       text-decoration: none;
       color: $camera-icon-color;
-      position: relative;
-      display: block;
-    }
+      &__text{
+        padding-top: 16px;
+        display: inline;
+      }
       &__camera{
         display: block;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        font-size: 60px;
+        margin: 0;
+        padding: 0;
+        font-size: 75px;
         }
+      }
+    &:active{
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+      border-bottom: none;
+    }
     }
 
 //以下サイドナビリスト
@@ -140,7 +155,7 @@ $mypage-tab-active:rgba(230,230,230,1.0);
     justify-content: space-between;
     align-items: center;
     pointer-events: auto;
-    border-bottom: 1px solid rgba(245,245,245,1);
+    border-bottom: 2px solid rgba(245,245,245,1);
     width: inherit;
     text-decoration: none;
     position: relative;
@@ -160,6 +175,12 @@ $mypage-tab-active:rgba(230,230,230,1.0);
       background-color: $mypage-tab-hover-color;
       transition: background-color 300ms;
       }
+    &:active{
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+      border-bottom: none;
+      }
     }
   }
 .nav-icon{
@@ -177,6 +198,7 @@ $mypage-tab-active:rgba(230,230,230,1.0);
   width: calc($main-content--width/2);
   height: 74px;
   background-color: $mypage-tab-active;
+  z-index: 100;
   //JSの処理に応じて追記
 }
 
@@ -186,6 +208,9 @@ $mypage-tab-active:rgba(230,230,230,1.0);
   background-color: rgb(250, 250, 250);
   color: $text-black;
   border-bottom: 1px solid rgb(160,160,160);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &-box{
     text-decoration: none;
     color: $text-black;
@@ -205,27 +230,46 @@ $mypage-tab-active:rgba(230,230,230,1.0);
       margin-right: 10px;
       padding:2px
     }
-          &:hover > .nav-icon{
-        transform: translateX(7px);
-        transition-timing-function: ease-in;
-        transition-duration: 200ms;
-        color: $text-black;
+    &:hover > .nav-icon{
+      transform: translateX(7px);
+      transition-timing-function: ease-in;
+      transition-duration: 200ms;
+      color: $text-black;
       }
-  }
-  &-btn{
-    box-sizing: border-box;
-    padding: 16px;
-    display: block;
-    color: $text-black;
-    font-size: bold;
-    text-align: center;
-    line-height: calc(80px - 16px * 2);
-    width: 100%;
-    height: 100%;
-    background-color: rgb(220, 220, 220);
     &:hover{
-      color: $text-black-hover;
       background-color: $mypage-tab-hover-color;
+    }
+    &:active{
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+      border-bottom: none;
+    }
+  }
+  &__index{
+    width: 95%;
+    height: 75%;
+    &-btn{
+      border-bottom: 4px solid $mypage-tab-shadow;
+      box-sizing: border-box;
+      padding: 16px;
+      display: block;
+      color: $text-black;
+      font-size: bold;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(220, 220, 220);
+      &:hover{
+        color: $text-black-hover;
+        background-color: $mypage-tab-hover-color;
+      }
+      &:active{
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+        border-bottom: none;
+      }
     }
   }
 }
@@ -233,7 +277,9 @@ $mypage-tab-active:rgba(230,230,230,1.0);
   padding: 8px;
   
 }
-
+.block{
+  display: block;
+}
 
 // --------ここから発送元・お届け先住所変更--------
 
