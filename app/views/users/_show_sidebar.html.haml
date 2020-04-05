@@ -3,7 +3,7 @@
     %ul.nav-list
       %li
         //ルーティングは仮に設定しています。
-        =link_to "show" , class: "nav-list__item" do
+        =link_to users_path , class: "nav-list__item" do
           マイページ
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -34,7 +34,7 @@
           プロフィール
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "#", class: "nav-list__item" do
+        =link_to adress_users_path, class: "nav-list__item" do
           発送元・お届け先情報
           %i.fas.fa-chevron-right.nav-icon
       %li
