@@ -1,8 +1,11 @@
+
+
 .container{
-  padding: 40px 33.5px 0;
   .main-container{
+    padding: 40px 33.5px 0;
+    margin: 40px 0 auto;
     display: flex;
-    margin: 0;
+    justify-content: center;
     padding-bottom: 40px;
     .main-content{
       display: block;
@@ -283,87 +286,3 @@
 .block{
   display: block;
 }
-
-// --------ここから発送元・お届け先住所変更--------
-
-.register-address{
-  height: 130vh;
-  width: 100vw; 
-  &__header{
-    height: 60px;
-    vertical-align: middle;
-    text-align: center;
-    border-bottom: solid 1px;
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 60px;
-  }
-  &__contents{
-    &__name{
-      width: 50%;
-      margin-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 12%;
-      &__require{
-        display: flex;
-        margin-bottom: 5px;
-        .title{
-          font-weight: 600;
-        }
-        .require{
-          margin-left: 10px;
-          background-color:  rgb(226, 15, 15);
-          border-radius: 4px;
-          font-size: smaller;
-          padding: 2px 4px 2px 4px;
-          color: white;
-        }
-        .optional{
-          margin-left: 10px;
-          background-color: gray;
-          border-radius: 4px;
-          font-size: smaller;
-          padding: 2px 4px 2px 4px;
-          color: white;
-        }
-      }
-      &__form{
-        .input-text{
-          width: 300px;
-        }
-      }
-    }
-    .submit{
-      height: 50px;
-      width: 30vw;
-      background-color: rgb(226, 15, 15);
-      color: white;
-      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-      border-radius: 0%;
-      margin-left: 31%;
-      margin-top: 20px;
-    }
-  }
-  select{
-    width: 30vw;
-    height: 50px;
-  }
-
-  .input-text{
-    height: 50px;
-    width: 30vw;
-    border: solid 1px rgb(194, 186, 186);
-    border-radius: 3px;
-    margin-bottom: 7px;
-  }
-  ::placeholder{
-    padding-left: 20px;
-  }
-}
-// .register-address,&__header,&__contentsのheight,widthの数値は見た目用
-
-
-
-
