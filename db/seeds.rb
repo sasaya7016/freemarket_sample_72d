@@ -1,5 +1,32 @@
 
 
+# サイズテーブル
+
+
+item_size_1 = ItemSize.create(item_size: "洋服のサイズ")
+
+item_size_1.children.create([{item_size: "XXS以下"}, {item_size: "XS"}, {item_size: "S"}, {item_size: "M"}, {item_size: "L"}, {item_size: "XL"}, {item_size: "XXL以上"}, {item_size: "FREE SIZE"}])
+
+item_size_2 = ItemSize.create(item_size: "レディースの靴のサイズ")
+
+item_size_2.children.create([{item_size: "20cm以下"}, {item_size: "20.5cm"}, {item_size: "21cm"}, {item_size: "21.5cm"}, {item_size: "22cm"}, {item_size: "22.5cm"}, {item_size: "23cm"}, {item_size: "23.5cm"}, {item_size: "24cm"}, {item_size: "24.5cm"}, {item_size: "25cm"}, {item_size: "25.5cm"}, {item_size: "26cm"}, {item_size: "26.5cm"}, {item_size: "27cm"}, {item_size: "27.5cm以上"}])
+
+item_size_3 = ItemSize.create(item_size: "メンズの靴のサイズ")
+
+item_size_3.children.create([{item_size: "23.5cm以下"},{item_size: "24cm"}, {item_size: "24.5cm"}, {item_size: "25cm"}, {item_size: "25.5cm"}, {item_size: "26cm"}, {item_size: "26.5cm"}, {item_size: "27cm"}, {item_size: "27.5cm"}, {item_size: "28cm"}, {item_size: "28.5cm"}, {item_size: "29cm"}, {item_size: "29.5cm"}, {item_size: "30cm"}, {item_size: "30.5cm"}, {item_size: "31cm以上"}])
+
+item_size_4 = ItemSize.create(item_size: "ベビー服のサイズ")
+
+item_size_4.children.create([{item_size: "60cm"}, {item_size: "70cm"}, {item_size: "80cm"}, {item_size: "90cm"}, {item_size: "95cm"}])
+
+item_size_5 = ItemSize.create(item_size: "キッズ服のサイズ")
+
+item_size_5.children.create([{item_size: "100cm"}, {item_size: "110cm"}, {item_size: "120cm"}, {item_size: "130cm"}, {item_size: "140cm"}, {item_size: "150cm"}, {item_size: "160cm"}])
+
+item_size_6 = ItemSize.create(item_size: "キッズ靴のサイズ")
+
+item_size_6.children.create([{item_size: "10.5cm以下"}, {item_size: "11cm・11.5cm"}, {item_size: "12cm・12.5cm"}, {item_size: "13cm・13.5cm"}, {item_size: "14cm・14.5cm"}, {item_size: "15cm・15.5cm"}, {item_size: "16cm・16.5cm"}, {item_size: "17cm以上"}])
+
 
 # レディース
 
@@ -520,3 +547,9 @@ others_8.children.create([{name: "オフィス用品一般"},{name: "オフィ�
 
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+
+# category_sizesテーブル（中間テーブル）
+
+
+CategorySize.create([{category_id: 2, item_size_id: 1}, {category_id: 20, item_size_id: 1}, {category_id: 42, item_size_id: 1}, {category_id: 55, item_size_id: 1}, {category_id: 61, item_size_id: 1}, {category_id: 66, item_size_id: 10}, {category_id: 77, item_size_id: 1}, {category_id: 80, item_size_id: 1}, {category_id: 200, item_size_id: 1}, {category_id: 213, item_size_id: 1}, {category_id: 237, item_size_id: 1}, {category_id: 247, item_size_id: 27}, {category_id: 269, item_size_id: 1}, {category_id: 2, item_size_id: 1}, {category_id: 346, item_size_id: 44}, {category_id: 358, item_size_id: 44}, {category_id: 376, item_size_id: 50}, {category_id: 395, item_size_id: 50}, {category_id: 410, item_size_id: 50}, {category_id: 419, item_size_id: 58}])

@@ -22,6 +22,7 @@ $(function(){
     `;
     $('.listing-child').append(childSelectHtml);
   }
+  
   // 孫カテゴリー表示
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHtml = '';
@@ -36,6 +37,36 @@ $(function(){
     </div>
     `;
     $('.listing-grandchild').append(grandchildSelectHtml);
+  }
+  
+  // サイズセレクトボックスのオプション
+  function appendSizeOption(item_size){
+    var html = `
+    <option value="${item_size.item_size}">${item_size.item_size}</option>
+    `;
+    return html;
+  }
+
+  // サイズカテゴリー表示
+  function appendSizeBox(insertHTML){
+    var sizeSelectHtml = '';
+    sizeSelectHtml = `
+    <div class="listing-product-detail__size" id= 'size_wrapper'>
+      <div class="listing__box--title">
+        <p class="listing-default__label" for="サイズ">サイズ</p>
+        <p class='listing-default--require equired'>必須</p>
+      </div>
+      <div class='listing-select-wrapper__added--size'>
+        <div class='listing-select-wrapper__box'>
+          <select class="listing-select-wrapper__box--select" id="size" name="size_id>
+            <option value="---">---</>
+            ${insertHTML}
+          <select>
+        </div>
+      </div>
+    </div>
+    `;
+    $('.listing-size').append(sizeSelectHtml);
   }
 
   // parentカテゴリー選択後の処理
@@ -72,12 +103,11 @@ $(function(){
     
   // childカテゴリー選択後の処理
     $('.listing-child').on('change','#child_category', function(){
-      console.log('ok')
       var childId = $('#child_category option:selected').data('category');
       if (childId != "---"){
         $.ajax({
           url: 'get_category_grandchildren',
-          type: 'GET',
+          type: 'get',
           data: { child_id: childId },
           dataType: 'json'
         })
@@ -101,5 +131,35 @@ $(function(){
         $('#size_wrapper').remove();
         $('#brand_wrapper').remove();
       }
+  });
+
+  // grandchild選択後の処理
+  $('.listing-grandchild').on('change', '#grandchild_category', function(){
+    var grandchildId = $('#grandchild_category option:selected').data('category');
+    if (grandchildId != "---"){
+      $.ajax({
+        url: 'get_item_size',
+        type: 'get',
+        data: { grandchild_id: grandchildId },
+        dataType: 'json'
+      })
+      .done(function(item_sizes){
+        $('#size_wrapper').remove();
+        $('#brand_wrapper').remove();
+        if (item_sizes.length != 0){
+          var insertHTML = '';
+          item_sizes.forEach(function (item_size) {
+            insertHTML += appendSizeOption(item_size);
+          });
+          appendSizeBox(insertHTML);
+        }
+      })
+      .fail(function(){
+        alert('通信エラー');
+      })
+    } else {
+      $('#size_wrapper').remove();
+      $('#brand_wrapper').remove();
+    }
   });
 });
