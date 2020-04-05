@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users
   resources :items
-  resources :credit_cards
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :credit_cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'credit_cards#show'
+      post 'pay', to: 'credit_cards#pay'
+      post 'delete', to: 'credit_cards#delete'
+    end
+  end
 end
