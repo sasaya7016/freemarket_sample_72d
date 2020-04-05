@@ -27,5 +27,3 @@
 /config/master.key
 
 
-# 画像ファイルをignore
-app/assets/images/*
