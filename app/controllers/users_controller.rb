@@ -19,4 +19,15 @@ class UsersController < ApplicationController
 
   def new
   end
+
+  def support
+  end
+
+  def contact
+  end
+
+  def withdraw
+  end
+
+  
 end
