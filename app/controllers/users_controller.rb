@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    
   end
 
   def create
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
   def new
   end
 
+
   def support
   end
 
@@ -29,5 +31,7 @@ class UsersController < ApplicationController
   def withdraw
   end
 
-  
+  def adress
+  end
+
 end
