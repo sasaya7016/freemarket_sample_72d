@@ -1,5 +1,5 @@
 .listing-contents{
-  height: 1650px;
+  height: 100%;
   width: 100%;
   background-color: rgb(245, 245, 245);
   padding: 50px 0 50px 0;
@@ -8,6 +8,7 @@
     margin: 0 auto;
     height: 100%;
     background-color: white;
+    padding-bottom: 50px;
     &__box {
       height: 100%;
       width: 90%;
@@ -99,7 +100,7 @@
         }
         .btn-back{
           width: 100%;
-          margin-top: 50px;
+          margin: 50px 0 0 0;
           padding: 10px 0;
           display: block;
           border: 1px solid;

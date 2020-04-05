@@ -29,7 +29,7 @@ $(function(){
     grandchildSelectHtml =`
     <div class="listing-select-wrapper__added" id="grandchildren_wrapper">
       <div class="listing-select-wrapper__box">
-        <select name="category_id" id="grandchild_category" className="listting-select-wrapper__box--select">
+        <select name="category_id" id="grandchild_category" class="listting-select-wrapper__box--select">
           <option value="---" data-category="---">---</option>
           ${insertHTML}
         </select>
@@ -58,10 +58,10 @@ $(function(){
       </div>
       <div class='listing-select-wrapper__added--size'>
         <div class='listing-select-wrapper__box'>
-          <select class="listing-select-wrapper__box--select" id="size" name="size_id>
-            <option value="---">---</>
+          <select class="listing-select-wrapper__box--select" id="item_size" name="item_size_id">
+            <option value="---">---</option>
             ${insertHTML}
-          <select>
+          </select>
         </div>
       </div>
     </div>
