@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     collection do
-  get 'purchase/:id', to: 'items#purchase', as: 'purchase'
-  post 'buy/:id'=>   'items#buy', as: 'buy'#httpメソッドはpostなので注意
-  get  'done'=>      'items#done', as: 'done'
+  get 'purchase/:id', to: 'items#purchase'
+  post 'pay/:id', to: 'items#pay'
+  get  'done', to: 'items#done'
     end
   end
   resources :credit_cards, only: [:new, :show] do

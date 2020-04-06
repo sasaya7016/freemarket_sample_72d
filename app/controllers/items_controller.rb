@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  def buy
+  def pay
     @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
