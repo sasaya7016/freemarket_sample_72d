@@ -3,7 +3,7 @@
     %ul.nav-list
       %li
         //ルーティングは仮に設定しています。
-        =link_to users_path , class: "nav-list__item" do
+        =link_to user_path , class: "nav-list__item" do
           マイページ
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -30,11 +30,11 @@
       設定
     %ul.nav-list
       %li
-        =link_to edit_users_path, class: "nav-list__item" do
+        =link_to edit_user_path, class: "nav-list__item" do
           プロフィール
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to address_users_path, class: "nav-list__item" do
+        =link_to "users/2", class: "nav-list__item" do
           発送元・お届け先情報
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -50,10 +50,10 @@
           本人情報
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to support_users_path ,class: "nav-list__item" do
+        =link_to support_user_path ,class: "nav-list__item" do
           お問い合わせ
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to logout_users_path ,class: "nav-list__item" do
+        =link_to user_logout_path ,class: "nav-list__item" do
           ログアウト
           %i.fas.fa-chevron-right.nav-icon
