@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users
   resources :items do
-    collection do
+    member do
       get :buy
     end
   end
