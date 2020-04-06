@@ -11,7 +11,7 @@
           いいね一覧
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "#" , class: "nav-list__item" do
+        =link_to new_item_path , class: "nav-list__item" do
           出品する
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -34,11 +34,11 @@
           プロフィール
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "users/2", class: "nav-list__item" do
+        =link_to address_user_path, class: "nav-list__item" do
           発送元・お届け先情報
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "", class: "nav-list__item" do
+        =link_to new_credit_card_path, class: "nav-list__item" do
           支払方法
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -46,14 +46,10 @@
           メール/パスワード
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "edit_user_registration_path(@user)" ,class: "nav-list__item" do
-          本人情報
-          %i.fas.fa-chevron-right.nav-icon
-      %li
         =link_to support_user_path ,class: "nav-list__item" do
           お問い合わせ
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to user_logout_path ,class: "nav-list__item" do
+        =link_to logout_user_path,class: "nav-list__item" do
           ログアウト
           %i.fas.fa-chevron-right.nav-icon
