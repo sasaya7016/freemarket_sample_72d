@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def create
@@ -40,28 +41,28 @@ class UsersController < ApplicationController
 
 
   
-  def registration_enquiry
+  def registration_support
   end
 
-  def defect_enquiry
+  def defect_support
   end
 
-  def trouble_enquiry
+  def trouble_support
   end
 
-  def request_enquiry
+  def request_support
   end
 
-  def evaluation_enquiry
+  def evaluation_support
   end
 
-  def buy_enquiry
+  def buy_support
   end
 
-  def withdraw_enquiry
+  def withdraw_support
   end
 
-  def other_enquiry
+  def other_support
   end
 
 end
