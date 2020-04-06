@@ -3,23 +3,20 @@ Rails.application.routes.draw do
   root 'items#index'
   #view表示のため仮でresourceと指定しています
   resources :users do
-    get :profile
-    get :address
-    get :logout
     member do
+      get :profile
+      get :address
+      get :logout
       get :support
       scope :support do
-          get :contact
-          get :withdraw
-          
-          get :registration_enquiry
-          get :defect_enquiry
-          get :trouble_enquiry
-          get :request_enquiry
-          get :evaluation_enquiry
-          get :buy_enquiry
-          get :withdraw_enquiry
-          get :other_enquiry
+          get :registration_support
+          get :defect_support
+          get :trouble_support
+          get :request_support
+          get :evaluation_support
+          get :buy_support
+          get :withdraw_support
+          get :other_support
       end
     end
   end
