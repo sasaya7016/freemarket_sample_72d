@@ -63,7 +63,7 @@
         .detail-product__link__edit
           =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
         .detail-product__link__delete
-          =link_to "商品を削除する", item_path(@item.id),method: :delete
+          =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
     - if !user_signed_in? 
       .detail-product__link__buy
         =link_to "商品を購入する", item_buy_path(@item.id)
