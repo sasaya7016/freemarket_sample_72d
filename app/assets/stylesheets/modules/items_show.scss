@@ -16,16 +16,17 @@
     font-size: 24px;
   }
   &__image{
-    text-align: center;
     &__main{
-      width:560px;
-      height:340px;
+      width:500px;
+      height:400px;
+      margin:0 auto;
+    }
+    &__sub{
+      width:140px;
+      height:140px;
     }
   }
-  ul{
-    display: flex;
-    justify-content:center;
-  }
+  
   &__price{
     text-align: center;
     font-size: 46px;
@@ -111,11 +112,28 @@
         display: block;
       }
     }
+    &__buy{
+      line-height: 48px;
+      background: red;
+      border: 1px solid red;
+      color: #fff;
+      width: 60%;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 100px;
+      margin:0 auto;
+      margin-top: 30px;
+      a{
+        color:white;
+        text-decoration: none;
+        display: block;
+      }
+    }
   }
 }
   .detail-comment-box{
     padding:24px;
-    width:50%;
+    width:52%;
     margin:0 auto;
     margin-top:10px;
     background-color: white;
@@ -140,10 +158,19 @@
     }
   }
   .detail-links{
-    width:50%;
+    width:55%;
     margin:0 auto;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    &__before{
+      position: absolute;
+      left:0;
+    }
+    &__after{
+      position: absolute;
+      right:0;
+    }
     a{
       text-decoration: none;
     color: #3CCACE;
@@ -151,7 +178,7 @@
     }
   }
   .detail-category{
-    width:50%;
+    width:55%;
     margin:0 auto;
     margin-top:24px;
     a{
@@ -159,4 +186,8 @@
     color: #3CCACE;
     font-size: 22px;
     }
+  }
+
+  .slick-slide{
+    margin-right:16px;
   }

@@ -1,4 +1,6 @@
 @import "modules/items_show";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "modules/items_buy";
 @import "modules/category_index";
 html,body,ul {
@@ -494,4 +496,3 @@ $background-color_section:#eeeeee;
     }
   }
 }
-
