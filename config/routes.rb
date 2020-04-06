@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   #view表示のため仮でresourceと指定しています
-  resource :users do
+  resources :users do
     get :profile
     get :address
     get :logout
-    collection do
+    member do
       get :support
       scope :support do
           get :contact
