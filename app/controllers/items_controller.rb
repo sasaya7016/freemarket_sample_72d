@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :not_buy, only: [:buy]
 
-  
   def index
   end
   
