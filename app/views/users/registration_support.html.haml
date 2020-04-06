@@ -1,0 +1,17 @@
+//お問い合わせホームの会員登録・ログインについて
+.container
+  %main.main-container
+    = render partial: "show_sidebar", locals: {}
+    .main
+      .registration_enquiry_contact
+        %p.registration_enquiry_contact__title 会員登録・ログインについて
+        .registration_enquiry_contact__content
+          .registration_enquiry_contact__content--box
+            .description
+              .description__box
+                %h1.title お問い合わせの内容 
+                %p.required 必須
+              %input.description__content{:type => "text", :placeholder => "例:ログインしようと思ったらトラクターの購入画面にいく"}
+            .form
+              = link_to "#" do
+                %input.submit.btn{:type => "submit", :value => "送信する"}
