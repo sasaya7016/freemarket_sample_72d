@@ -32,6 +32,10 @@ class ItemsController < ApplicationController
   def new
   end
 
+  
+  def category_index
+  end
+  
   private
   def set_item
     @item = Item.find(params[:id])
@@ -48,6 +52,6 @@ class ItemsController < ApplicationController
       redirect_to root_path
     elsif current_user.id!=@item.exhibitor_id
         redirect_to root_path
-      end
+    end
   end
 end
