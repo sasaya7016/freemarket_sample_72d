@@ -19,4 +19,7 @@ class ItemsController < ApplicationController
 
   def new
   end
+
+  def category_index
+  end
 end
