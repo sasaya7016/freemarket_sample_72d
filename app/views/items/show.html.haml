@@ -61,15 +61,15 @@
     -elsif current_user.id == @item.exhibitor_id
       .detail-product__link
         .detail-product__link__edit
-          =link_to "商品情報を編集する", "/items/#{@item.id}/edit", method: :get
+          =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
         .detail-product__link__delete
-          =link_to "商品を削除する", "/items/#{@item.id}",method: :delete
+          =link_to "商品を削除する", item_path(@item.id),method: :delete
     - if !user_signed_in? 
       .detail-product__link__buy
-        =link_to "商品を購入する", "/items/buy/#{@item.id}"
+        =link_to "商品を購入する", item_buy_path(@item.id)
     -elsif current_user.id != @item.exhibitor_id
       .detail-product__link__buy
-        =link_to "商品を購入する", "/items/buy/#{@item.id}"
+        =link_to "商品を購入する", item_buy_path(@item.id)
         
   .detail-comment-box
     %form
@@ -84,10 +84,10 @@
   .detail-links
     -if @item.previous
       .detail-links__before
-        =link_to "<前の商品", "/items/#{@item.previous.id}" 
+        =link_to "<前の商品", item_path(@item.previous.id) 
     -if @item.next
       .detail-links__after
-        =link_to "後ろの商品>", "/items/#{@item.next.id}" 
+        =link_to "後ろの商品>", item_path(@item.next.id)
 
   .detail-category
     =link_to "〇〇をもっと見る"
