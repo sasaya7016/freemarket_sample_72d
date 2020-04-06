@@ -38,4 +38,30 @@ class UsersController < ApplicationController
   def address
   end
 
+
+  
+  def registration_enquiry
+  end
+
+  def defect_enquiry
+  end
+
+  def trouble_enquiry
+  end
+
+  def request_enquiry
+  end
+
+  def evaluation_enquiry
+  end
+
+  def buy_enquiry
+  end
+
+  def withdraw_enquiry
+  end
+
+  def other_enquiry
+  end
+
 end
