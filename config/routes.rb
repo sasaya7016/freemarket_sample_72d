@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     collection do
-      get 'category_index'
+      get :category_index
     end
     member do
       get :buy
