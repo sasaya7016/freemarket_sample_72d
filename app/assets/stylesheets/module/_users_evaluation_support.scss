@@ -1,26 +1,11 @@
 //問合せの発送・受取・評価について
-html, body {
-  background-color: rgb(245, 245, 245);
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
 .container {
   display: flex;
-  height: 100%;
-  width: 100%;
-  .side {
-      background-color: blue;
-      width: 280px;
-  }
+  justify-content: center;
+  align-items: center;
   .main {
       height: 100%;
       width: 100%;
-      &__top {
-          height: 200px;
-          width: 100%;
-          background-color: red;
-          }
       .evaluation_enquiry_contact {
           background-color: white;
           width: 700px;
