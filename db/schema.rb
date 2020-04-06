@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.integer "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
+    t.string "delivery_fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name", "brand"], name: "index_items_on_name_and_brand"
