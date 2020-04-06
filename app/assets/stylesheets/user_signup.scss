@@ -1,0 +1,31 @@
+.user-signup{
+  background-color: rgb(247, 247, 241);
+  &__header{
+    padding-top: 30px;
+    .logo-head{
+      display: block;
+      margin: 0px auto 30px auto;
+      width: 15vw;
+    }
+  }
+  &__main{
+    background-color: white;
+    height: 60vh;
+    width: 38vw;
+    margin-left: auto;
+    margin-right: auto;
+    &__header{
+      text-align: center;
+      border-bottom: solid 1px gainsboro;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: x-large;
+    }
+    &__forms{
+
+    }
+  }
+  &__footer{
+
+  }
+}

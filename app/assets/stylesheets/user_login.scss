@@ -1,0 +1,119 @@
+.user-login{
+  background-color: rgb(247, 247, 241);
+  &__header{
+    padding-top: 30px;
+    .logo-head{
+      display: block;
+      margin: 0px auto 30px auto;
+      width: 15vw;
+    }
+  }
+  &__main{
+    height: 100vh;
+    width:100vw;
+    &__panel{
+      height: 90vh;
+      width: 38vw;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom:  60px;
+      padding-top: 30px;
+      color: rgb(37, 37, 37);
+      background-color: white;
+      text-align: center;
+      h1{
+        font-size: small;
+        font-weight: 300;
+        text-align: center;
+      }
+      &__facebook{
+        position: relative;
+        .facebook-icon{
+          position: absolute;
+          text-decoration: none;
+          color: white;
+          left: 25%;
+          top: 52%;
+        }
+        .login-facebook-btn{
+          position: relative;
+          height: 51px;
+          width: 25vw;
+          background-color: rgb(6, 6, 194);
+          color: white;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          font-size: 15px;
+        }
+      }
+      &__google{
+        position: relative;
+        .google-icon{
+          position: absolute;
+          text-decoration: none;
+          color: black;
+          left: 25%;
+          top: 16%;
+        }
+        .login-google-btn{
+          height: 51px;
+          width: 25vw;
+          background-color: white;
+          color: black;
+          margin-bottom: 60px;
+          font-size: 15px;
+          border: solid 1px rgb(194, 186, 186);
+        }
+      }
+      #user_email{
+        height: 50px;
+        width: 25vw;
+        border-radius: 3px;
+        border: solid 1px rgb(194, 186, 186);
+        padding-left: 15px;
+        font-size: 15px;
+      }
+      #user_password{
+        height: 50px;
+        width: 25vw;
+        border-radius: 3px;
+        border: solid 1px rgb(194, 186, 186);
+        padding-left: 15px;
+        font-size: 15px;
+      }
+      .actions{       
+        .login-btn{
+        height: 50px;
+        width: 27vw;
+        color: white;
+        background-color: rgb(235, 2, 2);
+        margin-top: 20px;
+        margin-bottom: 100px;
+        font-size: 15px;
+        border: none;
+        }
+      }
+    }
+  }
+  .actions{
+    
+  }
+  .new-user-register-btn{
+    height: 40px;
+    width: 27vw;
+    color: white;
+    background-color: rgb(42, 180, 226);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .forget-password{
+    text-decoration: none;
+    color: gray;
+  }
+}

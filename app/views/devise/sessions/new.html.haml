@@ -1,0 +1,30 @@
+.user-login
+  .user-login__header
+    = link_to image_tag("logo.png",class:"logo-head"),""
+  .user-login__main
+    .user-login__main__panel
+      .user-login__main__panel__facebook
+        = link_to "#", class:"facebook-link" do
+          %input.login-facebook-btn{:name => "confirm", :type => "submit", :value => "Facebookでログイン"}
+          = icon('fab', 'facebook-square', class:"facebook-icon")
+      .user-login__main__panel__google
+        = link_to "#", class:"google-link" do
+          %input.login-google-btn{:name => "confirm", :type => "submit", :value => "Googleでログイン"}
+          = icon('fab', 'google', class:"google-icon")
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
+        .field
+          %br/
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
+        - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .actions
+          = f.submit "ログイン", class:"login-btn"
+          %h1 アカウントをお持ちでない方はこちら
+      = render "devise/shared/links"
+    .user-login__footer
+      = render "footer"
