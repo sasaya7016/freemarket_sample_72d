@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    
   end
 
   def create
@@ -21,6 +20,11 @@ class UsersController < ApplicationController
   def new
   end
 
+  def logout
+  end
+
+  def profile
+  end
 
   def support
   end
@@ -31,7 +35,7 @@ class UsersController < ApplicationController
   def withdraw
   end
 
-  def adress
+  def address
   end
 
 end
