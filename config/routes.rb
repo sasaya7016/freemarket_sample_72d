@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   root 'items#index'
   #view表示のため仮でresourceと指定しています
   resource :users do
+    get :profile
+    get :address
+    get :logout
     collection do
       get :support
       scope :support do
           get :contact
           get :withdraw
-          get :adress
       end
     end
   end
