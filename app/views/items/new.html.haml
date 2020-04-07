@@ -1,7 +1,7 @@
 .listing-contents
   .listing
     .listing__box
-      =form_with do |f|
+      =form_with model: [@item] do |f|
         .listing__box--title
           %p 出品画像
           %p.equired 必須
@@ -21,7 +21,7 @@
         .listing__box--title
           %p カテゴリー
           %p.equired 必須
-        =f.select :category, @category_parent_array, {}, {class: "listing-select", id: 'parent_category'}
+        = f.collection_select :category_id,  @category, :id, :name,{prompt: "---"}
         .listing-child
         .listing-grandchild
         .listing-size

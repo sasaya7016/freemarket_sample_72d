@@ -12,11 +12,11 @@ $(function(){
     childSelectHtml = `
     <div class="listing-select-wrapper__added" id="children_wrapper">
       <div class="listing-select-wrapper__box">
-        <select id="child_category" class="listing-select-wrapper__box--select">
+        <select id="child_category">
+        <class="listing-select-wrapper__box--select" name="category_id">
           <option value="---" data-category="---">---</option>
           ${insertHTML}
         </select>
-        <i class="fas fa-chevron-down listing-select-wrapper__box--arrow-down"></i>
       </div>
     </div>
     `;
@@ -29,7 +29,7 @@ $(function(){
     grandchildSelectHtml =`
     <div class="listing-select-wrapper__added" id="grandchildren_wrapper">
       <div class="listing-select-wrapper__box">
-        <select name="category_id" id="grandchild_category" class="listting-select-wrapper__box--select">
+        <select id="grandchild_category" class="listting-select-wrapper__box--select" name="category_id">
           <option value="---" data-category="---">---</option>
           ${insertHTML}
         </select>
@@ -58,7 +58,7 @@ $(function(){
       </div>
       <div class='listing-select-wrapper__added--size'>
         <div class='listing-select-wrapper__box'>
-          <select class="listing-select-wrapper__box--select" id="item_size" name="item_size_id">
+          <select class="listing-select-wrapper__box--select" id="item_size" name="item[item_size]">
             <option value="---">---</option>
             ${insertHTML}
           </select>

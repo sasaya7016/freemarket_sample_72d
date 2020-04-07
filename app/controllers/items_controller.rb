@@ -3,9 +3,16 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.where(id: @item.exhibitor_id).first
+    @address = Address.where(id: @user.id).first
+    @parent = @item.category
   end
 
   def create
+    binding.pry
+    @item = Item.new(item_params)
+    @item.save
   end
 
   def edit
@@ -19,13 +26,14 @@ class ItemsController < ApplicationController
 
   def new
     # 初期値代入・カテゴリー1つ目
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    # @category_parent_array = ["---"]
+    @category = Category.where(ancestry: nil).each do |parent|
+      # @category = @category_parent_array << parent.name
     end
+    @item = Item.new
   end
 
-  # 後にAjaxで使うアクション
+
   def get_category_children
     # parentからchildrenを指定
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
