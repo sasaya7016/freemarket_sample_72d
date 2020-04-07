@@ -1,16 +1,12 @@
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstnameKANA|string|null: false|
 |lastnameKANA|string|null: false|
 |nickname|string|null: false|
-|age|integer|null: false|
-|birthyear|integer|null: false|
-|birthmonth|integer|null: false|
-|birthday|integer|null: false|
+|birth_date|date|null:false|
 |icon_image|string||
 |background_image|string||
 |email|text|null: false|
