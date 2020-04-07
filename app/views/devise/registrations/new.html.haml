@@ -1,0 +1,46 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname, placeholder: "例"
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .zenkaku-onamae
+    .field
+      = f.label :lastname
+      %br/
+      = f.text_field :lastname
+    .field
+      = f.label :firstname
+      %br/
+      = f.text_field :firstname
+  .katakana-onamae
+    .field
+      = f.label :lastnameKANA
+      %br/
+      = f.text_field :lastnameKANA
+    .field
+      = f.label :firstnameKANA
+      %br/
+      = f.text_field :firstnameKANA
+  .field
+    = f.label :birth_date
+    = f.date_select :birth_date, use_month_numbers: true ,start_year: 1920, end_year: (Time.now.year - 15), default: Date.new(1992,1,1)
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"

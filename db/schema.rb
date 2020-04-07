@@ -76,9 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.string "firstname", null: false
     t.string "lastnameKANA", null: false
     t.string "firstnameKANA", null: false
-    t.integer "birthyear", null: false
-    t.integer "birthmonth", null: false
-    t.integer "birthday", null: false
+    t.integer "age", null: false
+    t.date "birth_date", null: false
     t.string "icon_image"
     t.string "background_image"
     t.string "email", default: "", null: false
