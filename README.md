@@ -2,6 +2,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|lastname|string|null :false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstnameKANA|string|null: false|
+|lastnameKANA|string|null: false|
+|nickname|string|null: false|
+|birthyear|integer|null: false|
+|birthmonth|integer|null: false|
+|birthday|integer|null: false|
 |icon_image|string||
 |background_image|string||
 |email|text|null: false|
@@ -71,10 +80,10 @@
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postalcode|integer||
-|prefecture|string||
-|town|string||
-|street|string||
-|building|string||
+|postalcode|integer|null: false|
+|prefecture|string|null: false|
+|first_address|string|null: false|
+|second_address|string|null: false|
+|third_address|string||
 ### Association
 - belongs_to :user
