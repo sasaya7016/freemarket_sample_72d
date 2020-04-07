@@ -26,7 +26,7 @@
 |price|integer|null: false|
 |brand|string||
 |condition|string|null:false|
-|preparation_day|integer|null:false|
+|preparation_day|string|null:false|
 |exhibitor|integer|foreign_key: true|
 |buyer|integer|foreign_key: true|
 ### Association
