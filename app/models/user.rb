@@ -8,5 +8,7 @@ class User < ApplicationRecord
   has_one :address
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, password_length: 7..100
+
+  validates :name, :lastname, :firstname, :lastname, :firstnameKANA, :lastnameKANA, :nickname, :age, :birthyear, :birthmonth, :birthday,presence: true
 end

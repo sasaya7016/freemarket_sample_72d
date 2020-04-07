@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_04_01_083536) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postalcode"
-    t.string "prefecture"
-    t.string "town"
-    t.string "street"
-    t.string "building"
+    t.integer "postalcode", null: false
+    t.string "prefecture", null: false
+    t.string "first_address", null: false
+    t.string "second_address", null: false
+    t.string "third_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,7 +70,15 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.string "nickname", null: false
+    t.string "lastname", null: false
+    t.string "firstname", null: false
+    t.string "lastnameKANA", null: false
+    t.string "firstnameKANA", null: false
+    t.integer "birthyear", null: false
+    t.integer "birthmonth", null: false
+    t.integer "birthday", null: false
     t.string "icon_image"
     t.string "background_image"
     t.string "email", default: "", null: false
