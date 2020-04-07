@@ -8,6 +8,7 @@
 |firstnameKANA|string|null: false|
 |lastnameKANA|string|null: false|
 |nickname|string|null: false|
+|age|integer|null: false|
 |birthyear|integer|null: false|
 |birthmonth|integer|null: false|
 |birthday|integer|null: false|
