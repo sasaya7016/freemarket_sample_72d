@@ -2,7 +2,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|lastname|string|null :false|
 |firstname|string|null: false|
 |lastname|string|null: false|
 |firstnameKANA|string|null: false|
