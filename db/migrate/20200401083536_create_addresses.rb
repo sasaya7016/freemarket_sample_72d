@@ -6,6 +6,7 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :first_address, null: false
       t.string :second_address, null: false
       t.string :third_address
+      t.references :user
       t.timestamps
     end
   end

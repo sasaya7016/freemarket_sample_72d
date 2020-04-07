@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.string "first_address", null: false
     t.string "second_address", null: false
     t.string "third_address"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,13 +72,11 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
     t.string "nickname", null: false
     t.string "lastname", null: false
     t.string "firstname", null: false
     t.string "lastnameKANA", null: false
     t.string "firstnameKANA", null: false
-    t.integer "age", null: false
     t.date "birth_date", null: false
     t.string "icon_image"
     t.string "background_image"
