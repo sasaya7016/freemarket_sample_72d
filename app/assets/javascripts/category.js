@@ -1,9 +1,7 @@
 $(function(){
-  // カテゴリーセレクトボックスのオプション表示
+  // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `
-    <option value="${category.name}" data-category="${category.id}">${category.name}</option>
-    `;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示
@@ -12,8 +10,7 @@ $(function(){
     childSelectHtml = `
     <div class="listing-select-wrapper__added" id="children_wrapper">
       <div class="listing-select-wrapper__box">
-        <select id="child_category">
-        <class="listing-select-wrapper__box--select" name="category_id">
+        <select id="child_category" class="listing-select-wrapper__box--select" name="item[category_id]">
           <option value="---" data-category="---">---</option>
           ${insertHTML}
         </select>
@@ -29,7 +26,7 @@ $(function(){
     grandchildSelectHtml =`
     <div class="listing-select-wrapper__added" id="grandchildren_wrapper">
       <div class="listing-select-wrapper__box">
-        <select id="grandchild_category" class="listting-select-wrapper__box--select" name="category_id">
+        <select id="grandchild_category" class="listting-select-wrapper__box--select" name="item[category_id]">
           <option value="---" data-category="---">---</option>
           ${insertHTML}
         </select>
@@ -58,7 +55,7 @@ $(function(){
       </div>
       <div class='listing-select-wrapper__added--size'>
         <div class='listing-select-wrapper__box'>
-          <select class="listing-select-wrapper__box--select" id="item_size" name="item[item_size]">
+          <select class="listing-select-wrapper__box--select" id="item[item_size]" name="item_size">
             <option value="---">---</option>
             ${insertHTML}
           </select>
@@ -71,7 +68,7 @@ $(function(){
 
   // parentカテゴリー選択後の処理
   $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value; 
+    var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){
       $.ajax({
         url: 'get_category_children',
@@ -80,6 +77,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
+        
         $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
