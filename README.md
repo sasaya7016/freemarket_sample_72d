@@ -1,11 +1,11 @@
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|firstname|string|null: false|
-|lastname|string|null: false|
-|firstnameKANA|string|null: false|
-|lastnameKANA|string|null: false|
 |nickname|string|null: false|
+|lastname|string|null: false|
+|firstname|string|null: false|
+|lastnameKANA|string|null: false|
+|firstnameKANA|string|null: false|
 |birth_date|date|null:false|
 |icon_image|string||
 |background_image|string||
@@ -81,5 +81,8 @@
 |first_address|string|null: false|
 |second_address|string|null: false|
 |third_address|string||
+|phone_number|integer||
+|user|references||
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
+
