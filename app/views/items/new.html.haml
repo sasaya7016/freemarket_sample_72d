@@ -21,7 +21,7 @@
         .listing__box--title
           %p カテゴリー
           %p.equired 必須
-        = f.collection_select :category_id,  @category, :id, :name,{prompt: "---"}
+        = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
         .listing-child
         .listing-grandchild
         .listing-size
