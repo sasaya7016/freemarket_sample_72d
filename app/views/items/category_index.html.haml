@@ -1,0 +1,175 @@
+.wrapper
+  = render "header"
+
+//-----カテゴリーナビ-----
+.nav-category
+  .ul.nav-category__lists
+    .li.nav-category__lists__list
+      %span.select
+        = link_to "メルカリ",""
+        >
+    .li
+      %span.select
+        = link_to "カテゴリー一覧",""
+        >
+    .li
+      %span.select
+        = link_to "レディース",""
+        >
+    .li
+      %span.select
+        = link_to "トップス",""
+        >
+   
+
+//-----バナー-----
+.banner
+  .banner__sample
+    banner
+   
+
+//-----メイン-----
+.main-category
+  .container
+    //-----他の商品リスト-----
+    %ul.container__lists
+      %li.container__lists__list
+        %span.list
+          = link_to "ワンピース",""
+      %li.container__lists__list
+        %span.list
+          = link_to "コート",""
+      %li.container__lists__list
+        %span.list
+          = link_to "ジャケット",""
+      %li.container__lists__list
+        %span.list
+          = link_to "パンツ",""
+      %li.container__lists__list
+        %span.list
+          = link_to "スカート",""
+      %li.container__lists__list
+        %span.list
+          = link_to "ルームウェア",""
+      %li.container__lists__list
+        %span.list
+          = link_to "レッグウェア",""
+      %li.container__lists__list
+        %span.list
+          = link_to "帽子",""
+      %li.container__lists__list
+        %span.list
+          = link_to "バッグ",""
+      
+    //-----商品のタイトルとリスト-----
+    .container__title
+      %h1.text Tシャツ/カットソー(半袖/袖なし)の商品一覧
+    .container__table
+      %ul.item
+        %li.item__list
+          .item__list__img-box
+            =link_to image_tag("category/close1.jpg",class:"close1.jpg"),""
+            .item__list__img-box__price
+              %span ¥2,300
+          .item__list__text-box
+            ユニクロ  UNIQLO 半袖 スーピマコットン リブクルーネックT 
+            .item__list__text-box__like
+              = link_to "" do
+                = icon('far', 'fa-heart', class: 'fa-heart')          
+              .item__list__text-box__like__icon
+                %span 2
+
+        //-----商品追加分 以下消す------
+        %li.item__list
+          .item__list__img-box
+            =link_to image_tag("category/close2.jpg",class:"close2.jpg"),""
+            .item__list__img-box__price
+              %span ¥2,300
+          .item__list__text-box
+            ユニクロ  UNIQLO 半袖 スーピマコットン リブクルーネックT 
+            .item__list__text-box__like
+              = link_to "" do
+                = icon('far', 'fa-heart', class: 'fa-heart')          
+              .item__list__text-box__like__icon
+                %span 2
+        %li.item__list
+          .item__list__img-box
+            =link_to image_tag("category/close3.jpg",class:"close3.jpg"),""
+            .item__list__img-box__price
+              %span ¥2,300
+          .item__list__text-box
+            ユニクロ  UNIQLO 半袖 スーピマコットン リブクルーネックT 
+            .item__list__text-box__like
+              = link_to "" do
+                = icon('far', 'fa-heart', class: 'fa-heart')          
+              .item__list__text-box__like__icon
+                %span 2
+        %li.item__list
+          .item__list__img-box
+            .item__list__img-box__price
+              %span ¥2,300
+          .item__list__text-box
+            ユニクロ  UNIQLO 半袖 スーピマコットン リブクルーネックT 
+            .item__list__text-box__like
+              = link_to "" do
+                = icon('far', 'fa-heart', class: 'fa-heart')          
+              .item__list__text-box__like__icon
+                %span 2
+        %li.item__list
+          .item__list__img-box
+            .item__list__img-box__price
+              %span ¥2,300
+          .item__list__text-box
+            ユニクロ  UNIQLO 半袖 スーピマコットン リブクルーネックT 
+            .item__list__text-box__like
+              = link_to "" do
+                = icon('far', 'fa-heart', class: 'fa-heart')          
+              .item__list__text-box__like__icon
+                %span 2
+        
+
+
+    //-----ページボタン-----   
+    .pager
+      %ul.page-btn
+        %li.page-btn__left
+          %ul.page-btn__left__list
+            %li.page-btn__left__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-step-backward', class: 'fa-step-backward')  
+            %li.page-btn__left__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-fast-backward', class: 'fa-fast-backward')  
+
+        %li.page-btn__center
+          %ul.page-btn__center__list
+            %li.page-btn__center__list__num-btn
+              = link_to "1"
+            %li.page-btn__center__list__num-btn
+              = link_to "2"
+            %li.page-btn__center__list__num-btn
+              = link_to "3"
+            %li.page-btn__center__list__num-btn
+              = link_to "4"
+            %li.page-btn__center__list__num-btn
+              = link_to "5"            
+        %li.page-btn__right
+          %ul.page-btn__right__list
+            %li.page-btn__right__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-angle-right', class: 'fa-angle-right')  
+            %li.page-btn__right__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-fast-forward', class: 'fa-fast-forward')  
+
+
+    //-----解説----- 
+    .description
+      .description__text
+        .description__text__title
+          %span.h3 Tシャツ/カットソー(半袖/袖なし)
+      .description__write
+        %p メルカリなら、ボーダーやタンクトップなどの袖なしカットソーや豊富なサイズのトップス、ノースリーブやパーカー、ポロシャツやモデル着用のプリントTやショートTなどの半袖Tシャツの古着や中古未使用アイテムが見つかるかも！？
+
+.footer
+  =render"footer"
