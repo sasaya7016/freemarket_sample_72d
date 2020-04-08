@@ -14,12 +14,14 @@
       %li.header__nav__list__left
         %ul.header__nav__list__left__serect
           %li.header__nav__list__left__serect__category
-            = link_to "カテゴリー", "#"
+            = link_to "#",class:"" do
+              = "カテゴリー"
 
             .category-list
               %ul.category-pearent
                 %li.category-pearent__btn
-                  = link_to "レディース", "#", class: "item-link" 
+                - @parent.each do |parent|
+                  = link_to "#{parent.name}", "#", class: "item-link" 
                   %ul.category-child
                     %li.category-child__btn
                       = link_to "トップス", "#", class: "item-link" 
