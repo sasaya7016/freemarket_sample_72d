@@ -33,7 +33,7 @@
             %span= @item.category.parent.name
           %br/
           =link_to do
-            %span= @item.category
+            %span= @item.category.name
       %tr
         %th ブランド
         %td
@@ -69,10 +69,10 @@
           =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
     - if !user_signed_in? 
       .detail-product__link__buy
-        =link_to "商品を購入する", item_buy_path(@item.id)
+        =link_to "商品を購入する", buy_item_path(@item.id)
     -elsif current_user.id != @item.exhibitor_id
       .detail-product__link__buy
-        =link_to "商品を購入する", item_buy_path(@item.id)
+        =link_to "商品を購入する", buy_item_path(@item.id)
         
   .detail-comment-box
     %form
