@@ -8,7 +8,6 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :category_id, presence: true
-  validates :brand, presence: true
   validates :status, presence: true
   validates :delivery_fee, presence: true
   validates :prefecture_id, presence: true
