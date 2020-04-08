@@ -4,6 +4,10 @@ class Item < ApplicationRecord
   has_many :item_images
   belongs_to :user
   belongs_to :category
+  
+  #ActiveHashのアソシエーション
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
   include Common_Module
   belongs_to :exhibitor, class_name: "User"
