@@ -4,6 +4,18 @@ class Item < ApplicationRecord
   has_many :item_images
   belongs_to :user
   belongs_to :category
+
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :category_id, presence: true
+  validates :brand, presence: true
+  validates :status, presence: true
+  validates :delivery_fee, presence: true
+  validates :prefecture_id, presence: true
+  validates :preparation_day, presence: true
+  validates :price, presence: true
+
+
   
   #ActiveHashのアソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions
