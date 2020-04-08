@@ -14,39 +14,46 @@
       %li.header__nav__list__left
         %ul.header__nav__list__left__serect
           %li.header__nav__list__left__serect__category
-            = link_to "#",class:"" do
-              = "カテゴリー"
-
+            %h4
+              = link_to "カテゴリー","#"
             .category-list
               %ul.category-pearent
-                %li.category-pearent__btn
-                - @parent.each do |parent|
-                  = link_to "#{parent.name}", "#", class: "item-link" 
-                  %ul.category-child
-                    %li.category-child__btn
-                      = link_to "トップス", "#", class: "item-link" 
-                      %ul.category-grandchild
-                        %li.category-grandchild__btn 
-                          = link_to "Tシャツ", "#", class: "item-link" 
-                        %li.category-grandchild__btn
-                          = link_to "Pシャツ", "#", class: "item-link" 
-                    %li.category-child__btn
-                      = link_to "トップス", "#", class: "item-link" 
-                      %ul.category-grandchild
-                        %li.category-grandchild__btn 
-                          = link_to "Fシャツ", "#", class: "item-link" 
-                        %li.category-grandchild__btn
-                          = link_to "Hシャツ", "#", class: "item-link" 
+                - @parents.each do |parent|
+                  %li.category-pearent__btn
+                    = link_to "#{parent.name}", "#"
+                    %ul.category-child
+                      -# - @childrens.each do |children|
+                        %li.category-child__btn
+                          -# = link_to "#{children.name}", "#", class: "item-link"
+                    -#     = link_to "トップス", "#", class: "item-link" 
+                    -#     %ul.category-grandchild
+                    -#       %li.category-grandchild__btn 
+                    -#         = link_to "Tシャツ", "#", class: "item-link" 
+                      -#     %li.category-grandchild__btn
+                      -#       = link_to "Pシャツ", "#", class: "item-link" 
+                      -# %li.category-child__btn
+                      -#   = link_to "トップス", "#", class: "item-link" 
+                      -#   %ul.category-grandchild
+                      -#     %li.category-grandchild__btn 
+                      -#       = link_to "Fシャツ", "#", class: "item-link" 
+                      -#     %li.category-grandchild__btn
+                      -#       = link_to "Hシャツ", "#", class: "item-link" 
 
-                %li.category-pearent__btn
-                  =link_to "メンズ", "#", class: "item-link" 
+                -# %li.category-pearent__btn
+                -#   =link_to "メンズ", "#", class: "item-link" 
+                -#   %ul.category-grandchild
+                -#     %li.category-grandchild__btn 
+                -#       = link_to "Tシャツ", "#", class: "item-link" 
+                -#       %ul.category-grandchild
+                -#         %li.category-grandchild__btn 
+                -#           = link_to "Fシャツ", "#", class: "item-link" 
 
-                %li.category-pearent__btn
-                  = link_to "ベビー・キッズ", "#", class: "item-link"    
-                %li.category-pearent__btn
-                  = link_to "インテリア・住まい・小物", "#", class: "item-link"    
-                %li.category-pearent__btn
-                  = link_to "本・音楽・ゲーム", "#", class: "item-link"    
+                -# %li.category-pearent__btn
+                -#   = link_to "ベビー・キッズ", "#", class: "item-link"    
+                -# %li.category-pearent__btn
+                -#   = link_to "インテリア・住まい・小物", "#", class: "item-link"    
+                -# %li.category-pearent__btn
+                -#   = link_to "本・音楽・ゲーム", "#", class: "item-link"    
 
 
           %li.header__nav__list__left__serect__category

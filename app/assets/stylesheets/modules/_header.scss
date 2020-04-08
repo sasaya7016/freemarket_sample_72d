@@ -73,15 +73,15 @@ $background-color_section:#eeeeee;
           display: flex;
           &__category {
             padding-right: 30px;
-            position: relative;
+            // position: relative;
             &:hover > .category-list {
-              opacity: 1;
-              visibility: visible;
+              // opacity: 1;
+              // visibility: visible;
             }
             .category-list {
-              opacity: 0;
-              visibility: hidden;
-              position: absolute;
+              // opacity: 0;
+              // visibility: hidden;
+              // position: absolute;
               display: flex;
               top: 100%;
               z-index: 2;
@@ -90,29 +90,29 @@ $background-color_section:#eeeeee;
                 width: 240px;
                 &__btn{
                   &:hover > .category-child{
-                  opacity: 1;
-                  visibility: visible;
+                  // opacity: 1;
+                  // visibility: visible;
                   }
                 }
                 .category-child{
-                  position: absolute;
+                  // position: absolute;
                   top: 0px;
                   left: 100%;
-                  opacity: 0;
-                  visibility: hidden;
+                  // opacity: 0;
+                  // visibility: hidden;
                   background-color: white;
                   &__btn{
                     &:hover > .category-grandchild{
-                      opacity: 1;
-                      visibility: visible;
+                      // opacity: 1;
+                      // visibility: visible;
                     }
                     .category-grandchild{
                       background-color: white;
-                      position: absolute;
+                      // position: absolute;
                       left: 100%;
                       top: 0px;
-                      opacity: 0;
-                      visibility: hidden;
+                      // opacity: 0;
+                      // visibility: hidden;
                       &__btn{
                         background-color: white;
                       }
