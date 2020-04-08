@@ -23,7 +23,6 @@
         - else
           -#以下カード情報を表示
           = "**** **** **** " + @default_card_information.last4
-          %br/
           - exp_month = @default_card_information.exp_month.to_s
           - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
           = exp_month + " / " + exp_year
@@ -31,4 +30,4 @@
       %p.title 配達先
       %p.detail なんばスカイオ
     .form
-      = link_to "購入する" ,"/items/pay/#{@item.id}", method: :post 
+      = link_to items_path(@item.id), method: :post 

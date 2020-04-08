@@ -57,14 +57,18 @@
       .detail-product__btn__report
         %i.fa.fa-flag
         不適切な商品の通報
-    -# - if current_user.id == exhivitor_id
-    .detail-product__link
-      .detail-product__link__edit
-        =link_to "商品情報を編集する"
-        -# =link_to "商品情報を編集する", "/items/#{@item.id}/edit, method: :get"
-      .detail-product__link__delete
-        =link_to "商品を削除する"
-        -# =link_to "商品を削除する", "/items/#{@item.id},method: :delete"
+    - if @item.buyer_id.nil?
+      .detail-product__link
+        .detail-product__link__edit
+          =link_to "商品情報を編集する"
+          -# =link_to "商品情報を編集する", "/items/#{@item.id}/edit, method: :get"
+        .detail-product__link__delete
+          =link_to "商品を削除する"
+          -# =link_to "商品を削除する", "/items/#{@item.id},method: :delete"
+    - else 
+      .detail-product__sold-out
+        売り切れました
+  
         
   .detail-comment-box
     %form

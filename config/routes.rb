@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     collection do
-  get 'purchase/:id', to: 'items#purchase'
+  get 'buy/:id', to: 'items#buy'
   post 'pay/:id', to: 'items#pay'
   get  'done', to: 'items#done'
     end
