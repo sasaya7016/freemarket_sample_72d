@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   def create
     binding.pry
     @item = Item.new(item_params)
-    @item.save
   end
 
   def edit
@@ -25,23 +24,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # 初期値代入・カテゴリー1つ目
-    # @category_parent_array = ["---"]
-    # @category = Category.where(ancestry: nil).each do |parent|
-    #   @category = @category_parent_array << parent.name
-    # end
     @item = Item.new
-    Item.pluck(:category_id)
   end
-
-
   def get_category_children
-    # parentからchildrenを指定
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
   end
 
   def get_category_grandchildren
-    # childrenからgrandchildrenを指定
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
@@ -56,8 +45,4 @@ class ItemsController < ApplicationController
        end
     end
  end
-  # private
-  # def item_params
-  #   params.require(:item).permit(category_id: [])
-  # end
 end

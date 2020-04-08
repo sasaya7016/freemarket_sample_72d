@@ -55,7 +55,7 @@ $(function(){
       </div>
       <div class='listing-select-wrapper__added--size'>
         <div class='listing-select-wrapper__box'>
-          <select class="listing-select-wrapper__box--select" id="item[item_size]" name="item_size">
+          <select class="listing-select-wrapper__box--select" id="item_size" name="item[item_size]">
             <option value="---">---</option>
             ${insertHTML}
           </select>

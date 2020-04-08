@@ -26,11 +26,14 @@
       %tr
         %th カテゴリー
         %td
-          =link_to "#{}"
+          =link_to do
+            %span= @item.category.parent.parent.name
           %br/
-          =link_to "アウター"
+          =link_to do
+            %span= @item.category.parent.name
           %br/
-          =link_to "ジャケット"
+          =link_to do
+            %span= @item.category
       %tr
         %th ブランド
         %td
