@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
   
   
   def create
-    binding.pry
     @item = Item.new(item_params)
   end
   
@@ -34,7 +33,9 @@ class ItemsController < ApplicationController
   end
   
   def new
+    binding.pry
     @item = Item.new
+
   end
   
   def get_category_children
@@ -61,8 +62,8 @@ class ItemsController < ApplicationController
 
   def item_params
     #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(category_id ,buyer_id)
-    columns = Item.column_symbolized_names(reject).push(category_id: []) #category_idを配列で追加
+    reject = %w(buyer_id)
+    columns = Item.column_symbolized_names(reject)
     params.require(:item).permit(*columns)
   end
 

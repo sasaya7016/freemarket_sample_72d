@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.string "town"
     t.string "street"
     t.string "building"
+    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,11 +82,16 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.text "introduction", null: false
     t.integer "price", null: false
     t.string "brand"
+
+    t.integer "category_id", null: false
+    t.string "item_size"
     t.string "status", null: false
     t.string "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
-    t.string "delivery_fee"
+    t.string "delivery_fee", null: false
+    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name", "brand"], name: "index_items_on_name_and_brand"
@@ -100,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
