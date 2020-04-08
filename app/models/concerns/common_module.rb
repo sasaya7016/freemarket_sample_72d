@@ -1,4 +1,4 @@
-module CommomModule
+module CommonModule
   extend ActiveSupport::Concern
 
   module ClassMethods
