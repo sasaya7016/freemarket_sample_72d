@@ -4,5 +4,5 @@ class Item < ApplicationRecord
   has_many :item_images
   belongs_to :user
   belongs_to :category
-  include Common_Module
+  include CommonModule
 end
