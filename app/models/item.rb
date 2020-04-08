@@ -3,6 +3,9 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :item_images
   belongs_to :user
+  belongs_to :category
+
+  include Common_Module
   belongs_to :exhibitor, class_name: "User"
 
   def previous

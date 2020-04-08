@@ -1,13 +1,14 @@
 .listing-contents{
-  height: 1650px;
+  height: 100%;
   width: 100%;
   background-color: rgb(245, 245, 245);
-  padding-top: 50px;
+  padding: 50px 0 50px 0;
   .listing {
     width: 700px;
     margin: 0 auto;
-    height: 1600px;
+    height: 100%;
     background-color: white;
+    padding-bottom: 50px;
     &__box {
       height: 100%;
       width: 90%;
@@ -23,6 +24,12 @@
         height: 30px;
         width: 100%;
         font-size: 15px;
+      }
+      .listing-child {
+        margin-top: 20px;
+      }
+      .listing-grandchild {
+        margin-top: 20px;
       }
       .listing-price {
         font-size: 15px;
@@ -93,7 +100,7 @@
         }
         .btn-back{
           width: 100%;
-          margin-top: 50px;
+          margin: 50px 0 0 0;
           padding: 10px 0;
           display: block;
           border: 1px solid;

@@ -1,7 +1,7 @@
 .listing-contents
   .listing
     .listing__box
-      =form_with do |f|
+      =form_with model: [@item] do |f|
         .listing__box--title
           %p 出品画像
           %p.equired 必須
@@ -16,20 +16,23 @@
         .listing__box--title
           %p 商品説明
           %p.equired 必須
-        =f.text_area :text, class: "item-text", placeholder: "商品の説明（1000字まで）"
+        =f.text_area :introduction, class: "item-text", placeholder: "商品の説明（1000字まで）"
         %p 商品の詳細
         .listing__box--title
           %p カテゴリー
           %p.equired 必須
-        =f.select :category, class: "listing-select"
+        = f.collection_select :category_id,  @category, :id, :name,{prompt: "---"}
+        .listing-child
+        .listing-grandchild
+        .listing-size
         .listing__box--title
           %p ブランド
           %p.arbitrary 任意
-        =f.text_field :name, class: "listing-form", placeholder: "例）アディダス"
+        =f.text_field :brand, class: "listing-form", placeholder: "例）アディダス"
         .listing__box--title
           %p 商品の状態
           %p.equired 必須
-        =f.select :name, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
+        =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
         .listing__box--title
           %p 配送料の負担
           %p.equired 必須
