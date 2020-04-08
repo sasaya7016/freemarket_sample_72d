@@ -1,5 +1,5 @@
 %h2 住所登録情報
-= form_for @address do |f|
+= form_with model:@address do |f|
   = render "devise/shared/error_messages", resource: @address
   .field
     = f.label :郵便番号
