@@ -36,21 +36,21 @@
         .listing__box--title
           %p 配送料の負担
           %p.equired 必須
-        =f.select :prefecture,  ['送料込み（出品者負担）', '着払い（購入者負担）'],include_blank: '選択してください', class: "listing-select"
+        =f.select :delivery_fee,  ['送料込み（出品者負担）', '着払い（購入者負担）'],include_blank: '選択してください', class: "listing-select"
         .listing__box--title
           %p 発送元の地域
           %p.equired 必須
-        =f.select :prefecture, ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県'], include_blank: '選択してください', class: "listing-select"
+        =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, include_blank: '選択してください', class: "listing-select"
         .listing__box--title
           %p 発送までの日数
           %p.equired 必須
-        =f.select :prefecture, ['1〜2日', '2〜3日', '4〜7日'], include_blank: '選択してください', class: "listing-select"
+        =f.select :preparation_day, ['1〜2日', '2〜3日', '4〜7日'], include_blank: '選択してください', class: "listing-select"
         .listing__box--fee
           .listing__box--title
             %p 販売価格
             %p.equired 必須
           .listing__box--price
-            =f.number_field :name, class: "listing-price", placeholder: "0"
+            =f.number_field :price, class: "listing-price", placeholder: "0"
             %p 円
         .listing__box--fee
           %p 販売手数料 (10%)
