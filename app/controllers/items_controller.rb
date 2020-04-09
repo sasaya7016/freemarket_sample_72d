@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
   before_action :not_buy, only: [:buy]
 
   def index
+    @items = Item.all
+    has_brand_items = Item.where.not(brand: nil)
+    @pickup_brand = has_brand_items.sample.brand
+    @pickup_items = Item.where(brand: @pickup_brand)
   end
   
   def show
