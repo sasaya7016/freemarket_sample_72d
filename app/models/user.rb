@@ -13,7 +13,9 @@ class User < ApplicationRecord
 
 
   devise :database_authenticatable, :registerable,
+
          :recoverable, :rememberable, :validatable, password_length: 7..100
 
   validates :lastname, :firstname, :firstnameKANA, :lastnameKANA, :nickname, :birth_date, presence: true
+
 end

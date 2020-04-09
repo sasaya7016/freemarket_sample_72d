@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_083536) do
+ActiveRecord::Schema.define(version: 2020_04_05_005200) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.integer "postalcode", null: false
     t.integer "prefecture_id", null: false
     t.string "first_address", null: false
@@ -20,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.string "third_address"
     t.integer "phone_number"
     t.bigint "user_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -57,16 +59,28 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_size", null: false
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
     t.string "brand"
+
+    t.integer "category_id", null: false
+    t.string "item_size"
     t.string "status", null: false
-    t.integer "preparation_day", null: false
+    t.string "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
-    t.string "delivery_fee"
+    t.string "delivery_fee", null: false
+    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name", "brand"], name: "index_items_on_name_and_brand"
@@ -86,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_083536) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

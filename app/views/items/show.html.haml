@@ -1,55 +1,58 @@
 .detail-contents
   .detail-product
     .detail-product__name
-      Product2
+      =@item.name
     .detail-product__image
-      =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png",class:"detail-product__image__main"
-    %ul
-      %li
-        =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-      %li
-        =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/11/a005.png"
-      %li
-        =image_tag"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/12/a006.png"
+    %ul.slider.slick
+      -@item.item_images.each do |image|
+        %li 
+          =image_tag image.url,class:"detail-product__image__main"
+    %ul.thumb.thumbnail
+      -@item.item_images.each do |image|
+        %li 
+          =image_tag image.url,class:"detail-product__image__sub"
     .detail-product__price
-      ¥20000
+      ="¥#{@item.price}"
     .detail-product__sub
       （税込）送料込み
     .detail-product__introduction
-      親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      =@item.introduction
     %table.detail-product__table
       %tr
         %th
           出品者
         %td
-          hoge
+          =@item.exhibitor.name
       %tr
         %th カテゴリー
         %td
-          =link_to "メンズ"
+          =link_to do
+            %span= @item.category.parent.parent.name
           %br/
-          =link_to "アウター"
+          =link_to do
+            %span= @item.category.parent.name
           %br/
-          =link_to "ジャケット"
+          =link_to do
+            %span= @item.category.name
       %tr
         %th ブランド
         %td
-      %tr
-        %th 商品のサイズ
-        %td
+          =@item.brand
       %tr
         %th 商品の状態
         %td
+          =@item.status
       %tr
         %th 配送料の負担
         %td 着払い（購入者負担）
       %tr
         %th 発送元の地域
         %td
-          =link_to "青森県"
+          =link_to @address.prefecture
       %tr
         %th 発送元の目安
-        %td 1-2日で発送
+        %td 
+          ="#{@item.preparation_day}日で発送"
     .detail-product__btn
       .detail-product__btn__like
         %i.fa.fa-star
@@ -57,14 +60,19 @@
       .detail-product__btn__report
         %i.fa.fa-flag
         不適切な商品の通報
-    -# - if current_user.id == exhivitor_id
-    .detail-product__link
-      .detail-product__link__edit
-        =link_to "商品情報を編集する"
-        -# =link_to "商品情報を編集する", "/items/#{@item.id}/edit, method: :get"
-      .detail-product__link__delete
-        =link_to "商品を削除する"
-        -# =link_to "商品を削除する", "/items/#{@item.id},method: :delete"
+    - if !user_signed_in?
+    -elsif current_user.id == @item.exhibitor_id
+      .detail-product__link
+        .detail-product__link__edit
+          =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
+        .detail-product__link__delete
+          =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
+    - if !user_signed_in? 
+      .detail-product__link__buy
+        =link_to "商品を購入する", buy_item_path(@item.id)
+    -elsif current_user.id != @item.exhibitor_id
+      .detail-product__link__buy
+        =link_to "商品を購入する", buy_item_path(@item.id)
         
   .detail-comment-box
     %form
@@ -77,10 +85,12 @@
         %i.fa.fa-comment
         コメントする
   .detail-links
-    .detail-links__before
-      =link_to "<前の商品"
-    .detail-links__after
-      =link_to "後ろの商品>"
+    -if @item.previous
+      .detail-links__before
+        =link_to "<前の商品", item_path(@item.previous.id) 
+    -if @item.next
+      .detail-links__after
+        =link_to "後ろの商品>", item_path(@item.next.id)
 
   .detail-category
     =link_to "〇〇をもっと見る"
