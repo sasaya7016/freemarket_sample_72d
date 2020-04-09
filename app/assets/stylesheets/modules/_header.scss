@@ -1,0 +1,174 @@
+html,body,ul {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+
+// @import "config/colors";  後ほど作成→仮置き
+$font_color_white: white;
+$font_color_black: black;
+$font_color_oceanblue:#3CCACE;
+$background-color_section:#eeeeee;
+
+
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  &__inner {
+    max-width: 1050px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 60px 0 60px;
+    display: flex;
+    &__icon {
+      margin-right: 30px;
+        &__top{
+          width: 140px;
+          height: 50px;
+        }
+    }
+    &__search {
+      width: 100%;
+      &__form {
+        display: flex;
+        textarea{
+          width: calc(100% - 40px);
+          height: 30px;
+          font-size: 15px;
+          line-height: 30px;
+          margin-bottom: 5px;
+          padding: 0 0 0 5px;
+        }
+        button {
+          width: 40px;
+          height: 32px;
+          background-color: $font_color_oceanblue;
+          color: $font_color_white;
+        }
+        .search-img {
+          height: 15px;
+          width: 15px;
+        }
+      }
+    }
+    .icon {
+
+    }
+  }
+  &__nav {
+    width: 100%;
+    max-width: 1050px;
+    font-size: 13px;
+    line-height: 13px;
+    margin: 0 auto;
+    &__list {
+      display: flex;
+      padding: 0;
+      line-height: 20px;
+      &__left{
+        &__serect{
+          display: flex;
+          &__category {
+            padding-right: 30px;
+            position: relative;
+            top: 18px;
+            &:hover > .category-list {
+              opacity: 1;
+              visibility: visible;
+            }
+            .category-list {
+              opacity: 0;
+              visibility: hidden;
+              position: absolute;
+              display: flex;
+              top: 100%;
+              z-index: 2;
+              background-color: white;
+              .category-pearent{
+                width: 240px;
+                &__btn{
+                  &:hover > .category-child{
+                  opacity: 1;
+                  visibility: visible;
+                  
+                  }
+                }
+                // --子カテゴリ以下実装の場合--
+                // .category-child{
+                //   position: absolute;
+                //   top: 0px;
+                //   left: 100%;
+                //   opacity: 0;
+                //   visibility: hidden;
+                //   background-color: white;
+                //   &__btn{
+                //     &:hover > .category-grandchild{
+                //       opacity: 1;
+                //       visibility: visible;
+                //     }
+                //     .category-grandchild{
+                //       background-color: white;
+                //       position: absolute;
+                //       left: 100%;
+                //       top: 0px;
+                //       opacity: 0;
+                //       visibility: hidden;
+                //       &__btn{
+                //         background-color: white;
+                //       }
+                //     }
+                  // }
+                // }
+              }
+            }
+          }
+          &__brand{
+          }
+        }
+      }
+      &__right {
+        margin-left: auto;
+        &__serect{
+          display: flex;
+          &__login{
+          }
+          &__new{
+            padding-left: 40px;
+          }
+        }
+      }
+    }
+    ul {
+      list-style: none;
+        a {
+          text-decoration: none;
+          color: $font_color_black;
+          font-weight: lighter;
+        }
+    }
+  }
+}
+
+
+.item-link{
+  color: black;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-size: 18px;
+  padding-right: 30px;
+  display: block;
+  width: 240px;
+  padding: 3px 8px 3px 5px;
+  border-bottom: 1px solid #f8f8f8;
+  white-space: nowrap;
+  &:hover{
+    background-position: -100% 0;
+    background-color: red;
+    color: white; 
+  }
+}

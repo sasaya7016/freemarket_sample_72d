@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :not_buy, only: [:buy]
 
   def index
+    @parents = Category.where(ancestry: nil)
   end
   
   def show
