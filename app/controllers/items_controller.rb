@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! ,only: [:buy, :pay, :done]
   
   require "payjp"
 
   def buy #クレジット購入
-    card = CreditCard.where(user_id: current_user.id).first
+      card = CreditCard.where(user_id: current_user.id).first
       @item = Item.find(params[:id])
       @image = ItemImage.where(item_id: @item.id).first
       if card.present?
