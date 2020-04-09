@@ -1,12 +1,12 @@
 .header
   .header__inner
     .header__inner__icon
-      -# = link_to image_tag("http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg",class:"header__inner__icon__top") ,"・"
+      = link_to image_tag("http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg",class:"header__inner__icon__top") ,"・"
     .header__inner__search
       .header__inner__search__form
         %textarea{:name => "content",:class =>"seach-text",:name => "key",:placeholder => "キーワードから探す"}
         %button{type: "submit", class:'btn'}     
-          -# = link_to image_tag("icon-search.svg",class:"search-img") ,""
+          = link_to image_tag("icon-search.svg",class:"search-img") ,""
 
 
   .header__nav
@@ -45,12 +45,7 @@
             .category-list
               %ul.category-pearent
                 %li.category-pearent__btn
-                  -# = link_to "シャネル", "#", class: "item-link" 
-              
-
-
-
-
+                  -# = link_to "シャネル", "#", class: "item-link"
 
       %li.header__nav__list__right
         %ul.header__nav__list__right__serect

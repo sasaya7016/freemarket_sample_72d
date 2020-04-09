@@ -8,5 +8,9 @@ class User < ApplicationRecord
   has_one :address
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+          :recoverable, :rememberable, :validatable
+
+    #ActiveHashのアソシエーション
+    extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to_active_hash :prefecture
 end
