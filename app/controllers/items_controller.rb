@@ -98,8 +98,8 @@ class ItemsController < ApplicationController
 
   def item_params
     #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(category_id ,buyer_id)
-    columns = Item.column_symbolized_names(reject).push(category_id: []) #category_idを配列で追加
+    reject = %w(buyer_id)
+    columns = Item.column_symbolized_names(reject).push(item_images_attributes: [:id,:url,:_destroy])
     params.require(:item).permit(*columns)
   end
 
