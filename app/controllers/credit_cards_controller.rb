@@ -1,9 +1,9 @@
 class CreditCardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :delete, :pay]
+  before_action :set_card, only: [:show, :delete, :new]
   require "payjp"
 
   def new
-    card = CreditCard.where(user_id: current_user.id).first
     redirect_to action: "show" unless card.blank?
   end
 
@@ -28,7 +28,6 @@ class CreditCardsController < ApplicationController
   end
 
   def delete 
-    card = CreditCard.where(user_id: current_user.id).first
     if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -39,7 +38,6 @@ class CreditCardsController < ApplicationController
   end
 
   def show 
-    card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
     else
@@ -47,5 +45,10 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  private
+  def set_card
+    card = CreditCard.where(user_id: current_user.id).first
   end
 end

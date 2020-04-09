@@ -3,24 +3,24 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :not_buy, only: [:buy]
   before_action :authenticate_user! ,only: [:buy, :pay, :done]
+  before_action :set_card, only: [:buy, :pay]
+
   
   require "payjp"
 
   def buy #クレジット購入
-      card = CreditCard.where(user_id: current_user.id).first
       @image = ItemImage.where(item_id: @item.id).first
       if card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(card.customer_id)
+        @default_card_information = customer.cards.retrieve(card.card_id)
       end
   end
 
   def pay
-      card = CreditCard.where(user_id: current_user.id).first
-      if card.blank?
-        redirect_to new_credit_card_path 
-      else
+    if card.blank?
+      redirect_to new_credit_card_path 
+    else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
       amount: @item.price, 
@@ -33,10 +33,11 @@ class ItemsController < ApplicationController
       redirect_to done_item_path(@item.id) 
     else
       redirect_to item_path(@item.id)
+    end
   end
 
   def done
-  
+  end
   def index
   end
   
@@ -129,6 +130,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(*columns)
   end
 
+  def set_card
+    card = CreditCard.where(user_id: current_user.id).first
+  end
 
 end
 
