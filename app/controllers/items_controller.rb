@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
 
   def buy #クレジット購入
       card = CreditCard.where(user_id: current_user.id).first
-      @item = Item.find(params[:id])
       @image = ItemImage.where(item_id: @item.id).first
       if card.present?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -18,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-      @item = Item.find(params[:id])
       card = CreditCard.where(user_id: current_user.id).first
       if card.blank?
         redirect_to new_credit_card_path 
@@ -29,19 +27,20 @@ class ItemsController < ApplicationController
       customer: card.customer_id, 
       currency: 'jpy',
       )
-      end
-        redirect_to done_item_path(@item.id) 
+    end
+    
+    if @item.update(buyer_id: current_user.id)
+      redirect_to done_item_path(@item.id) 
+    else
+      redirect_to item_path(@item.id)
   end
 
   def done
-    @item = Item.find(params[:id])
-    @item.update(buyer_id: current_user.id)
   
   def index
   end
   
   def show
-    @item = Item.find(params[:id])
     @user = User.where(id: @item.exhibitor_id).first
     @address = Address.where(id: @user.id).first
     @parent = @item.category

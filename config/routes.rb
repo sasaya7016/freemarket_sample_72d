@@ -23,3 +23,4 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
+end
