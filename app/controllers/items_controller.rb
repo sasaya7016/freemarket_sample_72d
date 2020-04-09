@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
+    @item_images = @item.item_images
     @user = User.where(id: @item.exhibitor_id).first
     @address = Address.where(id: @user.id).first
     @parent = @item.category
@@ -15,7 +16,16 @@ class ItemsController < ApplicationController
   
   
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_params.merge(exhibitor_id: 1))#current_userが未定義のため仮にid:1を代入
+    @category = Category.where(ancestry: nil).order("id ASC").limit(13)
+    params[:item][:user]=1
+    if @item.save
+      redirect_to root_path
+    else
+      binding.pry
+      flash.now[:alert] = '商品の出品に失敗しました'
+      render :new
+    end
   end
   
   def edit
@@ -57,17 +67,6 @@ class ItemsController < ApplicationController
       end
     end
   end
-
-  private
-
-  def item_params
-    #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(buyer_id)
-    columns = Item.column_symbolized_names(reject)
-    params.require(:item).permit(*columns)
-  end
-
-
   
   def category_index
   end
