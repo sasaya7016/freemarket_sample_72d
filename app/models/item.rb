@@ -5,8 +5,8 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  validates :name, presence: true
-  validates :introduction, presence: true
+  validates :name, length: { maximum: 40 },presence: true
+  validates :introduction, length: { maximum: 1000 },presence: true
   validates :category_id, presence: true
   validates :status, presence: true
   validates :delivery_fee, presence: true
