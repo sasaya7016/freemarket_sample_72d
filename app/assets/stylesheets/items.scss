@@ -1,6 +1,9 @@
+@import "modules/items_new";
 @import "modules/items_show";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "modules/items_buy";
-
+@import "modules/category_index";
 html,body,ul {
   margin: 0;
   padding: 0;
@@ -114,7 +117,7 @@ $background-color_section:#eeeeee;
   height: 550px;
   position: relative;
   align-items: center;
-  background-image: url(bg-mainVisual-pict_pc.jpg);
+  background: image-url("bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   &__message {
     color: $font_color_white;
@@ -199,7 +202,7 @@ $background-color_section:#eeeeee;
 
 .article__center {
   position: relative;
-  background-image: url(bg-topMiddleDl-pict.jpg);
+  background: image-url("bg-topMiddleDl-pict.jpg");
   background-size: cover;
   width: 100%;
   height: 400px;
@@ -214,7 +217,7 @@ $background-color_section:#eeeeee;
     &__text {
       margin: 20px 0;
       font-size: 20px;
-       p {
+      p {
         font-size: 15px;
         line-height: 15px;
       }
@@ -390,7 +393,7 @@ $background-color_section:#eeeeee;
 .article-bottom {
   height: 400px;
   width: 100%;
-  background-image: url(bg-appBanner-pict.jpg);
+  background: image-url("bg-appBanner-pict.jpg");
   background-size: cover; 
   &__message {
     text-align: center;
@@ -494,4 +497,3 @@ $background-color_section:#eeeeee;
     }
   }
 }
-

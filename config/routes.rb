@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   get 'buy', to: 'items#buy'
   post 'pay', to: 'items#pay'
   get  'done', to: 'items#done'
+  get :buy
     end
+    collection do
+    get :get_category_children, defaults: { format: 'json' }
+    get :get_category_grandchildren, defaults: { format: 'json' }
+    get :get_item_size, defaults: { format: 'json' }
+    get :category_index
+   end
   end
   resources :credit_cards, only: [:new,:show] do
     collection do
@@ -16,4 +23,3 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
-end
