@@ -7,7 +7,8 @@
           %p.equired 必須
         %p.listing-attention 最大10枚まで
         %label.exhibit-image-box
-          =f.file_field :images, class: "secret-image"
+          =f.fields_for :item_images do |item_image|
+            = item_image.file_field :url ,class: "secret-image"
           .exhibit-image 写真を選択してください
         .listing__box--title
           %p 商品名
@@ -21,7 +22,7 @@
         .listing__box--title
           %p カテゴリー
           %p.equired 必須
-        = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
+        = f.collection_select :category_id, @category, :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
         .listing-child
         .listing-grandchild
         .listing-size
