@@ -4,13 +4,13 @@
       =@item.name
     .detail-product__image
     %ul.slider.slick
-      -@item.item_images.each do |image|
+      -@item.item_images.each do |i|
         %li 
-          =image_tag image.url,class:"detail-product__image__main"
+          =image_tag i.image_url,class:"detail-product__image__main"
     %ul.thumb.thumbnail
-      -@item.item_images.each do |image|
+      -@item.item_images.each do |i|
         %li 
-          =image_tag image.url,class:"detail-product__image__sub"
+          =image_tag i.image_url,class:"detail-product__image__sub"
     .detail-product__price
       ="¥#{@item.price}"
     .detail-product__sub
@@ -48,7 +48,7 @@
       %tr
         %th 発送元の地域
         %td
-          =link_to @address.prefecture
+          =link_to @address
       %tr
         %th 発送元の目安
         %td 
