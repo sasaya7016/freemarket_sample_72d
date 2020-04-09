@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item , only: [:show, :buy, :edit, :destroy]
+  before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :not_buy, only: [:buy]
   before_action :authenticate_user! ,only: [:buy, :pay, :done]
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render :show, alert: '削除に失敗しました。'
+      render :show
     end
   end
   
@@ -67,9 +67,7 @@ class ItemsController < ApplicationController
   end
   
   def new
-    binding.pry
     @item = Item.new
-
   end
   
   def get_category_children
