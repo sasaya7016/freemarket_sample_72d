@@ -9,22 +9,22 @@ class ItemsController < ApplicationController
   require "payjp"
 
   def buy #クレジット購入
-      @image = ItemImage.where(item_id: @item.id).first
-      if card.present?
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        customer = Payjp::Customer.retrieve(card.customer_id)
-        @default_card_information = customer.cards.retrieve(card.card_id)
-      end
+    @image = ItemImage.where(item_id: @item.id).first
+    if @card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def pay
-    if card.blank?
+    if @card.blank?
       redirect_to new_credit_card_path 
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
       amount: @item.price, 
-      customer: card.customer_id, 
+      customer: @card.customer_id, 
       currency: 'jpy',
       )
     end
@@ -136,7 +136,7 @@ class ItemsController < ApplicationController
   end
 
   def set_card
-    card = CreditCard.where(user_id: current_user.id).first
+    @card = CreditCard.where(user_id: current_user.id).first
   end
 
 end
