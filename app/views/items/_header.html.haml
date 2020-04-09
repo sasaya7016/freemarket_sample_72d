@@ -14,11 +14,39 @@
       %li.header__nav__list__left
         %ul.header__nav__list__left__serect
           %li.header__nav__list__left__serect__category
-            %h4
-              = link_to "カテゴリー", "#"
-          %li.header__nav__list__left__serect__brand
-            %h4
-              = link_to "ブランド","#"
+            = link_to "#",class:"" do
+              = "カテゴリー"
+            .category-list
+              %ul.category-pearent
+                - @parents.each do |parent|
+                  %li.category-pearent__btn
+                    = link_to "#{parent.name}", "#",class: "item-link" 
+                    %ul.category-child
+                      -# - @children.each do |child|
+                        -# = "#{child.name}"
+                        %li.category-child__btn
+                          -# = link_to "#{child.name}", "#",class: "item-link" 
+                       
+                      -#   %ul.category-grandchild
+                      -#     %li.category-grandchild__btn 
+                      -#       = link_to "Tシャツ", "#", class: "item-link" 
+                      -#     %li.category-grandchild__btn
+                      -#       = link_to "Pシャツ", "#", class: "item-link" 
+                      -# %li.category-child__btn
+                      -#   = link_to "トップス", "#", class: "item-link" 
+                      -#   %ul.category-grandchild
+                      -#     %li.category-grandchild__btn 
+                      -#       = link_to "Fシャツ", "#", class: "item-link" 
+                      -#     %li.category-grandchild__btn
+                      -#       = link_to "Hシャツ", "#", class: "item-link" 
+
+          %li.header__nav__list__left__serect__category
+            = link_to "ブランド","#"
+            .category-list
+              %ul.category-pearent
+                %li.category-pearent__btn
+                  -# = link_to "シャネル", "#", class: "item-link"
+
       %li.header__nav__list__right
         %ul.header__nav__list__right__serect
           %li.header__nav__list__right__serect__login
