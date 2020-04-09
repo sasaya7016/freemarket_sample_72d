@@ -94,10 +94,10 @@ $background-color_section:#eeeeee;
                   &:hover > .category-child{
                   opacity: 1;
                   visibility: visible;
-                  
                   }
                 }
                 // --子カテゴリ以下実装の場合--
+                
                 // .category-child{
                 //   position: absolute;
                 //   top: 0px;
@@ -121,7 +121,7 @@ $background-color_section:#eeeeee;
                 //         background-color: white;
                 //       }
                 //     }
-                  // }
+                //   }
                 // }
               }
             }
