@@ -15,10 +15,12 @@ class ItemsController < ApplicationController
   
   
   def create
-    @item = Item.new(item_params.merge(exhibitor_id: 1))#current_userが未定義のため仮にid:1を代入
+    @item = Item.new(item_params.merge(exhibitor_id: 1))
+    #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
     @category = Category.where(ancestry: nil).order("id ASC").limit(13)
-    params[:item][:user]=1
+    binding.pry
     if @item.save
+      binding.pry
       redirect_to root_path
     else
       binding.pry
@@ -99,7 +101,7 @@ class ItemsController < ApplicationController
   def item_params
     #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
     reject = %w(buyer_id)
-    columns = Item.column_symbolized_names(reject).push(item_images_attributes: [:id,:url,:_destroy])
+    columns = Item.column_symbolized_names(reject).push(item_images_attributes: [:id,:image,:_destroy][:image]).push(:image)
     params.require(:item).permit(*columns)
   end
 
