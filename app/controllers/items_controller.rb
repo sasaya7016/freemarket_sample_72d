@@ -43,9 +43,7 @@ class ItemsController < ApplicationController
   end
   
   def new
-    binding.pry
     @item = Item.new
-
   end
   
   def get_category_children
