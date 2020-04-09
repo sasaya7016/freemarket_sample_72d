@@ -12,6 +12,8 @@ class Item < ApplicationRecord
   include Common_Module
   belongs_to :exhibitor, class_name: "User"
 
+  accepts_nested_attributes_for :item_images
+
   def previous
     Item.where('id < ?',self.id).order('id DESC').first
   end
