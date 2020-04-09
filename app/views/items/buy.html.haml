@@ -3,7 +3,7 @@
     %h1.verification__box--title 購入内容の確認
     .buy_verification__box--content
       .image 
-        = image_tag("http://illustrain.com/img/work/2016/illustrain02-norimono17.png",class: "image_verification")
+        = image_tag(@image.url,class: "image_verification")
       .content
         .content__name 
           =@item.name
@@ -19,9 +19,8 @@
       %p.title 支払い方法
       %p 
         - if @default_card_information.blank?
-          %br /
+          =link_to "クレジットカードを登録する",new_credit_card_path
         - else
-          -#以下カード情報を表示
           = "**** **** **** " + @default_card_information.last4
           %br/
           - exp_month = @default_card_information.exp_month.to_s
@@ -31,4 +30,7 @@
       %p.title 配達先
       %p.detail なんばスカイオ
     .form
-      = link_to "購入する" ,"/items/pay/#{@item.id}", method: :post 
+      - if @default_card_information.blank?
+        購入にはクレジットカードの登録が必要です
+      -else
+        = link_to "購入する" ,pay_item_path(@item.id), method: :post, data: { confirm: '購入しますか' }
