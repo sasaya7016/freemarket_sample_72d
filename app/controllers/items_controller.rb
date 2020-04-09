@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     @item_images = @item.item_images
     @user = User.where(id: @item.exhibitor_id).first
     @address = Address.where(id: @user.id).first
@@ -82,7 +81,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
   def not_buy
     if current_user.id == @item.exhibitor_id
       redirect_to root_path
