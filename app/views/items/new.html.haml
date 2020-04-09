@@ -7,8 +7,10 @@
           %p.equired 必須
         %p.listing-attention 最大10枚まで
         %label.exhibit-image-box
-          =f.fields_for :item_images do |item_image|
-            = item_image.file_field :url ,class: "secret-image"
+          =f.fields_for :item_images do |i|
+            = i.file_field :item_image ,type: 'file',multiple: true ,name: "item[item_images_attributes][image][]" ,class: "secret-image"
+            %label{for: "img-file"}
+              %i.fas.fa-camera
           .exhibit-image 写真を選択してください
         .listing__box--title
           %p 商品名
