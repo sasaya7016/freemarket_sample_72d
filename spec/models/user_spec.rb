@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe User do
   describe '#create' do
 
@@ -61,7 +62,7 @@ describe User do
       expect(user.errors[:password_confirmation]).to include("can't be blank")
     end
 
-    it "重複したemailが存在する場合は登録できないこと"　do
+    it "重複したemailが存在する場合は登録できない"　do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
@@ -74,7 +75,7 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "passwordが6文字以下であれば登録できないこと"　do
+    it "passwordが6文字以下であれば登録できない"　do
       user = build(:user, password: "000000", password_confirmation: "000000")
       user.valid?
       expect(user.errors[:password]).to include("is too short(minimum is 7 characters)")
