@@ -28,13 +28,12 @@ class ItemsController < ApplicationController
       currency: 'jpy',
       )
     end
-    
-    if @item.update(buyer_id: current_user.id)
-      redirect_to done_item_path(@item.id) 
-    else
-      redirect_to item_path(@item.id)
+      if @item.update( buyer_id: current_user.id)
+        redirect_to done_item_path(@item.id) 
+      else
+        redirect_to item_path(@item.id)
+      end
     end
-  end
 
   def done
   end
@@ -48,7 +47,7 @@ class ItemsController < ApplicationController
   
   def show
     @user = User.where(id: @item.exhibitor_id).first
-    @address = Address.where(id: @user.id).first
+    # @address = Address.where(id: @user.id).first
     @parent = @item.category
   end
   
