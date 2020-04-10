@@ -7,10 +7,11 @@
           %p.equired 必須
         %p.listing-attention 最大10枚まで
         %label.exhibit-image-box
-          =f.fields_for :item_images do |i|
-            = i.file_field :image ,type: 'file',multiple: true ,name: "item[item_images_attributes][image]" ,class: "secret-image"
-            %label{for: "img-file"}
-              %i.fas.fa-camera
+          =f.fields_for :item_images do |image|
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :image ,type: 'file',name: "item[item_images_attributes[][image]]",multiple: true  ,value: "",class: "secret-image"
+              %label{for: "img-file"}
+                %i.fas.fa-camera
           .exhibit-image 写真を選択してください
         .listing__box--title
           %p 商品名
