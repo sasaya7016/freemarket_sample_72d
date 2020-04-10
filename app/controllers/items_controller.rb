@@ -22,10 +22,10 @@ class ItemsController < ApplicationController
         if @item.save
           redirect_to root_path
         else
-          render :new, alert: '商品の出品に失敗しました'
+          redirect_to new_item_url, alert: '商品の出品に失敗しました'
         end
     else
-      render :new, alert: 'ERROR'
+      redirect_to new_item_url, alert: 'ERROR'
     end
   end
   
