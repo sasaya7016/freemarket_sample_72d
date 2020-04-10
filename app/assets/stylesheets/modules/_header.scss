@@ -79,62 +79,24 @@ $background-color_section:#eeeeee;
             .category-list{
               position: absolute;
               z-index: 2;
-              // display: none;
+              display: flex;
+              visibility: hidden;
+            }
+            &:hover > .category-list{
+              visibility: visible;
             }
             .children-list {
               position: absolute;
               z-index: 2;
               left: 240px;
+              display: flex;
             }
-            // &:hover > .category-list {
-            //   opacity: 1;
-            //   visibility: visible;
-            // }
-            // .category-list {
-            //   opacity: 0;
-            //   visibility: hidden;
-            //   position: absolute;
-            //   display: flex;
-            //   top: 100%;
-            //   z-index: 2;
-            //   background-color: white;
-            //   .category-pearent{
-            //     width: 250px;
-            //     &__btn{
-            //       &:hover > .category-child{
-            //       opacity: 1;
-            //       visibility: visible;
-            //       }
-            //     }
-            //     // --子カテゴリ以下実装の場合--
-                
-            //     .category-child{
-            //       position: absolute;
-            //       top: 0px;
-            //       left: 100%;
-            //       opacity: 0;
-            //       visibility: hidden;
-            //       background-color: white;
-            //       &__btn{
-            //         &:hover > .category-grandchild{
-            //           opacity: 1;
-            //           visibility: visible;
-            //         }
-            //         .category-grandchild{
-            //           background-color: white;
-            //           position: absolute;
-            //           left: 100%;
-            //           top: 0px;
-            //           opacity: 0;
-            //           visibility: hidden;
-            //           &__btn{
-            //             background-color: white;
-            //           }
-            //         }
-            //       }
-            //     }
-            //   }
-            // }
+            .grandchildren-list {
+              position: absolute;
+              z-index: 2;
+              left: 480px;
+              display: flex;
+            }
           }
           &__brand{
           }
@@ -165,7 +127,7 @@ $background-color_section:#eeeeee;
 
 
 .item-link{
-  border-bottom: 1px solid;
+  border: 1px solid $font_color_oceanblue;
   background-color: white;
   color: black;
   text-decoration: none;
