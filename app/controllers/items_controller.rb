@@ -25,9 +25,7 @@ class ItemsController < ApplicationController
           render :new, alert: '商品の出品に失敗しました'
         end
     else
-      binding.pry
-      flash.now[:alert] = '商品の出品に失敗しました'
-      render :new
+      render :new, alert: 'ERROR'
     end
   end
   
