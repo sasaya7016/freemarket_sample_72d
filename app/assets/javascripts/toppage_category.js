@@ -12,6 +12,11 @@ $(function(){
     `;
     return html;
   }
+  
+    $(document).on("mouseover",".parent-list",function(){
+      $(".child_category").remove();
+      $(".grandchild_category").remove();
+    })
 
   $(document).on("mouseover",".parent-list",function(){
     var id = this.id
@@ -30,7 +35,7 @@ $(function(){
       })
     });
   });
-
+  
   $(document).on("mouseover",".child_category",function(){
     var id = this.id
     $(".grandchild_category").remove();
