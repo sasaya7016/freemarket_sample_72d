@@ -13,7 +13,7 @@ $(function(){
     return html;
   }
   
-    $(document).on("mouseover",".parent-list",function(){
+    $(document).on("mouseover",".category-index",function(){
       $(".child_category").remove();
       $(".grandchild_category").remove();
     })
