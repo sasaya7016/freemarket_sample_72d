@@ -15,13 +15,15 @@ class ItemsController < ApplicationController
   
   
   def create
-    @item = Item.new(item_params.merge(exhibitor_id: 1))
-    #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
-    @category = Category.where(ancestry: nil).order("id ASC").limit(13)
-    binding.pry
-    if @item.save
-      binding.pry
-      redirect_to root_path
+    if params[:item][:item_images_attributes] != nil?
+      @item = Item.new(item_params.merge(exhibitor_id: 1))
+      #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
+      @category = Category.where(ancestry: nil).order("id ASC").limit(13)
+        if @item.save
+          redirect_to root_path
+        else
+          render :new, alert: '商品の出品に失敗しました'
+        end
     else
       binding.pry
       flash.now[:alert] = '商品の出品に失敗しました'
