@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :not_buy, only: [:buy]
   before_action :authenticate_user! ,only: [:buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
+  before_action :sold_out, only: [:buy, :pay]
 
   
   require "payjp"
@@ -47,6 +48,8 @@ class ItemsController < ApplicationController
   
   def show
     @user = User.where(id: @item.exhibitor_id).first
+    @image = ItemImage.where(item_id: @item.id).first
+
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
   end
@@ -136,6 +139,13 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first
+  end
+
+  def sold_out
+    @item = Item.find(params[:id])
+    if @item.buyer_id.present?
+      redirect_to root_path
+    end
   end
 
 end

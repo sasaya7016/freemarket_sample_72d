@@ -1,0 +1,24 @@
+.credit-card__box__inner{
+  &__show-number{
+    margin-top: 30px;
+  }
+  &__show-icon{
+    margin-top:10px;
+    i{
+      color:#3CCACE;
+    }
+    
+  }
+  &__show-expire{
+    margin-top:40px;
+  }
+  &__show-delete{
+    margin-top: 50px;
+    width:15%;
+    padding:10px;
+    font-size: 20px;
+    background-color: red;
+    color:#fff;
+
+  }
+}
