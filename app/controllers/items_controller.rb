@@ -9,10 +9,6 @@ class ItemsController < ApplicationController
     @pickup_brand = has_brand_items.sample.brand
     @pickup_items = Item.where(brand: @pickup_brand)
     @parents = Category.where(ancestry: nil)
-    def get_toppage_category
-      # @parents = Category.where(ancestry: nil)
-      @category_children = Category.find(params[:parent_id]).children
-    end
   end
   
   def show
@@ -64,8 +60,9 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
   def category_index
+    @items = Item.where(category_id: params)
     @parents = Category.where(ancestry: nil)
   end
 

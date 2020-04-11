@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       get :get_category_children, defaults: { format: 'json' }
       get :get_category_grandchildren, defaults: { format: 'json' }
       get :get_item_size, defaults: { format: 'json' }
-      get :get_toppage_category, defaults: { format: 'json' }
       get :category_index
     end
     member do
@@ -20,5 +19,10 @@ Rails.application.routes.draw do
     end
   end
   resources :credit_cards
+  resources :categories do
+    collection do
+      get :get_toppage_category, defaults: { format: 'json' }
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

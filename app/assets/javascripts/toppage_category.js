@@ -24,7 +24,7 @@ $(function(){
     $(".grandchild_category").remove();
     $.ajax({
       type: 'get',
-      url: 'items/get_toppage_category',
+      url: '/categories/get_toppage_category',
       data: {parent_id: id},
       dataType: 'json'
     })
@@ -41,7 +41,7 @@ $(function(){
     $(".grandchild_category").remove();
     $.ajax({
       type: 'get',
-      url: 'items/get_toppage_category',
+      url: '/categories/get_toppage_category',
       data: {parent_id: id},
       dataType: 'json'
     })
