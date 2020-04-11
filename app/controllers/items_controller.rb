@@ -30,14 +30,12 @@ class ItemsController < ApplicationController
       )
     end
       if @item.update( buyer_id: current_user.id)
-        redirect_to done_item_path(@item.id) 
+        redirect_to root_path , notice: '購入完了しました'
       else
-        redirect_to item_path(@item.id)
+        redirect_to item_path(@item.id), alert: "購入に失敗しました"
       end
     end
 
-  def done
-  end
   def index
     @items = Item.all
     has_brand_items = Item.where.not(brand: nil)
