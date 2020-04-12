@@ -1,4 +1,5 @@
 if (document.location.href.match(/\/items\/new/)){
+  document.addEventListener('DOMContentLoaded',()=>{
     //preview生成
       //削除ボタン生成
     const buildImg = (index ,url ) => {
@@ -44,8 +45,6 @@ if (document.location.href.match(/\/items\/new/)){
       let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
       let imageBoxUploaderLabelParent = document.getElementsByClassName('exhibit-image-box__uploader__label').parentNode;
       
-    })
->>>>>>> Stashed changes
       //indexの値を見てimgにindexがあれば取得
       if (img = `img[data-index="${targetIndex}"]`[0]){
         img.setAttribute('image',blobURL)
