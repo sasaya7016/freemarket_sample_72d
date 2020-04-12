@@ -46,5 +46,21 @@ if (document.location.href.match(/\/items\/new/)){
       
     })
 >>>>>>> Stashed changes
+      //indexの値を見てimgにindexがあれば取得
+      if (img = `img[data-index="${targetIndex}"]`[0]){
+        img.setAttribute('image',blobURL)
+      }else{
+        imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL));
+        imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild);
+        this.style.display = 'none';
+        fileIndex.shift();
+
+        fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      }
+    });
+    
+    //削除ボタンの設定
+
+    //画像のinsert
   });
 }
