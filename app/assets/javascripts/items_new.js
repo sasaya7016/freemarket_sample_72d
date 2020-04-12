@@ -22,6 +22,11 @@ if (document.location.href.match(/\/items\/new/)){
       return html;
     }
 
+    //let droparea = document.getElementById('exhibit__image-box');
+    let imageFileGroup = document.getElementsByClassName('img-file_group');
+    let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+    let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
+    fileIndex.splice(0,lastIndex);
       
     })
 >>>>>>> Stashed changes
