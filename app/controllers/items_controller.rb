@@ -73,6 +73,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
+    @category = Category.where(ancestry: nil)
   end
   
   def get_category_children
