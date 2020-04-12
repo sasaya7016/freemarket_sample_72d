@@ -1,4 +1,9 @@
 class CategoriesController < ApplicationController
+  before_action :set_parents
+
+  def index
+    @category = Category.where(ancestry: nil)
+  end
 
   def show
     @category = Category.find(params[:id])
@@ -8,6 +13,11 @@ class CategoriesController < ApplicationController
 
   def get_toppage_category
     @category_children = Category.find(params[:parent_id]).children
+  end
+
+  private
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
 end

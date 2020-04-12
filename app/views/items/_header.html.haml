@@ -14,7 +14,7 @@
       %li.header__nav__list__left
         %ul.header__nav__list__left__serect
           %li.header__nav__list__left__serect__category
-            = link_to "カテゴリー", category_index_items_path, class: "category-index"
+            = link_to "カテゴリー", categories_path, class: "category-index"
             .category-list
               %ul.category-pearent
                 - @parents.each do |parent|
