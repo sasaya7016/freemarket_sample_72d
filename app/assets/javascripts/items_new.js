@@ -27,6 +27,13 @@ if (document.location.href.match(/\/items\/new/)){
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
     fileIndex.splice(0,lastIndex);
+    console.log(imageFileGroup);
+    console.log(imageFileGroup[imageFileGroup.length - 1]);
+    console.log(lastIndex);
+    console.log(fileIndex);
+    console.log(fileIndex.splice(0,lastIndex));
+      console.log(imageFileGroup);
+      console.log(targetIndex);
       
     })
 >>>>>>> Stashed changes
