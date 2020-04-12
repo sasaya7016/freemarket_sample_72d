@@ -32,8 +32,17 @@ if (document.location.href.match(/\/items\/new/)){
     console.log(lastIndex);
     console.log(fileIndex);
     console.log(fileIndex.splice(0,lastIndex));
+
+
+    delegateEvent(document,'change','.img-file',(e) => {
+      //let imageFileGroup = document.getElementsByClassName('img-file_group');
       console.log(imageFileGroup);
+      const targetIndex = imageFileGroup.dataset.index;
       console.log(targetIndex);
+      const file = e.target.files[0];
+      const blobURL = window.URL.createObjectURL(file);
+      let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
+      let imageBoxUploaderLabelParent = document.getElementsByClassName('exhibit-image-box__uploader__label').parentNode;
       
     })
 >>>>>>> Stashed changes
