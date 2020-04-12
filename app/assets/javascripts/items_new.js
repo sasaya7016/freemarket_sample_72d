@@ -66,7 +66,6 @@ if (document.location.href.match(/\/items\/new/)){
         imageBoxPreviews[i].parentNode.appendChild(buildImg(targetIndex, blobURL));
         console.log(imageBoxPreviews[i].parentNode);
         }
-
         //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
         imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild);
         //console.log(imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild));
