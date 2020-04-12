@@ -13,6 +13,15 @@ if (document.location.href.match(/\/items\/new/)){
       <div>`;
       return html;
       }
+    //imageのinputを生成
+    const buildFileField = (num) => {
+      const html = `
+      <div data-index="${num}" class="img-file_group">
+        <input class="img-file" type="file" name="item[item_images_attributes][${num}][image]">
+      <div>`;
+      return html;
+    }
+
       
     })
 >>>>>>> Stashed changes
