@@ -47,7 +47,8 @@ class ItemsController < ApplicationController
   end
 
   def category_index
-    @items = Item.all.page(params[:page]).per(2)
+    @items = Item.all.order(created_at: :desc)
+    @items = Item.page(params[:page]).per(1)
   end
   
   def show
