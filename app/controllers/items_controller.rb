@@ -1,8 +1,43 @@
 class ItemsController < ApplicationController
-  before_action :set_item , only: [:show, :buy, :edit, :destroy]
+  before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :not_buy, only: [:buy]
+  before_action :authenticate_user! ,only: [:buy, :pay, :done]
+  before_action :set_card, only: [:buy, :pay]
 
+  
+  require "payjp"
+
+  def buy #クレジット購入
+      @image = ItemImage.where(item_id: @item.id).first
+      if @card.present?
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+      end
+  end
+
+  def pay
+    if @card.blank?
+      redirect_to new_credit_card_path 
+    else
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp::Charge.create(
+      amount: @item.price, 
+      customer: @card.customer_id, 
+      currency: 'jpy',
+      )
+    end
+    
+    if @item.update(buyer_id: current_user.id)
+      redirect_to done_item_path(@item.id) 
+    else
+      redirect_to item_path(@item.id)
+    end
+  end
+
+  def done
+  end
   def index
     @items = Item.all
     has_brand_items = Item.where.not(brand: nil)
@@ -12,7 +47,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     @user = User.where(id: @item.exhibitor_id).first
     @address = Address.where(id: @user.id).first
     @parent = @item.category
@@ -30,7 +64,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render :show, alert: '削除に失敗しました。'
+      render :show
     end
   end
   
@@ -100,4 +134,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(*columns)
   end
 
+  def set_card
+    @card = CreditCard.where(user_id: current_user.id).first
+  end
+
 end
+
+
