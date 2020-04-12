@@ -63,4 +63,27 @@ if (document.location.href.match(/\/items\/new/)){
 
     //画像のinsert
   });
+
+
+//EventDelegation
+  function matches(elm, selector) {
+    var matches = (elm.document || elm.ownerDocument).querySelectorAll(selector),
+    i = matches.length;
+    while (--i >= 0 && matches.item(i) !== elm) ;
+    return i > -1;
+  }
+  
+  function delegateEvent(root, eventType, selector, listener) {
+    root.addEventListener(eventType, function(e) {
+      var el = e.target;
+      while (el && el !== root) {
+        if (matches(el, selector)) {
+          listener.call(el, e, el);
+          break;
+        }
+        el = el.parentNode;
+      }
+    }, false);
+  }
+
 }
