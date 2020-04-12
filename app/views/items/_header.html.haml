@@ -19,7 +19,7 @@
               %ul.category-pearent
                 - @parents.each do |parent|
                   %li.category-pearent__btn
-                  = link_to "#{parent.name}", category_index_items_path, class: "parent-list item-link", id: "#{parent.id}"
+                  = link_to "#{parent.name}", category_path(parent.id), class: "parent-list item-link", id: "#{parent.id}"
               .children_list
               .grandchildren_list
           %li.header__nav__list__left__serect__category

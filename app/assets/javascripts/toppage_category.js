@@ -1,14 +1,14 @@
 $(function(){
   function buildChildHTML(child){
     var html =`
-    <a class="child_category item-link" id="${child.id}"  href="/items/category_index/${child.id}">${child.name}</a>
+    <a class="child_category item-link" id="${child.id}"  href="/categories/${child.id}">${child.name}</a>
     `;
     return html;
   }
 
   function buildGrandChildHTML(child){
     var html =`
-    <a class="grandchild_category item-link" id="${child.id}"  href="items/category_index/${child.id}">${child.name}</a>
+    <a class="grandchild_category item-link" id="${child.id}"  href="/categories/${child.id}">${child.name}</a>
     `;
     return html;
   }

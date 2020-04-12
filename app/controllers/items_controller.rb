@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def category_index
-    @items = Item.where(category_id: params)
+    @items = Item.all
     @parents = Category.where(ancestry: nil)
   end
 
