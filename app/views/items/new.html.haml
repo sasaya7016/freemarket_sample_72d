@@ -13,7 +13,7 @@
             .exhibit-image-box__uploader__label
               =f.fields_for :item_images do |image|
                 .img-file_group{"data-index" => "#{image.index()}"}
-                  = image.file_field :image ,type: 'file',name: "item[item_images_attributes][][image]",value: "",class: "secret-image img-file"
+                  = image.file_field :image ,type: 'file',value: "",class: "secret-image img-file"
                   %label{for: "img-file"}
                     %i.fas.fa-camera
         .listing__box--title
