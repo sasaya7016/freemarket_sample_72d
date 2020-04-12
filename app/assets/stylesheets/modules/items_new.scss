@@ -1,11 +1,13 @@
 .listing-contents{
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(245, 245, 245);
   padding: 50px 0 50px 0;
   .listing {
     width: 700px;
-    margin: 0 auto;
     height: 100%;
     background-color: white;
     padding-bottom: 50px;
@@ -13,6 +15,28 @@
       height: 100%;
       width: 90%;
       margin: 0 auto;
+      .exhibit__image-box {
+        &__previous{
+        }
+        &__uploader{
+          
+          &__label{
+            border: dashed 3px;
+            height: 150px;
+            width: 100%;
+            background-color: gainsboro;
+            border-radius: 5px;
+            line-height: 150px;
+            text-align: center;
+            .js-file_group{
+              #secret-image {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
       .listing-form{
         width: 100%;
         border-radius: 5px;
@@ -49,20 +73,6 @@
         color: gray;
         font-size: small;
         margin: 0;
-      }
-      .exhibit-image-box {
-        .secret-image {
-          display: none;
-        }
-        .exhibit-image{
-          border: dashed 3px;
-          height: 150px;
-          width: 100%;
-          background-color: gainsboro;
-          border-radius: 5px;
-          line-height: 150px;
-          text-align: center;
-        }
       }
       &--title {
         display: flex;
