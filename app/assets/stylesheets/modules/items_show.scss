@@ -130,6 +130,18 @@
       }
     }
   }
+  &__sold-out{
+    line-height: 48px;
+    background: gray;
+    border: 1px solid gray;
+    color: black;
+    width: 80%;
+    font-size: 18px;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 30px;
+
+  }
 }
   .detail-comment-box{
     padding:24px;

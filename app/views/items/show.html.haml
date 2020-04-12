@@ -74,7 +74,6 @@
     -elsif current_user.id != @item.exhibitor_id
       .detail-product__link__buy
         =link_to "商品を購入する", buy_item_path(@item.id)
-        
   .detail-comment-box
     %form
       %textarea{cols:40, rows:4}
