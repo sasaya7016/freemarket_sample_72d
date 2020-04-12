@@ -25,36 +25,55 @@ if (document.location.href.match(/\/items\/new/)){
 
     //let droparea = document.getElementById('exhibit__image-box');
     let imageFileGroup = document.getElementsByClassName('img-file_group');
+    //console.log(imageFileGroup);
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+    //console.log(imageFileGroup[imageFileGroup.length - 1]);
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
     fileIndex.splice(0,lastIndex);
-    console.log(imageFileGroup);
-    console.log(imageFileGroup[imageFileGroup.length - 1]);
-    console.log(lastIndex);
-    console.log(fileIndex);
-    console.log(fileIndex.splice(0,lastIndex));
+    //console.log(lastIndex);
+    //console.log(fileIndex);
+    //console.log(fileIndex.splice(0,lastIndex));
 
 
-    delegateEvent(document,'change','.img-file',(e) => {
+    delegateEvent(document,'change','.img-file',function(e) {
       //let imageFileGroup = document.getElementsByClassName('img-file_group');
-      console.log(imageFileGroup);
-      const targetIndex = imageFileGroup.dataset.index;
-      console.log(targetIndex);
+      //console.log(imageFileGroup[0]);
+      //console.log(this);
+      //console.log(this.parentNode.dataset.index);
+      const targetIndex = this.parentNode.dataset.index;
+      //console.log(targetIndex);
       const file = e.target.files[0];
+      //console.log(file);
+      //console.log(window.URL.createObjectURL(file));
       const blobURL = window.URL.createObjectURL(file);
+      
       let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
       let imageBoxUploaderLabelParent = document.getElementsByClassName('exhibit-image-box__uploader__label').parentNode;
       
       //indexの値を見てimgにindexがあれば取得
-      if (img = `img[data-index="${targetIndex}"]`[0]){
-        img.setAttribute('image',blobURL)
+
+      var img = imageFileGroup[0].querySelectorAll(`img[data-index="${targetIndex}"]`);
+      //var img = `img[data-index="${targetIndex}"]`
+      console.log($(`img[data-index="${targetIndex}"]`));
+      console.log(img);
+
+      if (img[0]){
+        console.log('blobURLをimage属性へ')
+        this.parentNode.setAttribute('image',blobURL);
       }else{
-        imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL));
+        
+        for( i = 0; i < imageBoxPreviews.length; i++){
+        imageBoxPreviews[i].parentNode.appendChild(buildImg(targetIndex, blobURL));
+        console.log(imageBoxPreviews[i].parentNode);
+        }
+
+        //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
         imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild);
+        //console.log(imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild));
         this.style.display = 'none';
         fileIndex.shift();
-
         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+        console.log(fileIndex.push(fileIndex[fileIndex.length - 1] + 1));
       }
     });
     
@@ -62,6 +81,9 @@ if (document.location.href.match(/\/items\/new/)){
 
     //画像のinsert
   });
+
+
+
 
 
 //EventDelegation
