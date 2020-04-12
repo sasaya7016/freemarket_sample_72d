@@ -2,7 +2,7 @@ app_path = File.expand_path('../../../', __FILE__)
 # アプリケーションサーバーの性能設定
 worker_processes 1
 # アプリケーションの設置されているディレクトリ　→　なぜか今はfreemarket_sample_72d以下のcurrentに設置
-working_directory "#{app_path}/current"
+working_directory "#{app_path}/releases/current"
 #Unicornの起動に必要なファイルの設置場所指定
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 #unicornのポート設定
