@@ -51,7 +51,9 @@
                   .item__list__img-box__price
                     %span= "¥#{item.price}"
                 .item__list__text-box
-                  = "#{item.brand} #{item.name}"
+                  = "#{item.brand}"
+                  %br
+                  = "#{item.name}"
                   .item__list__text-box__like
                     = link_to "" do
                       = icon('far', 'fa-heart', class: 'fa-heart')          
