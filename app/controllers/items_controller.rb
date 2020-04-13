@@ -47,7 +47,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.new
     @category = Category.where(ancestry: nil).order("id ASC").limit(13)
-    
   end
   
   def get_category_children
