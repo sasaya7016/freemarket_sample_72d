@@ -62,6 +62,11 @@ if (document.location.href.match(/\/items\/new/)){
           this.parentNode.setAttribute('image',blobURL);
         }else{
           console.log(imageBoxPreviews);
+          for(let i = 0; i < imageBoxPreviews.length; i++){
+            //console.log(imageBoxPreviews[i].parentNode);
+            //console.log(imageBoxPreviews[i])
+            imageBoxPreviews[i].insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
+          }
 
       if (img[0]){
         console.log('blobURLをimage属性へ')
