@@ -67,6 +67,14 @@ if (document.location.href.match(/\/items\/new/)){
             //console.log(imageBoxPreviews[i])
             imageBoxPreviews[i].insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
           }
+          //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
+          for(let i = 0; i < imageBoxUploaderLabel.length; i++){
+          imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend',buildFileField(fileIndex[i]));
+          //console.log(imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend',buildFileField(fileIndex[i])));
+          //console.log(this);
+          this.style.display = 'none';
+          //imageFile[i].style.display = 'none';
+          }//この辺りの記述なんとかする
 
       if (img[0]){
         console.log('blobURLをimage属性へ')
