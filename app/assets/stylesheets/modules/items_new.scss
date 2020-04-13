@@ -16,11 +16,22 @@
       width: 90%;
       margin: 0 auto;
       .exhibit__image-box {
-        &__previous{
+        &__previews{
+          display:flex;
+          justify-content: left;
+          flex-wrap: wrap;
+          &__preview{
+            &__delete{
+              width: 50px;
+            }
+            &__image{
+              width: calc(100% / 5);
+            }
+          }
         }
         &__uploader{
-          
           &__label{
+            display: block;
             border: dashed 3px;
             height: 150px;
             width: 100%;
@@ -28,9 +39,9 @@
             border-radius: 5px;
             line-height: 150px;
             text-align: center;
-            .js-file_group{
-              #secret-image {
-                display: none;
+            .img-file_group{
+              .secret-image {
+              display: none;
               }
             }
           }
