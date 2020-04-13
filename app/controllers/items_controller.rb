@@ -99,6 +99,7 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
+  
   private
 
   def item_params
@@ -128,7 +129,7 @@ class ItemsController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     elsif current_user.id!=@item.exhibitor_id
-        redirect_to root_path
+      redirect_to root_path
     end
   end
 
