@@ -7,7 +7,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/items_buy";
-@import "modules/category_index";
 @import "modules/flash";
 
 html,body,ul {
@@ -319,6 +318,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{
@@ -371,6 +374,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{

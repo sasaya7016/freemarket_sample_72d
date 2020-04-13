@@ -44,11 +44,6 @@ class ItemsController < ApplicationController
     end
     @pickup_items = Item.where(brand: @pickup_brand)
   end
-
-  def category_index
-    @items = Item.all.order(created_at: :desc)
-    @items = Item.page(params[:page]).per(1)
-  end
   
   def show
     @user = User.where(id: @item.exhibitor_id).first
@@ -99,11 +94,6 @@ class ItemsController < ApplicationController
         @item_sizes = related_size_parent.children
       end
     end
-  end
-
-  def category_index
-    @items = Item.all
-    @parents = Category.where(ancestry: nil)
   end
 
   def set_category
