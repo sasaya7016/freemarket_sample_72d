@@ -82,14 +82,7 @@ if (document.location.href.match(/\/items\/new/)){
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
           console.log(fileIndex.push(fileIndex[fileIndex.length - 1] + 1));
         }
-        //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
-        imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild);
-        //console.log(imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild));
-        this.style.display = 'none';
-        fileIndex.shift();
-        fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-        console.log(fileIndex.push(fileIndex[fileIndex.length - 1] + 1));
-      }
+    //}
     });
     
     //削除ボタンの設定
