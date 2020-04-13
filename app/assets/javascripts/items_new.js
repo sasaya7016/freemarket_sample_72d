@@ -75,6 +75,9 @@ if (document.location.href.match(/\/items\/new/)){
           this.style.display = 'none';
           //imageFile[i].style.display = 'none';
           }//この辺りの記述なんとかする
+          
+          //inputが多数生成される問題を解決する。
+          fileIndex.shift();
 
       if (img[0]){
         console.log('blobURLをimage属性へ')
