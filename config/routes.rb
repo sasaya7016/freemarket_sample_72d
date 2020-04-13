@@ -28,4 +28,10 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
+  resources :credit_cards
+  resources :categories do
+    collection do
+      get :get_toppage_category, defaults: { format: 'json' }
+    end
+  end
 end

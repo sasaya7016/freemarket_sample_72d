@@ -84,11 +84,11 @@ class ItemsController < ApplicationController
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
   end
-
+  
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
+  
   def get_item_size
     selected_grandchild = Category.find("#{params[:grandchild_id]}")
     if related_size_parent = selected_grandchild.item_sizes[0]
@@ -96,9 +96,14 @@ class ItemsController < ApplicationController
     else
       selected_child = Category.find("#{params[:grandchild_id]}").parent
       if related_size_parent = selected_child.item_sizes[0]
-          @item_sizes = related_size_parent.children
+        @item_sizes = related_size_parent.children
       end
     end
+  end
+
+  def category_index
+    @items = Item.all
+    @parents = Category.where(ancestry: nil)
   end
 
   private
@@ -109,7 +114,6 @@ class ItemsController < ApplicationController
     columns = Item.column_symbolized_names(reject)
     params.require(:item).permit(*columns)
   end
-
 
   def set_item
     @item = Item.find(params[:id])
