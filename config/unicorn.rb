@@ -1,11 +1,15 @@
-app_path = File.expand_path('../../../', __FILE__)
-
+app_path = "/var/www/freemarket_sample_72d"
+# アプリケーションサーバーの性能設定
 worker_processes 1
-
+# アプリケーションの設置されているディレクトリ　→　なぜか今はfreemarket_sample_72d以下のcurrentに設置
 working_directory "#{app_path}/current"
+#Unicornの起動に必要なファイルの設置場所指定
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
+#unicornのポート設定
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
+#エラーログ記録
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
+#通常ログ記録
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
 timeout 60

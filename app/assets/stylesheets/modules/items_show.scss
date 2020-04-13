@@ -13,15 +13,17 @@
   &__name{
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 30px;
   }
   &__image{
     &__main{
-      width:500px;
+      width:100%;
       height:400px;
       margin:0 auto;
     }
     &__sub{
+      margin-top: 20px;
       width:140px;
       height:140px;
     }
@@ -161,7 +163,7 @@
     }
     button{
       line-height: 48px;
-    background: #3CCACE;
+      background: #3CCACE;
     border: 1px solid #3CCACE;
     color: #fff;
     width: 60%;
@@ -185,8 +187,8 @@
     }
     a{
       text-decoration: none;
-    color: #3CCACE;
-    font-size: 16px;
+      color: #3CCACE;
+      font-size: 16px;
     }
   }
   .detail-category{
@@ -201,5 +203,30 @@
   }
 
   .slick-slide{
-    margin-right:16px;
-  }
+    position: relative;
+    padding-left: 80px;
+    padding-right:80px;
+    .items-box_photo__sold{
+      width: 0;
+      height: 0;
+      border-width: 120px 120px 0 0;
+      border-color: #ea352d transparent transparent transparent;
+      display: block;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      border-style: solid;
+      &__inner{
+        top: -90px;
+        font-size: 30px;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        color: #fff;
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+    }
+    
+}

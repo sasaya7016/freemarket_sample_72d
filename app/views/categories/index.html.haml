@@ -1,0 +1,17 @@
+= render 'items/header'
+.categories
+  .categories__box
+    .categories__box--parents
+      %h1 カテゴリー一覧
+      .parent
+        -@category.each do |parent|
+          =link_to parent.name, category_path(parent.id), class: "parent-btn", id: "#{parent.id}" 
+      .children
+        -@category.each do |parent|
+          %h1= parent.name
+          -parent.children.each do |child|
+            %h3= link_to child.name, category_path(parent.id), class: "children-category", id: "#{child.id}" 
+            .grandchildren-categories
+              -child.children.each do |grandchild|
+                %p=link_to "・#{grandchild.name}", category_path(grandchild.id), class: "grandchildren-category", id: "#{grandchild.id}"
+= render 'items/footer'

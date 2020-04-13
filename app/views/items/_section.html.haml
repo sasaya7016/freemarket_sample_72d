@@ -96,18 +96,19 @@
     %h3 新規投稿商品
   .pickup-category__product
     .pickup-category__product__main
-      -@items.last(3).reverse.each do |item|
-        .pickup-category__product__main__list
-          .pickup-category__product__main__list__img
-            =link_to image_tag("product3.png",class:"product-img"),""
-          .pickup-category__product__main__list__text
-            %p.name=item.name 
-            .pickup-category__product__main__list__text__details
-              .ul
-                .li=(item.price * 1.1).floor
-                .li 
-                  .icon ★ 0
-              %p (税込)
+      - @items.last(3).reverse.each do |item|
+        = link_to item_path(item.id) do
+          .pickup-category__product__main__list
+            .pickup-category__product__main__list__img
+              = image_tag "product3.png", class:"product-img"
+            .pickup-category__product__main__list__text
+              %p.name=item.name 
+              .pickup-category__product__main__list__text__details
+                .ul
+                  .li=(item.price * 1.1).floor
+                  .li 
+                    .icon ★ 0
+                %p (税込)
 
 .section.pickup-bland
   .pickup-bland__message
@@ -116,14 +117,15 @@
   .pickup-bland__product
     .pickup-bland__product__main
       -@pickup_items.last(3).reverse.each do |pickup_item|
-        .pickup-bland__product__main__list
-          .pickup-bland__product__main__list__img
-            = link_to image_tag("product3.png",class:"product-img"),""
-          .pickup-bland__product__main__list__text
-            %p.name=pickup_item.name
-            .pickup-bland__product__main__list__text__details
-              .ul
-                .li=(pickup_item.price * 1.1).floor
-                .li 
-                  .icon ★ 0
-              %p (税込)
+        = link_to item_path(pickup_item.id) do
+          .pickup-bland__product__main__list
+            .pickup-bland__product__main__list__img
+              = image_tag "product3.png", class:"product-img"
+            .pickup-bland__product__main__list__text
+              %p.name=pickup_item.name
+              .pickup-bland__product__main__list__text__details
+                .ul
+                  .li=(pickup_item.price * 1.1).floor
+                  .li 
+                    .icon ★ 0
+                %p (税込)
