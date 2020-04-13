@@ -1,0 +1,75 @@
+.wrapper
+  = render "items/header"
+
+//-----カテゴリーナビ-----
+.nav-category
+  .ul.nav-category__lists
+    .li.nav-category__lists__list
+      %span.select
+        = link_to "メルカリ",""
+        >
+    .li
+      %span.select
+        = link_to "カテゴリー一覧",""
+        >
+    .li
+      %span.select
+        = link_to "レディース",""
+        >
+    .li
+      %span.select
+        = link_to "トップス",""
+        >
+  =link_to "トップに戻る", root_path
+   
+
+//-----バナー-----
+.banner
+  .banner__sample banner
+   
+//-----メイン-----
+.main-category
+  .container
+    //-----他の商品リスト-----
+    %ul.container__lists
+      -if @category.children.present?
+        -@category.children.each do |child|
+          %li.container__lists__list
+            %span.list= link_to child.name, category_path(child.id)
+    
+    //-----商品のタイトルとリスト-----
+    .container__title
+      %h1.text= "#{@category.name}の商品一覧"
+    .container__table
+      %ul.item
+        - @items.each do |item|
+          - if item.buyer_id.nil?
+            = link_to item_path(item.id) do
+              %li.item__list
+                .item__list__img-box
+                  =image_tag "category/close1.jpg", class:"close1.jpg"
+                  .item__list__img-box__price
+                    %span= "¥#{item.price}"
+                .item__list__text-box
+                  = "#{item.brand}"
+                  %br
+                  = "#{item.name}"
+                  .item__list__text-box__like
+                    = link_to "" do
+                      = icon('far', 'fa-heart', class: 'fa-heart')          
+                    .item__list__text-box__like__icon
+                    %span 2
+    //-----ページボタン-----   
+    .pager
+      .page-btn
+        = paginate @items,window:2
+    //-----解説----- 
+    .description
+      .description__text
+        .description__text__title
+          %span.h3= @category.name
+      .description__write
+        %p メルカリなら、ボーダーやタンクトップなどの袖なしカットソーや豊富なサイズのトップス、ノースリーブやパーカー、ポロシャツやモデル着用のプリントTやショートTなどの半袖Tシャツの古着や中古未使用アイテムが見つかるかも！？
+
+.footer
+  =render"items/footer"

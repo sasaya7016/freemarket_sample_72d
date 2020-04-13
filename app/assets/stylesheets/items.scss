@@ -7,8 +7,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/items_buy";
-@import "modules/category_index";
-
+@import "modules/flash";
 
 html,body,ul {
   margin: 0;
@@ -17,12 +16,19 @@ html,body,ul {
   left: 0;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 
 // @import "config/colors";  後ほど作成→仮置き
 $font_color_white: white;
 $font_color_black: black;
 $font_color_oceanblue:#3CCACE;
 $background-color_section:#eeeeee;
+
+
 
 
 
@@ -314,6 +320,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{
@@ -366,6 +376,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{

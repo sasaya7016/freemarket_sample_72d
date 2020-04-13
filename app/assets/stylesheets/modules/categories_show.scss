@@ -45,7 +45,7 @@
         float:left;
         a {
           font-size: 14px;
-          color:#4689FF;
+          color: #4689FF;
           text-decoration: none;
         }
         a:hover {
@@ -113,6 +113,10 @@
             line-height: 1.5;
             word-break: break-word;
             white-space: normal;
+            a {
+              text-decoration: none;
+              color: black;
+            }
             &__like { 
               position: absolute;
               right: 3px;
@@ -144,89 +148,121 @@
       
     //-----ページボタン-----  
     .pager{
+    clear: left;
       width: 100%;
-      a {
-        text-decoration: none;
-        color: black;
-      }
-      .page-btn {
-        width: 100%;
-        display: flex;
-        padding: 50px 0 30px 0;
-        &__left {
-          right: 0;
-          text-align: center;
-          &__list {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            :hover {
-              background-color: gray;
-            }
-            &__next-btn {
-              // display: inline-block;
-              width: 44px;
-              height: 44px;
-              border-radius: 4px;
-              background: #fff;
-              border: 1px solid #ccc;
-              font-size: 14px;
-              line-height: 42px;
-            }
-          }
+        a {
+          text-decoration: none;
+          color: black;
         }
-
-        &__center {
-          max-width: 300px;
+      .page-btn{
+        .pagenation{
+          margin: 40px 0 30px;
           text-align: center;
+          position: relative;
+          &__numbers{
+          max-width: 220px;
           margin: 0 auto;
-         
-          &__list{
-            width: 240px;
-            height: 50px;
-            overflow: hidden;
-            word-break: break-word;
-            white-space: nowrap;
-            :hover {
-              background-color: gray;
-            }
-            &__num-btn {
-              margin: 0;
-              padding: 0;
-              display: inline-block;
-              width: 44px;
-              height: 44px;
-              border-radius: 4px;
-              background: #fff;
-              border: 1px solid #ccc;
-              font-size: 14px;
-              line-height: 42px;
+            &__box{
+              display: flex;
+              justify-content: center;
+              &__cell{
+                display: inline-block;
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                line-height: 46px;
+                :hover{
+                  background-color: #ddd;
+                }
+                a{
+                  display: block;
+                }
+              }
+              .now{
+                background: #ea352d;
+                :hover{
+                  background-color: #ea352d;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 4px;
+                }
+                a{
+                  color: white;
+                }
+              }
             }
           }
-        }
-        &__right {
-          right: 0;
-          text-align: center;
-          &__list {
-            width: 100%;
-            display: flex;
-            :hover {
-              background-color: gray;
+          &__leftarrows{
+            position: absolute;
+            left: 0;
+            top: 0;
+            &__box{
+              display: flex;
+              &__cell{
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                line-height: 46px;
+                :hover{
+                  background-color: #ddd;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 4px;
+                }
+                i{
+                  font-size: 24px;
+                  line-height: 46px;
+                  a{
+                    display: block;
+                  }
+                }
+              }
             }
-            &__next-btn {
-              // display: inline-block;
-              width: 44px;
-              height: 44px;
-              border-radius: 4px;
-              background: #fff;
-              border: 1px solid #ccc;
-              font-size: 14px;
-              line-height: 42px;
+          }
+          &__rightarrows{
+            position: absolute;
+            top: 0;
+            right: 0;
+            &__box{
+              display: flex;
+              &__cell{
+                width: 44px;
+                height: 44px;
+                border-radius: 4px;
+                background: #fff;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                line-height: 42px;
+                :hover{
+                  background-color: #ddd;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 4px;
+                }
+                a{
+                  display: block;
+                  i{
+                    font-size: 24px;
+                    line-height: 46px;
+                  }
+                }
+              }
             }
           }
         }
       }
     }
+
+
+
+
+        
 
     //-----解説----- 
     .description {
@@ -259,8 +295,6 @@
     }  
   }
 }
-
-
 
 
 
