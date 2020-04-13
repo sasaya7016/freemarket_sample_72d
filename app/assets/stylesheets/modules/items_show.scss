@@ -189,3 +189,7 @@
   .slick-slide{
     margin-right:16px;
   }
+  .slick-initialized .slick-slide{
+    display: flex;
+    justify-content: center;
+  }
