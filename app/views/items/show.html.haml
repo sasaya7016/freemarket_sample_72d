@@ -23,18 +23,18 @@
         %th
           出品者
         %td
-          =@item.exhibitor.name
+          -# =@item.exhibitor.name
       %tr
         %th カテゴリー
         %td
           =link_to do
-            %span= @item.category.parent.parent.name
+            -# %span= @item.category.parent.parent.name
           %br/
           =link_to do
-            %span= @item.category.parent.name
+            -# %span= @item.category.parent.name
           %br/
           =link_to do
-            %span= @item.category.name
+            -# %span= @item.category.name
       %tr
         %th ブランド
         %td
@@ -75,15 +75,30 @@
       .detail-product__link__buy
         =link_to "商品を購入する", buy_item_path(@item.id)
   .detail-comment-box
-    %form
-      %textarea{cols:40, rows:4}
-      .detail-comment-box__alert
-        相手のことを考え適切なコメントを心がけましょう。
-        %br>/
-        不快な言葉遣胃などは利用制限や退会処分となることがあります。
-      %button{type:"submit", value:"コメントする"}
-        %i.fa.fa-comment
-        コメントする
+    ＜コメント一覧＞
+    -@comments.each do |comment|
+      .detail-comment-box__inner
+        .detail-comment-box__inner__name
+          - if comment.user_id == comment.item.exhibitor_id
+            出品者:
+          - else 
+            ="#{comment.user.nickname}: "
+        .detail-comment-box__inner__text
+          = comment.message
+    = form_with model: [@item, @comment], local: true do |f|
+      = f.text_area :message, placeholder: "コメントする", rows: "2" , cols:"40"
+      - if user_signed_in?
+        %button{type:"submit"}
+          %i.fa.fa-comment
+          コメントする
+      - else 
+        .detail-comment-box__login
+          コメントにはログインが必要です
+    .detail-comment-box__alert
+      相手のことを考え適切なコメントを心がけましょう。
+      %br>/
+      不快な言葉遣胃などは利用制限や退会処分となることがあります。
+      コメントする
   .detail-links
     -if @item.previous
       .detail-links__before
