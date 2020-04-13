@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user! ,only: [:buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
-
+  before_action :set_category
   
   require "payjp"
 
@@ -39,14 +39,10 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     has_brand_items = Item.where.not(brand: nil)
-    #@pickup_brand = has_brand_items.sample.brand
+    if has_brand_items.sample != nil
+      @pickup_brand = has_brand_items.sample.brand
+    end
     @pickup_items = Item.where(brand: @pickup_brand)
-    @parents = Category.where(ancestry: nil)
-  end
-
-  def category_index
-    @items = Item.all.order(created_at: :desc).page(params[:page]).per(2)
-    # @items = Item.page(params[:page]).per(1)
   end
   
   def show
@@ -78,7 +74,6 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @parents = Category.where(ancestry: nil)
   end
   
   def get_category_children
@@ -99,6 +94,10 @@ class ItemsController < ApplicationController
         @item_sizes = related_size_parent.children
       end
     end
+  end
+
+  def set_category
+    @parents = Category.where(ancestry: nil)
   end
 
   private
