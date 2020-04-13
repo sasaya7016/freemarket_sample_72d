@@ -53,7 +53,6 @@ if (document.location.href.match(/\/items\/new/)){
       //console.log(file);
       //console.log(window.URL.createObjectURL(file));
       const blobURL = window.URL.createObjectURL(file);
-      let imageFile = document.getElementsByClassName('img-file')
       let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
       let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
       
@@ -83,7 +82,7 @@ if (document.location.href.match(/\/items\/new/)){
           //imageFile[i].style.display = 'none';
           }//この辺りの記述なんとかする
           
-          //inputが多数生成される問題を解決する。
+          
           fileIndex.shift();
 
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
