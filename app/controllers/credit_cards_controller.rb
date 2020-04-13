@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :delete, :pay]
-  before_action :set_card, only: [:show, :delete, :new]
+  before_action :set_card, only: [:new, :delete, :show]
   require "payjp"
 
   def new
@@ -45,6 +45,8 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+    @exp_month = @default_card_information.exp_month.to_s
+    @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
   end
 
   private

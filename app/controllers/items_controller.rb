@@ -4,17 +4,18 @@ class ItemsController < ApplicationController
   before_action :not_buy, only: [:buy]
   before_action :authenticate_user! ,only: [:buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
+  before_action :sold_out, only: [:buy, :pay]
 
   
   require "payjp"
 
   def buy #クレジット購入
-      @image = ItemImage.where(item_id: @item.id).first
-      if @card.present?
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @default_card_information = customer.cards.retrieve(@card.card_id)
-      end
+    @image = ItemImage.where(item_id: @item.id).first
+    if @card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def pay
@@ -28,16 +29,13 @@ class ItemsController < ApplicationController
       currency: 'jpy',
       )
     end
-    
-    if @item.update(buyer_id: current_user.id)
-      redirect_to done_item_path(@item.id) 
-    else
-      redirect_to item_path(@item.id)
+      if @item.update( buyer_id: current_user.id)
+        redirect_to root_path , notice: '購入完了しました'
+      else
+        redirect_to item_path(@item.id), alert: "購入に失敗しました"
+      end
     end
-  end
 
-  def done
-  end
   def index
     @items = Item.all
     has_brand_items = Item.where.not(brand: nil)
@@ -53,7 +51,9 @@ class ItemsController < ApplicationController
   
   def show
     @user = User.where(id: @item.exhibitor_id).first
-    @address = Address.where(id: @user.id).first
+    @image = ItemImage.where(item_id: @item.id).first
+
+    # @address = Address.where(id: @user.id).first
     @parent = @item.category
   end
   
@@ -138,6 +138,13 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first
+  end
+
+  def sold_out
+    @item = Item.find(params[:id])
+    if @item.buyer_id.present?
+      redirect_to root_path
+    end
   end
 
 end
