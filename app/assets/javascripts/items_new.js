@@ -79,14 +79,6 @@ if (document.location.href.match(/\/items\/new/)){
           //inputが多数生成される問題を解決する。
           fileIndex.shift();
 
-      if (img[0]){
-        console.log('blobURLをimage属性へ')
-        this.parentNode.setAttribute('image',blobURL);
-      }else{
-        
-        for( i = 0; i < imageBoxPreviews.length; i++){
-        imageBoxPreviews[i].parentNode.appendChild(buildImg(targetIndex, blobURL));
-        console.log(imageBoxPreviews[i].parentNode);
         }
         //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
         imageBoxUploaderLabelParent.insertBefore(buildFileField(fileIndex[0]),imageBoxUploaderLabelParent.firstElementChild);
