@@ -1,0 +1,102 @@
+.wrapper
+  = render "items/header"
+
+//-----カテゴリーナビ-----
+.nav-category
+  .ul.nav-category__lists
+    .li.nav-category__lists__list
+      %span.select
+        = link_to "メルカリ",""
+        >
+    .li
+      %span.select
+        = link_to "カテゴリー一覧",""
+        >
+    .li
+      %span.select
+        = link_to "レディース",""
+        >
+    .li
+      %span.select
+        = link_to "トップス",""
+        >
+   
+
+//-----バナー-----
+.banner
+  .banner__sample
+    banner
+   
+//-----メイン-----
+.main-category
+  .container
+    //-----他の商品リスト-----
+    %ul.container__lists
+      -if @category.children.present?
+        -@category.children.each do |child|
+          %li.container__lists__list
+            %span.list= link_to child.name, category_path(child.id)
+    
+    //-----商品のタイトルとリスト-----
+    .container__title
+      %h1.text= "#{@category.name}の商品一覧"
+    .container__table
+      %ul.item
+        - @items.each do |item|
+          - if item.buyer_id.nil?
+            %li.item__list
+              .item__list__img-box
+                =link_to image_tag("category/close1.jpg",class:"close1.jpg"),""
+                .item__list__img-box__price
+                  %span= "¥#{item.price}"
+              .item__list__text-box
+                ="#{item.brand} #{item.name}"
+                .item__list__text-box__like
+                  = link_to "" do
+                    = icon('far', 'fa-heart', class: 'fa-heart')          
+                  .item__list__text-box__like__icon
+                    %span 2
+    //-----ページボタン-----   
+    .pager
+      %ul.page-btn
+        %li.page-btn__left
+          %ul.page-btn__left__list
+            %li.page-btn__left__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-step-backward', class: 'fa-step-backward')  
+            %li.page-btn__left__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-fast-backward', class: 'fa-fast-backward')  
+
+        %li.page-btn__center
+          %ul.page-btn__center__list
+            %li.page-btn__center__list__num-btn
+              = link_to "1"
+            %li.page-btn__center__list__num-btn
+              = link_to "2"
+            %li.page-btn__center__list__num-btn
+              = link_to "3"
+            %li.page-btn__center__list__num-btn
+              = link_to "4"
+            %li.page-btn__center__list__num-btn
+              = link_to "5"            
+        %li.page-btn__right
+          %ul.page-btn__right__list
+            %li.page-btn__right__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-angle-right', class: 'fa-angle-right')  
+            %li.page-btn__right__list__next-btn
+              = link_to "" do
+                = icon('fas', 'fa-fast-forward', class: 'fa-fast-forward')  
+
+
+    //-----解説----- 
+    .description
+      .description__text
+        .description__text__title
+          %span.h3= @category.name
+      .description__write
+        %p メルカリなら、ボーダーやタンクトップなどの袖なしカットソーや豊富なサイズのトップス、ノースリーブやパーカー、ポロシャツやモデル着用のプリントTやショートTなどの半袖Tシャツの古着や中古未使用アイテムが見つかるかも！？
+
+.footer
+  =render"items/footer"

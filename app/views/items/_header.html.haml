@@ -14,32 +14,14 @@
       %li.header__nav__list__left
         %ul.header__nav__list__left__serect
           %li.header__nav__list__left__serect__category
-            = link_to "#",class:"" do
-              = "カテゴリー"
+            = link_to "カテゴリー", categories_path, class: "category-index"
             .category-list
               %ul.category-pearent
-                -# - @parents.each do |parent|
+                - @parents.each do |parent|
                   %li.category-pearent__btn
-                    -# = link_to "#{parent.name}", "#",class: "item-link" 
-                    %ul.category-child
-                      -# - @children.each do |child|
-                        -# = "#{child.name}"
-                        %li.category-child__btn
-                          -# = link_to "#{child.name}", "#",class: "item-link" 
-                       
-                      -#   %ul.category-grandchild
-                      -#     %li.category-grandchild__btn 
-                      -#       = link_to "Tシャツ", "#", class: "item-link" 
-                      -#     %li.category-grandchild__btn
-                      -#       = link_to "Pシャツ", "#", class: "item-link" 
-                      -# %li.category-child__btn
-                      -#   = link_to "トップス", "#", class: "item-link" 
-                      -#   %ul.category-grandchild
-                      -#     %li.category-grandchild__btn 
-                      -#       = link_to "Fシャツ", "#", class: "item-link" 
-                      -#     %li.category-grandchild__btn
-                      -#       = link_to "Hシャツ", "#", class: "item-link" 
-
+                  = link_to "#{parent.name}", category_path(parent.id), class: "parent-list item-link", id: "#{parent.id}"
+              .children_list
+              .grandchildren_list
           %li.header__nav__list__left__serect__category
             = link_to "ブランド","#"
             .category-list

@@ -60,29 +60,25 @@
       %li.container__lists__list
         %span.list
           = link_to "バッグ",""
-      
+    
     //-----商品のタイトルとリスト-----
     .container__title
       %h1.text Tシャツ/カットソー(半袖/袖なし)の商品一覧
     .container__table
-      -@items.each do |item|
-        %ul.item
+      %ul.item
+        - @items.each do |item|
           %li.item__list
             .item__list__img-box
               =link_to image_tag("category/close1.jpg",class:"close1.jpg"),""
               .item__list__img-box__price
-                %span 
-                  = item.price
+                %span= "¥#{item.price}"
             .item__list__text-box
-              = item.name
+              ="#{item.brand} #{item.name}"
               .item__list__text-box__like
                 = link_to "" do
                   = icon('far', 'fa-heart', class: 'fa-heart')          
                 .item__list__text-box__like__icon
                   %span 2
-                  
-
-
     //-----ページボタン-----   
     .pager
       .page-btn
