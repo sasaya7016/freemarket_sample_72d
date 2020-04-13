@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get :get_category_grandchildren, defaults: { format: 'json' }
       get :get_item_size, defaults: { format: 'json' }
       get :category_index
+      get :search
     end
   end
   resources :credit_cards, only: [:new,:show] do

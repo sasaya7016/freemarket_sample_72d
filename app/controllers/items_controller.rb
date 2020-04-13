@@ -95,6 +95,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
+  end
+
   private
 
   def item_params
