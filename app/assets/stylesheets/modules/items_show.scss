@@ -188,10 +188,16 @@
     &__inner{
       display: flex;
       margin-top:10px;
+      &__name{
+        color:gray;
+      }
       &__text{
         margin-left: 15px;
         word-break: break-all;
       }
+    }
+    textarea{
+      margin-top:10px;
     }
   }
   .detail-links{
