@@ -7,7 +7,7 @@ if (document.location.href.match(/\/items\/new/)){
       <div data-index="${index}" class="exhibit__image-box__previews__preview">
         <div class="exhibit__image-box__previews__preview__image">
           <img class="image${index} input__images" data-index="${index}" src="${url}" width="120px" height="120px">
-          <div class="exhibit__image-box__previews__preview__delete image-remove-btn">
+          <div class="exhibit__image-box__previews__preview__delete img-remove">
             削除
           <div>
         <div>
@@ -30,6 +30,13 @@ if (document.location.href.match(/\/items\/new/)){
     //console.log(imageFileGroup[imageFileGroup.length - 1]);
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
     fileIndex.splice(0,lastIndex);
+
+    
+    let hiddenDestroy = document.getElementsByClassName('hidden-destroy');
+    for( i = 0; i < hiddenDestroy.length; i++){
+      hiddenDestroy[i].style.display = 'none';
+    }
+
     //console.log(lastIndex);
     //console.log(fileIndex);
     //console.log(fileIndex.splice(0,lastIndex));
