@@ -21,8 +21,11 @@
           justify-content: left;
           flex-wrap: wrap;
           &__preview{
+            width: 120px;
             &__delete{
-              width: 50px;
+              width: 120px;
+              text-align: center;
+              cursor: pointer;
             }
             &__image{
               width: calc(100% / 5);
@@ -41,7 +44,7 @@
             text-align: center;
             .img-file_group{
               .secret-image {
-              display: none;
+                display: none;
               }
             }
           }
