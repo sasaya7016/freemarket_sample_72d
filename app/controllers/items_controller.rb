@@ -45,8 +45,8 @@ class ItemsController < ApplicationController
   end
 
   def category_index
-    @items = Item.all.order(created_at: :desc)
-    @items = Item.page(params[:page]).per(1)
+    @items = Item.all.order(created_at: :desc).page(params[:page]).per(2)
+    # @items = Item.page(params[:page]).per(1)
   end
   
   def show
@@ -99,11 +99,6 @@ class ItemsController < ApplicationController
         @item_sizes = related_size_parent.children
       end
     end
-  end
-
-  def category_index
-    @items = Item.all
-    @parents = Category.where(ancestry: nil)
   end
 
   private

@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @items = Item.where(category_id: @category).or(Item.where(category_id: @category.children)).or(Item.where(category_id: @category.indirects))
+    @items = Item.where(category_id: @category).or(Item.where(category_id: @category.children)).or(Item.where(category_id: @category.indirects)).order(created_at: :desc).page(params[:page]).per(25)
     @parents = Category.where(ancestry: nil)
   end
 

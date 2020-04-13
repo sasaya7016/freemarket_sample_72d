@@ -56,6 +56,10 @@
                     = icon('far', 'fa-heart', class: 'fa-heart')          
                   .item__list__text-box__like__icon
                     %span 2
+    //-----ページボタン-----   
+    .pager
+      .page-btn
+        = paginate @items,window:2
     //-----解説----- 
     .description
       .description__text
