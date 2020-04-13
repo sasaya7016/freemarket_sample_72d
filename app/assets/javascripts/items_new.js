@@ -86,7 +86,9 @@ if (document.location.href.match(/\/items\/new/)){
     });
     
     //削除ボタンの設定
-
+    delegateEvent(document ,'click' ,'.' , function(){
+      
+    });
     //画像のinsert
   });
 
