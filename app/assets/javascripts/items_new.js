@@ -57,6 +57,11 @@ if (document.location.href.match(/\/items\/new/)){
         //var img = `img[data-index="${targetIndex}"]`
         console.log($(`img[data-index="${targetIndex}"]`));
         console.log(img);
+        if (img[0]){
+          console.log('blobURLをimage属性へ')
+          this.parentNode.setAttribute('image',blobURL);
+        }else{
+          console.log(imageBoxPreviews);
 
       if (img[0]){
         console.log('blobURLをimage属性へ')
