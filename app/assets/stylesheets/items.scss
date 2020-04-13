@@ -318,6 +318,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{
@@ -370,6 +374,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{
