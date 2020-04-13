@@ -20,12 +20,12 @@
       %span.select
         = link_to "トップス",""
         >
+  =link_to "トップに戻る", root_path
    
 
 //-----バナー-----
 .banner
-  .banner__sample
-    banner
+  .banner__sample banner
    
 //-----メイン-----
 .main-category
@@ -44,17 +44,18 @@
       %ul.item
         - @items.each do |item|
           - if item.buyer_id.nil?
-            %li.item__list
-              .item__list__img-box
-                =link_to image_tag("category/close1.jpg",class:"close1.jpg"),""
-                .item__list__img-box__price
-                  %span= "¥#{item.price}"
-              .item__list__text-box
-                ="#{item.brand} #{item.name}"
-                .item__list__text-box__like
-                  = link_to "" do
-                    = icon('far', 'fa-heart', class: 'fa-heart')          
-                  .item__list__text-box__like__icon
+            = link_to item_path(item.id) do
+              %li.item__list
+                .item__list__img-box
+                  =image_tag "category/close1.jpg", class:"close1.jpg"
+                  .item__list__img-box__price
+                    %span= "¥#{item.price}"
+                .item__list__text-box
+                  = "#{item.brand} #{item.name}"
+                  .item__list__text-box__like
+                    = link_to "" do
+                      = icon('far', 'fa-heart', class: 'fa-heart')          
+                    .item__list__text-box__like__icon
                     %span 2
     //-----ページボタン-----   
     .pager
