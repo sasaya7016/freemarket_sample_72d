@@ -1,4 +1,4 @@
-if (document.location.href.match(/\/items\/new/)){
+if (document.location.href.match(/\/items\/new/) || document.location.href.match(/\/items\/\d+\/edit/)){
   document.addEventListener('DOMContentLoaded',()=>{
     //preview生成
       //削除ボタン生成
@@ -30,7 +30,6 @@ if (document.location.href.match(/\/items\/new/)){
     //console.log(imageFileGroup[imageFileGroup.length - 1]);
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
     fileIndex.splice(0,lastIndex);
-
     
     let hiddenDestroy = document.getElementsByClassName('hidden-destroy');
     for( i = 0; i < hiddenDestroy.length; i++){
@@ -40,7 +39,6 @@ if (document.location.href.match(/\/items\/new/)){
     //console.log(lastIndex);
     //console.log(fileIndex);
     //console.log(fileIndex.splice(0,lastIndex));
-
 
     delegateEvent(document,'change','.img-file',function(e) {
       //let imageFileGroup = document.getElementsByClassName('img-file_group');
@@ -103,7 +101,6 @@ if (document.location.href.match(/\/items\/new/)){
       for(let i=0; i < divDataIndex.length; i++){
         divDataIndex[i].remove();
       };
-      
       let imageFile = document.getElementsByClassName('img-file');
       if (imageFile.length == 0) {
         for(let i = 0; i < imageBoxUploaderLabel.length; i++){
@@ -111,8 +108,9 @@ if (document.location.href.match(/\/items\/new/)){
         };
       }
     });
+    //画像のドロップエリア
 
-    //画像のinsert
+
   });
 
 
