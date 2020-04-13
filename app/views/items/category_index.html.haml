@@ -81,37 +81,9 @@
                   %span 2
     //-----ページボタン-----   
     .pager
-      %ul.page-btn
-        %li.page-btn__left
-          %ul.page-btn__left__list
-            %li.page-btn__left__list__next-btn
-              = link_to "" do
-                = icon('fas', 'fa-step-backward', class: 'fa-step-backward')  
-            %li.page-btn__left__list__next-btn
-              = link_to "" do
-                = icon('fas', 'fa-fast-backward', class: 'fa-fast-backward')  
-
-        %li.page-btn__center
-          %ul.page-btn__center__list
-            %li.page-btn__center__list__num-btn
-              = link_to "1"
-            %li.page-btn__center__list__num-btn
-              = link_to "2"
-            %li.page-btn__center__list__num-btn
-              = link_to "3"
-            %li.page-btn__center__list__num-btn
-              = link_to "4"
-            %li.page-btn__center__list__num-btn
-              = link_to "5"            
-        %li.page-btn__right
-          %ul.page-btn__right__list
-            %li.page-btn__right__list__next-btn
-              = link_to "" do
-                = icon('fas', 'fa-angle-right', class: 'fa-angle-right')  
-            %li.page-btn__right__list__next-btn
-              = link_to "" do
-                = icon('fas', 'fa-fast-forward', class: 'fa-fast-forward')  
-
+      .page-btn
+        = paginate @items,window:2
+              
 
     //-----解説----- 
     .description
