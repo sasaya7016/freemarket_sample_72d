@@ -46,9 +46,10 @@ if (document.location.href.match(/\/items\/new/)){
       //console.log(file);
       //console.log(window.URL.createObjectURL(file));
       const blobURL = window.URL.createObjectURL(file);
-      
+      let imageFile = document.getElementsByClassName('img-file')
       let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
       let imageBoxUploaderLabelParent = document.getElementsByClassName('exhibit-image-box__uploader__label').parentNode;
+      let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
       
       //indexの値を見てimgにindexがあれば取得
 
