@@ -48,15 +48,9 @@ if (document.location.href.match(/\/items\/new/)){
       const blobURL = window.URL.createObjectURL(file);
       let imageFile = document.getElementsByClassName('img-file')
       let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
-      let imageBoxUploaderLabelParent = document.getElementsByClassName('exhibit-image-box__uploader__label').parentNode;
       let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
       
-      //indexの値を見てimgにindexがあれば取得
 
-      var img = imageFileGroup[0].querySelectorAll(`img[data-index="${targetIndex}"]`);
-      //var img = `img[data-index="${targetIndex}"]`
-      console.log($(`img[data-index="${targetIndex}"]`));
-      console.log(img);
 
       if (img[0]){
         console.log('blobURLをimage属性へ')
