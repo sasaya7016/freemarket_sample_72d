@@ -1,7 +1,7 @@
 .listing-contents
   .listing
     .listing__box
-      =form_with model: [@item] do |f|
+      =form_with model: [@item],data: { remote: false } do |f|
         .listing__box--title
           %p 出品画像
           %p.equired 必須
