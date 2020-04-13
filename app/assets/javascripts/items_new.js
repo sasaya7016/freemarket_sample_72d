@@ -51,6 +51,12 @@ if (document.location.href.match(/\/items\/new/)){
       let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
       
 
+      //indexの値を見てimgにindexがあれば取得
+      //for(let i = 0; i < imageFileGroup.length; i++){
+        let img = imageFileGroup[0].querySelectorAll(`img[data-index="${targetIndex}"]`);
+        //var img = `img[data-index="${targetIndex}"]`
+        console.log($(`img[data-index="${targetIndex}"]`));
+        console.log(img);
 
       if (img[0]){
         console.log('blobURLをimage属性へ')
