@@ -92,9 +92,26 @@ if (document.location.href.match(/\/items\/new/)){
     });
     
     //削除ボタンの設定
-    delegateEvent(document ,'click' ,'.' , function(){
+    delegateEvent(document ,'click' ,'.img-remove' , function(e){
+      const targetIndex = this.previousElementSibling.dataset.index;
+      console.log(targetIndex);
+      const hiddenCheck = document.querySelectorAll(`input[data-index="${targetIndex}"].hidden-destroy`);
+      console.log(hiddenCheck);
+      if (hiddenCheck) hiddenCheck.checked = 'true';
+      this.parentNode.remove();
+      const divDataIndex = document.querySelectorAll(`div[data-index="${targetIndex}"]`);
+      for(let i=0; i < divDataIndex.length; i++){
+        divDataIndex[i].remove();
+      };
       
+      let imageFile = document.getElementsByClassName('img-file');
+      if (imageFile.length == 0) {
+        for(let i = 0; i < imageBoxUploaderLabel.length; i++){
+        imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend', buildFileField(fileIndex[i]));
+        };
+      }
     });
+
     //画像のinsert
   });
 
