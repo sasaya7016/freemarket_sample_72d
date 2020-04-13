@@ -87,7 +87,7 @@
           .detail-comment-box__inner__text
             = comment.message
     = form_with model: [@item, @comment],id:"new_comment", local: true do |f|
-      = f.text_area :message, placeholder: "コメントする", class:"textbox"
+      = f.text_area :message, placeholder: "40文字以内", class:"textbox",maxlength:"40"
       .detail-comment-box__alert
         相手のことを考え適切なコメントを心がけましょう。
         %br>/
