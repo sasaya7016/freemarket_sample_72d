@@ -96,6 +96,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
+  end
+
+  
   def set_category
     @parents = Category.where(ancestry: nil)
   end
@@ -123,7 +128,7 @@ class ItemsController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     elsif current_user.id!=@item.exhibitor_id
-        redirect_to root_path
+      redirect_to root_path
     end
   end
 

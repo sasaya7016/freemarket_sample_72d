@@ -35,23 +35,27 @@ $background-color_section:#eeeeee;
       width: 100%;
       &__form {
         display: flex;
-        textarea{
-          width: calc(100% - 40px);
-          height: 30px;
-          font-size: 15px;
-          line-height: 30px;
-          margin-bottom: 5px;
-          padding: 0 0 0 5px;
-        }
-        button {
-          width: 40px;
-          height: 32px;
-          background-color: $font_color_oceanblue;
-          color: $font_color_white;
-        }
-        .search-img {
-          height: 15px;
-          width: 15px;
+        width: 100%;
+        .form_box{
+          width: 900px;
+          .textarea{
+            width: calc(100% - 40px);
+            height: 30px;
+            font-size: 15px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            padding: 0 0 0 5px;
+          }
+          .btn {
+            width: 40px;
+            height: 32px;
+            background-color: $font_color_oceanblue;
+            color: $font_color_white;
+          }
+          .search-img {
+            height: 15px;
+            width: 15px;
+          }
         }
       }
     }
