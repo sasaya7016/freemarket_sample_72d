@@ -1,0 +1,17 @@
+ja:
+  views:
+    pagination: #fontawsamで対応
+      first: ""
+      last: ""
+      previous: ""
+      next: ""
+      truncate: "" #...空白にする
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: ""
+          one: ""
+          other: ""
+      more_pages:
+        display_entries: ""
