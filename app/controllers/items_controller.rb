@@ -22,10 +22,10 @@ class ItemsController < ApplicationController
         if @item.save
           redirect_to root_path
         else
-          redirect_to new_item_url, alert: '商品の出品に失敗しました'
+          redirect_to new_item_path, alert: '商品の出品に失敗しました'
         end
     else
-      redirect_to new_item_url, alert: 'ERROR'
+      redirect_to new_item_path, alert: 'ERROR'
     end
   end
   
@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.new
     @category = Category.where(ancestry: nil).order("id ASC").limit(13)
+    
   end
   
   def get_category_children
