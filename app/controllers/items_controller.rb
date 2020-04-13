@@ -39,9 +39,14 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     has_brand_items = Item.where.not(brand: nil)
-    @pickup_brand = has_brand_items.sample.brand
+    #@pickup_brand = has_brand_items.sample.brand
     @pickup_items = Item.where(brand: @pickup_brand)
     @parents = Category.where(ancestry: nil)
+  end
+
+  def category_index
+    @items = Item.all.order(created_at: :desc)
+    @items = Item.page(params[:page]).per(1)
   end
   
   def show
@@ -73,6 +78,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
+    @parents = Category.where(ancestry: nil)
   end
   
   def get_category_children
@@ -105,11 +111,6 @@ class ItemsController < ApplicationController
   end
 
 
-  
-  def category_index
-  end
-  
-  private
   def set_item
     @item = Item.find(params[:id])
   end
