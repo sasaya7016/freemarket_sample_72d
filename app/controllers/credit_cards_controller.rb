@@ -1,6 +1,7 @@
 class CreditCardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :delete, :pay]
   before_action :set_card, only: [:new, :delete, :show]
+  before_action :set_category
   require "payjp"
 
   def new
@@ -53,4 +54,9 @@ class CreditCardsController < ApplicationController
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first
   end
+
+  def set_category
+    @parents = Category.where(ancestry: nil)
+  end
+
 end
