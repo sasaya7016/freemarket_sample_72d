@@ -38,7 +38,7 @@ $(function () {
       .done(function (data) {
         var html = buildHTML(data);
         $('.detail-comment-box__wrap').append(html);
-        $('.textbox').val('');
+        $('#new_comment')[0].reset();
         $('.form__submit').prop('disabled', false);
       })
       .fail(function () {

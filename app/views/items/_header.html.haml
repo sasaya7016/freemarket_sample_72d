@@ -17,7 +17,7 @@
             = link_to "#",class:"" do
               = "カテゴリー"
             .category-list
-
+              %ul.category-pearent
                 - @parents.each do |parent|
                   %li.category-pearent__btn
                     = link_to "#{parent.name}", "#",class: "item-link" 
