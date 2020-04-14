@@ -208,9 +208,18 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBox.style.height = '360px';
           break;
 
+        case 10:
+          imageBoxPreviews.style.display = 'grid';
+          imageBoxPreviews.style.gridTemplateRows = 'repeat(2, 165px)';
+          imageBoxPreviews.style.gridTemplateColumns = 'repeat(5, 120px)';
+          imageBoxUploader.style.display = 'none';
+          imageBox.style.height = '360px';
+          break;
+      }
     };
   });
 
+//EventDelegation関数
   function matches(elm, selector) {
     let matches = (elm.document || elm.ownerDocument).querySelectorAll(selector),
     i = matches.length;
