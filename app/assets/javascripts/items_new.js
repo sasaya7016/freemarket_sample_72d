@@ -39,7 +39,9 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     //console.log(lastIndex);
     //console.log(fileIndex);
     //console.log(fileIndex.splice(0,lastIndex));
-
+    let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
+    let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
+      
     delegateEvent(document,'change','.img-file',function(e) {
       //let imageFileGroup = document.getElementsByClassName('img-file_group');
       //console.log(imageFileGroup[0]);
@@ -51,8 +53,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       //console.log(file);
       //console.log(window.URL.createObjectURL(file));
       const blobURL = window.URL.createObjectURL(file);
-      let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
-      let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
       
 
       //indexの値を見てimgにindexがあれば取得
