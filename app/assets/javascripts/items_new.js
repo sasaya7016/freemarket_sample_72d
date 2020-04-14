@@ -1,7 +1,8 @@
+//このJSファイルは'items/new'と'items/:id/edit'を対象とする。
 if (document.location.href.match(/\/items\/new/) || document.location.href.match(/\/items\/\d+\/edit/)){
   document.addEventListener('DOMContentLoaded',()=>{
-    //preview生成
-      //削除ボタン生成
+    //previewの生成
+    //削除ボタン生成
     const buildImg = (index ,url ) => {
       const html = `
       <div data-index="${index}" class="exhibit__image-box__previews__preview">
@@ -14,7 +15,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       <div>`;
       return html;
       }
-    //imageのinputを生成
+    //imageのinput要素を生成
     const buildFileField = (num) => {
       const html = `
       <div data-index="${num}" class="img-file_group">
@@ -42,37 +43,11 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       const file = e.target.files[0]; //画像ファイル自身
       const blobURL = window.URL.createObjectURL(file);
       
-      //indexの値を見てimgにindexがあれば取得
-      //for(let i = 0; i < imageFileGroup.length; i++){
-        //let img = imageFileGroup[i].querySelectorAll(`img[data-index="${targetIndex}"]`);
-        //console.log(img)
-        //var img = `img[data-index="${targetIndex}"]`
-        //console.log($(`img[data-index="${targetIndex}"]`));
-        //console.log(img[0]);
-        //if (img[0]){
-          //console.log('blobURLをimage属性へ')
-          //this.parentNode.setAttribute('image',blobURL);
-        //}else{
-          console.log(imageBoxPreviews);
-          console.log(fileIndex);
-          //for(let i = 0; i < imageBoxPreviews.length; i++){
-          imageBoxPreviews.insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
-          //}
-          //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
-          //for(let i = 0; i < imageBoxUploaderLabel.length; i++){
-          imageBoxUploaderLabel.insertAdjacentHTML('beforeend',buildFileField(fileIndex[0]));
-          //console.log(imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend',buildFileField(fileIndex[i])));
-          //console.log(this);
-          
-          this.style.display = 'none';
-          //imageFile[i].style.display = 'none';
-          //}
-          //
-          fileIndex.shift();
-          fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-          console.log(fileIndex.push(fileIndex[fileIndex.length - 1] + 1));
-        //}
-      //}
+      imageBoxPreviews.insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
+      imageBoxUploaderLabel.insertAdjacentHTML('beforeend',buildFileField(fileIndex[0]));
+      this.style.display = 'none';
+      fileIndex.shift();
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     });
     
     //削除ボタンの設定
@@ -93,14 +68,14 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       }
     });
 
-    //DOM変化の監視
+    //DOMツリーの変化の監視
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
           console.log(`${mutation}`);
           adaptiveImageArea();
         })
       });
-      const configObserver = {childList: true};//オブザーバの設定
+      const configObserver = {childList: true};//オブザーバの設定で子要素の変化を監視
       observeDOMcontents.observe(imageBoxPreviews , configObserver);
 
     //画像を放り込むエリアの定義
@@ -110,6 +85,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       
       //画像投稿エリアの変化を10パターンに分ける
       switch (imgCount){
+        //画像が削除されて無くなったとき画像表示エリアのstyle
         case 0:
           imageBoxPreviews.style.display = 'none';
           imageBoxUploader.style.width = '500%';
@@ -117,6 +93,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridRowStart = '1';
           break;
 
+        //画像が1枚のときの画像表示エリアのstyle
         case 1:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
@@ -126,6 +103,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.width = '400%';
           break;
 
+        //画像が2枚のときの画像表示エリアのstyle
         case 2:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
@@ -135,6 +113,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.width = '300%';
           break;
         
+        //画像が3枚のときの画像表示エリアのstyle
         case 3:
           imageBoxUploader.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
@@ -144,6 +123,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.width = '200%';
           break;
 
+        //画像が4枚のときの画像表示エリアのstyle
         case 4:
           imageBoxUploader.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
@@ -153,6 +133,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.width = '100%';
           break;
         
+        //画像が5枚のときの画像表示エリアのstyle
         case 5:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
@@ -164,6 +145,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBox.style.height = '360px';
           break;
 
+        //画像が6枚のときの画像表示エリアのstyle
         case 6:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(2, 165px)';
@@ -175,6 +157,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBox.style.height = '360px';
           break;
 
+        //画像が7枚のときの画像表示エリアのstyle
         case 7:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(2, 165px)';
@@ -186,6 +169,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBox.style.height = '360px';
           break;
 
+        //画像が8枚のときの画像表示エリアのstyle
         case 8:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(2, 165px)';
@@ -197,6 +181,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBox.style.height = '360px';
           break;
         
+        //画像が9枚のときの画像表示エリアのstyle
         case 9:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(2, 165px)';
@@ -208,6 +193,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBox.style.height = '360px';
           break;
 
+        //画像が10枚のときの画像表示エリアのstyle
         case 10:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(2, 165px)';
