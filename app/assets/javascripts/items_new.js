@@ -33,7 +33,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     for( i = 0; i < hiddenDestroy.length; i++){
       hiddenDestroy[i].style.display = 'none';
     }
-
+    let imageBox = document.getElementById('exhibit__image-box');
     let imageBoxPreviews = document.getElementById('exhibit__image-box__previews');
     let imageBoxUploaderLabel = document.getElementById('exhibit__image-box__uploader__label');
     let imageBoxUploader = document.getElementById('exhibit__image-box__uploader');
@@ -124,7 +124,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '1';
           break;
-          
+
         case 1:
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
@@ -164,6 +164,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '2';
           imageBoxUploader.style.width = '100%';
+          imageBox.style.height = '200%';
           break;
 
         case 6:
