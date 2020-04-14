@@ -91,6 +91,9 @@ table {
     &__panel{
       .field{
         text-align: center;
+        .labelname{
+          padding-right: 45%;
+        }
         .user-textform{
         height: 50px;
         width: 25vw;

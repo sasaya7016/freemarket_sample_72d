@@ -7,37 +7,37 @@
       = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
         = render "devise/shared/error_messages", resource: resource
         .field
-          = f.label :ニックネーム
+          = f.label :ニックネーム,class: "labelname"
           %br/
           = f.text_field :nickname, placeholder: "例)ミツマキNT", class: "user-textform"
         .field
-          = f.label :メールアドレス
+          = f.label :メールアドレス,class: "labelname"
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "user-textform",placeholder:"@が必要です"
         .field
-          = f.label :パスワード登録
+          = f.label :パスワード登録,class: "labelname"
           %br/
           = f.password_field :password, autocomplete: "new-password", class: "user-textform",placeholder: "7文字以上で設定してください"
         .field
-          = f.label :パスワード確認
+          = f.label :パスワード確認,class: "labelname"
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記と同様に入力してください", class: "user-textform"
         .zenkaku-onamae
           .field
-            = f.label :苗字（全角）
+            = f.label :苗字（全角）,class: "labelname"
             %br/
             = f.text_field :lastname, placeholder: "例）田中", class: "user-textform"
           .field
-            = f.label :名前（全角）
+            = f.label :名前（全角）,class: "labelname"
             %br/
             = f.text_field :firstname, placeholder: "例）こう", class: "user-textform"
         .katakana-onamae
           .field
-            = f.label :苗字カナ（全角）
+            = f.label :苗字カナ（全角）,class: "labelname"
             %br/
             = f.text_field :lastnameKANA, placeholder: "例）タナカ", class: "user-textform"
           .field
-            = f.label :名前カナ（全角）
+            = f.label :名前カナ（全角）,class: "labelname"
             %br/
             = f.text_field :firstnameKANA, placeholder: "例）コウ", class: "user-textform"
         .field
