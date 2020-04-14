@@ -33,24 +33,38 @@
           }
         }
         &__uploader{
+          position: relative;
+          border: dashed 3px;
+          height: 150px;
+          width: 100%;
+          background-color: gainsboro;
+          border-radius: 5px;
           &__label{
-            display: block;
-            border: dashed 3px;
-            height: 150px;
-            width: 100%;
-            background-color: gainsboro;
-            border-radius: 5px;
-            line-height: 150px;
-            text-align: center;
             .img-file_group{
-              .secret-image {
-                display: none;
+              .img-file {
+                border: dashed 3px;
+                height: 150px;
+                width: 100%;
+                background-color: gainsboro;
+                border-radius: 5px;
+                text-align: center;
+                opacity: 0;
               }
+            }
+          }
+          &__text{
+            position: absolute;
+            display: flex;
+            bottom:50%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            i{
             }
           }
         }
       }
-
       .listing-form{
         width: 100%;
         border-radius: 5px;
