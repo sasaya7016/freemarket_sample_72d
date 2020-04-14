@@ -120,7 +120,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       switch (imgCount){
         case 0:
           imageBoxPreviews.style.display = 'none';
-          imageBoxUploader.style.width = '500%';
           imageBoxUploader.style.width = '100%';
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '1';
