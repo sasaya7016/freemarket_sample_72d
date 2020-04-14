@@ -7,8 +7,13 @@ $(function(){
     let commission = Math.floor(price * 0.1)
     // 小数点を切り捨て、利益を計算
     let benefit = Math.floor(price - (price * 0.1))
-    // 値段をHTMLに代入
-    document.getElementById('inner-commission').innerHTML = commission + "円";
-    document.getElementById('inner-benefit').innerHTML = benefit + "円";
+    // 値段をHTMLに代入・空のときのNaN値を処理
+    if (isNaN(commission) && isNaN(benefit)){
+      document.getElementById('inner-commission').innerHTML =  "0円";
+      document.getElementById('inner-benefit').innerHTML = "0円";
+    }else{
+      document.getElementById('inner-commission').innerHTML = commission + "円";
+      document.getElementById('inner-benefit').innerHTML = benefit + "円";
+    }
   });
 });
