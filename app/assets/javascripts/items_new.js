@@ -150,6 +150,14 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridRowStart = '1';
           break;
 
+        case 4:
+          imageBoxUploader.style.display = 'grid';
+          imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
+          imageBoxPreviews.style.gridTemplateColumns = 'repeat(4, 120px)';
+          imageBoxUploader.style.gridColumnStart = '5';
+          imageBoxUploader.style.gridRowStart = '1';
+          break;
+        
       }
 
     };
