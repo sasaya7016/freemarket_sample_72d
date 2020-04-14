@@ -167,6 +167,8 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.width = '100%';
           break;
 
+        case 6:
+
       }
 
     };
