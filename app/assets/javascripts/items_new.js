@@ -81,7 +81,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           }
           //
           fileIndex.shift();
-
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
           console.log(fileIndex.push(fileIndex[fileIndex.length - 1] + 1));
         }
@@ -122,11 +121,13 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       observeDOMcontents.observe(imageBoxPreviews[i] , configObserver);
     };
 
+    function adaptiveArea (){
+      let inputImages = document.getElementsByClassName('input__images');
+      let imgCount = inputImages.length;//投稿画像の枚数
+      console.log(`imgCount = ${imgCount}`);
+      
+    };
   });
-
-
-
-
 
 //EventDelegation
   function matches(elm, selector) {
