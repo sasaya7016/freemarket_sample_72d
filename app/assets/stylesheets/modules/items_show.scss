@@ -152,6 +152,7 @@
     margin-top:10px;
     background-color: white;
     text-align: center;
+
     &__alert{
       background-color:#f8f8f8;
       margin:10px 0;
@@ -160,6 +161,8 @@
     
     textarea{
       width:100%;
+      font-size:16px;
+      padding:5px;
     }
     button{
       line-height: 48px;
@@ -169,6 +172,34 @@
     width: 60%;
     font-size: 18px;
     border-radius: 100px;
+    }
+
+    &__login{
+      line-height: 48px;
+    background: gray;
+    border: 1px solid gray;
+    color: black;
+    width: 80%;
+    font-size: 18px;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 30px;
+    }
+
+    &__inner{
+      display: flex;
+      margin-top:10px;
+      &__name{
+        color:gray;
+      }
+      &__text{
+        margin-left: 15px;
+        // word-break: break-all;
+        word-wrap: break-word;
+      }
+    }
+    textarea{
+      margin-top:10px;
     }
   }
   .detail-links{

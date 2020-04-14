@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :get_item_size, defaults: { format: 'json' }
       get :search
     end
+    resources :comments, only: :create
   end
   resources :credit_cards, only: [:new,:show] do
     collection do

@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
+  before_action :authenticate_user! ,only: [:buy, :pay]
   before_action :not_buy, only: [:buy]
-  before_action :authenticate_user! ,only: [:buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
   before_action :set_category
@@ -51,6 +51,8 @@ class ItemsController < ApplicationController
 
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
   
   
