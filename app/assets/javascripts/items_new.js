@@ -99,7 +99,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     
       
 
-    for(let i = 0; i < imageBoxPreviews.length; i++ ){
+    //for(let i = 0; i < imageBoxPreviews.length; i++ ){
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
           console.log(`${mutation}`);
@@ -107,8 +107,8 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
         })
       });
       const configObserver = {childList: true};//オブザーバの設定
-      observeDOMcontents.observe(imageBoxPreviews[i] , configObserver);
-    };
+      observeDOMcontents.observe(imageBoxPreviews , configObserver);
+    //};
 
     //画像を放り込むエリアの定義
     function adaptiveImageArea (){
@@ -116,6 +116,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       let imgCount = inputImages.length;//投稿画像の枚数
       console.log(`imgCount = ${imgCount}`);
       //10パターンの画像投稿エリア
+          
       switch (imgCount){
         case 0:
           imageBoxPreviews.style.display = 'none';
