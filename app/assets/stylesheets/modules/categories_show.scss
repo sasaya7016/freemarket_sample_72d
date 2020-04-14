@@ -13,6 +13,18 @@
     display: flex;
     &__list{
       margin: 0 5px;
+      .breadcrumb {
+        font-size: large;
+        a {
+          text-decoration: none;
+          color: #4689FF;
+          font-size: small;
+        }
+        span {
+          font-size: small;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

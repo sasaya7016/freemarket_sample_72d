@@ -93,3 +93,4 @@ gem 'dotenv-rails'
 gem 'ancestry'
 gem 'active_hash'
 gem 'turbolinks', '~> 5'
+gem "gretel"
