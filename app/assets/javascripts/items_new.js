@@ -78,9 +78,8 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           //console.log(this);
           this.style.display = 'none';
           //imageFile[i].style.display = 'none';
-          }//この辺りの記述なんとかする
-          
-          
+          }
+          //
           fileIndex.shift();
 
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -109,7 +108,19 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       }
     });
     //画像のドロップエリア
+    
+      
 
+    for(let i = 0; i < imageBoxPreviews.length; i++ ){
+      const observeDOMcontents = new MutationObserver( function( mutations ){
+        mutations.forEach(function(mutation){
+          console.log(`${mutation}`);
+          adaptiveArea();
+        })
+      });
+      const configObserver = {childList: true};//オブザーバの設定
+      observeDOMcontents.observe(imageBoxPreviews[i] , configObserver);
+    };
 
   });
 
