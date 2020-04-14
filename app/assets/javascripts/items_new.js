@@ -158,6 +158,15 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridRowStart = '1';
           break;
         
+        case 5:
+          imageBoxUploader.style.display = 'grid';
+          imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
+          imageBoxPreviews.style.gridTemplateColumns = 'repeat(5, 120px)';
+          imageBoxUploader.style.gridColumnStart = '1';
+          imageBoxUploader.style.gridRowStart = '2';
+          imageBoxUploader.style.width = '100%';
+          break;
+
       }
 
     };
