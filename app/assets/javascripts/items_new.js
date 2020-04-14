@@ -23,68 +23,56 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       return html;
     }
 
-    //let droparea = document.getElementById('exhibit__image-box');
     let imageFileGroup = document.getElementsByClassName('img-file_group');
-    //console.log(imageFileGroup);
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-    //console.log(imageFileGroup[imageFileGroup.length - 1]);
+    let imageFile = document.getElementsByClassName('img-file');
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
+    console.log(lastIndex)
     fileIndex.splice(0,lastIndex);
-    
     let hiddenDestroy = document.getElementsByClassName('hidden-destroy');
     for( i = 0; i < hiddenDestroy.length; i++){
       hiddenDestroy[i].style.display = 'none';
     }
 
-    //console.log(lastIndex);
-    //console.log(fileIndex);
-    //console.log(fileIndex.splice(0,lastIndex));
-    let imageBoxPreviews = document.getElementsByClassName('exhibit__image-box__previews');
-    let imageBoxUploaderLabel = document.getElementsByClassName('exhibit-image-box__uploader__label');
-      
+    let imageBoxPreviews = document.getElementById('exhibit__image-box__previews');
+    let imageBoxUploaderLabel = document.getElementById('exhibit__image-box__uploader__label');
+    let imageBoxUploader = document.getElementById('exhibit__image-box__uploader');
     delegateEvent(document,'change','.img-file',function(e) {
-      //let imageFileGroup = document.getElementsByClassName('img-file_group');
-      //console.log(imageFileGroup[0]);
-      //console.log(this);
-      //console.log(this.parentNode.dataset.index);
-      const targetIndex = this.parentNode.dataset.index;
-      //console.log(targetIndex);
-      const file = e.target.files[0];
-      //console.log(file);
-      //console.log(window.URL.createObjectURL(file));
+      const targetIndex = this.parentNode.dataset.index; 
+      const file = e.target.files[0]; //画像ファイル自身
       const blobURL = window.URL.createObjectURL(file);
       
-
       //indexの値を見てimgにindexがあれば取得
       //for(let i = 0; i < imageFileGroup.length; i++){
-        let img = imageFileGroup[0].querySelectorAll(`img[data-index="${targetIndex}"]`);
+        //let img = imageFileGroup[i].querySelectorAll(`img[data-index="${targetIndex}"]`);
+        //console.log(img)
         //var img = `img[data-index="${targetIndex}"]`
-        console.log($(`img[data-index="${targetIndex}"]`));
-        console.log(img);
-        if (img[0]){
-          console.log('blobURLをimage属性へ')
-          this.parentNode.setAttribute('image',blobURL);
-        }else{
+        //console.log($(`img[data-index="${targetIndex}"]`));
+        //console.log(img[0]);
+        //if (img[0]){
+          //console.log('blobURLをimage属性へ')
+          //this.parentNode.setAttribute('image',blobURL);
+        //}else{
           console.log(imageBoxPreviews);
-          for(let i = 0; i < imageBoxPreviews.length; i++){
-            //console.log(imageBoxPreviews[i].parentNode);
-            //console.log(imageBoxPreviews[i])
-            imageBoxPreviews[i].insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
-          }
+          console.log(fileIndex);
+          //for(let i = 0; i < imageBoxPreviews.length; i++){
+          imageBoxPreviews.insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
+          //}
           //console.log(imageBoxPreviews.parentNode.appendchiild(buildImg(targetIndex, blobURL)));
-          for(let i = 0; i < imageBoxUploaderLabel.length; i++){
-          imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend',buildFileField(fileIndex[i]));
+          //for(let i = 0; i < imageBoxUploaderLabel.length; i++){
+          imageBoxUploaderLabel.insertAdjacentHTML('beforeend',buildFileField(fileIndex[0]));
           //console.log(imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend',buildFileField(fileIndex[i])));
           //console.log(this);
+          
           this.style.display = 'none';
           //imageFile[i].style.display = 'none';
-          }
+          //}
           //
           fileIndex.shift();
           fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
           console.log(fileIndex.push(fileIndex[fileIndex.length - 1] + 1));
-        }
-    //}
+        //}
+      //}
     });
     
     //削除ボタンの設定
@@ -95,11 +83,12 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       console.log(hiddenCheck);
       if (hiddenCheck) hiddenCheck.checked = 'true';
       this.parentNode.remove();
+      console.log(targetIndex);
       const divDataIndex = document.querySelectorAll(`div[data-index="${targetIndex}"]`);
       for(let i=0; i < divDataIndex.length; i++){
         divDataIndex[i].remove();
       };
-      let imageFile = document.getElementsByClassName('img-file');
+      
       if (imageFile.length == 0) {
         for(let i = 0; i < imageBoxUploaderLabel.length; i++){
         imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend', buildFileField(fileIndex[i]));
@@ -114,24 +103,36 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
           console.log(`${mutation}`);
-          adaptiveArea();
+          adaptiveImageArea();
         })
       });
       const configObserver = {childList: true};//オブザーバの設定
       observeDOMcontents.observe(imageBoxPreviews[i] , configObserver);
     };
 
-    function adaptiveArea (){
+    //画像を放り込むエリアの定義
+    function adaptiveImageArea (){
       let inputImages = document.getElementsByClassName('input__images');
       let imgCount = inputImages.length;//投稿画像の枚数
       console.log(`imgCount = ${imgCount}`);
-      
+      //10パターンの画像投稿エリア
+      switch (imgCount){
+        case 0:
+          imageBoxPreviews.style.display = 'none';
+          imageBoxUploader.style.width = '500%';
+          imageBoxUploader.style.gridColumnStart = '1';
+          imageBoxUploader.style.gridRowStart = '1';
+          break;
+          
+        case 1:
+      }
+
     };
   });
 
 //EventDelegation
   function matches(elm, selector) {
-    var matches = (elm.document || elm.ownerDocument).querySelectorAll(selector),
+    let matches = (elm.document || elm.ownerDocument).querySelectorAll(selector),
     i = matches.length;
     while (--i >= 0 && matches.item(i) !== elm) ;
     return i > -1;
@@ -139,7 +140,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
   
   function delegateEvent(root, eventType, selector, listener) {
     root.addEventListener(eventType, function(e) {
-      var el = e.target;
+      let el = e.target;
       while (el && el !== root) {
         if (matches(el, selector)) {
           listener.call(el, e, el);
