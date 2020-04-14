@@ -107,10 +107,12 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     function adaptiveImageArea (){
       let inputImages = document.getElementsByClassName('input__images');
       let imgCount = inputImages.length;//投稿画像の枚数
+      
+      //画像投稿エリアの変化を10パターンに分ける
       switch (imgCount){
         case 0:
           imageBoxPreviews.style.display = 'none';
-          imageBoxUploader.style.width = '100%';
+          imageBoxUploader.style.width = '500%';
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '1';
           break;
@@ -121,6 +123,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(1, 120px)';
           imageBoxUploader.style.gridColumnStart = '2';
           imageBoxUploader.style.gridRowStart = '1';
+          imageBoxUploader.style.width = '400%';
           break;
 
         case 2:
@@ -129,6 +132,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(2, 120px)';
           imageBoxUploader.style.gridColumnStart = '3';
           imageBoxUploader.style.gridRowStart = '1';
+          imageBoxUploader.style.width = '300%';
           break;
         
         case 3:
@@ -137,6 +141,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(3, 120px)';
           imageBoxUploader.style.gridColumnStart = '4';
           imageBoxUploader.style.gridRowStart = '1';
+          imageBoxUploader.style.width = '200%';
           break;
 
         case 4:
@@ -145,16 +150,21 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(4, 120px)';
           imageBoxUploader.style.gridColumnStart = '5';
           imageBoxUploader.style.gridRowStart = '1';
+          imageBoxUploader.style.width = '100%';
           break;
         
         case 5:
           imageBoxUploader.style.display = 'grid';
+          imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(5, 120px)';
+          imageBoxUploader.gridTemplateRows = 'repeat(2, 169px)';
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '2';
           imageBoxUploader.style.width = '100%';
           imageBox.style.height = '200%';
+          imageBoxUploader.style.width = '500%';
+          imageBox.style.height = '360px';
           break;
 
         case 6:
