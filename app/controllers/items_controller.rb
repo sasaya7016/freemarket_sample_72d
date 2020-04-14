@@ -68,6 +68,9 @@ class ItemsController < ApplicationController
       end
     end
   end
+
+  def get_item_fee
+  end
   
   def category_index
   end
