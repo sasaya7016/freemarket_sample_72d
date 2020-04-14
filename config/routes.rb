@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get :get_category_children, defaults: { format: 'json' }
       get :get_category_grandchildren, defaults: { format: 'json' }
       get :get_item_size, defaults: { format: 'json' }
-      get :category_index
+      get :search
     end
     resources :comments, only: :create
   end
@@ -27,6 +27,12 @@ Rails.application.routes.draw do
       post 'show', to: 'credit_cards#show'
       post 'pay', to: 'credit_cards#pay'
       post 'delete', to: 'credit_cards#delete'
+    end
+  end
+  resources :credit_cards
+  resources :categories do
+    collection do
+      get :get_toppage_category, defaults: { format: 'json' }
     end
   end
 end

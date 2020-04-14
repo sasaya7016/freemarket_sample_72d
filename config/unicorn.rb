@@ -1,4 +1,4 @@
-app_path = File.expand_path('../../../', __FILE__)
+app_path = "/var/www/freemarket_sample_72d"
 # アプリケーションサーバーの性能設定
 worker_processes 1
 # アプリケーションの設置されているディレクトリ　→　なぜか今はfreemarket_sample_72d以下のcurrentに設置
