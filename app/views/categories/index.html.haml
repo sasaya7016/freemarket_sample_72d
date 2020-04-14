@@ -1,4 +1,9 @@
 = render 'items/header'
+.nav-category
+  .ul.nav-category__lists
+    .li.nav-category__lists__list
+      - breadcrumb :category
+      = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumb"
 .categories
   .categories__box
     .categories__box--parents
