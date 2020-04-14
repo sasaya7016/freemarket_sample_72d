@@ -154,15 +154,12 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           break;
         
         case 5:
-          imageBoxUploader.style.display = 'grid';
           imageBoxPreviews.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(5, 120px)';
           imageBoxUploader.gridTemplateRows = 'repeat(2, 169px)';
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '2';
-          imageBoxUploader.style.width = '100%';
-          imageBox.style.height = '200%';
           imageBoxUploader.style.width = '500%';
           imageBox.style.height = '360px';
           break;
