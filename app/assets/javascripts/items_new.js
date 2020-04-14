@@ -121,11 +121,19 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
         case 0:
           imageBoxPreviews.style.display = 'none';
           imageBoxUploader.style.width = '500%';
+          imageBoxUploader.style.width = '100%';
           imageBoxUploader.style.gridColumnStart = '1';
           imageBoxUploader.style.gridRowStart = '1';
           break;
           
         case 1:
+          imageBoxPreviews.style.display = 'grid';
+          imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
+          imageBoxPreviews.style.gridTemplateColumns = 'repeat(1, 120px)';
+          imageBoxUploader.style.gridColumnStart = '2';
+          imageBoxUploader.style.gridRowStart = '1';
+          break;
+
       }
 
     };
