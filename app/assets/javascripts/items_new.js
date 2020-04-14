@@ -78,9 +78,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     //削除ボタンの設定
     delegateEvent(document ,'click' ,'.img-remove' , function(e){
       const targetIndex = this.previousElementSibling.dataset.index;
-      console.log(targetIndex);
       const hiddenCheck = document.querySelectorAll(`input[data-index="${targetIndex}"].hidden-destroy`);
-      console.log(hiddenCheck);
       if (hiddenCheck) hiddenCheck.checked = 'true';
       this.parentNode.remove();
       console.log(targetIndex);
@@ -88,18 +86,14 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       for(let i=0; i < divDataIndex.length; i++){
         divDataIndex[i].remove();
       };
-      
       if (imageFile.length == 0) {
         for(let i = 0; i < imageBoxUploaderLabel.length; i++){
         imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend', buildFileField(fileIndex[i]));
         };
       }
     });
-    //画像のドロップエリア
-    
-      
 
-    //for(let i = 0; i < imageBoxPreviews.length; i++ ){
+    //DOM変化の監視
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
           console.log(`${mutation}`);
@@ -108,15 +102,11 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       });
       const configObserver = {childList: true};//オブザーバの設定
       observeDOMcontents.observe(imageBoxPreviews , configObserver);
-    //};
 
     //画像を放り込むエリアの定義
     function adaptiveImageArea (){
       let inputImages = document.getElementsByClassName('input__images');
       let imgCount = inputImages.length;//投稿画像の枚数
-      console.log(`imgCount = ${imgCount}`);
-      //10パターンの画像投稿エリア
-          
       switch (imgCount){
         case 0:
           imageBoxPreviews.style.display = 'none';
@@ -169,12 +159,10 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
 
         case 6:
 
-      }
 
     };
   });
 
-//EventDelegation
   function matches(elm, selector) {
     let matches = (elm.document || elm.ownerDocument).querySelectorAll(selector),
     i = matches.length;
