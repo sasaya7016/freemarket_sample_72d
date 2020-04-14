@@ -16,6 +16,7 @@
       width: 90%;
       margin: 0 auto;
       .exhibit__image-box {
+        display: flex;
         &__previews{
           display:flex;
           justify-content: left;
