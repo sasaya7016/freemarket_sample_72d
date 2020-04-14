@@ -23,18 +23,18 @@
         %th
           出品者
         %td
-          -# =@item.exhibitor.name
+          =@item.exhibitor.name
       %tr
         %th カテゴリー
         %td
           =link_to do
-            -# %span= @item.category.parent.parent.name
+            %span= @item.category.parent.parent.name
           %br/
           =link_to do
-            -# %span= @item.category.parent.name
+            %span= @item.category.parent.name
           %br/
           =link_to do
-            -# %span= @item.category.name
+            %span= @item.category.name
       %tr
         %th ブランド
         %td
