@@ -235,6 +235,32 @@ table {
   }
 }
 
+.login-confirm{
+  background-color: rgb(247, 247, 241);
+  &__header{
+    padding-top: 30px;
+    text-align: center;
+    .logo-head{
+      display: block;
+      margin: 0px auto 30px auto;
+      width: 15vw;
+    }
+    h1{
+      padding-top: 10px;
+      text-align: center;
+      color: rgb(54, 53, 53);
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      background-color: rgb(235, 2, 2);
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-size: 50px;
+      border: none;
+    }
+  }
+}
 
 .new-user-register-btn{
   height: 40px;
