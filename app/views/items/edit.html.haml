@@ -1,2 +1,70 @@
-%h1 Items#edit
-%p Find me in app/views/items/edit.html.erb
+= link_to (image_tag 'logo.png' , class: "main__logo" ),root_path 
+.listing
+  =form_with model: [@item],data: { remote: false } , class: "listing__box" do |f|
+    .listing__box--title
+      %p 出品画像
+      %p.equired 必須
+    %p.listing-attention 最大10枚まで
+    .exhibit__image-box#exhibit__image-box
+      .exhibit__image-box__previews#exhibit__image-box__previews
+      .exhibit__image-box__uploader#exhibit__image-box__uploader
+        %label.exhibit__image-box__uploader__label#exhibit__image-box__uploader__label
+          =f.fields_for :item_images do |image|
+            .img-file_group{"data-index" => "#{image.index()}"}
+              = image.file_field :image ,type: 'file',value: "",class: "secret-image img-file"
+        .exhibit__image-box__uploader__text
+          写真を追加。
+    .listing__box--title
+      %p 商品名
+      %p.equired 必須
+    =f.text_field :name, class: "listing-form", placeholder: "40字まで"
+    .listing__box--title
+      %p 商品説明
+      %p.equired 必須
+    =f.text_area :introduction, class: "item-text", placeholder: "商品の説明（1000字まで）"
+    %p 商品の詳細
+    .listing__box--title
+      %p カテゴリー
+      %p.equired 必須
+    = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
+    .listing-child
+    .listing-grandchild
+    .listing-size
+    .listing__box--title
+      %p ブランド
+      %p.arbitrary 任意
+    =f.text_field :brand, class: "listing-form", placeholder: "例）アディダス"
+    .listing__box--title
+      %p 商品の状態
+      %p.equired 必須
+    =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
+    .listing__box--title
+      %p 配送料の負担
+      %p.equired 必須
+    =f.select :delivery_fee,  ['送料込み（出品者負担）', '着払い（購入者負担）'],include_blank: '選択してください', class: "listing-select"
+    .listing__box--title
+      %p 発送元の地域
+      %p.equired 必須
+    =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, class: "listing-select"
+    .listing__box--title
+      %p 発送までの日数
+      %p.equired 必須
+    =f.select :preparation_day, ['1〜2日', '2〜3日', '4〜7日'],  class: "listing-select"
+    .listing__box--fee
+      .listing__box--title
+        %p 販売価格
+        %p.equired 必須
+      .listing__box--price
+        =f.number_field :price, class: "listing-price", placeholder: "0", id: "item_price"
+        %p 円
+    .listing__box--fee
+      %p 販売手数料 (10%)
+      %p#inner-commission 
+        0円
+    .listing__box--fee
+      %p 販売利益
+      %p#inner-benefit 
+        0円
+    .listing__box--btns
+      =f.submit class: "btn", value: "出品する"
+      =link_to "戻る","#", class: "btn-back", type: "submit"
