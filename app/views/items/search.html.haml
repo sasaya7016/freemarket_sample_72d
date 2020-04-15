@@ -11,11 +11,10 @@
         .input-form-box
           %label キーワードを追加する
           = f.text_field  :name_cont, placeholder: "何かお探しですか？",class:'input__form', value:@keyword
-          
         
         .input-form-box
           %label ブランド名から探す
-          = f.text_field  :brand_cont,class:'search__form', placeholder:'例)シャネル'
+          = f.text_field  :brand_cont,class:'search__form', placeholder:'例)シャネル',value:@brand
         .input-form-box
           %label 価格を指定する
           %br/
