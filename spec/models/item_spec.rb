@@ -42,3 +42,8 @@ describe 'presence: true' do
     expect(@item.valid?).to eq(false)
   end
 
+  it "商品出品時にpreparation_dayがなければ無効" do
+    @item = Item.new(preparation_day: nil)
+    expect(@item.valid?).to eq(false)
+  end
+
