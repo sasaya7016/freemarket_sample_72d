@@ -190,6 +190,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridColumnStart = '5';
           imageBoxUploader.style.gridRowStart = '2';
           imageBoxUploader.style.width = '100%';
+          imageBoxUploader.style.display = 'block';
           imageBox.style.height = '360px';
           break;
 
