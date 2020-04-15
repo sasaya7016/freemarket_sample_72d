@@ -1,30 +1,37 @@
-%h2 住所登録情報
-= form_with model:@address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :郵便番号
-    %br/
-    = f.text_field :postalcode
-  .field
-    = f.label :都道府県
-    %br/
-    =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, include_blank: '選択してください', class: "listing-select"
-  .field
-    = f.label :市区町村
-    %br/
-    = f.text_field :first_address
-  .field
-    = f.label :番地
-    %br/
-    = f.text_field :second_address
-  .field
-    = f.label :マンション名、ビル名、部屋番号など
-    %br/
-    = f.text_field :third_address
-  .field
-    = f.label :電話番号
-    %br/
-    =f.text_field :phone_number
-  .actions
-    = f.submit "新規登録"
-= render "devise/shared/links"
+.add-regi
+  .add-regi__header
+    = render 'header'
+  .add-regi__main
+    %h1 住所登録情報
+    .add-regi__main__panel
+      = form_with model:@address do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .field
+          = f.label :郵便番号
+          %br/
+          = f.text_field :postalcode, class: "user-textform"
+        .field
+          = f.label :都道府県
+          %br/
+          =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, include_blank: '選択してください', class: "listing-select"
+        .field
+          = f.label :市区町村
+          %br/
+          = f.text_field :first_address, class: "user-textform"
+        .field
+          = f.label :番地
+          %br/
+          = f.text_field :second_address, class: "user-textform"
+        .field
+          = f.label :マンション名、ビル名、部屋番号など
+          %br/
+          = f.text_field :third_address, class: "user-textform"
+        .field
+          = f.label :電話番号
+          %br/
+          =f.text_field :phone_number, class: "user-textform"
+        .actions
+          = f.submit "新規登録", class:"login-btn"
+      = render "devise/shared/links"
+  .add-regi__footer
+    = render 'footer'
