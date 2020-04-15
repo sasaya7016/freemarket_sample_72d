@@ -17,6 +17,16 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
+            lastname:
+              blank: "が入力されていません。"
+            firstname:
+              blank: "が入力されていません。"
+            lastnameKANA:
+              blank: "が入力されていません。"
+            firstnameKANA:
+              blank: "が入力されていません。"
+            nickname:
+              blank: "が入力されていません。"
     attributes:
       user:
         current_password: "現在のパスワード"
