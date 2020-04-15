@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   #view表示のため仮でresourceと指定しています
   resources :users do
     member do
-      resources :credit_cards
+      resources :credit_cards, only: [:new,:show] do
+        collection do
+          post 'show', to: 'credit_cards#show'
+          post 'pay', to: 'credit_cards#pay'
+          post 'delete', to: 'credit_cards#delete'
+        end
+      end
       get :profile
       get :address
       get :logout
@@ -22,5 +28,5 @@ Rails.application.routes.draw do
     end
   end
   resources :items
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
