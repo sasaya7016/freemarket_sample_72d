@@ -26,7 +26,7 @@
     .listing__box--title
       %p カテゴリー
       %p.equired 必須
-    = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
+    = f.collection_select :category_id, @parents, :id, :name, class: 'listing-select-wrapper__box--select', id: 'parent_category'
     .listing-child
     .listing-grandchild
     .listing-size
@@ -37,11 +37,11 @@
     .listing__box--title
       %p 商品の状態
       %p.equired 必須
-    =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
+    =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], class: "listing-select"
     .listing__box--title
       %p 配送料の負担
       %p.equired 必須
-    =f.select :delivery_fee,  ['送料込み（出品者負担）', '着払い（購入者負担）'],include_blank: '選択してください', class: "listing-select"
+    =f.select :delivery_fee,  ['送料込み（出品者負担）', '着払い（購入者負担）'], class: "listing-select"
     .listing__box--title
       %p 発送元の地域
       %p.equired 必須
@@ -59,12 +59,10 @@
         %p 円
     .listing__box--fee
       %p 販売手数料 (10%)
-      %p#inner-commission 
-        0円
+      %p#inner-commission= "#{(@item.price * 0.1).floor}円"
     .listing__box--fee
       %p 販売利益
-      %p#inner-benefit 
-        0円
+      %p#inner-benefit= "#{@item.price - (@item.price * 0.1).floor}円"
     .listing__box--btns
       =f.submit class: "btn", value: "出品する"
       =link_to "戻る","#", class: "btn-back", type: "submit"
