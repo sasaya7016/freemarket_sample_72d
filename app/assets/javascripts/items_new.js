@@ -28,7 +28,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
     let imageFile = document.getElementsByClassName('img-file');
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
-    console.log(lastIndex)
     fileIndex.splice(0,lastIndex);
     let hiddenDestroy = document.getElementsByClassName('hidden-destroy');
     for( i = 0; i < hiddenDestroy.length; i++){
@@ -56,7 +55,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       const hiddenCheck = document.querySelectorAll(`input[data-index="${targetIndex}"].hidden-destroy`);
       if (hiddenCheck) hiddenCheck.checked = 'true';
       this.parentNode.remove();
-      console.log(targetIndex);
       const divDataIndex = document.querySelectorAll(`div[data-index="${targetIndex}"]`);
       for(let i=0; i < divDataIndex.length; i++){
         divDataIndex[i].remove();
@@ -71,7 +69,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     //DOMツリーの変化の監視
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
-          console.log(`${mutation}`);
           adaptiveImageArea();
         })
       });
