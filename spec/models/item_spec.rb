@@ -52,3 +52,8 @@ describe 'presence: true' do
     expect(@item.valid?).to eq(false)
   end
 
+  it "商品出品時にdelivery_feeがなければ無効" do
+    @item = Item.new(delivery_fee: nil)
+    expect(@item.valid?).to eq(false)
+  end
+
