@@ -30,8 +30,11 @@
       justify-content: center;
       align-items: center;
       width: 100%;
+      .card-notification{
+        text-align: center;
+      }
       .card-icons{
-        margin: 20px 10px 40px;
+        margin: 0px 10px 40px;
         .card{
           margin: 5px;
           width: 50px;
@@ -78,7 +81,7 @@
       }
 
       .content-bottom--add-btn{
-        margin: 30px 0 20px;
+        margin: 60px 0 20px;
         width:100%;
         font-size: 20px;
         padding:10px;
