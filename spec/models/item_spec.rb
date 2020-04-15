@@ -32,3 +32,8 @@ describe 'presence: true' do
     expect(@item.valid?).to eq(false)
   end
 
+  it "商品出品時にcategory_idがなければ無効" do
+    @item = Item.new(category_id: nil)
+    expect(@item.valid?).to eq(false)
+  end
+
