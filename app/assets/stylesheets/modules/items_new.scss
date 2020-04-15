@@ -1,11 +1,9 @@
-.listing-contents{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(245, 245, 245);
-  padding: 50px 0 50px 0;
+.main__logo{
+  padding-top: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
   .listing {
     width: 700px;
     height: 100%;
