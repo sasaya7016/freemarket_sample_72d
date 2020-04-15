@@ -36,4 +36,5 @@ Rails.application.routes.draw do
       get :get_toppage_category, defaults: { format: 'json' }
     end
   end
+
 end

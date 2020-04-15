@@ -21,12 +21,12 @@ class ItemsController < ApplicationController
 
   def pay
     if @card.blank?
-      redirect_to new_credit_card_path
+      redirect_to new_credit_card_path 
     else
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
-      amount: @item.price,
-      customer: @card.customer_id,
+      amount: @item.price, 
+      customer: @card.customer_id, 
       currency: 'jpy',
       )
     end
@@ -95,11 +95,11 @@ class ItemsController < ApplicationController
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
   end
-
+  
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
+  
   def get_item_size
     selected_grandchild = Category.find("#{params[:grandchild_id]}")
     if related_size_parent = selected_grandchild.item_sizes[0]
@@ -111,6 +111,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+
 
   def get_item_fee
   end
@@ -127,27 +128,10 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
   end
 
-  private
-
   def search #商品検索機能
     @items = Item.search(params[:keyword])
   end
 
-
-  def set_category
-    @parents = Category.where(ancestry: nil)
-  end
-
-  private
-
-  def search #商品検索機能
-    @items = Item.search(params[:keyword])
-  end
-
-
-  def set_category
-    @parents = Category.where(ancestry: nil)
-  end
 
   private
 
@@ -195,3 +179,5 @@ class ItemsController < ApplicationController
   end
 
 end
+
+
