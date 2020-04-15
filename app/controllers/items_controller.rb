@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
   before_action :set_category
+  # before_action :set_search
+  
   
   require "payjp"
 
@@ -99,14 +101,6 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
-    @search_items = Item.search(params[:keyword])   #あいまい検索 Lv1実装
-    @q= Item.ransack(params[:q])                    #ransack
-    @search = @q.result(distinct: true)             #
-
-    # @keyword =  search_params[:name_cont]
-    # @q = Item.search(search_params)
-    
-
 
     @items = Item.page(params[:page]).per(1)          #ページネーション
     has_brand_items = Item.where.not(brand: nil)
@@ -160,13 +154,8 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    # search_conditions = %i(
-    #   code_cont name_cont name_kana_cont availability_true
-    #   price_gteq price_lteq purchase_cost_gteq purchase_cost_lteq
-    # )
-    params.require(:q).permit(:name_cont)
+    # params.require(:q).permit!
   end
-  
 
   def sold_out
     @item = Item.find(params[:id])
