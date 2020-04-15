@@ -19,17 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-<<<<<<< HEAD
-
-gem 'turbolinks', '~> 5'
-
-=======
-<<<<<<< HEAD
 #gem 'turbolinks', '~> 5'
-=======
-
->>>>>>> master
->>>>>>> a52ad9f994a59fd323572054e774ccb800504909
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -103,12 +93,4 @@ gem 'dotenv-rails'
 gem 'ancestry'
 gem 'active_hash'
 gem 'turbolinks', '~> 5'
-<<<<<<< HEAD
 gem "gretel"
-=======
-<<<<<<< HEAD
-
-=======
-gem "gretel"
->>>>>>> master
->>>>>>> a52ad9f994a59fd323572054e774ccb800504909

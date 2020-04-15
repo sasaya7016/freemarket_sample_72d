@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
   before_action :set_category
+
   require "payjp"
 
   def buy #クレジット購入
@@ -88,6 +89,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+
     @item.item_images.new
   end
 
@@ -113,7 +115,6 @@ class ItemsController < ApplicationController
 
   def get_item_fee
   end
-
 
   def search #商品検索機能
     @items = Item.search(params[:keyword])

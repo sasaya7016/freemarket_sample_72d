@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe 'presence: true' do
   it "商品出品時にname, introduction, price, category_id, status, preparation_day, exhibitor_id, delivery_fee, prefecture_idがあれば有効であること" do
     @item = Item.new(
@@ -84,4 +85,5 @@ describe '金額の上限、加減' do
     expect(@item.valid?).to eq(false)
   end
 end
+
 
