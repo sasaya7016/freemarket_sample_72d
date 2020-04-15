@@ -27,6 +27,6 @@
 /config/master.key
 /.env
 
-/config/application.yml# public/uploads以下をignore
+# public/uploads以下をignore
 /public/uploads/*
 
