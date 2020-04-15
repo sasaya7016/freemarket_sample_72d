@@ -7,7 +7,7 @@
       %ul.slider.slick
         -@item.item_images.each do |image|
           %li
-            =image_tag image.url,class:"detail-product__image__main"
+            =image_tag image.image_url,class:"detail-product__image__main"
             - if @item.buyer_id.present?
               .items-box_photo__sold
                 .items-box_photo__sold__inner 
@@ -15,7 +15,7 @@
       %ul.thumb.thumbnail
         -@item.item_images.each do |image|
           %li 
-            =image_tag image.url,class:"detail-product__image__sub"
+            =image_tag image.image_url,class:"detail-product__image__sub"
     .detail-product__price
       ="¥#{@item.price}"
     .detail-product__sub
@@ -27,7 +27,7 @@
         %th
           出品者
         %td
-          =@item.exhibitor.nickname
+          -#=@item.user.nickname
       %tr
         -# %th カテゴリー
         -# %td

@@ -4,13 +4,13 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     let itemPrice = document.getElementById('item_price');
     let innerCommission = document.getElementById('inner-commission');
     let innerBenefit = document.getElementById('inner-benefit');
-    document.addEventListener('change', benefitCalculation);
+    itemPrice.addEventListener('change', benefitCalculation);
     //利益計算の関数
     function benefitCalculation() {
-        // 入力された値を変数に代入し、integer型にする
-        let input = itemPrice.value
-        let price = parseInt(input)
-      if (price < 10000000){
+      // 入力された値を変数に代入し、integer型にする
+      let input = itemPrice.value
+      let price = parseInt(input)
+      if (price < 10000000 && price > 0){
         // 小数点を切り捨て、手数料込みの金額を計算
         let commission = Math.floor(price * 0.1)
         // 小数点を切り捨て、利益を計算
@@ -25,8 +25,8 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
         }
       }else{
         let options = {
-          title: "ERROR",
-          text: "金額は¥ 9999999 円以下です。",
+          title: "エラーが発生しました",
+          text: "金額は¥ 0 ~ 9999999 円の範囲で設定して下さい。",
           icon: "info", // warning, info, error
           timer: 3000, // 3秒後に自動的にアラートを閉じる
           buttons: false,
