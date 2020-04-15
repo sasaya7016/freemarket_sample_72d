@@ -3,7 +3,7 @@
     %h1.verification__box--title 購入内容の確認
     .buy_verification__box--content
       .image 
-        = image_tag(@image.image,class: "image_verification")
+        = image_tag(@image.image_url,class: "image_verification")
       .content
         .content__name 
           =@item.name
