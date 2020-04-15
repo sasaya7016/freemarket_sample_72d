@@ -70,15 +70,12 @@ class ItemsController < ApplicationController
     end
   end
   
+  def get_item_fee
+  end
+
   def category_index
   end
 
-  
-  def profits
-    @price = params[:item][:price].to_i
-    @profits = @price * 0.9.to_i
-    @place_fee = @price * 0.1.to_i
-  end
 
   def set_prefecture
     @prefecture = Prefecture.find(params[:id])
