@@ -1,0 +1,258 @@
+.search {
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 50px 100px;
+  display: flex;
+  // -----サイドバー-----
+  &__sidebar{
+    width: 300px;
+    height: 500px;
+    background-color: #FFF;
+    margin: 80px 30px 0 0;
+
+    &__box{
+      padding: 10px;
+      &__title {
+        font-size: 17px;
+      }
+      input {
+        width: 95%;
+        height: 30px;
+      }
+      .input-form-box {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        &__price {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+          input {
+            width: 95%;
+          }
+        } 
+      }
+      .input-form-box-search{
+      } 
+    }
+  }
+}
+ 
+
+
+// -----サーチカテゴリ-----
+  .search-category {
+    background-color: #EEEEEE;
+    width: 90%;
+    a {
+      text-decoration: none;
+    }
+    .container {
+      ul {
+        list-style: none;
+      }
+  
+  
+      //-----商品のタイトルとリスト-----
+      &__title {
+        clear: left;
+        margin-bottom: 10px;
+        h1 {
+          text-align: left;
+          font-size: 17px;
+        }
+      }
+      &__table {
+        background-color: gray;
+        .item {
+          width:  100%;
+          text-align: center;
+          margin: 0 auto;
+          
+          &__list{
+            max-width: 160px;
+            min-width: 140px;
+            float:left;
+            margin: 0px 10px 20px 10px;
+            background-color:#999999;
+            &__img-box {
+              background-color: #DDDDDD;
+              width: 100%;
+              height: 160px;
+              position: relative;
+              img {
+                height:160px;
+                width: 100%;
+              }
+              &__price {
+                top: 120px;
+                left: 0;
+                width: 40%;
+                font-size: 12px;
+                padding: 4px 12px 4px 8px;
+                border-radius: 0 16px 16px 0;
+                font-weight: 600;
+                color: #fff;
+                opacity: 0.6;
+                background-color: rgba(0,0,0,0.3);
+                z-index: 2;
+                position: absolute;
+              }
+            }
+            &__text-box{
+              background-color: #fff;
+              height: 40%;
+              overflow: hidden;
+              position: relative;
+              font-weight: 400;
+              line-height: 1.5;
+              word-break: break-word;
+              white-space: normal;
+              a {
+                text-decoration: none;
+                color: black;
+              }
+              &__like { 
+                position: absolute;
+                right: 3px;
+                bottom: 0px;
+                padding-left: 40px;
+                font-size: 16px;
+                background: linear-gradient(to right, rgba(255,255,255,0), #fff 24px);
+                a {
+                  text-decoration: none;
+                  color: gray;
+                }
+                &__icon{
+                  display: inline-block;
+                  font-family: 'icon-font';
+                  speak: none;
+                  font-style: normal;
+                  font-weight: 400;
+                  font-variant: normal;
+                  text-transform: none;
+                  line-height: 1;
+                  :before {
+                  }
+                }
+              }
+            }
+          }
+        }
+      } 
+      
+      //-----ページボタン-----  
+      .pager{
+        clear: left;
+          width: 100%;
+            a {
+              text-decoration: none;
+              color: black;
+            }
+          .page-btn{
+            .pagenation{
+              margin: 40px 0 30px;
+              text-align: center;
+              position: relative;
+              &__numbers{
+              max-width: 220px;
+              margin: 0 auto;
+                &__box{
+                  display: flex;
+                  justify-content: center;
+                  &__cell{
+                    display: inline-block;
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 4px;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    font-size: 14px;
+                    line-height: 46px;
+                    :hover{
+                      background-color: #ddd;
+                    }
+                    a{
+                      display: block;
+                    }
+                  }
+                  .now{
+                    background: #ea352d;
+                    :hover{
+                      background-color: #ea352d;
+                      width: 100%;
+                      height: 100%;
+                      border-radius: 4px;
+                    }
+                    a{
+                      color: white;
+                    }
+                  }
+                }
+              }
+              &__leftarrows{
+                position: absolute;
+                left: 0;
+                top: 0;
+                &__box{
+                  display: flex;
+                  &__cell{
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 4px;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    font-size: 14px;
+                    line-height: 46px;
+                    :hover{
+                      background-color: #ddd;
+                      width: 100%;
+                      height: 100%;
+                      border-radius: 4px;
+                    }
+                    i{
+                      font-size: 24px;
+                      line-height: 46px;
+                      a{
+                        display: block;
+                      }
+                    }
+                  }
+                }
+              }
+              &__rightarrows{
+                position: absolute;
+                top: 0;
+                right: 0;
+                &__box{
+                  display: flex;
+                  &__cell{
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 4px;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    font-size: 14px;
+                    line-height: 42px;
+                    :hover{
+                      background-color: #ddd;
+                      width: 100%;
+                      height: 100%;
+                      border-radius: 4px;
+                    }
+                    a{
+                      display: block;
+                      i{
+                        font-size: 24px;
+                        line-height: 46px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  
