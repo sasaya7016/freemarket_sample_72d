@@ -10,13 +10,12 @@
             =image_tag image.url,class:"detail-product__image__main"
             - if @item.buyer_id.present?
               .items-box_photo__sold
-                .items-box_photo__sold__inner
+                .items-box_photo__sold__inner 
                   SOLD
       %ul.thumb.thumbnail
         -@item.item_images.each do |image|
-          %li
+          %li 
             =image_tag image.url,class:"detail-product__image__sub"
-
     .detail-product__price
       ="¥#{@item.price}"
     .detail-product__sub
@@ -74,13 +73,13 @@
             =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
           .detail-product__link__delete
             =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
-      - if !user_signed_in?
+      - if !user_signed_in? 
         .detail-product__link__buy
           =link_to "商品を購入する", buy_item_path(@item.id)
       -elsif current_user.id != @item.exhibitor_id
         .detail-product__link__buy
           =link_to "商品を購入する", buy_item_path(@item.id)
-    - else
+    - else 
       .detail-product__sold-out
         この商品は売り切れました
   .detail-comment-box
@@ -91,7 +90,7 @@
           .detail-comment-box__inner__name
             - if comment.user_id == comment.item.exhibitor_id
               出品者:
-            - else
+            - else 
               ="#{comment.user.nickname}: "
           .detail-comment-box__inner__text
             = comment.message
@@ -106,7 +105,7 @@
         %button{type:"submit"}
           %i.fa.fa-comment
           コメントする
-      - else
+      - else 
         .detail-comment-box__login
           コメントにはログインが必要です
   .detail-links
