@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe 'presence: true' do
   it "商品出品時にname, introduction, price, category_id, status, preparation_day, exhibitor_id, delivery_fee, prefecture_idがあれば有効であること" do
     @item = Item.new(
@@ -16,17 +15,17 @@ describe 'presence: true' do
     )
     expect(@item).to be_valid
   end
-  
+
   it "商品出品時にnameがなければ無効" do
     @item = Item.new(name: nil)
     expect(@item.valid?).to eq(false)
   end
-  
+
   it "商品出品時にintroductionがなければ無効" do
     @item = Item.new(introduction: nil)
     expect(@item.valid?).to eq(false)
   end
-  
+
   it "商品出品時にpriceがなければ無効" do
     @item = Item.new(price: nil)
     expect(@item.valid?).to eq(false)

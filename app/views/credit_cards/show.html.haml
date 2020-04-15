@@ -1,2 +1,20 @@
-%h1 CreditCards#show
-%p Find me in app/views/credit_cards/show.html.erb
+= render "items/header"
+.credit-card-contents
+  .sidebar
+  .credit-card__box
+    .credit-card__box__title
+      %h1 登録クレジットカード情報
+    .credit-card__box__inner
+      .credot-card__box__inner__show-number 
+        カードナンバー 
+        %br/
+        = "**** **** **** " + @default_card_information.last4
+      .credit-card__box__inner__show-icon
+        %i.fab.fa-cc-visa.fa-2x
+      .credit-card__box__inner__show-expire 
+        有効期限
+        %br/
+        = @exp_month + " / " + @exp_year
+      = form_with url: delete_credit_cards_path, method: :post, id: 'charge-form', html: { name: "inputForm"} do |f|
+        = f.hidden_field :card_id, value: ""
+        = f.submit "削除する", class:"credit-card__box__inner__show-delete"

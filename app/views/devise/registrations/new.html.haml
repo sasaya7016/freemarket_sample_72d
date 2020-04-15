@@ -1,0 +1,47 @@
+%h2 Sign up
+= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :ニックネーム
+    %br/
+    = f.text_field :nickname, placeholder: "例)ミツマキNT"
+  .field
+    = f.label :メールアドレス
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :パスワード登録
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} 文字以上で登録してください)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :パスワード確認
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "例）7文字以上で設定してください"
+  .zenkaku-onamae
+    .field
+      = f.label :苗字（全角）
+      %br/
+      = f.text_field :lastname, placeholder: "例）田中"
+    .field
+      = f.label :名前（全角）
+      %br/
+      = f.text_field :firstname, placeholder: "例）こう"
+  .katakana-onamae
+    .field
+      = f.label :苗字カナ（全角）
+      %br/
+      = f.text_field :lastnameKANA, placeholder: "例）タナカ"
+    .field
+      = f.label :名前カナ（全角）
+      %br/
+      = f.text_field :firstnameKANA, placeholder: "例）コウ"
+  .field
+    = f.label :生年月日
+    = f.date_select :birth_date, use_month_numbers: true ,start_year: 1920, end_year: (Time.now.year - 15), default: Date.new(1992,1,1)
+  .actions
+    = f.submit "次へ"
+    
+= render "devise/shared/links"
