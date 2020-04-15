@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item , only: [:show, :buy, :edit, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :not_buy, only: [:buy]
+  before_action :set_prefecture, only: [:show]
 
   def index
   end
@@ -77,6 +78,10 @@ class ItemsController < ApplicationController
     @price = params[:item][:price].to_i
     @profits = @price * 0.9.to_i
     @place_fee = @price * 0.1.to_i
+  end
+
+  def set_prefecture
+    @prefecture = Prefecture.find(params[:id])
   end
 
   private
