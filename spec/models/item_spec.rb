@@ -85,5 +85,3 @@ describe '金額の上限、加減' do
     expect(@item.valid?).to eq(false)
   end
 end
-
-

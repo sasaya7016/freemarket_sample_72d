@@ -89,18 +89,17 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-
     @item.item_images.new
   end
 
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
   end
-  
+
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-  
+
   def get_item_size
     selected_grandchild = Category.find("#{params[:grandchild_id]}")
     if related_size_parent = selected_grandchild.item_sizes[0]
@@ -134,7 +133,18 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
-  
+
+  def set_category
+    @parents = Category.where(ancestry: nil)
+  end
+
+  private
+
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
+  end
+
+
   def set_category
     @parents = Category.where(ancestry: nil)
   end
@@ -185,5 +195,3 @@ class ItemsController < ApplicationController
   end
 
 end
-
-
