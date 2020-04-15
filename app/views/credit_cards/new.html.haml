@@ -9,13 +9,15 @@
           %h1 クレジットカード情報入力
         .credit-card__box__inner
           = form_with url: pay_credit_cards_path, method: :post,id: 'charge-form', html: { name: "inputForm" } do |f| 
+            .card-notification
+              ご利用いただけるクレジットカード
             .card-icons
-              =image_tag "credit_card_logo/American_Express.svg", class:"american-express card"
-              =image_tag "credit_card_logo/diners-club.svg", class: "diners-club card"
-              =image_tag "credit_card_logo/JCB.svg", class: "jcb card"
-              =image_tag "credit_card_logo/Mastercard.svg", class: "mastercard card"
-              =image_tag "credit_card_logo/Visa.svg", class: "visa card"
-              
+              = image_tag "credit_card_logo/American_Express.svg", class:"american-express card"
+              = image_tag "credit_card_logo/diners-club.svg", class: "diners-club card"
+              = image_tag "credit_card_logo/JCB.svg", class: "jcb card"
+              = image_tag "credit_card_logo/Mastercard.svg", class: "mastercard card"
+              = image_tag "credit_card_logo/Visa.svg", class: "visa card"
+              = image_tag "credit_card_logo/UnionPay.svg", class: "union-pay card"
             .cards-number
               = f.label :カード番号, class: 'label'
               %span.form_require 必須
