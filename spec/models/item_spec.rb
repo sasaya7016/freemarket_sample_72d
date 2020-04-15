@@ -63,3 +63,26 @@ describe 'presence: true' do
   end
 
 end
+
+describe '金額の上限、加減' do
+  it "商品出品時、priceが9999999を超えると無効" do
+    @item = build(:item_01)
+    expect(@item.valid?).to eq(false)
+  end
+
+  it "商品出品時、priceが9999999までは有効" do
+    @item = build(:item_02)
+    expect(@item).to be_valid
+  end
+
+  it "商品出品時、priceが100を超えると有効" do
+    @item = build(:item_03)
+    expect(@item).to be_valid
+  end
+
+  it "商品出品時、priceが100を下回ると無効" do
+    @item = build(:item_04)
+    expect(@item.valid?).to eq(false)
+  end
+end
+
