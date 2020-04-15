@@ -16,3 +16,8 @@ describe 'presence: true' do
     )
     expect(@item).to be_valid
   end
+  
+  it "商品出品時にnameがなければ無効" do
+    @item = Item.new(name: nil)
+    expect(@item.valid?).to eq(false)
+  end
