@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
+  before_action :authenticate_user! ,only: [:buy, :pay]
   before_action :not_buy, only: [:buy]
-  before_action :authenticate_user! ,only: [:buy, :pay, :done]
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
-
+  before_action :set_category
   
   require "payjp"
 
@@ -39,14 +39,10 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     has_brand_items = Item.where.not(brand: nil)
-    #@pickup_brand = has_brand_items.sample.brand
+    if has_brand_items.sample != nil
+      @pickup_brand = has_brand_items.sample.brand
+    end
     @pickup_items = Item.where(brand: @pickup_brand)
-    @parents = Category.where(ancestry: nil)
-  end
-
-  def category_index
-    @items = Item.all.order(created_at: :desc)
-    @items = Item.page(params[:page]).per(1)
   end
   
   def show
@@ -55,6 +51,8 @@ class ItemsController < ApplicationController
 
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
   
   
@@ -78,17 +76,16 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @parents = Category.where(ancestry: nil)
   end
   
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
   end
-
+  
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
+  
   def get_item_size
     selected_grandchild = Category.find("#{params[:grandchild_id]}")
     if related_size_parent = selected_grandchild.item_sizes[0]
@@ -96,9 +93,18 @@ class ItemsController < ApplicationController
     else
       selected_child = Category.find("#{params[:grandchild_id]}").parent
       if related_size_parent = selected_child.item_sizes[0]
-          @item_sizes = related_size_parent.children
+        @item_sizes = related_size_parent.children
       end
     end
+  end
+
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
+  end
+
+  
+  def set_category
+    @parents = Category.where(ancestry: nil)
   end
 
   private
@@ -109,7 +115,6 @@ class ItemsController < ApplicationController
     columns = Item.column_symbolized_names(reject)
     params.require(:item).permit(*columns)
   end
-
 
   def set_item
     @item = Item.find(params[:id])
@@ -125,7 +130,7 @@ class ItemsController < ApplicationController
     if !user_signed_in?
       redirect_to root_path
     elsif current_user.id!=@item.exhibitor_id
-        redirect_to root_path
+      redirect_to root_path
     end
   end
 
