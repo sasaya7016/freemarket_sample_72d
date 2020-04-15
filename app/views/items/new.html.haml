@@ -56,14 +56,16 @@
             %p 販売価格
             %p.equired 必須
           .listing__box--price
-            =f.number_field :price, class: "listing-price", placeholder: "0"
+            =f.number_field :price, class: "listing-price", placeholder: "0", id: "item_price"
             %p 円
         .listing__box--fee
           %p 販売手数料 (10%)
-          %p 合計（仮）
+          %p#inner-commission 
+            0円
         .listing__box--fee
           %p 販売利益
-          %p 合計（仮）
+          %p#inner-benefit 
+            0円
         .listing__box--btns
           =f.submit class: "btn", value: "出品する"
           =link_to "戻る","#", class: "btn-back", type: "submit"
