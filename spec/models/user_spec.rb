@@ -20,7 +20,7 @@ describe User do
       expect(user.errors[:lastname]).to include("can't be blank")
     end
 
-    it "firstnameがない場合は登録できない"　do
+    it "firstnameがない場合は登録できない" do
       user = build(:user, firstname: "")
       user.valid?
       expect(user.errors[:firstname]).to include("can't be blank")
@@ -32,19 +32,19 @@ describe User do
       expect(user.errors[:lastnameKANA]).to include("can't be blank")
     end
 
-    it "firstnameKANAがない場合は登録できない"　do
+    it "firstnameKANAがない場合は登録できない" do
       user = build(:user, firstnameKANA: "")
       user.valid?
       expect(user.errors[:firstnameKANA]).to include("can't be blank")
     end
 
     it "birth_dateがない場合は登録できない" do
-      user = build(:user, birth_date: ""
+      user = build(:user, birth_date: "")
       user.valid?
       expect(user.errors[:birth_date]).to include("can't be blank")
     end
 
-    it "emailがない場合は登録できない"　do
+    it "emailがない場合は登録できない" do
       user = build(:user, email: "")
       user.valid?
       expect(user.errors[:email]).to include("can't be blank")
@@ -56,19 +56,19 @@ describe User do
       expect(user.errors[:email]).to include("is invalid")
     end
 
-    it "passwordがない場合は登録できない"　do
+    it "passwordがない場合は登録できない" do
       user = build(:user, password: "")
       user.valid?
       expect(user.errors[:password]).to include("can't be blank")
     end
 
     it "password_confirmationがない場合は登録できない" do
-      user = build(:user,　password_confirmation: "")
+      user = build(:user, password_confirmation: "")
       user.valid?
       expect(user.errors[:password_confirmation]).to include("can't be blank")
     end
 
-    it "重複したemailが存在する場合は登録できない"　do
+    it "重複したemailが存在する場合は登録できない" do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
@@ -81,7 +81,7 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "passwordが6文字以下であれば登録できない"　do
+    it "passwordが6文字以下であれば登録できない" do
       user = build(:user, password: "000000", password_confirmation: "000000")
       user.valid?
       expect(user.errors[:password]).to include("is too short(minimum is 7 characters)")

@@ -25,10 +25,9 @@
     &__sub{
       margin-top: 20px;
       width:140px;
-      height:140px;
     }
   }
-  
+
   &__price{
     text-align: center;
     font-size: 46px;
@@ -158,7 +157,7 @@
       margin:10px 0;
       text-align: left;
     }
-    
+
     textarea{
       width:100%;
       font-size:16px;
@@ -259,5 +258,9 @@
         font-weight: 600;
       }
     }
-    
+  }
+
+.slick-initialized .slick-slide{
+  display: flex;
+  justify-content: center;
 }

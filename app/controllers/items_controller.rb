@@ -3,10 +3,11 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :authenticate_user! ,only: [:buy, :pay]
   before_action :not_buy, only: [:buy]
+  before_action :set_prefecture, only: [:show, :edit]
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
   before_action :set_category
-  
+
   require "payjp"
 
   def buy #クレジット購入
@@ -44,8 +45,9 @@ class ItemsController < ApplicationController
     end
     @pickup_items = Item.where(brand: @pickup_brand)
   end
-  
+
   def show
+    @item_images = @item.item_images
     @user = User.where(id: @item.exhibitor_id).first
     @image = ItemImage.where(item_id: @item.id).first
 
@@ -54,15 +56,26 @@ class ItemsController < ApplicationController
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end
-  
-  
+
+
   def create
-    @item = Item.new(item_params)
+    if params[:item][:item_images_attributes] != nil?
+      @item = Item.new(item_params.merge(exhibitor_id: 1))
+      #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
+      @category = Category.where(ancestry: nil).order("id ASC").limit(13)
+        if @item.save
+          redirect_to root_path
+        else
+          redirect_to new_item_path, alert: '商品の出品に失敗しました'
+        end
+    else
+      redirect_to new_item_path, alert: 'ERROR'
+    end
   end
-  
+
   def edit
   end
-  
+
   def destroy
     if @item.destroy
       redirect_to root_path
@@ -70,14 +83,15 @@ class ItemsController < ApplicationController
       render :show
     end
   end
-  
+
   def update
   end
-  
+
   def new
     @item = Item.new
+    @item.item_images.new
   end
-  
+
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
   end
@@ -98,14 +112,26 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def get_item_fee
+  end
+
   def search #商品検索機能
     @items = Item.search(params[:keyword])
   end
 
-  
-  def set_category
-    @parents = Category.where(ancestry: nil)
+  def set_prefecture
+    @prefecture = Prefecture.find(params[:id])
   end
+
+  def set_category
+    @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
+  end
+
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
+  end
+
 
   private
 
@@ -119,13 +145,13 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
   def not_buy
     if current_user.id == @item.exhibitor_id
       redirect_to root_path
     end
   end
-  
+
   def move_to_index
     if !user_signed_in?
       redirect_to root_path
@@ -136,8 +162,8 @@ class ItemsController < ApplicationController
 
   def item_params
     #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(category_id ,buyer_id)
-    columns = Item.column_symbolized_names(reject).push(category_id: []) #category_idを配列で追加
+    reject = %w(buyer_id)
+    columns = Item.column_symbolized_names(reject).push(item_images_attributes: [ :id ,:image ,:_destroy])
     params.require(:item).permit(*columns)
   end
 

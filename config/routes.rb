@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get :get_category_children, defaults: { format: 'json' }
       get :get_category_grandchildren, defaults: { format: 'json' }
       get :get_item_size, defaults: { format: 'json' }
+      get :get_item_fee, defaults: { format: 'json' }
       get :search
     end
     resources :comments, only: :create
@@ -33,6 +34,8 @@ Rails.application.routes.draw do
   resources :categories do
     collection do
       get :get_toppage_category, defaults: { format: 'json' }
+      get :category_scroll, defaults: { format: 'json' }
     end
   end
+
 end
