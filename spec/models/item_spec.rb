@@ -57,3 +57,9 @@ describe 'presence: true' do
     expect(@item.valid?).to eq(false)
   end
 
+  it "商品出品時にprefecture_idがなければ無効" do
+    @item = Item.new(prefecture_id: nil)
+    expect(@item.valid?).to eq(false)
+  end
+
+end
