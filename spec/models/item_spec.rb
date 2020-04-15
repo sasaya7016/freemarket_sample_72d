@@ -47,3 +47,8 @@ describe 'presence: true' do
     expect(@item.valid?).to eq(false)
   end
 
+  it "商品出品時にexhibitor_idがなければ無効" do
+    @item = Item.new(exhibitor_id: nil)
+    expect(@item.valid?).to eq(false)
+  end
+
