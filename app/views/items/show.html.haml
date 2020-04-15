@@ -1,8 +1,10 @@
+= render "header"
 .detail-contents
   .detail-product
     .detail-product__name
       =@item.name
     .detail-product__image
+<<<<<<< HEAD
     %ul.slider.slick
       -@item.item_images.each do |i|
         %li 
@@ -11,6 +13,20 @@
       -@item.item_images.each do |i|
         %li 
           =image_tag i.image_url,class:"detail-product__image__sub"
+=======
+      %ul.slider.slick
+        -@item.item_images.each do |image|
+          %li
+            =image_tag image.url,class:"detail-product__image__main"
+            - if @item.buyer_id.present?
+              .items-box_photo__sold
+                .items-box_photo__sold__inner 
+                  SOLD
+      %ul.thumb.thumbnail
+        -@item.item_images.each do |image|
+          %li 
+            =image_tag image.url,class:"detail-product__image__sub"
+>>>>>>> master
     .detail-product__price
       ="¥#{@item.price}"
     .detail-product__sub
@@ -22,18 +38,18 @@
         %th
           出品者
         %td
-          =@item.exhibitor.name
+          =@item.exhibitor.nickname
       %tr
-        %th カテゴリー
-        %td
-          =link_to do
-            %span= @item.category.parent.parent.name
-          %br/
-          =link_to do
-            %span= @item.category.parent.name
-          %br/
-          =link_to do
-            %span= @item.category.name
+        -# %th カテゴリー
+        -# %td
+        -#   =link_to do
+        -#     %span= @item.category.parent.parent.name
+        -#   %br/
+        -#   =link_to do
+        -#     %span= @item.category.parent.name
+        -#   %br/
+        -#   =link_to do
+        -#     %span= @item.category.name
       %tr
         %th ブランド
         %td
@@ -48,7 +64,11 @@
       %tr
         %th 発送元の地域
         %td
+<<<<<<< HEAD
           =@prefecture.name
+=======
+          =link_to @item.prefecture
+>>>>>>> master
       %tr
         %th 発送元の目安
         %td 
@@ -60,30 +80,49 @@
       .detail-product__btn__report
         %i.fa.fa-flag
         不適切な商品の通報
-    - if !user_signed_in?
-    -elsif current_user.id == @item.exhibitor_id
-      .detail-product__link
-        .detail-product__link__edit
-          =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
-        .detail-product__link__delete
-          =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
-    - if !user_signed_in? 
-      .detail-product__link__buy
-        =link_to "商品を購入する", buy_item_path(@item.id)
-    -elsif current_user.id != @item.exhibitor_id
-      .detail-product__link__buy
-        =link_to "商品を購入する", buy_item_path(@item.id)
-        
+    - if @item.buyer_id.nil?
+      - if !user_signed_in?
+      -elsif current_user.id == @item.exhibitor_id
+        .detail-product__link
+          .detail-product__link__edit
+            =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
+          .detail-product__link__delete
+            =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
+      - if !user_signed_in? 
+        .detail-product__link__buy
+          =link_to "商品を購入する", buy_item_path(@item.id)
+      -elsif current_user.id != @item.exhibitor_id
+        .detail-product__link__buy
+          =link_to "商品を購入する", buy_item_path(@item.id)
+    - else 
+      .detail-product__sold-out
+        この商品は売り切れました
   .detail-comment-box
-    %form
-      %textarea{cols:40, rows:4}
+    ＜コメント一覧＞
+    .detail-comment-box__wrap
+      -@comments.each do |comment|
+        .detail-comment-box__inner
+          .detail-comment-box__inner__name
+            - if comment.user_id == comment.item.exhibitor_id
+              出品者:
+            - else 
+              ="#{comment.user.nickname}: "
+          .detail-comment-box__inner__text
+            = comment.message
+    = form_with model: [@item, @comment],id:"new_comment", local: true do |f|
+      = f.text_area :message, placeholder: "35文字以内", class:"textbox",maxlength:"35"
       .detail-comment-box__alert
         相手のことを考え適切なコメントを心がけましょう。
         %br>/
         不快な言葉遣胃などは利用制限や退会処分となることがあります。
-      %button{type:"submit", value:"コメントする"}
-        %i.fa.fa-comment
         コメントする
+      - if user_signed_in?
+        %button{type:"submit"}
+          %i.fa.fa-comment
+          コメントする
+      - else 
+        .detail-comment-box__login
+          コメントにはログインが必要です
   .detail-links
     -if @item.previous
       .detail-links__before
@@ -94,3 +133,4 @@
 
   .detail-category
     =link_to "〇〇をもっと見る"
+= render "footer"

@@ -13,18 +13,21 @@
   &__name{
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 30px;
   }
   &__image{
     &__main{
-      width:500px;
+      width:100%;
+      height:400px;
       margin:0 auto;
     }
     &__sub{
+      margin-top: 20px;
       width:140px;
     }
   }
-  
+
   &__price{
     text-align: center;
     font-size: 46px;
@@ -128,6 +131,18 @@
       }
     }
   }
+  &__sold-out{
+    line-height: 48px;
+    background: gray;
+    border: 1px solid gray;
+    color: black;
+    width: 80%;
+    font-size: 18px;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 30px;
+
+  }
 }
   .detail-comment-box{
     padding:24px;
@@ -136,23 +151,54 @@
     margin-top:10px;
     background-color: white;
     text-align: center;
+
     &__alert{
       background-color:#f8f8f8;
       margin:10px 0;
       text-align: left;
     }
-    
+
     textarea{
       width:100%;
+      font-size:16px;
+      padding:5px;
     }
     button{
       line-height: 48px;
-    background: #3CCACE;
+      background: #3CCACE;
     border: 1px solid #3CCACE;
     color: #fff;
     width: 60%;
     font-size: 18px;
     border-radius: 100px;
+    }
+
+    &__login{
+      line-height: 48px;
+    background: gray;
+    border: 1px solid gray;
+    color: black;
+    width: 80%;
+    font-size: 18px;
+    text-align: center;
+    margin:0 auto;
+    margin-top: 30px;
+    }
+
+    &__inner{
+      display: flex;
+      margin-top:10px;
+      &__name{
+        color:gray;
+      }
+      &__text{
+        margin-left: 15px;
+        // word-break: break-all;
+        word-wrap: break-word;
+      }
+    }
+    textarea{
+      margin-top:10px;
     }
   }
   .detail-links{
@@ -171,8 +217,8 @@
     }
     a{
       text-decoration: none;
-    color: #3CCACE;
-    font-size: 16px;
+      color: #3CCACE;
+      font-size: 16px;
     }
   }
   .detail-category{
@@ -187,9 +233,34 @@
   }
 
   .slick-slide{
-    margin-right:16px;
+    position: relative;
+    padding-left: 80px;
+    padding-right:80px;
+    .items-box_photo__sold{
+      width: 0;
+      height: 0;
+      border-width: 120px 120px 0 0;
+      border-color: #ea352d transparent transparent transparent;
+      display: block;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      border-style: solid;
+      &__inner{
+        top: -90px;
+        font-size: 30px;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        color: #fff;
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+    }
   }
-  .slick-initialized .slick-slide{
-    display: flex;
-    justify-content: center;
-  }
+
+.slick-initialized .slick-slide{
+  display: flex;
+  justify-content: center;
+}

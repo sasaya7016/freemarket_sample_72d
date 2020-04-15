@@ -26,7 +26,12 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /.env
+<<<<<<< HEAD
 /public/uploads
 
 #Ignore application configration
 /config/application.yml
+=======
+# public/uploads以下をignore
+/public/uploads/*
+>>>>>>> master

@@ -1,0 +1,152 @@
+html,body,ul {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+
+// @import "config/colors";  後ほど作成→仮置き
+$font_color_white: white;
+$font_color_black: black;
+$font_color_oceanblue:#3CCACE;
+$background-color_section:#eeeeee;
+
+
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  &__inner {
+    max-width: 1050px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 60px 0 60px;
+    display: flex;
+    &__icon {
+      margin-right: 30px;
+        &__top{
+          width: 140px;
+          height: 50px;
+        }
+    }
+    &__search {
+      width: 100%;
+      &__form {
+        display: flex;
+        width: 100%;
+        .form_box{
+          width: 900px;
+          .textarea{
+            width: calc(100% - 40px);
+            height: 30px;
+            font-size: 15px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            padding: 0 0 0 5px;
+          }
+          .btn {
+            width: 40px;
+            height: 32px;
+            background-color: $font_color_oceanblue;
+            color: $font_color_white;
+          }
+          .search-img {
+            height: 15px;
+            width: 15px;
+          }
+        }
+      }
+    }
+    .icon {
+
+    }
+  }
+  &__nav {
+    width: 100%;
+    max-width: 1050px;
+    font-size: 13px;
+    line-height: 13px;
+    margin: 0 auto;
+    &__list {
+      display: flex;
+      padding: 0;
+      line-height: 20px;
+      &__left{
+        &__serect{
+          display: flex;
+          &__category {
+            padding-right: 30px;
+            position: relative;
+            top: 18px;
+            .category-list{
+              position: absolute;
+              z-index: 2;
+              display: flex;
+              visibility: hidden;
+            }
+            &:hover > .category-list{
+              visibility: visible;
+            }
+            .children-list {
+              position: absolute;
+              z-index: 2;
+              left: 240px;
+              display: flex;
+            }
+            .grandchildren-list {
+              position: absolute;
+              z-index: 2;
+              left: 480px;
+              display: flex;
+            }
+          }
+          &__brand{
+          }
+        }
+      }
+      &__right {
+        margin-left: auto;
+        &__serect{
+          display: flex;
+          &__login{
+          }
+          &__new{
+            padding-left: 40px;
+          }
+        }
+      }
+    }
+    ul {
+      list-style: none;
+        a {
+          text-decoration: none;
+          color: $font_color_black;
+          font-weight: lighter;
+        }
+    }
+  }
+}
+
+
+.item-link{
+  border: 1px solid $font_color_oceanblue;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-size: 18px;
+  padding-right: 30px;
+  display: block;
+  width: 240px;
+  padding: 3px 8px 3px 5px;
+  white-space: nowrap;
+  &:hover{
+    background-position: -100% 0;
+    background-color: red;
+    color: white; 
+  }
+}
+

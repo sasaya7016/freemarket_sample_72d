@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+<<<<<<< HEAD
 describe 'presence: true' do
   it "商品出品時にname, introduction, price, category_id, status, preparation_day, exhibitor_id, delivery_fee, prefecture_idがあれば有効であること" do
     @item = Item.new(
@@ -86,3 +87,8 @@ describe '金額の上限、加減' do
   end
 end
 
+=======
+RSpec.describe Item, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+>>>>>>> master

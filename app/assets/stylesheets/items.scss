@@ -1,14 +1,24 @@
 @import "modules/items_new";
 @import "modules/items_show";
+@import "modules/items_create";
+@import "modules/header";
+@import "modules/article-top";
+@import "modules/footer";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/items_buy";
-@import "modules/category_index";
+@import "modules/flash";
+
 html,body,ul {
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 
@@ -17,6 +27,8 @@ $font_color_white: white;
 $font_color_black: black;
 $font_color_oceanblue:#3CCACE;
 $background-color_section:#eeeeee;
+
+
 
 
 
@@ -43,24 +55,26 @@ $background-color_section:#eeeeee;
     &__search {
       width: 100%;
       &__form {
-        display: flex;
-        textarea{
-          width: calc(100% - 40px);
-          height: 30px;
-          font-size: 15px;
-          line-height: 30px;
-          margin-bottom: 5px;
-          padding: 0 0 0 5px;
-        }
-        button {
-          width: 40px;
-          height: 32px;
-          background-color: $font_color_oceanblue;
-          color: $font_color_white;
-        }
-        .search-img {
-          height: 15px;
-          width: 15px;
+        .form_box{
+          display: flex;
+          .textarea{
+            width: calc(100% - 40px);
+            height: 30px;
+            font-size: 15px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            padding: 0 0 0 5px;
+          }
+          .btn {
+            width: 40px;
+            height: 32px;
+            background-color: $font_color_oceanblue;
+            color: $font_color_white;
+          }
+          .search-img {
+            height: 15px;
+            width: 15px;
+          }
         }
       }
     }
@@ -306,6 +320,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{
@@ -358,6 +376,10 @@ $background-color_section:#eeeeee;
     &__main{
       display: flex; 
       justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
       h3 {
       }
       &__list{

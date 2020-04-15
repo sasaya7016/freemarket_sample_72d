@@ -13,14 +13,16 @@
 ActiveRecord::Schema.define(version: 2020_04_05_005200) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postalcode"
-    t.string "prefecture"
-    t.string "town"
-    t.string "street"
-    t.string "building"
-    t.integer "prefecture_id"
+    t.integer "postalcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "first_address", null: false
+    t.string "second_address", null: false
+    t.string "third_address"
+    t.integer "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,11 +49,9 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
   end
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card＿number", null: false
-    t.integer "expiration_month", null: false
-    t.integer "expiration_year", null: false
-    t.integer "security_code", null: false
     t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,7 +96,12 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "nickname", null: false
+    t.string "lastname", null: false
+    t.string "firstname", null: false
+    t.string "lastnameKANA", null: false
+    t.string "firstnameKANA", null: false
+    t.date "birth_date", null: false
     t.string "icon_image"
     t.string "background_image"
     t.string "email", default: "", null: false
@@ -104,7 +109,6 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
