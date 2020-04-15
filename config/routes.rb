@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :categories do
     collection do
       get :get_toppage_category, defaults: { format: 'json' }
+      get :category_scroll, defaults: { format: 'json' }
     end
   end
 

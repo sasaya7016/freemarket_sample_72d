@@ -15,6 +15,6 @@
         有効期限
         %br/
         = @exp_month + " / " + @exp_year
-      = form_with url: delete_credit_cards_path, method: :post, id: 'charge-form', html: { name: "inputForm"} do |f|
+      = form_with url: delete_credit_cards_path, method: :post, id: 'charge-form',local: true, html: { name: "inputForm"} do |f|
         = f.hidden_field :card_id, value: ""
         = f.submit "削除する", class:"credit-card__box__inner__show-delete"
