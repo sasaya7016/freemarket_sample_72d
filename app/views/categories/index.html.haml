@@ -10,10 +10,10 @@
       %h1 カテゴリー一覧
       .parent
         -@category.each do |parent|
-          =link_to parent.name, category_path(parent.id), class: "parent-btn", id: "#{parent.id}" 
+          =link_to parent.name, "##{parent.id}", class: "parent-btn"
       .children
         -@category.each do |parent|
-          %h1= parent.name
+          %h1= link_to parent.name, category_path(parent.id), id: "##{parent.id}", class: "children-category"
           -parent.children.each do |child|
             %h3= link_to child.name, category_path(parent.id), class: "children-category", id: "#{child.id}" 
             .grandchildren-categories
