@@ -78,7 +78,7 @@ table {
   }
   &__main{
     background-color: white;
-    height: 100vh;
+    height: 110vh;
     width: 40vw;
     margin-left: auto;
     margin-right: auto;
@@ -92,7 +92,7 @@ table {
       .field{
         text-align: center;
         position: relative;
-        margin-bottom: 10px;
+        margin-bottom: auto;
         font-weight: 800;
         color: rgb(51, 50, 50);
         &__box{
@@ -202,6 +202,11 @@ table {
             border-radius: 2px;
             margin-left: 3px;
           }
+        }
+        select{
+          font-size: large;
+          width: 25vw;
+          height: 5vh;
         }
         .labelname{
           padding-right: 45%;
