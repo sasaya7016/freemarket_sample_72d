@@ -2,14 +2,20 @@
 .listing-contents
   .listing
     .listing__box
-      =form_with model: [@item] do |f|
+      =form_with model: [@item],data: { remote: false } do |f|
         .listing__box--title
           %p 出品画像
           %p.equired 必須
         %p.listing-attention 最大10枚まで
-        %label.exhibit-image-box
-          =f.file_field :images, class: "secret-image"
-          .exhibit-image 写真を選択してください
+        .exhibit__image-box#exhibit__image-box
+          .exhibit__image-box__previews#exhibit__image-box__previews
+          .exhibit__image-box__uploader#exhibit__image-box__uploader
+            %label.exhibit__image-box__uploader__label#exhibit__image-box__uploader__label
+              =f.fields_for :item_images do |image|
+                .img-file_group{"data-index" => "#{image.index()}"}
+                  = image.file_field :image ,type: 'file',value: "",class: "secret-image img-file"
+            .exhibit__image-box__uploader__text
+              写真を追加。
         .listing__box--title
           %p 商品名
           %p.equired 必須
@@ -22,7 +28,7 @@
         .listing__box--title
           %p カテゴリー
           %p.equired 必須
-        = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
+        = f.collection_select :category_id, @category, :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
         .listing-child
         .listing-grandchild
         .listing-size
@@ -51,14 +57,16 @@
             %p 販売価格
             %p.equired 必須
           .listing__box--price
-            =f.number_field :price, class: "listing-price", placeholder: "0"
+            =f.number_field :price, class: "listing-price", placeholder: "0", id: "item_price"
             %p 円
         .listing__box--fee
           %p 販売手数料 (10%)
-          %p 合計（仮）
+          %p#inner-commission 
+            0円
         .listing__box--fee
           %p 販売利益
-          %p 合計（仮）
+          %p#inner-benefit 
+            0円
         .listing__box--btns
           =f.submit class: "btn", value: "出品する"
           =link_to "戻る","#", class: "btn-back", type: "submit"

@@ -53,10 +53,10 @@
       %tr
         %th 発送元の地域
         %td
-          =link_to @item.prefecture
+          =@prefecture.name
       %tr
         %th 発送元の目安
-        %td 
+        %td
           ="#{@item.preparation_day}日で発送"
     .detail-product__btn
       .detail-product__btn__like
@@ -73,7 +73,7 @@
             =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
           .detail-product__link__delete
             =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
-      - if !user_signed_in? 
+      - if !user_signed_in?
         .detail-product__link__buy
           =link_to "商品を購入する", buy_item_path(@item.id)
       -elsif current_user.id != @item.exhibitor_id
@@ -90,7 +90,7 @@
           .detail-comment-box__inner__name
             - if comment.user_id == comment.item.exhibitor_id
               出品者:
-            - else 
+            - else
               ="#{comment.user.nickname}: "
           .detail-comment-box__inner__text
             = comment.message
@@ -105,13 +105,13 @@
         %button{type:"submit"}
           %i.fa.fa-comment
           コメントする
-      - else 
+      - else
         .detail-comment-box__login
           コメントにはログインが必要です
   .detail-links
     -if @item.previous
       .detail-links__before
-        =link_to "<前の商品", item_path(@item.previous.id) 
+        =link_to "<前の商品", item_path(@item.previous.id)
     -if @item.next
       .detail-links__after
         =link_to "後ろの商品>", item_path(@item.next.id)
