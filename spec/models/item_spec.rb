@@ -21,3 +21,9 @@ describe 'presence: true' do
     @item = Item.new(name: nil)
     expect(@item.valid?).to eq(false)
   end
+  
+  it "商品出品時にintroductionがなければ無効" do
+    @item = Item.new(introduction: nil)
+    expect(@item.valid?).to eq(false)
+  end
+  
