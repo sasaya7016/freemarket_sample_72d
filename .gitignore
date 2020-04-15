@@ -27,3 +27,6 @@
 /config/master.key
 /.env
 /public/uploads
+
+#Ignore application configration
+/config/application.yml
