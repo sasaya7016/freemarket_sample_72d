@@ -156,7 +156,7 @@ table {
   }
   &__main{
     background-color: white;
-    height: 100vh;
+    height: 80vh;
     width: 40vw;
     margin-left: auto;
     margin-right: auto;
@@ -169,6 +169,40 @@ table {
     &__panel{
       .field{
         text-align: center;
+        position: relative;
+        margin-bottom: 10px;
+        font-weight: 800;
+        color: rgb(51, 50, 50);
+        &__box{
+          display: flex;
+          position: absolute;
+          top: 1%;
+          left: 14%;
+          &__title{
+          }
+          &__hissu{
+            height: 20px;
+            width: 30px;
+            padding-top: 2px;
+            font-size: small;
+            background-color: red;
+            color: white;
+            text-align: center;
+            border-radius: 2px;
+            margin-left: 3px;
+          }
+          &__ninni{
+            height: 20px;
+            width: 30px;
+            padding-top: 2px;
+            font-size: small;
+            background-color: gray;
+            color: white;
+            text-align: center;
+            border-radius: 2px;
+            margin-left: 3px;
+          }
+        }
         .labelname{
           padding-right: 45%;
         }
@@ -176,8 +210,7 @@ table {
           height: 100px;
         }
         .user-textform{
-        text-align: center;
-        height: 50px;
+        height: 40px;
         width: 25vw;
         border-radius: 3px;
         border: solid 1px rgb(194, 186, 186);
