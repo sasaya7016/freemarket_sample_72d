@@ -24,7 +24,7 @@
           %label 
             = icon('fas', 'fa-magic', class: 'fa-magic') 
             %span カテゴリーを選択する (未実装)
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category',value:@parent
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category',value:@category_id
           .listing-child
           .listing-grandchild
           .listing-size

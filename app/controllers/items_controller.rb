@@ -105,6 +105,8 @@ class ItemsController < ApplicationController
     @items = Item.page(params[:page]).per(1)     
     @parents = Category.where(ancestry: nil)
     #ページネーション
+
+
     has_brand_items = Item.where.not(brand: nil)
     if has_brand_items.sample != nil
       @pickup_brand = has_brand_items.sample.brand
