@@ -35,7 +35,7 @@
     .listing-child
       .listing-select-wrapper__added#children_wrapper
         .listing-select-wrapper__box
-          = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name, class: 'listing-select-wrapper__box--select', selected: @item.category.parent_id
+          = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name, {selected: @item.category.parent_id}, class: 'listing-select-wrapper__box--select', id: "child_category"
     .listing-grandchild
       .listing-select-wrapper__added#grandchildren_wrapper
         .listing-select-wrapper__box
@@ -48,7 +48,7 @@
             %p.listing-default--require.equired 必須
           .listing-select-wrapper__added--size
             .listing-select-wrapper__box
-              = f.collection_select :item_size, @item_sizes, :id, :item_size, {prompt: ""}, class: 'listing-select-wrapper__box--select', selected: @item.item_size
+              = f.collection_select :item_size, @item_sizes, :item_size, :item_size, {prompt: ""}, class: 'listing-select-wrapper__box--select', selected: @item.item_size
     .listing__box--title
       %p ブランド
       %p.arbitrary 任意
