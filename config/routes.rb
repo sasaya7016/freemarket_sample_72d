@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :get_item_size, defaults: { format: 'json' }
       get :search
     end
+    resources :favorites, only: [:cerate, :destroy, :show] 
   end
   resources :credit_cards, only: [:new,:show] do
     collection do
