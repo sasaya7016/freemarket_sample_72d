@@ -1,0 +1,48 @@
+.add-regi
+  .add-regi__header
+    = render 'header'
+  .add-regi__main
+    %h1 住所登録情報
+    .add-regi__main__panel
+      = form_with model:@address,data: { remote: false } do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .field
+          .field__box
+            .field__box__title 郵便番号
+            .field__box__hissu 必須
+          %br/
+          = f.text_field :postalcode, class: "user-textform", placeholder: "例）111-0001"
+        .field
+          .field__box
+            .field__box__title 都道府県
+            .field__box__hissu 必須
+          %br/
+          =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, include_blank: '選択してください', class: "listing-select"
+        .field
+          .field__box
+            .field__box__title 市区町村
+            .field__box__hissu 必須
+          %br/
+          = f.text_field :first_address, class: "user-textform", placeholder: "例）練馬区"
+        .field
+          .field__box
+            .field__box__title 番地
+            .field__box__hissu 必須
+          %br/
+          = f.text_field :second_address, class: "user-textform", placeholder: "例）備中2-3"
+        .field
+          .field__box
+            .field__box__title マンション名、部屋番号など
+            .field__box__ninni 任意
+          %br/
+          = f.text_field :third_address, class: "user-textform", placeholder: "例）ランドマークタワー"
+        .field
+          .field__box
+            .field__box__title 電話番号
+            .field__box__ninni 任意
+          %br/
+          =f.text_field :phone_number, class: "user-textform", placeholder: "例）090-5555-5555"
+        .actions
+          = f.submit "新規登録", class:"login-btn"    
+  .add-regi__footer
+    = render 'footer'

@@ -1,0 +1,38 @@
+.buy_verification
+  .buy_verification__box
+    %h1.verification__box--title 購入内容の確認
+    .buy_verification__box--content
+      .image 
+        = image_tag(@image.url,class: "image_verification")
+      .content
+        .content__name 
+          =@item.name
+        .content__price 
+          =@item.price 
+    .buy_verification__box--price
+      %p.title 支払い金額
+      .price
+        %p.detail 
+          = @item.price
+        %p 円
+    .buy_verification__box--payment_method 
+      %p.title 支払い方法
+      %p 
+        - if @default_card_information.blank?
+          =link_to "クレジットカードを登録する",new_credit_card_path
+        - else
+          = "**** **** **** " + @default_card_information.last4
+          %br/
+          %i.fab.fa-cc-visa.fa-2x
+          %br/
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+    .buy_verification__box--shipping_address 
+      %p.title 配達先
+      %p.detail なんばスカイオ
+    .form
+      - if @default_card_information.blank?
+        購入にはクレジットカードの登録が必要です
+      -else
+        = link_to "購入する" ,pay_item_path(@item.id), method: :post, data: { confirm: '購入しますか' }

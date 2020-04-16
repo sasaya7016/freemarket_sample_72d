@@ -1,0 +1,43 @@
+.header
+  .header__inner
+    .header__inner__icon
+      = link_to image_tag("http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg",class:"header__inner__icon__top") ,root_path
+    .header__inner__search
+      .header__inner__search__form
+        = form_with url: search_items_path,local: true, method: :get do |f|
+          .form_box
+            = f.text_field :keyword,class: "textarea", placeholder: "キーワードから探す"
+            %button{type: "submit", class:'btn'}
+              = link_to image_tag("icon-search.svg",class:"search-img") ,""
+
+  .header__nav
+    %ul.header__nav__list
+      %li.header__nav__list__left
+        %ul.header__nav__list__left__serect
+          %li.header__nav__list__left__serect__category
+            = link_to "カテゴリー", categories_path, class: "category-index"
+            .category-list
+              %ul.category-pearent
+                - @parents.each do |parent|
+                  %li.category-pearent__btn
+                  = link_to "#{parent.name}", category_path(parent.id), class: "parent-list item-link", id: "#{parent.id}"
+              .children_list
+              .grandchildren_list
+          %li.header__nav__list__left__serect__category
+            = link_to "ブランド","#"
+            .category-list
+              %ul.category-pearent
+                %li.category-pearent__btn
+                  -# = link_to "シャネル", "#", class: "item-link"
+
+      %li.header__nav__list__right
+        %ul.header__nav__list__right__serect
+          %li.header__nav__list__right__serect__login
+            %h4
+            - if user_signed_in?
+              =  link_to "ログアウト", destroy_user_session_path, method: :delete
+            - else
+              =  link_to "ログイン", new_user_session_path, method: :get
+          %li.header__nav__list__right__serect__new
+            %h4
+              = link_to "新規登録会員",new_user_registration_path

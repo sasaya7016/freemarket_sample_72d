@@ -1,3 +1,522 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "modules/items_new";
+@import "modules/items_show";
+@import "modules/items_create";
+@import "modules/header";
+@import "modules/article-top";
+@import "modules/footer";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/items_buy";
+@import "modules/flash";
+
+html,body,ul {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  background-color: rgb(245,245,245);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+// @import "config/colors";  後ほど作成→仮置き
+$font_color_white: white;
+$font_color_black: black;
+$font_color_oceanblue:#3CCACE;
+$background-color_section:#eeeeee;
+
+
+
+
+
+// _header.html.haml ---------------
+
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  &__inner {
+    max-width: 1050px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 60px 0 60px;
+    display: flex;
+    &__icon {
+      margin-right: 30px;
+        &__top{
+          width: 140px;
+          height: 50px;
+        }
+    }
+    &__search {
+      width: 100%;
+      &__form {
+        .form_box{
+          display: flex;
+          .textarea{
+            width: calc(100% - 40px);
+            height: 30px;
+            font-size: 15px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            padding: 0 0 0 5px;
+          }
+          .btn {
+            width: 40px;
+            height: 32px;
+            background-color: $font_color_oceanblue;
+            color: $font_color_white;
+          }
+          .search-img {
+            height: 15px;
+            width: 15px;
+          }
+        }
+      }
+    }
+    .icon {
+
+    }
+  }
+  &__nav {
+    width: 100%;
+    max-width: 1050px;
+    font-size: 13px;
+    line-height: 13px;
+    margin: 0 auto;
+    &__list {
+      display: flex;
+      padding: 0;
+      &__left{
+        &__serect{
+          display: flex;
+          &__category{
+            margin-right: 40px;
+          }
+        }
+      }
+      &__right {
+        margin-left: auto;
+        &__serect{
+          display: flex;
+          &__login{
+          }
+          &__new{
+            padding-left: 40px;
+          }
+        }
+      }
+    }
+    ul {
+      list-style: none;
+        a {
+          text-decoration: none;
+          color: $font_color_black;
+          font-weight: lighter;
+        }
+    }
+  }
+}
+
+
+
+// _section.html.haml ---------------
+  
+.article-top {
+  width: 100%;
+  height: 550px;
+  position: relative;
+  align-items: center;
+  background: image-url("bg-mainVisual-pict_pc.jpg");
+  background-size: cover;
+  &__message {
+    color: $font_color_white;
+    position: absolute;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    padding: 100px 0 0 50px;
+    &__title {
+      font-size: 40px;
+      line-height: 40px;
+    }
+    &__text {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    &__btn {
+      display: flex;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+
+
+.selection{
+  width: 100%;
+  height: 600px;
+  padding: 60px 30px;
+  &__subtitle {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    &__lists {
+      text-align: center;
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+      list-style: none;
+      justify-content: space-evenly;
+      &__list {
+        padding-top: 30px;
+        width: 30%;
+        &__image{
+          span {
+            display: inline-block;
+            position: absolute;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: $font_color_oceanblue;
+            color: $font_color_white;
+          }
+          .pict-reason-img {
+            height: 300px;
+          }
+        }
+        &__text{
+          font-size: 20px;
+          span {
+            color: $font_color_oceanblue;
+          } 
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}   
+
+
+.article__center {
+  position: relative;
+  background: image-url("bg-topMiddleDl-pict.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  &__message {
+    color: $font_color_white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    position: absolute;
+    padding: 50px 0 0 50px;
+    &__title {
+      font-size: 20px;
+    }
+    &__text {
+      margin: 20px 0;
+      font-size: 20px;
+      p {
+        font-size: 15px;
+        line-height: 15px;
+      }
+    }
+    &__btn {
+      display: flex;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+
+.feature{
+  width: 100%;
+  height: 600px;
+  padding: 60px 30px;
+  &__title {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.4;
+    &__lists {
+      text-align: center;
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+      list-style: none;
+      justify-content: space-evenly;
+      &__list {
+        width: 30%;
+        &__image{
+          span {
+            display: inline-block;
+            position: absolute;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: $font_color_oceanblue;
+            color: $font_color_white;
+          }
+          .icon-img {
+              height: 300px;
+          }
+        }
+        &__text{
+          font-size: 20px;
+          p {
+            font-size: 17px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}   
+
+
+.pickup-category {
+  height: 100%;
+  padding: 100px 0;
+  background-color: $background-color_section;
+  &__message{
+    text-align: center;
+    h2 {
+      font-size: 26px;
+      line-height: 26px;
+    }
+    h3 {
+      font-size: 24px;
+      line-height: 24px;
+      color: $font_color_oceanblue;
+    }
+  }
+  &__product{
+    width: 100%;
+    &__main{
+      display: flex; 
+      justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      h3 {
+      }
+      &__list{
+        background-color: $font_color_white;
+        &__img{
+          .product-img {
+            height: 230px;
+          }
+        }
+        &__text{
+          padding: 10px 15px;
+          border: solid 0.1px $background-color_section;
+          &__details{
+            .ul {
+              display: flex;
+              justify-content: space-between;
+              .li {
+              }
+            }
+            p {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.pickup-bland {
+  height: 100%;
+  padding: 100px 0;
+  background-color: $background-color_section;
+  &__message{
+    text-align: center;
+    h2 {
+      font-size: 26px;
+      line-height: 26px;
+    }
+    h3 {
+      font-size: 24px;
+      line-height: 24px;
+      color: $font_color_oceanblue;
+    }
+  }
+  &__product{
+    width: 100%;
+    &__main{
+      display: flex; 
+      justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      h3 {
+      }
+      &__list{
+        background-color: $font_color_white;
+        &__img{
+          .product-img {
+            height: 230px;
+          }
+        }
+        &__text{
+          padding: 10px 15px;
+          border: solid 0.1px $background-color_section;
+          &__details{
+            .ul {
+              display: flex;
+              justify-content: space-between;
+              .li {
+              }
+            }
+            p {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// _footer.html.haml ---------------
+
+.article-bottom {
+  height: 400px;
+  width: 100%;
+  background: image-url("bg-appBanner-pict.jpg");
+  background-size: cover; 
+  &__message {
+    text-align: center;
+    padding-top: 100px;
+    &__title{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-weight: bold;
+      line-height: 1.4;
+      color: $font_color_white;
+      h2 {
+        font-size: 26px;
+        line-height: 26px;
+      }
+      h3 {
+        font-size: 30px;
+        line-height: 30px;
+      }
+    }
+    &__btn {
+      display: flex;
+      justify-content: center;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+
+.footer {
+  padding: 60px 0;
+  width: 100%;
+  color: $font_color_white;
+  background-color: #272727;
+  text-align: center;
+  &__lists {
+    margin: 0 auto;
+    &__list {
+      display: flex;
+      justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: $font_color_white;
+      }
+      ul {
+        h3 {
+          font-size: 15px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        li {
+          margin-bottom: 20px;
+          list-style-type: none;
+          p {
+            font-size: 13px;
+          }    
+          }
+      }
+    }
+  }
+  .footer__logo {
+    width: 100%;
+    margin: 0 auto;
+    color: $font_color_white;
+    text-align: center;
+    .logo {
+      width: 150px;
+    }
+  }
+}
+
+
+// _exhibition.html.haml (side-btn)---------------
+.exhibition-btn {
+  width: 100px;
+  height: 100px;
+  background: $font_color_oceanblue;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  &__icon{
+    .icon-camera {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

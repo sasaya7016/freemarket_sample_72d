@@ -1,0 +1,69 @@
+.signup
+  .signup__header    
+    = render 'header'
+  .signup__main
+    %h1 新規登録画面
+    .signup__main__panel
+      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          .field__box
+            .field__box__title ニックネーム
+            .field__box__hissu 必須
+          %br/
+          = f.text_field :nickname, placeholder: "例)ミツマキNT", class: "user-textform"
+        .field
+          .field__box
+            .field__box__title メールアドレス
+            .field__box__hissu 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "user-textform",placeholder:"@が必要です"
+        .field
+          .field__box
+            .field__box__title パスワード（7文字以上）
+            .field__box__hissu 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: "user-textform",placeholder: "7文字以上で設定してください"
+        .field
+          .field__box
+            .field__box__title パスワード再入力
+            .field__box__hissu 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記と同様に入力してください", class: "user-textform"
+        .zenkaku-onamae
+          .field
+            .field__box
+              .field__box__title 名字（漢字）
+              .field__box__hissu 必須
+            %br/
+            = f.text_field :lastname, placeholder: "例）田中", class: "user-textform"
+          .field
+            .field__box
+              .field__box__title 名前 (漢字)
+              .field__box__hissu 必須
+            %br/
+            = f.text_field :firstname, placeholder: "例）こう", class: "user-textform"
+        .katakana-onamae
+          .field
+            .field__box
+              .field__box__title 名字 (カナ)
+              .field__box__hissu 必須
+            %br/
+            = f.text_field :lastnameKANA, placeholder: "例）タナカ", class: "user-textform"
+          .field
+            .field__box
+              .field__box__title 名前 (カナ)
+              .field__box__hissu 必須
+            %br/
+            = f.text_field :firstnameKANA, placeholder: "例）コウ", class: "user-textform"
+        .field
+          .field__box
+            .field__box__title 生年月日
+            .field__box__hissu 必須
+          = f.date_select :birth_date, use_month_numbers: true ,start_year: 1920, end_year: (Time.now.year - 15), default: Date.new(1992,1,1),class:"birthselect"
+        .actions
+          = f.submit "次へ",class:"login-btn"
+          
+      
+  .signup__footer
+    = render 'footer'

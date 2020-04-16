@@ -1,0 +1,131 @@
+%section.article-top
+  .article-top__message
+    .article-top__message__title
+      %h2  人生を変えるフリマアプリ
+    .article-top__message__text
+      %p FURIMAは誰でもかんたんに出品・購入できる
+      %p フリマアプリです
+    .article-top__message__btn
+      .article-top__message__btn__apple
+        =link_to image_tag("app-store.svg",class:"apple-store"),""
+      .article-top__message__btn__google
+        = link_to image_tag("google-play.svg",class:"google-play"),""
+  
+
+%section.selection
+  .selection__subtitle
+    %p2 FURIMAが選ばれる3つの理由
+    
+    %ul.selection__subtitle__lists
+      %li.selection__subtitle__lists__list
+        .selection__subtitle__lists__list__image
+          %span.number 1
+          = image_tag("pict-reason-01.jpg" ,class:"pict-reason-img");
+        .selection__subtitle__lists__list__text
+          %span 3分
+          ですぐに出品
+          %br/
+          %p スマホで入力するだけで簡単に出品できる！
+      %li.selection__subtitle__lists__list
+        .selection__subtitle__lists__list__image
+          %span.number 2
+          = image_tag("pict-reason-02.jpg",class:"pict-reason-img");
+        .selection__subtitle__lists__list__text
+          %span.h2 シンプル 
+          で使いやすい
+          %br/
+          %p めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.selection__subtitle__lists__list
+        .selection__subtitle__lists__list__image
+          %span.number 3
+          = image_tag("pict-reason-03.jpg",class:"pict-reason-img");
+        .selection__subtitle__lists__list__text
+          %span 手数料 
+          業界最安
+          %br/
+          %p 最大3%でお得に出品&購入！
+      
+
+.section.article__center  
+  .article__center__message
+    .article__center__message__title
+      %h2 会員数日本一位
+    .article__center__message__text
+      %p FURIMAは、フリマアプリで最も人気。
+      %p 出品・購入回数も業界最多です！
+      %p ほしかったあの商品に出会えるかもしれません。
+    .article__center__message__btn
+      .article__center__message__btn__apple
+        = link_to image_tag("app-store.svg",class:"apple-store"),""
+      .article__center__message__btn__google
+        = link_to image_tag("google-play.svg",class:"google-play"),""
+
+
+%section.feature
+  .feature__title
+    %p2 FURIMAが選ばれる3つの理由
+    
+    %ul.feature__title__lists
+      %li.feature__title__lists__list
+        .feature__title__lists__list__image
+          = image_tag("icon-01.png" ,class:"icon-img");
+        .feature__title__lists__list__text
+          %h2 簡単に売り買いできる
+          %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+
+
+      %li.feature__title__lists__list
+        .feature__title__lists__list__image
+          = image_tag("icon-03.png",class:"icon-img");
+        .feature__title__lists__list__text
+          %h2 売上金は即日振込みに対応
+          %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+
+      %li.feature__title__lists__list
+        .feature__title__lists__list__image
+          = image_tag("icon-04.png",class:"icon-img");
+        .feature__title__lists__list__text
+          %h2 様々な支払いに対応 
+          %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+      
+
+
+.section.pickup-category
+  .pickup-category__message
+    %h2 ピックアップカテゴリー
+    %h3 新規投稿商品
+  .pickup-category__product
+    .pickup-category__product__main
+      - @items.last(3).reverse.each do |item|
+        = link_to item_path(item.id) do
+          .pickup-category__product__main__list
+            .pickup-category__product__main__list__img
+              = image_tag "product3.png", class:"product-img"
+            .pickup-category__product__main__list__text
+              %p.name=item.name 
+              .pickup-category__product__main__list__text__details
+                .ul
+                  .li=(item.price * 1.1).floor
+                  .li 
+                    .icon ★ 0
+                %p (税込)
+
+.section.pickup-bland
+  .pickup-bland__message
+    %h2 ピックアップブランド
+    %h3= @pickup_brand
+  .pickup-bland__product
+    .pickup-bland__product__main
+      -@pickup_items.last(3).reverse.each do |pickup_item|
+        = link_to item_path(pickup_item.id) do
+          .pickup-bland__product__main__list
+            .pickup-bland__product__main__list__img
+              = image_tag "product3.png", class:"product-img"
+            .pickup-bland__product__main__list__text
+              %p.name=pickup_item.name
+              .pickup-bland__product__main__list__text__details
+                .ul
+                  .li=(pickup_item.price * 1.1).floor
+                  .li 
+                    .icon ★ 0
+                %p (税込)

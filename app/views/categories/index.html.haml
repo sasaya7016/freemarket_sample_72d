@@ -1,0 +1,22 @@
+= render 'items/header'
+.nav-category
+  .ul.nav-category__lists
+    .li.nav-category__lists__list
+      - breadcrumb :category
+      = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumb"
+.categories
+  .categories__box
+    .categories__box--parents
+      %h1 カテゴリー一覧
+      .parent
+        -@category.each do |parent|
+          =link_to parent.name, "##{parent.id}", class: "parent-btn"
+      .children
+        -@category.each do |parent|
+          %h1= link_to parent.name, category_path(parent.id), id: "##{parent.id}", class: "children-category"
+          -parent.children.each do |child|
+            %h3= link_to child.name, category_path(parent.id), class: "children-category", id: "#{child.id}" 
+            .grandchildren-categories
+              -child.children.each do |grandchild|
+                %p=link_to "・#{grandchild.name}", category_path(grandchild.id), class: "grandchildren-category", id: "#{grandchild.id}"
+= render 'items/footer'

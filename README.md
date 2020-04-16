@@ -1,13 +1,18 @@
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|nickname|string|null: false|
+|lastname|string|null: false|
+|firstname|string|null: false|
+|lastnameKANA|string|null: false|
+|firstnameKANA|string|null: false|
+|birth_date|date|null:false|
 |icon_image|string||
 |background_image|string||
 |email|text|null: false|
 |password|text|null: false|
 ### Association
-- has_many :items
+- has_many :items through: :comments
 - has_many :comments
 - has_many :favorites
 - has_one :credit_card
@@ -21,12 +26,12 @@
 |price|integer|null: false|
 |brand|string||
 |condition|string|null:false|
-|preparation_day|integer|null:false|
+|preparation_day|string|null:false|
 |exhibitor|integer|foreign_key: true|
 |buyer|integer|foreign_key: true|
 ### Association
 - has_many :favorites
-- has_many :comments throught: :comments
+- has_many :comments
 - has_many :item_images
 - belongs_to :user
 
@@ -71,10 +76,13 @@
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postalcode|integer||
-|prefecture|string||
-|town|string||
-|street|string||
-|building|string||
+|postalcode|integer|null: false|
+|prefecture|string|null: false|
+|first_address|string|null: false|
+|second_address|string|null: false|
+|third_address|string||
+|phone_number|integer||
+|user|references||
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
+

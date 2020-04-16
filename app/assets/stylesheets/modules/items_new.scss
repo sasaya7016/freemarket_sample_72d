@@ -1,0 +1,167 @@
+.main__logo{
+  padding-top: 50px;
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+  .listing {
+    box-sizing: border-box;
+    padding: 25px 50px 50px 50px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__box {
+      box-sizing: border-box;
+      padding: calc((700px - 623px)/2);
+      height: 100%;
+      width: 700px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255,0.9);
+      &__head{
+
+      }
+      .exhibit__image-box {
+        display: grid;
+        grid-template-rows: repeat(1, 169px);
+        grid-template-columns: repeat(5, 125px);
+        &__previews{
+          display: none;
+          width: 620px;
+          height: 162px;
+          max-width: 620px;
+          grid-gap: 5px;
+          &__preview{
+            width: 120px;
+            &__delete{
+              width: 120px;
+              text-align: center;
+              cursor: pointer;
+            }
+            &__image{
+              width: calc(100% / 5);
+            }
+          }
+        }
+        &__uploader{
+          position: relative;
+          border: dashed 3px;
+          height: 150px;
+          width: 500%;
+          background-color: gainsboro;
+          border-radius: 5px;
+          &__label{
+            .img-file_group{
+              .img-file {
+                border: dashed 3px;
+                height: 150px;
+                width: 100%;
+                background-color: gainsboro;
+                border-radius: 5px;
+                text-align: center;
+                opacity: 0;
+              }
+            }
+          }
+          &__text{
+            position: absolute;
+            display: flex;
+            bottom:50%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            i{
+            }
+          }
+        }
+      }
+      .listing-form{
+        width: 100%;
+        border-radius: 5px;
+        height: 30px;
+        border: 1px solid;
+        font-size: 15px;
+      }
+      select {
+        height: 30px;
+        width: 100%;
+        font-size: 15px;
+      }
+      .listing-child {
+        margin-top: 20px;
+      }
+      .listing-grandchild {
+        margin-top: 20px;
+      }
+      .listing-price {
+        font-size: 15px;
+        margin-top: 15px;
+        width: 100%;
+        border-radius: 5px;
+        height: 25px;
+        border: 1px solid;
+      }
+      .item-text {
+        width: 100%;
+        height: 200px;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+      .listing-attention {
+        color: gray;
+        font-size: small;
+        margin: 0;
+      }
+      &--title {
+        display: flex;
+        .equired {
+          background-color: red;
+          border-radius: 5px;
+          margin-left: 5px;
+          color: white;
+        }
+        .arbitrary {
+          border: 1px solid;
+          border-radius: 5px;
+          margin-left: 5px;
+        }
+      }
+      &--fee {
+        display: flex;
+        justify-content: space-between;
+      }
+      &--price {
+        display: flex;
+      }
+      &--btns {
+        width: 100%;
+        text-align: center;
+        .btn{
+          width: 100%;
+          margin-top: 50px;
+          padding: 10px 0;
+          background-color: red;
+          color: white;
+          border-radius: 5px;
+          font-size: large;
+          font-weight: bold;
+        }
+        .btn-back{
+          width: 100%;
+          margin: 50px 0 0 0;
+          padding: 10px 0;
+          display: block;
+          border: 1px solid;
+          color: gray;
+          text-decoration: none;
+          background-color: white;
+          border-radius: 5px;
+          font-size: large;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+

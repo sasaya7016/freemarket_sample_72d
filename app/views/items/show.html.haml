@@ -1,2 +1,121 @@
-%h1 Items#show
-%p Find me in app/views/items/show.html.erb
+= render "header"
+.detail-contents
+  .detail-product
+    .detail-product__name
+      =@item.name
+    .detail-product__image
+      %ul.slider.slick
+        -@item.item_images.each do |image|
+          %li
+            =image_tag image.image_url,class:"detail-product__image__main"
+            - if @item.buyer_id.present?
+              .items-box_photo__sold
+                .items-box_photo__sold__inner 
+                  SOLD
+      %ul.thumb.thumbnail
+        -@item.item_images.each do |image|
+          %li 
+            =image_tag image.image_url,class:"detail-product__image__sub"
+    .detail-product__price
+      ="¥#{@item.price}"
+    .detail-product__sub
+      （税込）送料込み
+    .detail-product__introduction
+      =@item.introduction
+    %table.detail-product__table
+      %tr
+        %th
+          出品者
+        %td
+          -#=@item.user.nickname
+      %tr
+        -# %th カテゴリー
+        -# %td
+        -#   =link_to do
+        -#     %span= @item.category.parent.parent.name
+        -#   %br/
+        -#   =link_to do
+        -#     %span= @item.category.parent.name
+        -#   %br/
+        -#   =link_to do
+        -#     %span= @item.category.name
+      %tr
+        %th ブランド
+        %td
+          =@item.brand
+      %tr
+        %th 商品の状態
+        %td
+          =@item.status
+      %tr
+        %th 配送料の負担
+        %td 着払い（購入者負担）
+      %tr
+        %th 発送元の地域
+        %td
+          =@prefecture.name
+      %tr
+        %th 発送元の目安
+        %td
+          ="#{@item.preparation_day}日で発送"
+    .detail-product__btn
+      .detail-product__btn__like
+        %i.fa.fa-star
+        お気に入り
+      .detail-product__btn__report
+        %i.fa.fa-flag
+        不適切な商品の通報
+    - if @item.buyer_id.nil?
+      - if !user_signed_in?
+      -elsif current_user.id == @item.exhibitor_id
+        .detail-product__link
+          .detail-product__link__edit
+            =link_to "商品情報を編集する", edit_item_path(@item.id), method: :get
+          .detail-product__link__delete
+            =link_to "商品を削除する", item_path(@item.id),method: :delete, data: { confirm: '削除しますか？' }
+      - if !user_signed_in?
+        .detail-product__link__buy
+          =link_to "商品を購入する", buy_item_path(@item.id)
+      -elsif current_user.id != @item.exhibitor_id
+        .detail-product__link__buy
+          =link_to "商品を購入する", buy_item_path(@item.id)
+    - else 
+      .detail-product__sold-out
+        この商品は売り切れました
+  .detail-comment-box
+    ＜コメント一覧＞
+    .detail-comment-box__wrap
+      -@comments.each do |comment|
+        .detail-comment-box__inner
+          .detail-comment-box__inner__name
+            - if comment.user_id == comment.item.exhibitor_id
+              出品者:
+            - else
+              ="#{comment.user.nickname}: "
+          .detail-comment-box__inner__text
+            = comment.message
+    = form_with model: [@item, @comment],id:"new_comment", local: true do |f|
+      = f.text_area :message, placeholder: "35文字以内", class:"textbox",maxlength:"35"
+      .detail-comment-box__alert
+        相手のことを考え適切なコメントを心がけましょう。
+        %br>/
+        不快な言葉遣胃などは利用制限や退会処分となることがあります。
+        コメントする
+      - if user_signed_in?
+        %button{type:"submit"}
+          %i.fa.fa-comment
+          コメントする
+      - else
+        .detail-comment-box__login
+          コメントにはログインが必要です
+  .detail-links
+    -if @item.previous
+      .detail-links__before
+        =link_to "<前の商品", item_path(@item.previous.id)
+    -if @item.next
+      .detail-links__after
+        =link_to "後ろの商品>", item_path(@item.next.id)
+
+  .detail-category
+    =link_to "〇〇をもっと見る"
+= render "footer"
