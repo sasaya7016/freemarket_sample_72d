@@ -86,30 +86,3 @@ $background-color_section:#eeeeee;
     }
   }
 }
-
-
-// _exhibition.html.haml (side-btn)---------------
-.exhibition-btn {
-  width: 100px;
-  height: 100px;
-  background: $font_color_oceanblue;
-  text-align: center;
-  border-radius: 4%;
-  bottom: 32px;
-  right: 32px;
-  position: fixed;
-  padding: 15px;
-  &__text{
-    color: #fff;
-    display: block;
-    font-size: 18px;
-    text-decoration: none;
-    margin-bottom: 5px;
-  }
-  &__icon{
-    .icon-camera {
-      width: 20px;
-      height: 20px;
-    }
-  }
-}
