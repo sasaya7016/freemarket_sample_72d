@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit]
-  before_action :reject_non_authenticate_user
+  before_action :reject_non_authenticate_user,only: [:show, :edit]
   def show
 
   end
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   
   private
   def reject_non_authenticate_user
-    if current_user.id != @user.id
+    if @user.id != current_user.id
       redirect_to user_session_path
     end
   end
