@@ -31,13 +31,13 @@
       %tr
         %th カテゴリー
         %td
-          =link_to do
+          =link_to category_path(@item.category.parent.parent.id) do
             %span= @item.category.parent.parent.name
           %br/
-          =link_to do
+          =link_to category_path(@item.category.parent.id) do
             %span= @item.category.parent.name
           %br/
-          =link_to do
+          =link_to category_path(@item.category.id) do
             %span= @item.category.name
       %tr
         %th ブランド
@@ -118,5 +118,5 @@
         =link_to "後ろの商品>", item_path(@item.next.id)
 
   .detail-category
-    =link_to "〇〇をもっと見る"
+    =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
 = render "footer"

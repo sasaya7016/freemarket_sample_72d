@@ -50,7 +50,6 @@ class ItemsController < ApplicationController
     @item_images = @item.item_images
     @exhibitor = User.where(id: @item.exhibitor_id).first
     @image = ItemImage.where(item_id: @item.id).first
-
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
     @comment = Comment.new
