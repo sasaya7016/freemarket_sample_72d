@@ -29,16 +29,16 @@
         %td
           =@exhibitor.nickname
       %tr
-        -# %th カテゴリー
-        -# %td
-        -#   =link_to do
-        -#     %span= @item.category.parent.parent.name
-        -#   %br/
-        -#   =link_to do
-        -#     %span= @item.category.parent.name
-        -#   %br/
-        -#   =link_to do
-        -#     %span= @item.category.name
+        %th カテゴリー
+        %td
+          =link_to do
+            %span= @item.category.parent.parent.name
+          %br/
+          =link_to do
+            %span= @item.category.parent.name
+          %br/
+          =link_to do
+            %span= @item.category.name
       %tr
         %th ブランド
         %td
