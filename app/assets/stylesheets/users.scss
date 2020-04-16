@@ -1,6 +1,17 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "modules/users_show";
+@import "modules/users_show_adress";
+@import "modules/users_registration_support";
+@import "modules/users_defect_support";
+@import "modules/users_other_support";
+@import "modules/users_trouble_support";
+@import "modules/users_request_support";
+@import "modules/users_evaluation_support";
+@import "modules/users_buy_support";
+@import "modules/users_withdraw_support";
 @import "modules/footer";
 
 html,body,ul {
