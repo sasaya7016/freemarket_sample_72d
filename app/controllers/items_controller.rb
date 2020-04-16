@@ -101,7 +101,9 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
-    @items = Item.page(params[:page]).per(1)          #ページネーション
+    @items = Item.page(params[:page]).per(1)     
+    @parents = Category.where(ancestry: nil)
+    #ページネーション
     has_brand_items = Item.where.not(brand: nil)
     if has_brand_items.sample != nil
       @pickup_brand = has_brand_items.sample.brand

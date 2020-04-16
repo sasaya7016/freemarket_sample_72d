@@ -9,24 +9,47 @@
       .search__sidebar__box
         %h3.search__sidebar__box__title 詳細検索
         .input-form-box
-          %label キーワードを追加する
+          %label 
+            = icon('far', 'fa-laugh-beam', class: 'fa-laugh-beam') 
+            %span キーワードを入力
           = f.text_field  :name_cont, placeholder: "何かお探しですか？",class:'input__form', value:@keyword
-        
-        .input-form-box
-          %label ブランド名から探す
-          = f.text_field  :brand_cont,class:'search__form', placeholder:'例)シャネル',value:@brand
-        .input-form-box
-          %label 価格を指定する
-          %br/
-          =f.select :price, ['300〜1000', '1000〜5000', '5000〜10000', '10000〜30000', '30000〜50000', '50000〜'], include_blank: '選択してください', class: "search__form"
-          .input-form-box__price
-            = f.number_field :price_gteq,class:'search__form__small',placeholder:'¥ Min'
-            %span.spacer ~
-            = f.number_field :price_lteq,class:"search__form__big",placeholder:'¥ Max'
 
+        .input-form-box
+          %label 
+            = icon('fas', 'fa-magic', class: 'fa-magic') 
+            %span ブランド名から探す
+          = f.text_field  :brand_cont,class:'search__form', placeholder:'例)シャネル',value:@brand
+
+        .input-form-box
+          %label 
+            = icon('fas', 'fa-magic', class: 'fa-magic') 
+            %span カテゴリーを選択する
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category',value:@parent
+          .listing-child
+          .listing-grandchild
+          .listing-size
+          .listing__box--title
         
-      %button.btn-default.btn-gray{id:"search-clear"} クリア
-      =f.submit "完了", class: 'btn-default btn-red',id:'search_submit'
+        .input-form-box
+          %label
+            = icon('fas', 'fa-magic', class: 'fa-magic') 
+            %span 商品の状態
+            =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
+        
+        .input-form-box
+          %label 
+            = icon('fas', 'fa-search-dollar', class: 'fa-search-dollar') 
+            %span 価格を指定する (数字のみ)
+          %br/
+          -# =f.select :price, ['300〜1000', '1000〜5000', '5000〜10000', '10000〜30000', '30000〜50000', '50000〜'], include_blank: '選択してください', class: "search__form",value:@price
+          .input-form-box__price
+            = f.number_field :price_gteq,class:'search__form__small',placeholder:'¥ 300  (Min)',value:@price
+            %span.spacer ~
+            = f.number_field :price_lteq,class:"search__form__big",placeholder:'¥ 1000  (Max)',value:@price
+
+      .input-btn  
+        %button.btn-default.btn-gray{id:"search-clear"} クリア
+        =f.submit "完了", class: 'btn-default btn-red',id:'search_submit'
 
 
   -# -----サーチカテゴリ-----

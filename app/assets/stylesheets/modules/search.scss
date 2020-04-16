@@ -3,37 +3,81 @@
   color: #333333;
   padding: 50px 100px;
   display: flex;
+
   // -----サイドバー-----
   &__sidebar{
     width: 300px;
-    height: 500px;
+    height: 100%;
     background-color: #FFF;
     margin: 80px 30px 0 0;
+    padding: 20px;
+    border-radius: 10px;
 
     &__box{
-      padding: 10px;
+      width: 100%;
       &__title {
         font-size: 17px;
       }
       input {
-        width: 95%;
-        height: 30px;
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        border: 1px solid;
+        font-size: 15px;
+        color: #777;
+      }
+      select {
+        width: 100%;
+        height: 40px;
+        border-radius: 2px;
+        border: 1px solid;
+        font-size: 15px;
+        color: #777;
       }
       .input-form-box {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
         margin-bottom: 30px;
         &__price {
           display: flex;
+          justify-content: space-between;
           align-items: center;
           margin-top: 10px;
           input {
-            width: 95%;
+            width: 100%;
+            margin: 0 3px;
           }
         } 
       }
-      .input-form-box-search{
-      } 
+    }
+    .input-btn {
+      display: flex;
+      justify-content: space-evenly;
+
+      button {
+        width: 100%;
+        width: 100%;
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background-color: #888;
+        color: white;
+        border-radius: 3px;
+        font-size: medium;
+        margin-right: 30px;
+      }
+      input {
+        width: 100%;
+        text-align: center;
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background-color: red;
+        color: white;
+        border-radius: 3px;
+        font-size: medium;
+      }
     }
   }
 }
