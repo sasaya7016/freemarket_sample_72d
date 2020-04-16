@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get :get_category_children, defaults: { format: 'json' }
       get :get_category_grandchildren, defaults: { format: 'json' }
       get :get_item_size, defaults: { format: 'json' }
+      get :get_category_children_edit, defaults: { format: 'json' }
       get :get_item_fee, defaults: { format: 'json' }
       get :search
     end

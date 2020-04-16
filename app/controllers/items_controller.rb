@@ -128,6 +128,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def get_category_children_edit
+    
+  end
+
 
   def get_item_fee
   end
