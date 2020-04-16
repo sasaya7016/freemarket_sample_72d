@@ -4,7 +4,7 @@ $(function(){
     if (parentCategory != "---"){
       $.ajax({
         url: 'get_category_children_edit',
-        type: 'GET',
+        type: 'get',
         data: { parent_name: parentCategory },
         dataType: 'json'
       })

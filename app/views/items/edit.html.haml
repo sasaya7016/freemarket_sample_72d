@@ -31,7 +31,7 @@
     .listing__box--title
       %p カテゴリー
       %p.equired 必須
-    = f.collection_select :category_id, @parents, :id, :name, {selected: @item.category.parent.parent.id}, class: 'listing-select-wrapper__box--select', id: 'item_edit_category'
+    = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.parent.parent.id}, class: 'listing-select-wrapper__box--select', id: 'item_edit_category'
     .listing-child
       .listing-select-wrapper__added#children_wrapper
         .listing-select-wrapper__box
