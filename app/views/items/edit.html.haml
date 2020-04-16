@@ -31,16 +31,17 @@
     .listing__box--title
       %p カテゴリー
       %p.equired 必須
-    = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.parent.parent.id}, class: 'listing-select-wrapper__box--select', id: 'item_edit_category'
+    = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.parent.parent.id}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
     .listing-child
       .listing-select-wrapper__added#children_wrapper
         .listing-select-wrapper__box
           = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name, class: 'listing-select-wrapper__box--select', selected: @item.category.parent_id
     .listing-grandchild
-      .listing-grandchild#grandchildren_wrapper
+      .listing-select-wrapper__added#grandchildren_wrapper
         .listing-select-wrapper__box
-          = f.collection_select :category_id, @item.category.parent.children, :id, :name, class: 'listing-select-wrapper__box--select', selected: @item.category.id
-      - if @item.item_size.present?
+          = f.collection_select :category_id, @item.category.parent.children, :id, :name, class: 'listing-select-wrapper__box--select',id: "grandchild_category", selected: @item.category.id
+    - if @item.item_size.present?
+      .listing-size
         .listing-product-detail__size#size_wrapper
           .listing__box--title
             %p.listing-default__label サイズ
