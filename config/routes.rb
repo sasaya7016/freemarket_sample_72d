@@ -34,7 +34,6 @@ Rails.application.routes.draw do
       end
     end
   end
-end
 
   resources :items do
     member do
@@ -59,3 +58,5 @@ end
       get :category_scroll, defaults: { format: 'json' }
     end
   end
+
+end
