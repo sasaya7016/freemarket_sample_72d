@@ -33,6 +33,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     for( i = 0; i < hiddenDestroy.length; i++){
       hiddenDestroy[i].style.display = 'none';
     }
+    let listingBox = document.getElementsByClassName('listing__box');
     let imageBox = document.getElementById('exhibit__image-box');
     let imageBoxPreviews = document.getElementById('exhibit__image-box__previews');
     let imageBoxUploaderLabel = document.getElementById('exhibit__image-box__uploader__label');
@@ -152,7 +153,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridRowStart = '2';
           imageBoxUploader.style.width = '400%';
           imageBox.style.height = '360px';
-          break;
+            break;
 
         //画像が7枚のときの画像表示エリアのstyle
         case 7:

@@ -91,10 +91,9 @@ gem 'payjp'
 gem 'dotenv-rails'
 gem 'ancestry'
 gem 'active_hash'
-gem 'turbolinks', '~> 5'
+gem 'turbolinks'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem "gretel"
-

@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 
   def create
     if params[:item][:item_images_attributes] != nil?
-      @item = Item.new(item_params.merge(exhibitor_id: 1))
+      @item = Item.new(item_params.merge(exhibitor_id: current_user.id))
       #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
       @category = Category.where(ancestry: nil).order("id ASC").limit(13)
         if @item.save
