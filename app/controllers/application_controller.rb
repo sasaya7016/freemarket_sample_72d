@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
    
   def set_search
     @q = Item.ransack(params[:q])
-    # @p = Category.ransack(params[:q])
-    @search_items = @q.result(distinct: true)
-    # @search_category= @p.result(distinct: true)
+    @search = @q.result(distinct: true)
   end
 
   private

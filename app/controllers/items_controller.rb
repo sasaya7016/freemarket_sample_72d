@@ -101,17 +101,8 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
-    @search_items = Item.search(params[:keyword]) 
-    @items = Item.page(params[:page]).per(1)     
-    @parents = Category.where(ancestry: nil)
-    #ページネーション
+    @items = Item.page(params[:page]).per(1)  #ページネーションで必要
 
-
-    has_brand_items = Item.where.not(brand: nil)
-    if has_brand_items.sample != nil
-      @pickup_brand = has_brand_items.sample.brand
-    end
-    @pickup_items = Item.where(brand: @pickup_brand)
   end
 
   
@@ -157,9 +148,9 @@ class ItemsController < ApplicationController
     @card = CreditCard.where(user_id: current_user.id).first
   end
 
-  def search_params
-    params.require(:q).permit!
-  end
+  # def search_params
+  #   params.require(:q).permit!
+  # end
 
   def sold_out
     @item = Item.find(params[:id])

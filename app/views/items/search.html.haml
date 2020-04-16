@@ -12,29 +12,24 @@
           %label 
             = icon('far', 'fa-laugh-beam', class: 'fa-laugh-beam') 
             %span キーワードを入力
-          = f.text_field  :name_cont, placeholder: "何かお探しですか？",class:'input__form', value:@keyword
+          = f.text_field  :name_cont, placeholder: "何かお探しですか？",class:'input__form'
 
         .input-form-box
           %label 
             = icon('fas', 'fa-magic', class: 'fa-magic') 
             %span ブランド名から探す
-          = f.text_field  :brand_cont,class:'search__form', placeholder:'例)シャネル',value:@brand
+          = f.text_field  :brand_cont,class:'search__form', placeholder:'例)シャネル'
 
         .input-form-box
           %label 
             = icon('fas', 'fa-magic', class: 'fa-magic') 
             %span カテゴリーを選択する (未実装)
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category',value:@category_id
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category'
           .listing-child
           .listing-grandchild
           .listing-size
           .listing__box--title
         
-        .input-form-box
-          %label
-            = icon('fas', 'fa-magic', class: 'fa-magic') 
-            %span 商品の状態 (未実装)
-            =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
         
         .input-form-box
           %label 
@@ -43,9 +38,18 @@
           %br/
           -# =f.select :price, ['300〜1000', '1000〜5000', '5000〜10000', '10000〜30000', '30000〜50000', '50000〜'], include_blank: '選択してください', class: "search__form",value:@price
           .input-form-box__price
-            = f.number_field :price_gteq,class:'search__form__small',placeholder:'¥ 300  (Min)',value:@price
+            = f.number_field :price_gteq,class:'search__form__small',placeholder:'¥ 300  (Min)'
             %span.spacer ~
-            = f.number_field :price_lteq,class:"search__form__big",placeholder:'¥ 1000  (Max)',value:@price
+            = f.number_field :price_lteq,class:"search__form__big",placeholder:'¥ 1000  (Max)'
+
+          .input-form-box
+            %label
+              = icon('fas', 'fa-magic', class: 'fa-magic') 
+              %span 商品の状態 (未実装)
+              =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
+        
+
+            
 
       .input-btn  
         %button.btn-default.btn-gray{id:"search-clear"} クリア
@@ -57,11 +61,24 @@
     .container
       //-----商品のタイトルとリスト-----
       .container__title
-        %p 検索結果
+        -if @q.present?        #@searchで検索した文字を持っってきます
+          %h2.search-result-head
+          - @search.each do |item|   
+            =params[:keyword]
+            %span.search-result-head-text
+              の検索結果
+          .search-result-number
+            ="1-#{@search.count}件表示"
+        -else
+          %h2.search-result-nil
+            検索結果
+          .search-result-number
+            ="1-#{@search.count}件表示"
+
         %h1.text= "#{params[:keyword]}の商品一覧"
       .container__table
         %ul.item
-          -@search_items.reverse.each do |item|
+          -@search.reverse.each do |item|
             - if item.buyer_id.nil?
               = link_to item_path(item.id) do
                 %li.item__list
