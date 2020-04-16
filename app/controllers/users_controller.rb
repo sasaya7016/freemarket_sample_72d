@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
-  
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit]
+
   def show
+    unless current_user.id == @user.id
+      redirect_to user_session_path
+    end
   end
 
   def edit
-  
+    unless current_user.id == @user.id
+      redirect_to user_session_path
+    end
+
   end
 
   def profile
@@ -43,4 +51,9 @@ class UsersController < ApplicationController
   def other_support
   end
   
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end
