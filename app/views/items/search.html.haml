@@ -23,7 +23,7 @@
         .input-form-box
           %label 
             = icon('fas', 'fa-magic', class: 'fa-magic') 
-            %span カテゴリーを選択する
+            %span カテゴリーを選択する (未実装)
           = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category',value:@parent
           .listing-child
           .listing-grandchild
@@ -33,7 +33,7 @@
         .input-form-box
           %label
             = icon('fas', 'fa-magic', class: 'fa-magic') 
-            %span 商品の状態
+            %span 商品の状態 (未実装)
             =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
         
         .input-form-box

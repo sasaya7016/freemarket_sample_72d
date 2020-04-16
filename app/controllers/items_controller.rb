@@ -101,6 +101,7 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
+    @search_items = Item.search(params[:keyword]) 
     @items = Item.page(params[:page]).per(1)     
     @parents = Category.where(ancestry: nil)
     #ページネーション
@@ -155,7 +156,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    # params.require(:q).permit!
+    params.require(:q).permit!
   end
 
   def sold_out
