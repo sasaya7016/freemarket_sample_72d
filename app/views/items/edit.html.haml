@@ -10,6 +10,11 @@
       .exhibit__image-box__uploader#exhibit__image-box__uploader
         %label.exhibit__image-box__uploader__label#exhibit__image-box__uploader__label
           =f.fields_for :item_images do |image|
+            .initial
+              - if @item.item_images.present?
+                - @item.item_images.each do |i|
+                  = image_tag i.image.url, size: "120x120"
+                  .exhibit__image-box__previews__preview__delete.img-remove 削除
             .img-file_group{"data-index" => "#{image.index()}"}
               = image.file_field :image ,type: 'file',value: "",class: "secret-image img-file"
         .exhibit__image-box__uploader__text
@@ -26,10 +31,23 @@
     .listing__box--title
       %p カテゴリー
       %p.equired 必須
-    = f.collection_select :category_id, @parents, :id, :name, class: 'listing-select-wrapper__box--select', id: 'parent_category'
+    = f.collection_select :category_id, @parents, :id, :name, {selected: @item.category.parent.parent.id}, class: 'listing-select-wrapper__box--select', id: 'item_edit_category'
     .listing-child
+      .listing-select-wrapper__added#children_wrapper
+        .listing-select-wrapper__box
+          = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name, class: 'listing-select-wrapper__box--select', selected: @item.category.parent_id
     .listing-grandchild
-    .listing-size
+      .listing-grandchild#grandchildren_wrapper
+        .listing-select-wrapper__box
+          = f.collection_select :category_id, @item.category.parent.children, :id, :name, class: 'listing-select-wrapper__box--select', selected: @item.category.id
+      - if @item.item_size.present?
+        .listing-product-detail__size#size_wrapper
+          .listing__box--title
+            %p.listing-default__label サイズ
+            %p.listing-default--require.equired 必須
+          .listing-select-wrapper__added--size
+            .listing-select-wrapper__box
+              = f.collection_select :item_size, @item_sizes, :id, :item_size, {prompt: ""}, class: 'listing-select-wrapper__box--select', selected: @item.item_size
     .listing__box--title
       %p ブランド
       %p.arbitrary 任意
@@ -64,5 +82,5 @@
       %p 販売利益
       %p#inner-benefit= "#{@item.price - (@item.price * 0.1).floor}円"
     .listing__box--btns
-      =f.submit class: "btn", value: "出品する"
+      =f.submit class: "btn", value: "編集する"
       =link_to "戻る","#", class: "btn-back", type: "submit"

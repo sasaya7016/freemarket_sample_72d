@@ -74,8 +74,18 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @category = Category.find(params[:id])
+    selected_grandchild = @item.category
+    if related_size_parent = selected_grandchild.item_sizes[0]
+      @item_sizes = related_size_parent.children
+    else
+      selected_child = @item.category.parent
+      if related_size_parent = selected_child.item_sizes[0]
+        @item_sizes = related_size_parent.children
+      end
+    end
   end
-
+  
   def destroy
     if @item.destroy
       redirect_to root_path
@@ -83,8 +93,9 @@ class ItemsController < ApplicationController
       render :show
     end
   end
-
+  
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else 
