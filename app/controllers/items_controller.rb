@@ -74,7 +74,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @category = Category.find(params[:id])
     selected_grandchild = @item.category
     if related_size_parent = selected_grandchild.item_sizes[0]
       @item_sizes = related_size_parent.children
@@ -97,9 +96,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '編集完了しました'
     else 
-      redirect_to edit_item_path
+      redirect_to edit_item_path, alert: '商品の編集に失敗しました'
     end
   end
 
