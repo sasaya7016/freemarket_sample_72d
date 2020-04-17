@@ -1,21 +1,22 @@
 //購入・支払いについて
 = render "items/header"
-.container
-  %main.main-container
-    = render partial: "show_sidebar", locals: {}
-    .main
-      .buy_enquiry_contact
-        %p.buy_enquiry_contact__title 購入・支払いについて
-        .buy_enquiry_contact__content
-          .buy_enquiry_contact__content--box
-            .id
-              %h1.title 商品ID
-              %input.content{:type => "text", :placeholder => "m123456789"}
-            .description
-              .description__box
-                %h1.title お問い合わせの内容 
-                %p.required 必須
-              %input.description__content{:type => "text", :placeholder => "例:本物のトラクターを頼んだのにミニカーのトラクターが届いた"}
-            .form
-              = link_to "#" do
-                %input.submit.btn{:type => "submit", :value => "送信する"}
+.mypage
+  .container
+    %main.main-container
+      = render partial: "show_sidebar", locals: {}
+      .main
+        .buy_enquiry_contact
+          %p.buy_enquiry_contact__title 購入・支払いについて
+          .buy_enquiry_contact__content
+            .buy_enquiry_contact__content--box
+              .id
+                %h1.title 商品ID
+                %input.content{:type => "text", :placeholder => "m123456789"}
+              .description
+                .description__box
+                  %h1.title お問い合わせの内容
+                  %p.required 必須
+                %input.description__content{:type => "text", :placeholder => "例:本物のトラクターを頼んだのにミニカーのトラクターが届いた"}
+              .form
+                = link_to "#" do
+                  %input.submit.btn{:type => "submit", :value => "送信する"}

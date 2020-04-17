@@ -1,6 +1,7 @@
 = render "items/header"
-.container
-  %main.main-container
-    / 以下サイドバーの部分テンプレート
-    = render partial: "show_sidebar", locals: {}
-    = link_to "退会" ,"" ,class: "account-delete-btn"
+.mypage
+  .container
+    %main.main-container
+      / 以下サイドバーの部分テンプレート
+      = render partial: "show_sidebar", locals: {}
+      = link_to "退会" ,"" ,class: "account-delete-btn"

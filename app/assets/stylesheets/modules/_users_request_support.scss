@@ -1,15 +1,9 @@
-//お問い合わせのその他
-html, body {
-  background-color: rgb(245, 245, 245);
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
+//問合せの機能要望
 .mypage{
   .container {
     display: flex;
-    height: 100%;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
     .side {
         background-color: blue;
         width: 280px;
@@ -17,15 +11,10 @@ html, body {
     .main {
         height: 100%;
         width: 100%;
-        &__top {
-            height: 200px;
-            width: 100%;
-            background-color: red;
-            }
-        .other_enquiry_contact {
+        .request_enquiry_contact {
             background-color: white;
             width: 700px;
-            height: 500px;
+            height: 600px;
             margin: 0 auto;
             margin-top: 10px;
             &__title {
@@ -54,7 +43,7 @@ html, body {
                       background-color: red;
                       color: white;
                       border-radius: 3px;
-
+                      
                     }
                   }
                   .description__content{

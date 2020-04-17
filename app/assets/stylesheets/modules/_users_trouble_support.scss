@@ -1,31 +1,20 @@
-//お問い合わせのその他
-html, body {
-  background-color: rgb(245, 245, 245);
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-.mypage{
+//問合せのトラブルについて
+  .mypage{
   .container {
     display: flex;
-    height: 100%;
-    width: 100%;
-    .side {
-        background-color: blue;
-        width: 280px;
-    }
+    justify-content: center;
+    align-items: center;
     .main {
-        height: 100%;
-        width: 100%;
+      margin-left: 60px;
         &__top {
             height: 200px;
             width: 100%;
             background-color: red;
             }
-        .other_enquiry_contact {
+        .trouble_enquiry_contact {
             background-color: white;
             width: 700px;
-            height: 500px;
+            height: 1000px;
             margin: 0 auto;
             margin-top: 10px;
             &__title {
@@ -39,6 +28,43 @@ html, body {
             &__content {
               &--box{
                 border-top: 1px solid #f5f5f5;
+                .cautions{
+                  margin-top: 3rem;
+                  margin-right: 1rem;
+                  margin-left: 1rem;
+                }
+                .id{
+                  margin-top: 3rem;
+                  text-align: center;
+                  &__box{
+                    display: flex;
+                    justify-content: center;
+                    border-radius: 5px;
+                    text-align: center;
+                    .title{
+                      margin-right: 1rem;
+                    }
+                    .required{
+                      background-color: red;
+                      color: white;
+                      border-radius: 3px; 
+                    }
+                  }
+                  .content{
+                    width: 75%;
+                    height: 50px;
+                    border-radius: 5px;
+                  }
+                }
+                .position{
+                  margin-top: 3rem;
+                  text-align: center;
+                  .content{
+                    width: 75%;
+                    height: 50px;
+                    border-radius: 5px;
+                  }
+                }
                 .description{
                   margin-top: 3rem;
                   text-align: center;
@@ -54,7 +80,6 @@ html, body {
                       background-color: red;
                       color: white;
                       border-radius: 3px;
-
                     }
                   }
                   .description__content{
@@ -62,11 +87,6 @@ html, body {
                     height: 200px;
                     border-radius: 5px;
                   }
-                }
-                .cautions{
-                  margin-top: 3rem;
-                  margin-right: 1rem;
-                  margin-left: 1rem;
                 }
                 .form{
                   margin-top: 3rem;
