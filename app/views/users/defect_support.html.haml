@@ -1,23 +1,24 @@
 //お問い合わせの不具合の報告について
-.container
-  %main.main-container
-    = render partial: "show_sidebar", locals: {}
-    .main
-      .defect_enquiry_contact
-        %p.defect_enquiry_contact__title 不具合の報告
-        .defect_enquiry_contact__content
-          .defect_enquiry_contact__content--box
-            %p.cautions アプリの動作が不安定な場合は端末の再起動やアプリのアップデートで直る場合がありますので、お試しいただいてからお問い合わせください。
-            %p.cautions「エラーになる！」「繋がらない！」など短いコメントでは事務局で状況が把握できず結果的に解決まで時間がかかってしまいます。詳細な内容を記載するようにしてください。
-            .situation
-              .situation__box
-                %h1.title 不具合の詳細状況
-                %p.required 必須
-              %input.content{:type => "text", :placeholder => "例:取引画面の支払い情報を発信しようとしてエラーになる"}
-            .description
-              .description__box
-                %h1.title 不具合時に画面に表示されている文句
-              %input.content{:type => "text", :placeholder => "例:データが取得されません"}
-            .form
-              = link_to "#" do
-                %input.submit.btn{:type => "submit", :value => "送信する"}
+.mypage
+  .container
+    %main.main-container
+      = render partial: "show_sidebar", locals: {}
+      .main
+        .defect_enquiry_contact
+          %p.defect_enquiry_contact__title 不具合の報告
+          .defect_enquiry_contact__content
+            .defect_enquiry_contact__content--box
+              %p.cautions アプリの動作が不安定な場合は端末の再起動やアプリのアップデートで直る場合がありますので、お試しいただいてからお問い合わせください。
+              %p.cautions「エラーになる！」「繋がらない！」など短いコメントでは事務局で状況が把握できず結果的に解決まで時間がかかってしまいます。詳細な内容を記載するようにしてください。
+              .situation
+                .situation__box
+                  %h1.title 不具合の詳細状況
+                  %p.required 必須
+                %input.content{:type => "text", :placeholder => "例:取引画面の支払い情報を発信しようとしてエラーになる"}
+              .description
+                .description__box
+                  %h1.title 不具合時に画面に表示されている文句
+                %input.content{:type => "text", :placeholder => "例:データが取得されません"}
+              .form
+                = link_to "#" do
+                  %input.submit.btn{:type => "submit", :value => "送信する"}
