@@ -295,30 +295,28 @@ table {
       text-align: center;
       color: rgb(54, 53, 53);
     }
-    &__panel{
-      .field{
-        text-align: center;
-        .user-textform{
-        height: 50px;
-        width: 25vw;
-        border-radius: 3px;
-        border: solid 1px rgb(194, 186, 186);
-        padding-left: 15px;
-        font-size: 15px;
-        }
+    .field{
+      text-align: center;
+      .user-textform{
+      height: 50px;
+      width: 25vw;
+      border-radius: 3px;
+      border: solid 1px rgb(194, 186, 186);
+      padding-left: 15px;
+      font-size: 15px;
       }
-      .actions{
-        text-align: center;
-        .login-btn{
-          height: 50px;
-          width: 27vw;
-          color: white;
-          background-color: rgb(235, 2, 2);
-          margin-top: 20px;
-          margin-bottom: 30px;
-          font-size: 15px;
-          border: none;
-          }
+    }
+    .actions{
+      text-align: center;
+      .login-btn{
+        height: 50px;
+        width: 27vw;
+        color: white;
+        background-color: rgb(235, 2, 2);
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-size: 15px;
+        border: none;
       }
     }
   }
