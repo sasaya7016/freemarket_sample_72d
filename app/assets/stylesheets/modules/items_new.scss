@@ -7,8 +7,6 @@
   .listing {
     box-sizing: border-box;
     padding: 25px 50px 50px 50px;
-    height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,6 +115,9 @@
       &--title {
         display: flex;
         .equired {
+          display: block;
+          font-size: 14px;
+          height: 20px;
           background-color: red;
           border-radius: 5px;
           margin-left: 5px;

@@ -10,11 +10,11 @@
             =image_tag image.image_url,class:"detail-product__image__main"
             - if @item.buyer_id.present?
               .items-box_photo__sold
-                .items-box_photo__sold__inner 
+                .items-box_photo__sold__inner
                   SOLD
       %ul.thumb.thumbnail
         -@item.item_images.each do |image|
-          %li 
+          %li
             =image_tag image.image_url,class:"detail-product__image__sub"
     .detail-product__price
       ="¥#{@item.price}"
@@ -79,7 +79,7 @@
       -elsif current_user.id != @item.exhibitor_id
         .detail-product__link__buy
           =link_to "商品を購入する", buy_item_path(@item.id)
-    - else 
+    - else
       .detail-product__sold-out
         この商品は売り切れました
   .detail-comment-box
@@ -117,5 +117,8 @@
         =link_to "後ろの商品>", item_path(@item.next.id)
 
   .detail-category
-    =link_to "〇〇をもっと見る"
+
+    =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
+
 = render "footer"
+= render "exhibition"

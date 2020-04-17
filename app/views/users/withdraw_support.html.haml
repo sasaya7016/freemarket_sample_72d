@@ -1,0 +1,18 @@
+= render "items/header"
+.container
+  %main.main-container
+    = render partial: "show_sidebar", locals: {}
+    .main
+      .withdraw_enquiry_contact
+        %p.withdraw_enquiry_contact__title 退会したい
+        .withdraw_enquiry_contact__content
+          .withdraw_enquiry_contact__content--box
+            %p.cautions 退会は即時反映され、一度退会すると復活できません。
+            .reason
+              .reason__box
+                %h1.title 退会の理由
+                %p.required 必須
+              %input.reason__content{type: "text", placeholder: "100文字以上ご記入ください。"}
+            .form
+              = link_to root_path do
+                %input.submit.btn{type: "submit", value: "上記に同意して退会する"}
