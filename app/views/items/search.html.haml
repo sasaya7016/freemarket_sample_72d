@@ -58,7 +58,7 @@
       
       .input-btn  
         %button.btn-default.btn-gray{id:"search-clear"} 
-          =link_to 'クリア', request.path
+          =link_to 'クリア', '/items/search?utf8=✓&q%5Bname_cont%5D=&commit=検索'
         =f.submit "完了", class: 'btn-default btn-red',id:'search_submit'
 
 
@@ -67,17 +67,15 @@
     .container
       //-----商品のタイトルとリスト-----
       .container__title
-        -if @q.present?        #@searchで検索した文字を持っってきます
-          %h2.search-result-head
-            %span.search-result-head-text
-              = "#{params[:keyword]}の検索結果"
-          .search-result-number
+        - unless @keyword == nil
+          - if @page == nil
+            =@keyword + "の検索結果"
             ="1-#{@search.count}件表示"
-        -else
-          %h2.search-result-nil
-            検索結果が見当たりませんでした
-          .search-result-number
-            ="1-#{@search.count}件表示"
+          - else
+            =@keyword + "の検索結果(" + @page + "ページ目)"
+            .search-result-number
+              ="1-#{@search.count}件表示"
+
 
       .container__table
         %ul.item
@@ -90,22 +88,20 @@
                     .item__list__img-box__price
                       %span= "¥#{item.price}"
                   .item__list__text-box
-                    = "#{item.brand}"
-                    %br
                     = "#{item.name}"
                     .item__list__text-box__like
                       = link_to "" do
                         = icon('far', 'fa-heart', class: 'fa-heart')          
                       .item__list__text-box__like__icon
-                      %span 2
+                      -# %span あとで反映させる
                       
-        .contents__all-items-category
-          %h2.contents__all-items__head-caterory
-            - unless @keyword == nil
-              - if @page == nil
-                =@keyword + "の検索結果"
-              - else
-                =@keyword + "の検索結果(" + @page + "ページ目)"
+        -# .contents__all-items-category
+        -#   %h2.contents__all-items__head-caterory
+        -#     - unless @keyword == nil
+        -#       - if @page == nil
+        -#         =@keyword + "の検索結果"
+        -#       - else
+        -#         =@keyword + "の検索結果(" + @page + "ページ目)"
         
 
       //-----ページボタン-----   

@@ -5,7 +5,8 @@
   display: flex;
   // -----サイドバー-----
   &__sidebar{
-    width: 300px;
+    max-width: 300px;
+    min-width: 250px;
     height: 100%;
     background-color: #FFF;
     margin: 80px 30px 0 0;
@@ -38,7 +39,7 @@
         border-radius: 3px;
         border: 1px solid;
         font-size: 15px;
-        color: #777;
+        color: #999;
       }
       select {
         width: 100%;
@@ -46,7 +47,7 @@
         border-radius: 2px;
         border: 1px solid;
         font-size: 15px;
-        color: #777;
+        color: #999;
       }
       .input-form-box {
         font-size: 15px;
@@ -60,6 +61,8 @@
           input {
             width: 100%;
             margin: 0 3px;
+            text-align: center;
+           color: #999;
           }
         } 
       }
@@ -95,7 +98,7 @@
       }
     }
   }
-}
+
  
 
 
@@ -107,6 +110,7 @@
       text-decoration: none;
     }
     .container {
+      margin-top: 45px;
       ul {
         list-style: none;
       }
@@ -160,11 +164,14 @@
             }
             &__text-box{
               background-color: #fff;
-              height: 40%;
+              height: 50px;
+              padding: 5px;
               overflow: hidden;
               position: relative;
-              font-weight: 400;
+              font-size: 14px;
+              font-weight: 300;
               line-height: 1.5;
+              text-align: left;
               word-break: break-word;
               white-space: normal;
               a {
@@ -203,108 +210,109 @@
       //-----ページボタン-----  
       .pager{
         clear: left;
-          width: 100%;
-            a {
-              text-decoration: none;
-              color: black;
-            }
-          .page-btn{
-            .pagenation{
-              margin: 40px 0 30px;
-              text-align: center;
-              position: relative;
-              &__numbers{
-              max-width: 220px;
-              margin: 0 auto;
-                &__box{
-                  display: flex;
-                  justify-content: center;
-                  &__cell{
-                    display: inline-block;
-                    width: 44px;
-                    height: 44px;
+        width: 100%;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        .page-btn{
+          .pagenation{
+            min-width: 400px;
+            margin: 40px 0 30px;
+            text-align: center;
+            position: relative;
+            &__numbers{
+            max-width: 220px;
+            min-width: 100px;
+            margin: 0 auto;
+              &__box{
+                display: flex;
+                justify-content: center;
+                &__cell{
+                  display: inline-block;
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 4px;
+                  background: #fff;
+                  border: 1px solid #ccc;
+                  font-size: 14px;
+                  line-height: 46px;
+                  :hover{
+                    background-color: #ddd;
+                  }
+                  a{
+                    display: block;
+                  }
+                }
+                .now{
+                  background: #ea352d;
+                  :hover{
+                    background-color: #ea352d;
+                    width: 100%;
+                    height: 100%;
                     border-radius: 4px;
-                    background: #fff;
-                    border: 1px solid #ccc;
-                    font-size: 14px;
+                  }
+                  a{
+                    color: white;
+                  }
+                }
+              }
+            }
+            &__leftarrows{
+              position: absolute;
+              left: 0;
+              top: 0;
+              &__box{
+                display: flex;
+                &__cell{
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 4px;
+                  background: #fff;
+                  border: 1px solid #ccc;
+                  font-size: 14px;
+                  line-height: 46px;
+                  :hover{
+                    background-color: #ddd;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                  }
+                  i{
+                    font-size: 24px;
                     line-height: 46px;
-                    :hover{
-                      background-color: #ddd;
-                    }
                     a{
                       display: block;
                     }
                   }
-                  .now{
-                    background: #ea352d;
-                    :hover{
-                      background-color: #ea352d;
-                      width: 100%;
-                      height: 100%;
-                      border-radius: 4px;
-                    }
-                    a{
-                      color: white;
-                    }
-                  }
                 }
               }
-              &__leftarrows{
-                position: absolute;
-                left: 0;
-                top: 0;
-                &__box{
-                  display: flex;
-                  &__cell{
-                    width: 44px;
-                    height: 44px;
+            }
+            &__rightarrows{
+              position: absolute;
+              top: 0;
+              right: 0;
+              &__box{
+                display: flex;
+                &__cell{
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 4px;
+                  background: #fff;
+                  border: 1px solid #ccc;
+                  font-size: 14px;
+                  line-height: 42px;
+                  :hover{
+                    background-color: #ddd;
+                    width: 100%;
+                    height: 100%;
                     border-radius: 4px;
-                    background: #fff;
-                    border: 1px solid #ccc;
-                    font-size: 14px;
-                    line-height: 46px;
-                    :hover{
-                      background-color: #ddd;
-                      width: 100%;
-                      height: 100%;
-                      border-radius: 4px;
-                    }
+                  }
+                  a{
+                    display: block;
                     i{
                       font-size: 24px;
                       line-height: 46px;
-                      a{
-                        display: block;
-                      }
-                    }
-                  }
-                }
-              }
-              &__rightarrows{
-                position: absolute;
-                top: 0;
-                right: 0;
-                &__box{
-                  display: flex;
-                  &__cell{
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 4px;
-                    background: #fff;
-                    border: 1px solid #ccc;
-                    font-size: 14px;
-                    line-height: 42px;
-                    :hover{
-                      background-color: #ddd;
-                      width: 100%;
-                      height: 100%;
-                      border-radius: 4px;
-                    }
-                    a{
-                      display: block;
-                      i{
-                        font-size: 24px;
-                        line-height: 46px;
-                      }
                     }
                   }
                 }
@@ -314,4 +322,5 @@
         }
       }
     }
-  
+  }
+}
