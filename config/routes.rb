@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     end
     resources :favorites do
       member do
-        post 'create', to: 'favorites#create'
-        delete '/favorite/:item_id', to: 'favorites#destroy'
+        post '/favorite/:item_id', to: 'favorites#create', as: 'like'
+        delete '/favorite/:item_id', to: 'favorites#destroy', as: 'unlike'
       end
     end
   end
