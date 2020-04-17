@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item , only: [:update,:show, :buy, :edit, :destroy, :pay]
+  before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :authenticate_user! ,only: [:buy, :pay]
   before_action :not_buy, only: [:buy]
@@ -73,18 +73,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
-    selected_grandchild = @item.category
-    if related_size_parent = selected_grandchild.item_sizes[0]
-      @item_sizes = related_size_parent.children
-    else
-      selected_child = @item.category.parent
-      if related_size_parent = selected_child.item_sizes[0]
-        @item_sizes = related_size_parent.children
-      end
-    end
   end
-  
+
   def destroy
     if @item.destroy
       redirect_to root_path
@@ -92,13 +82,8 @@ class ItemsController < ApplicationController
       render :show
     end
   end
-  
+
   def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else 
-      redirect_to edit_item_path
-    end
   end
 
   def new
@@ -125,6 +110,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+
 
   def get_item_fee
   end
