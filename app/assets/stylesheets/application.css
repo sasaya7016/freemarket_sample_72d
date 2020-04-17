@@ -1,4 +1,4 @@
-@import "reset.scss";
+@import "_reset.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "color/color.scss";
