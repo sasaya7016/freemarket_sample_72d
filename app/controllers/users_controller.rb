@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-  
+  include CommonModuleForControllers
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit]
+  before_action :reject_non_authenticate_user,only: [:show, :edit]
+  before_action :set_category
   def show
+
   end
 
   def edit
-  
+
   end
 
   def profile
@@ -43,4 +48,15 @@ class UsersController < ApplicationController
   def other_support
   end
   
+  private
+  def reject_non_authenticate_user
+    if @user.id != current_user.id
+      redirect_to user_session_path
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end

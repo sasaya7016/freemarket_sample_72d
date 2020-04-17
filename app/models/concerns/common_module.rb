@@ -1,3 +1,4 @@
+#モデルの共通処理
 module Common_Module
   extend ActiveSupport::Concern
 

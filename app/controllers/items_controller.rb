@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  include CommonModuleForControllers
   before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
-  before_action :authenticate_user! ,only: [:buy, :pay]
+  before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit]
   before_action :not_buy, only: [:buy]
   before_action :set_prefecture, only: [:show, :edit]
   before_action :set_card, only: [:buy, :pay]
@@ -119,27 +120,16 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
-  def set_prefecture
-    @prefecture = Prefecture.find(params[:id])
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
   end
 
   def set_category
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
   end
 
-  def search #商品検索機能
-    @items = Item.search(params[:keyword])
-  end
-
 
   private
-
-  def item_params
-    #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(buyer_id)
-    columns = Item.column_symbolized_names(reject)
-    params.require(:item).permit(*columns)
-  end
 
   def set_item
     @item = Item.find(params[:id])

@@ -118,5 +118,8 @@
         =link_to "後ろの商品>", item_path(@item.next.id)
 
   .detail-category
+
     =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
+
 = render "footer"
+= render "exhibition"
