@@ -77,6 +77,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
+        
         $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
