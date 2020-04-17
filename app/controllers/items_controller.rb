@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item , only: [:update, :show, :buy, :edit, :destroy, :pay]
+  before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :authenticate_user! ,only: [:buy, :pay]
   before_action :not_buy, only: [:buy]
@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   def show
     @item_images = @item.item_images
-    @exhibitor = User.where(id: @item.exhibitor_id).first
+    @user = User.where(id: @item.exhibitor_id).first
     @image = ItemImage.where(item_id: @item.id).first
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 
   def create
     if params[:item][:item_images_attributes] != nil?
-      @item = Item.new(item_params.merge(exhibitor_id: current_user.id))
+      @item = Item.new(item_params.merge(exhibitor_id: 1))
       #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
       @category = Category.where(ancestry: nil).order("id ASC").limit(13)
         if @item.save
@@ -73,8 +73,18 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    selected_grandchild = @item.category
+    if related_size_parent = selected_grandchild.item_sizes[0]
+      @item_sizes = related_size_parent.children
+    else
+      selected_child = @item.category.parent
+      if related_size_parent = selected_child.item_sizes[0]
+        @item_sizes = related_size_parent.children
+      end
+    end
   end
-
+  
   def destroy
     if @item.destroy
       redirect_to root_path
@@ -82,8 +92,9 @@ class ItemsController < ApplicationController
       render :show
     end
   end
-
+  
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path, notice: '編集完了しました'
     else 
@@ -115,7 +126,6 @@ class ItemsController < ApplicationController
       end
     end
   end
-
 
   def get_item_fee
   end
