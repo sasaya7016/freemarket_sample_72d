@@ -29,11 +29,13 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     let imageFile = document.getElementsByClassName('img-file');
     let lastIndex = imageFileGroup[imageFileGroup.length - 1].dataset.index;
     fileIndex.splice(0,lastIndex);
+    
+    //出品画像の編集用
     let hiddenDestroy = document.getElementsByClassName('hidden-destroy');
     for( i = 0; i < hiddenDestroy.length; i++){
       hiddenDestroy[i].style.display = 'none';
     }
-    let listingBox = document.getElementsByClassName('listing__box');
+
     let imageBox = document.getElementById('exhibit__image-box');
     let imageBoxPreviews = document.getElementById('exhibit__image-box__previews');
     let imageBoxUploaderLabel = document.getElementById('exhibit__image-box__uploader__label');
@@ -42,7 +44,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       const targetIndex = this.parentNode.dataset.index; 
       const file = e.target.files[0]; //画像ファイル自身
       const blobURL = window.URL.createObjectURL(file);
-      
       imageBoxPreviews.insertAdjacentHTML('afterbegin',buildImg(targetIndex, blobURL));
       imageBoxUploaderLabel.insertAdjacentHTML('beforeend',buildFileField(fileIndex[0]));
       this.style.display = 'none';
@@ -53,20 +54,22 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     //削除ボタンの設定
     delegateEvent(document ,'click' ,'.img-remove' , function(e){
       const targetIndex = this.previousElementSibling.dataset.index;
-      const hiddenCheck = document.querySelectorAll(`input[data-index="${targetIndex}"].hidden-destroy`);
+      const hiddenCheck = document.querySelector(`input[data-index="${targetIndex}"].hidden-destroy`);
       if (hiddenCheck) hiddenCheck.checked = 'true';
       this.parentNode.remove();
-      const divDataIndex = document.querySelectorAll(`div[data-index="${targetIndex}"]`);
-      for(let i=0; i < divDataIndex.length; i++){
-        divDataIndex[i].remove();
-      };
+      const divDataIndex = document.querySelector(`div[data-index="${targetIndex}"]`);
+      divDataIndex.remove();
+
+      //画像投入エリアが必ず1個以上ある
       if (imageFile.length == 0) {
         for(let i = 0; i < imageBoxUploaderLabel.length; i++){
-        imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend', buildFileField(fileIndex[i]));
+        imageBoxUploaderLabel[i].insertAdjacentHTML('beforeend', buildFileField(fileIndex[0]));
         };
       }
     });
 
+    adaptiveImageArea();
+    
     //DOMツリーの変化の監視
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
@@ -80,7 +83,6 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     function adaptiveImageArea (){
       let inputImages = document.getElementsByClassName('input__images');
       let imgCount = inputImages.length;//投稿画像の枚数
-      
       //画像投稿エリアの変化を10パターンに分ける
       switch (imgCount){
         //画像が削除されて無くなったとき画像表示エリアのstyle
@@ -129,6 +131,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
           imageBoxUploader.style.gridColumnStart = '5';
           imageBoxUploader.style.gridRowStart = '1';
           imageBoxUploader.style.width = '100%';
+          imageBox.style.height = '190px';
           break;
         
         //画像が5枚のときの画像表示エリアのstyle

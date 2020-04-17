@@ -2,7 +2,7 @@
   .add-regi__header
     = render 'header'
   .add-regi__main
-    %h1 住所登録情報
+    %h4 住所登録情報
     .add-regi__main__panel
       = form_with model:@address,data: { remote: false } do |f|
         = render "devise/shared/error_messages", resource: @address

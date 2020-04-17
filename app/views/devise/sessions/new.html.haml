@@ -2,7 +2,7 @@
   .login__header
     = render 'header'
   .login__main
-    %h1 ログイン画面
+    %h4 ログイン画面
     .login__main__panel
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
