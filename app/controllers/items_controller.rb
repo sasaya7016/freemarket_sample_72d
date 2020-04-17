@@ -103,6 +103,16 @@ class ItemsController < ApplicationController
   def search #商品検索機能
     @items = Item.page(params[:page]).per(1)  #ページネーションで必要
 
+    # @keyword =  search_params[:name_cont]
+    # if params[:search] != nil
+    #   @order_id = params[:search][:search_order].to_i
+    #   order_name = SearchOrder.find(@order_id).name
+    #   order_name != nil ? @q.sorts = order_name : @q.sorts =[]
+    # end
+    # @products = @q.result(distinct: true).page(params[:page]).per(100)
+    # @bigcategoryid =params[:q][:category_grandparent_id_eq].to_i
+    # @middlecategoryid= params[:q][:category_parent_id_eq].to_i
+    # @smallcategoryid = params[:q][:category_id_eq].to_i
   end
 
   
@@ -148,9 +158,9 @@ class ItemsController < ApplicationController
     @card = CreditCard.where(user_id: current_user.id).first
   end
 
-  # def search_params
-  #   params.require(:q).permit!
-  # end
+  def search_params
+    params.require(:q).permit(:name_cont, :brand_cont, :price_gteq, :price_gteq, :status_cont, :sorts)
+  end
 
   def sold_out
     @item = Item.find(params[:id])
