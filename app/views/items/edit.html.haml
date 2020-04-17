@@ -7,11 +7,19 @@
     %p.listing-attention 最大10枚まで
     .exhibit__image-box#exhibit__image-box
       .exhibit__image-box__previews#exhibit__image-box__previews
+        - if @item.item_images.present?
+          - @item.item_images.each_with_index do |image,i|
+            .exhibit__image-box__previews__preview{"data-index" => "#{i}"}
+              .exhibit__image-box__previews__preview__image
+                = image_tag image.image.url,data: { index: i } , size: "120x120", class: "input__images"
+                .exhibit__image-box__previews__preview__delete.img-remove 削除
+        =f.fields_for :item_images, @item.item_images do |image|
+          -if @item.persisted?
+            = image.check_box :_destroy, include_hidden: false, data:{ index: image.index }, class: "hidden-destroy"
       .exhibit__image-box__uploader#exhibit__image-box__uploader
         %label.exhibit__image-box__uploader__label#exhibit__image-box__uploader__label
-          =f.fields_for :item_images do |image|
-            .img-file_group{"data-index" => "#{image.index()}"}
-              = image.file_field :image ,type: 'file',value: "",class: "secret-image img-file"
+          .img-file_group{"data-index" => "#{@item.item_images.length}"}
+            = f.file_field :image ,name: "item[item_images_attributes][#{@item.item_images.length}][image]" ,id: "item_item_images_attributes_#{@item.item_images.length}_image" ,class: "secret-image img-file"
         .exhibit__image-box__uploader__text
           写真を追加。
     .listing__box--title

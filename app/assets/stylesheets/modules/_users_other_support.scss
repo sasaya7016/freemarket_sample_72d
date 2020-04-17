@@ -1,0 +1,88 @@
+//お問い合わせのその他
+html, body {
+  background-color: rgb(245, 245, 245);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  .side {
+      background-color: blue;
+      width: 280px;
+  }
+  .main {
+      height: 100%;
+      width: 100%;
+      &__top {
+          height: 200px;
+          width: 100%;
+          background-color: red;
+          }
+      .other_enquiry_contact {
+          background-color: white;
+          width: 700px;
+          height: 500px;
+          margin: 0 auto;
+          margin-top: 10px;
+          &__title {
+              font-size: larger;
+              text-align: center;
+              margin: 0 auto;
+              padding-top: 40px;
+              font-weight: bold;
+              font-size: 30px;
+              }
+          &__content {
+            &--box{
+              border-top: 1px solid #f5f5f5;
+              .description{
+                margin-top: 3rem;
+                text-align: center;
+                &__box{
+                  display: flex;
+                  justify-content: center;
+                  border-radius: 5px;
+                  text-align: center;
+                  .title{
+                    margin-right: 1rem;
+                  }
+                  .required{
+                    background-color: red;
+                    color: white;
+                    border-radius: 3px;
+                    
+                  }
+                }
+                .description__content{
+                  width: 75%;
+                  height: 200px;
+                  border-radius: 5px;
+                }
+              }
+              .cautions{
+                margin-top: 3rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
+              }
+              .form{
+                margin-top: 3rem;
+                text-align: center;
+                .submit{
+                  width: 75%;
+                  height: 50px;
+                  background-color: red;
+                  color: white;
+                  border-radius: 5px;
+                }
+              }
+            }
+          }
+      }
+  }
+  ::placeholder{
+    padding: 20px;
+  }
+}
