@@ -69,7 +69,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
     });
 
     adaptiveImageArea();
-    
+
     //DOMツリーの変化の監視
       const observeDOMcontents = new MutationObserver( function( mutations ){
         mutations.forEach(function(mutation){
