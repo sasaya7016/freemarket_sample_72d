@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item , only: [:show, :buy, :edit, :destroy, :pay]
+  include CommonModuleForControllers
+  before_action :set_item , only: [:update,:show, :buy, :edit, :destroy, :pay]
   before_action :move_to_index, only: [:edit, :destroy]
-  before_action :authenticate_user! ,only: [:buy, :pay]
+  before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit]
   before_action :not_buy, only: [:buy]
   before_action :set_prefecture, only: [:show, :edit]
   before_action :set_card, only: [:buy, :pay]
@@ -48,7 +49,7 @@ class ItemsController < ApplicationController
 
   def show
     @item_images = @item.item_images
-    @exhibitor = User.where(id: @item.exhibitor_id).first
+    @user = User.where(id: @item.exhibitor_id).first
     @image = ItemImage.where(item_id: @item.id).first
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
@@ -59,7 +60,7 @@ class ItemsController < ApplicationController
 
   def create
     if params[:item][:item_images_attributes] != nil?
-      @item = Item.new(item_params.merge(exhibitor_id: current_user.id))
+      @item = Item.new(item_params.merge(exhibitor_id: 1))
       #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
       @category = Category.where(ancestry: nil).order("id ASC").limit(13)
         if @item.save
@@ -73,8 +74,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    selected_grandchild = @item.category
+    if related_size_parent = selected_grandchild.item_sizes[0]
+      @item_sizes = related_size_parent.children
+    else
+      selected_child = @item.category.parent
+      if related_size_parent = selected_child.item_sizes[0]
+        @item_sizes = related_size_parent.children
+      end
+    end
   end
-
+  
   def destroy
     if @item.destroy
       redirect_to root_path
@@ -82,8 +92,13 @@ class ItemsController < ApplicationController
       render :show
     end
   end
-
+  
   def update
+    if @item.update(item_params)
+      redirect_to root_path, notice: '編集完了しました'
+    else 
+      redirect_to edit_item_path, alert: '商品の編集に失敗しました'
+    end
   end
 
   def new
@@ -111,7 +126,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def get_item_fee
   end
 
@@ -119,27 +133,16 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
   end
 
-  def set_prefecture
-    @prefecture = Prefecture.find(params[:id])
+  def search #商品検索機能
+    @items = Item.search(params[:keyword])
   end
 
   def set_category
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
   end
 
-  def search #商品検索機能
-    @items = Item.search(params[:keyword])
-  end
-
 
   private
-
-  def item_params
-    #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(buyer_id)
-    columns = Item.column_symbolized_names(reject)
-    params.require(:item).permit(*columns)
-  end
 
   def set_item
     @item = Item.find(params[:id])

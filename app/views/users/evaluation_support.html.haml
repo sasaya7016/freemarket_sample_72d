@@ -1,4 +1,5 @@
 //問合せの発送・受取・評価について
+= render "items/header"
 .mypage
   .container
     %main.main-container
@@ -20,7 +21,7 @@
                 %input.content{:type => "text", :placeholder => "購入者or出品者"}
               .description
                 .description__box
-                  %h1.title お問い合わせの内容 
+                  %h1.title お問い合わせの内容
                   %p.required 必須
                 %input.description__content{:type => "text", :placeholder => "例:本物のトラクターを頼んだのにミニカーのトラクターが届いた"}
               .form

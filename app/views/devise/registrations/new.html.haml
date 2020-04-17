@@ -2,7 +2,7 @@
   .signup__header    
     = render 'header'
   .signup__main
-    %h4 新規登録画面
+    %h1 新規登録画面
     .signup__main__panel
       = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
         = render "devise/shared/error_messages", resource: resource

@@ -45,9 +45,9 @@ class CreditCardsController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
+      @exp_month = @default_card_information.exp_month.to_s
+      @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
     end
-    @exp_month = @default_card_information.exp_month.to_s
-    @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
   end
 
   private

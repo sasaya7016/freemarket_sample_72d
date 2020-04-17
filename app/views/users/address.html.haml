@@ -12,7 +12,7 @@
           .register-address__contents
             .register-address__contents__name
               .register-address__contents__name__require
-                .title お名前 
+                .title お名前
                 .require 必須
               .register-address__contents__form
                 %input.input-text{:name => "name", :placeholder => "例)田中", :value => "", :type => "text"}/
@@ -63,7 +63,7 @@
                 .optional 任意
               .register-address__contents__form
                 %input.input-text{:name => "phonenumber", :placeholder => "例)09012345678", :value => ""}/
-            .register-address__contents__button 
+            .register-address__contents__button
             = link_to '#', class:"confirm-btn" do
               %input.submit.btn{:name => "confirm", :type => "submit", :value => "変更する"}
 = render "items/footer"
