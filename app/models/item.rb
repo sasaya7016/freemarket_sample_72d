@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :comments
   has_many :item_images
   belongs_to :user, optional: true
@@ -29,4 +29,9 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
 end

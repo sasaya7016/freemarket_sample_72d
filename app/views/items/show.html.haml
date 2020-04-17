@@ -10,7 +10,7 @@
             =image_tag image.url,class:"detail-product__image__main"
             - if @item.buyer_id.present?
               .items-box_photo__sold
-                .items-box_photo__sold__inner 
+                .items-box_photo__sold__inner
                   SOLD
       %ul.thumb.thumbnail
         -@item.item_images.each do |image|
@@ -59,20 +59,9 @@
         %td 
           ="#{@item.preparation_day}日で発送"
     .detail-product__btn
-      %button.detail-product__btn__like{type:"submit"}
-        -# - if current_user.favorites.find_by(@item.id)
-        -#   .kk
-        -#     = link_to favorite_destroy_path(@item.id), method: :delete, remote: true do
-        -#       .o kk
-        -# - else 
-        -#   .kk
-        -#     = link_to favorite_create_path(@item.id), method: :post, remote: true do
-        -#       .o kk
-        %i.fa.fa-star
-        %span お気に入り
-        %apan.favorite
-          = @item.favorites.count
-      %button.detail-product__btn__report{type:"submit"}
+      .detail-product__btn__like
+        = render partial: 'items/favorite', locals: { item: @item}
+      .detail-product__btn__report
         %i.fa.fa-flag
         %span 不適切な商品の通報
     - if @item.buyer_id.nil?

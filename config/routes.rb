@@ -20,7 +20,12 @@ Rails.application.routes.draw do
       get :get_item_size, defaults: { format: 'json' }
       get :search
     end
-    resources :favorites, only: [:cerate, :destroy, :show] 
+    resources :favorites do
+      member do
+        post 'create', to: 'favorites#create'
+        delete '/favorite/:item_id', to: 'favorites#destroy'
+      end
+    end
   end
   resources :credit_cards, only: [:new,:show] do
     collection do
