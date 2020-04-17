@@ -41,6 +41,9 @@ Rails.application.routes.draw do
       post 'pay', to: 'items#pay'
       get  'done', to: 'items#done'
       get :buy
+      get :get_category_children, defaults: { format: 'json' }
+      get :get_category_grandchildren, defaults: { format: 'json' }
+      get :get_item_size, defaults: { format: 'json' }
     end
     collection do
       get :get_category_children, defaults: { format: 'json' }
@@ -58,5 +61,5 @@ Rails.application.routes.draw do
       get :category_scroll, defaults: { format: 'json' }
     end
   end
-
+  
 end
