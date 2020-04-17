@@ -125,7 +125,8 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
 
         //画像が4枚のときの画像表示エリアのstyle
         case 4:
-          imageBoxUploader.style.display = 'grid';
+          imageBoxPreviews.style.display = 'grid';
+          imageBoxUploader.style.display = 'block';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(4, 120px)';
           imageBoxUploader.style.gridColumnStart = '5';
