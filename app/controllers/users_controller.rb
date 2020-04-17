@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   include CommonModuleForControllers
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit]
-  before_action :reject_non_authenticate_user
+  before_action :reject_non_authenticate_user,only: [:show, :edit]
   before_action :set_category
   def show
 
