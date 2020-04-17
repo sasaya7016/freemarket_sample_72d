@@ -115,6 +115,7 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
         
         //画像が3枚のときの画像表示エリアのstyle
         case 3:
+          imageBoxPreviews.style.display = 'grid';
           imageBoxUploader.style.display = 'grid';
           imageBoxPreviews.style.gridTemplateRows = 'repeat(1, 165px)';
           imageBoxPreviews.style.gridTemplateColumns = 'repeat(3, 120px)';
