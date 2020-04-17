@@ -2,6 +2,7 @@ $font_color_white: white;
 $font_color_black: black;
 $font_color_oceanblue:#3CCACE;
 $background-color_section:#eeeeee;
+$background-color_footer: #272727;
 
 
 // _footer.html.haml ---------------
@@ -53,9 +54,10 @@ $background-color_section:#eeeeee;
     padding: 60px 0;
     width: 100%;
     color: $font_color_white;
-    background-color: #272727;
+    background-color: $background-color_footer;
     text-align: center;
     &__lists {
+      background-color: $background-color_footer;
       margin: 0 auto;
       &__list {
         display: flex;
@@ -65,6 +67,7 @@ $background-color_section:#eeeeee;
           color: $font_color_white;
         }
         ul {
+          background-color: $background-color_footer;
           h3 {
             font-size: 15px;
             font-weight: bold;

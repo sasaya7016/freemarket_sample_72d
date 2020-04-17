@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
 
   def show
     @item_images = @item.item_images
-    @user = User.where(id: @item.exhibitor_id).first
+    @exhibitor = User.where(id: @item.exhibitor_id).first
     @image = ItemImage.where(item_id: @item.id).first
     # @address = Address.where(id: @user.id).first
     @parent = @item.category
