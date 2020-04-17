@@ -20,6 +20,7 @@
         %label.exhibit__image-box__uploader__label#exhibit__image-box__uploader__label
           .img-file_group{"data-index" => "#{@item.item_images.length}"}
             = f.file_field :image ,name: "item[item_images_attributes][#{@item.item_images.length}][image]" ,id: "item_item_images_attributes_#{@item.item_images.length}_image" ,class: "secret-image img-file"
+     
         .exhibit__image-box__uploader__text
           写真を追加。
     .listing__box--title
