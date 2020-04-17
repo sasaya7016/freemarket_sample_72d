@@ -10,11 +10,6 @@
       .exhibit__image-box__uploader#exhibit__image-box__uploader
         %label.exhibit__image-box__uploader__label#exhibit__image-box__uploader__label
           =f.fields_for :item_images do |image|
-            .initial
-              - if @item.item_images.present?
-                - @item.item_images.each do |i|
-                  = image_tag i.image.url, size: "120x120"
-                  .exhibit__image-box__previews__preview__delete.img-remove 削除
             .img-file_group{"data-index" => "#{image.index()}"}
               = image.file_field :image ,type: 'file',value: "",class: "secret-image img-file"
         .exhibit__image-box__uploader__text
