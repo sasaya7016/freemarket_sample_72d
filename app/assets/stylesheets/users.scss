@@ -273,6 +273,57 @@ table {
   }
 }
 
+.fg-password{
+  background-color: rgb(247, 247, 241);
+  &__header{
+    padding-top: 30px;
+    .logo-head{
+      display: block;
+      margin: 0px auto 30px auto;
+      width: 15vw;
+    }
+  }
+  &__main{
+    background-color: white;
+    height: 70vh;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    h4{
+      padding-top: 10px;
+      text-align: center;
+      color: rgb(54, 53, 53);
+    }
+    &__panel{
+      .field{
+        text-align: center;
+        .user-textform{
+        height: 50px;
+        width: 25vw;
+        border-radius: 3px;
+        border: solid 1px rgb(194, 186, 186);
+        padding-left: 15px;
+        font-size: 15px;
+        }
+      }
+      .actions{
+        text-align: center;
+        .login-btn{
+          height: 50px;
+          width: 27vw;
+          color: white;
+          background-color: rgb(235, 2, 2);
+          margin-top: 20px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          border: none;
+          }
+      }
+    }
+  }
+}
+
 .new-user-register-btn{
   height: 40px;
   width: 27vw;
