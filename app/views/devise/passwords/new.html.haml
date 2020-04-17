@@ -1,15 +1,10 @@
-.fg-password    
-  .fg-password__header
-    = render 'header'
-  .fg-password__main
-    %h4 パスワード再登録
-    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-      = render "devise/shared/error_messages", resource: resource
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", class:"user-textform"
-      .actions
-        = f.submit "パスワード変更メールを送る", class: "forget-password"
-  .fg-password__footer
-    = render 'footer'
+%h2 Forgot your password?
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .actions
+    = f.submit "Send me reset password instructions"
+= render "devise/shared/links"

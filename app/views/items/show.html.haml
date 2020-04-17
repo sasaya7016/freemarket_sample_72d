@@ -10,11 +10,11 @@
             =image_tag image.image_url,class:"detail-product__image__main"
             - if @item.buyer_id.present?
               .items-box_photo__sold
-                .items-box_photo__sold__inner 
+                .items-box_photo__sold__inner
                   SOLD
       %ul.thumb.thumbnail
         -@item.item_images.each do |image|
-          %li 
+          %li
             =image_tag image.image_url,class:"detail-product__image__sub"
     .detail-product__price
       ="¥#{@item.price}"
@@ -27,18 +27,18 @@
         %th
           出品者
         %td
-          =@exhibitor.nickname
+          -#=@item.user.nickname
       %tr
-        %th カテゴリー
-        %td
-          =link_to category_path(@item.category.parent.parent.id) do
-            %span= @item.category.parent.parent.name
-          %br/
-          =link_to category_path(@item.category.parent.id) do
-            %span= @item.category.parent.name
-          %br/
-          =link_to category_path(@item.category.id) do
-            %span= @item.category.name
+        -# %th カテゴリー
+        -# %td
+        -#   =link_to do
+        -#     %span= @item.category.parent.parent.name
+        -#   %br/
+        -#   =link_to do
+        -#     %span= @item.category.parent.name
+        -#   %br/
+        -#   =link_to do
+        -#     %span= @item.category.name
       %tr
         %th ブランド
         %td
@@ -49,8 +49,7 @@
           =@item.status
       %tr
         %th 配送料の負担
-        %td 
-          =@item.delivery_fee
+        %td 着払い（購入者負担）
       %tr
         %th 発送元の地域
         %td
@@ -80,7 +79,7 @@
       -elsif current_user.id != @item.exhibitor_id
         .detail-product__link__buy
           =link_to "商品を購入する", buy_item_path(@item.id)
-    - else 
+    - else
       .detail-product__sold-out
         この商品は売り切れました
   .detail-comment-box
