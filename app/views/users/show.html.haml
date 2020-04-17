@@ -1,10 +1,10 @@
 //usermypage
 = render "items/header"
-.mypage
-  .container
-    %main.main-container
-      / 以下サイドバーの部分テンプレート
-      = render partial: "show_sidebar", locals: {}
-      / 以下メインメニューの部分テンプレート
-      = render partial: "show_main-content", locals: {}
+.container
+  %main.main-container
+    / 以下サイドバーの部分テンプレート
+    = render partial: "show_sidebar", locals: {}
+    / 以下メインメニューの部分テンプレート
+    = render partial: "show_main-content", locals: {}
 = render "items/exhibition"
+= render "items/footer"

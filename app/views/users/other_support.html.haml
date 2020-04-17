@@ -5,7 +5,6 @@
     %main.main-container
       = render partial: "show_sidebar", locals: {}
       .main
-        .main__top
         .other_enquiry_contact
           %p.other_enquiry_contact__title その他
           .other_enquiry_contact__content
@@ -18,3 +17,4 @@
               .form
                 = link_to "#" do
                   %input.submit.btn{:type => "submit", :value => "送信する"}
+= render "items/footer"

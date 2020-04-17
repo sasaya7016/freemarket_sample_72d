@@ -1,58 +1,90 @@
-// 仮置き
-.sidebar{
-  width: 280px;
-  height:100vh;
-  background-color: orangered;
-}
-
-.credit-card-contents{
+.credit_card{
+  width: $main-content--width;
+  margin: 0 60px;
+  background-color: white;
+  font-size: 16px;
   display: flex;
-  background-color: #f8f8f8;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   .credit-card__box{
-    width:70%;
-    background-color: white;
-    margin:80px auto;
-    font-size: 22px;
+    width: 90%;
+    height: 90%;
+    background-color: rgba(207, 227, 244, 0.5);
+    display: block;
     h1{
-      font-size: 32px;
+      font-size: 16px;
     }
     .form_require{
       background-color: red;
       color:white;
-      padding:3px;
+      padding:5px;
+      border-radius: 5px;
     }
     &__title{
+      margin: 40px 0;
       text-align: center;
     }
     &__inner{
-      margin-left:15%;
-      margin-top: 30px;
+      margin: 40px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .card-notification{
+        text-align: center;
+      }
+      .card-icons{
+        margin: 0px 10px 40px;
+        .card{
+          margin: 7px;
+          width: 50px;
+        }
+        .visa{
+          width: 70px;
+        }
+      }
       &__number{
-        width:30%;
-        font-size: 20px;
-        padding:10px;
-        margin-bottom:30px;
-        margin-top:10px;
+        width:100%;
+        font-size: 14px;
+        margin: 40px 10px 0;
       }
       &__input-expire{
-        font-size: 20px;
-        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        font-size: 14px;
       }
+      .cards-expire{
+        display: flex;
+        justify-content: space-evenly;
+        &__head{
 
-      .cards-expire__year{
-        margin-bottom: 20px;
+          margin: 40px 10px 10px;
+          .label{
+          }
+        }
+        &__month{
+          display: flex;
+          justify-content: space-between;;
+          margin-bottom: 20px;
+        }
+        &__year{
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+        &__security{
+          margin: 40px 10px 0;
+        }
       }
       &__input-number{
         margin-top: 20px;
-        width:30%;
-        padding:10px;
-        font-size: 18px;
+        width:100%;
+        font-size: 14px;
       }
 
       .content-bottom--add-btn{
-        margin: 30px 0 20px;
-        width:15%;
+        margin: 60px 0 20px;
+        width:100%;
         font-size: 20px;
         padding:10px;
         background-color: #3CCACE;
@@ -61,6 +93,4 @@
       }
     }
   }
-
-
 }

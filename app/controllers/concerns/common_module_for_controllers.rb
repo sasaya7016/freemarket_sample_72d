@@ -10,4 +10,8 @@ module CommonModuleForControllers
       @prefecture = Prefecture.find(params[:id])
     end
     
+    def set_user
+      @user = User.find(params[:id])
+    end
+    
 end
