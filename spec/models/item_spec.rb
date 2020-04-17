@@ -86,22 +86,22 @@ describe '金額の上限、加減' do
   end
 end
 
+$item = Item.new(
+  id: 123,
+  name: "music",
+  introduction: "This is the test.",
+  price: 99999,
+  category_id: 3,
+  status: "未使用",
+  preparation_day: 2,
+  exhibitor_id: 1,
+  delivery_fee: "着払い（購入者負担）",
+  prefecture_id: 1,
+)
 
 describe 'presence: true' do
   it "商品編集時にname, introduction, price, category_id, status, preparation_day, exhibitor_id, delivery_fee, prefecture_idがあれば有効であること" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(
+    $item.update(
       id: 124,
       name: "mmmmm",
       introduction: "This is the tomato.",
@@ -113,160 +113,52 @@ describe 'presence: true' do
       delivery_fee: "送料込み（出品者負担）",
       prefecture_id: 2,
     )
-    expect(@item).to be_valid
+    expect($item).to be_valid
   end
 
     it "商品編集時にnameがなければ無効" do
-      @item = Item.new(
-        id: 123,
-        name: "music",
-        introduction: "This is the test.",
-        price: 99999,
-        category_id: 3,
-        status: "未使用",
-        preparation_day: 2,
-        exhibitor_id: 1,
-        delivery_fee: "着払い（購入者負担）",
-        prefecture_id: 1,
-      )
-      @item.update(name: nil)
-      expect(@item.valid?).to eq(false)
+      $item.update(name: nil)
+      expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にintroductionがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(introduction: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(introduction: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にpriceがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(price: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(price: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にcategory_idがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(category_id: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(category_id: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にstatusがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item .update(status: nil)
-    expect(@item.valid?).to eq(false)
+    $item .update(status: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にpreparation_dayがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(preparation_day: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(preparation_day: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にexhibitor_idがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(exhibitor_id: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(exhibitor_id: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にdelivery_feeがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(delivery_fee: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(delivery_fee: nil)
+    expect($item.valid?).to eq(false)
   end
 
   it "商品編集時にprefecture_idがなければ無効" do
-    @item = Item.new(
-      id: 123,
-      name: "music",
-      introduction: "This is the test.",
-      price: 99999,
-      category_id: 3,
-      status: "未使用",
-      preparation_day: 2,
-      exhibitor_id: 1,
-      delivery_fee: "着払い（購入者負担）",
-      prefecture_id: 1,
-    )
-    @item.update(prefecture_id: nil)
-    expect(@item.valid?).to eq(false)
+    $item.update(prefecture_id: nil)
+    expect($item.valid?).to eq(false)
   end
 
 end
