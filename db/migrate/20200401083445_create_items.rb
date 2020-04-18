@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :preparation_day, null: false
       t.integer :exhibitor_id, foreign_key: true
       t.integer :buyer_id, foreign_key: true
+      t.integer :buyer_id_status
       t.string :delivery_fee, null: false
       t.integer :prefecture_id, null: false, foreign_key: true
       t.timestamps
