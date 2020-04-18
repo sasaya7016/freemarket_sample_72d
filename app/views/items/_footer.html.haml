@@ -1,54 +1,55 @@
-.section.article-bottom
-  .article-bottom__message
-    .article-bottom__message__title
-      %h2 だれでもかんたん、人生を変えるフリマアプリ
-      %h3 今すぐ無料ダウンロード！
-    .article-bottom__message__btn
-      .btn__apple
-        = link_to image_tag("app-store.svg",class:"apple-store"),""
-      .btn__google
-        = link_to image_tag("google-play.svg",class:"google-play"),""
+.bottom__contents
+  .section.article-bottom
+    .article-bottom__message
+      .article-bottom__message__title
+        %h2 だれでもかんたん、人生を変えるフリマアプリ
+        %h3 今すぐ無料ダウンロード！
+      .article-bottom__message__btn
+        .btn__apple
+          = link_to image_tag("app-store.svg",class:"apple-store"),""
+        .btn__google
+          = link_to image_tag("google-play.svg",class:"google-play"),""
 
 
-.footer
-  %ul.footer__lists
-    %li.footer__lists__list
-      %ul
-        %h3  
-          = link_to "FURIMAについて", "#"
-        %li
-          %p 
-            = link_to "会社概要（運営会社）", "#"
-        %li
-          %p 
-            = link_to "プライバシーポリシー", "#"
-        %li
-          %p 
-            = link_to "FURIMA利用規約", "#"
-        %li
-          %p 
-            = link_to "ポイントに関する特約", "#"
-      %ul
-        %h3 
-          = link_to "FURIMAを見る", "#"
-        %li
-          %p 
-            = link_to "カテゴリー一覧", categories_path
-        %li
-          %p 
-            = link_to "ブランド一覧", "#"
-      %ul
-        %h3 
-          = link_to "ヘルプ＆ガイド", "#"
-        %li
-          %p 
-            = link_to "FURIMAガイド", "#"
-        %li
-          %p 
-            = link_to "FURIMAロゴ利用ガイドライン", "#"
-        %li
-          %p 
-            = link_to "お知らせ", "#"
-  .footer__logo
-    = link_to image_tag("logo-white.png",class:"logo"),"/"
-  %p © FURIMA
+  .footer
+    %ul.footer__lists
+      %li.footer__lists__list
+        %ul
+          %h3  
+            = link_to "FURIMAについて", "#"
+          %li
+            %p 
+              = link_to "会社概要（運営会社）", "#"
+          %li
+            %p 
+              = link_to "プライバシーポリシー", "#"
+          %li
+            %p 
+              = link_to "FURIMA利用規約", "#"
+          %li
+            %p 
+              = link_to "ポイントに関する特約", "#"
+        %ul
+          %h3 
+            = link_to "FURIMAを見る", "#"
+          %li
+            %p 
+              = link_to "カテゴリー一覧", categories_path
+          %li
+            %p 
+              = link_to "ブランド一覧", "#"
+        %ul
+          %h3 
+            = link_to "ヘルプ＆ガイド", "#"
+          %li
+            %p 
+              = link_to "FURIMAガイド", "#"
+          %li
+            %p 
+              = link_to "FURIMAロゴ利用ガイドライン", "#"
+          %li
+            %p 
+              = link_to "お知らせ", "#"
+    .footer__logo
+      = link_to image_tag("logo-white.png",class:"logo"),"/"
+    %p © FURIMA

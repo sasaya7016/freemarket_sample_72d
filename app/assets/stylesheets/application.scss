@@ -1,3 +1,13 @@
+@import "reset.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "color/color.scss";
+/*ここまで定義ファイル*/
+@import "users.scss";
+@import "items.scss";
+@import "credit_cards.scss";
+@import "categories";
+@import "address";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

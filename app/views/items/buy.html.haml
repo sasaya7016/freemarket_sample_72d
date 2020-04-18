@@ -3,12 +3,10 @@
     %h1.verification__box--title 購入内容の確認
     .buy_verification__box--content
       .image 
-        = image_tag(@image.url,class: "image_verification")
+        = image_tag(@image.image_url,class: "image_verification")
       .content
         .content__name 
           =@item.name
-        .content__price 
-          =@item.price 
     .buy_verification__box--price
       %p.title 支払い金額
       .price
@@ -30,7 +28,12 @@
           = exp_month + " / " + exp_year
     .buy_verification__box--shipping_address 
       %p.title 配達先
-      %p.detail なんばスカイオ
+      %p.detail 
+        ="〒#{current_user.address.postalcode}"
+        %br/
+        =current_user.address.first_address
+        =current_user.address.second_address
+        =current_user.address.third_address
     .form
       - if @default_card_information.blank?
         購入にはクレジットカードの登録が必要です
