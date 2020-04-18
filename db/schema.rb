@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.integer "category_id", null: false
     t.string "item_size"
     t.string "status", null: false
+    t.integer "favorites_count"
     t.integer "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
