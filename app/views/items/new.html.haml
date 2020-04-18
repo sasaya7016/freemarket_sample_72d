@@ -3,7 +3,7 @@
   =form_with model: [@item],data: { remote: false } , class: "listing__box" do |f|
     .listing__box--title
       %p 出品画像
-      %p.equired 必須
+      %p.required 必須
     %p.listing-attention 最大10枚まで
     .exhibit__image-box#exhibit__image-box
       .exhibit__image-box__previews#exhibit__image-box__previews
@@ -16,16 +16,16 @@
           写真を追加。
     .listing__box--title
       %p 商品名
-      %p.equired 必須
+      %p.required 必須
     =f.text_field :name, class: "listing-form", placeholder: "40字まで"
     .listing__box--title
       %p 商品説明
-      %p.equired 必須
+      %p.required 必須
     =f.text_area :introduction, class: "item-text", placeholder: "商品の説明（1000字まで）"
     %p 商品の詳細
     .listing__box--title
       %p カテゴリー
-      %p.equired 必須
+      %p.required 必須
     = f.collection_select :category_id, @parents, :id, :name, {prompt: "---"}, class: 'listing-select-wrapper__box--select', id: 'parent_category'
     .listing-child
     .listing-grandchild
@@ -36,35 +36,36 @@
     =f.text_field :brand, class: "listing-form", placeholder: "例）アディダス"
     .listing__box--title
       %p 商品の状態
-      %p.equired 必須
+      %p.required 必須
     =f.select :status, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
     .listing__box--title
       %p 配送料の負担
-      %p.equired 必須
+      %p.required 必須
     =f.select :delivery_fee,  ['送料込み（出品者負担）', '着払い（購入者負担）'],include_blank: '選択してください', class: "listing-select"
     .listing__box--title
       %p 発送元の地域
-      %p.equired 必須
+      %p.required 必須
     =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, include_blank: '選択してください', class: "listing-select"
     .listing__box--title
       %p 発送までの日数
-      %p.equired 必須
+      %p.required 必須
     =f.select :preparation_day, ['1〜2日', '2〜3日', '4〜7日'], include_blank: '選択してください', class: "listing-select"
     .listing__box--fee
-      .listing__box--title
-        %p 販売価格
-        %p.equired 必須
+      .listing__box--fee--title
+        販売価格
+        .required 必須
       .listing__box--price
-        =f.number_field :price, class: "listing-price", placeholder: "0", id: "item_price"
-        %p 円
+        =f.number_field :price, class: "listing-price border", placeholder: "0", id: "item_price"
+        %p.price
+          円
     .listing__box--fee
       %p 販売手数料 (10%)
-      %p#inner-commission 
+      %p#inner-commission
         0円
     .listing__box--fee
       %p 販売利益
-      %p#inner-benefit 
+      %p#inner-benefit
         0円
     .listing__box--btns
-      =f.submit class: "btn", value: "出品する"
+      =f.submit class: "submit-btn btn", value: "出品する"
       =link_to "戻る","#", class: "btn-back", type: "submit"
