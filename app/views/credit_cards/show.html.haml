@@ -23,11 +23,12 @@
             = "**** **** **** #{@default_card_information.last4}"
           .detail-credit-card__box__inner__show-icon
             -# %i.fab.fa-cc-visa.fa-2x
-            = image_tag "credit_card_logo/Visa.svg", class: "visa card"
+            = imwqage_tag "credit_card_logo/Visa.svg", class: "visa card"
           .detail-credit-card__box__inner__show-expire 
             有効期限
             %br/
             = @exp_month + " / " + @exp_year
           = form_with url: delete_credit_cards_path, method: :post, id: 'charge-form',local: true, html: { name: "inputForm"} do |f|
             = f.hidden_field :card_id, value: ""
-            = f.submit "削除する", class:"detail-credit-card__box__inner__show-delete"
+            .center
+              = f.submit "削除する", class:"detail-credit-card__box__inner__show-delete"

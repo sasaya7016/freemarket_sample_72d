@@ -35,7 +35,7 @@ class CreditCardsController < ApplicationController
       customer.delete
       @card.delete
     end
-      redirect_to action: "new"
+      redirect_to root_path
   end
 
   def show 

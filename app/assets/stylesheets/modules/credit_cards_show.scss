@@ -41,6 +41,9 @@
       }
       &__show-icon{
         margin-top:10px;
+        card{
+          width:70px;
+        }
         i{
           color:#3CCACE;
         }
@@ -51,12 +54,15 @@
       }
       &__show-delete{
         margin: 60px auto;
-        width:100%;
+        width:50%;
         font-size: 20px;
         padding:10px;
         background-color: gray;
         color: white;
         cursor: pointer;
+      }
+      .center{
+        text-align: center;
       }
     }
   }
