@@ -100,7 +100,6 @@
         相手のことを考え適切なコメントを心がけましょう。
         %br>/
         不快な言葉遣胃などは利用制限や退会処分となることがあります。
-        コメントする
       - if user_signed_in?
         %button{type:"submit"}
           %i.fa.fa-comment
@@ -119,3 +118,4 @@
   .detail-category
     =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
 = render "footer"
+= render "exhibition"
