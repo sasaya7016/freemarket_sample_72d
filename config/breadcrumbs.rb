@@ -14,10 +14,10 @@ crumb :new_address do
   parent :sign_up
 end
 
-crumb :subscribed do
-  link "登録完了",categories_path
-  parent :new_address
-end
+# crumb :subscribed do
+#   link "登録完了",categories_path
+#   parent :new_address
+# end
 
 # ログイン
 crumb :login do
@@ -27,8 +27,13 @@ end
 
 # マイページ
 crumb :mypage do
-  link "マイページ",new_user_session_path
+  link "マイページ",user_path
   parent :root
+end
+
+crumb :nice do
+  link "いいね一覧",user_path
+  parent :mypage
 end
 
 # 商品一覧
@@ -62,4 +67,3 @@ end
 
 # 詳細
 # 編集
-# マイページ
