@@ -84,9 +84,12 @@ gem 'font-awesome-sass'
 gem 'sprockets'
 gem 'jquery-rails'
 gem 'kaminari'
+
+# for image uploader with AWS S3
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+#---------------
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'ancestry'
