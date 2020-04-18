@@ -79,8 +79,6 @@
         width: 100%;
         border-radius: 5px;
         height: 30px;
-        border: 1px solid;
-        font-size: 15px;
       }
       select {
         height: 30px;
@@ -92,14 +90,6 @@
       }
       .listing-grandchild {
         margin-top: 20px;
-      }
-      .listing-price {
-        font-size: 15px;
-        margin-top: 15px;
-        width: 100%;
-        border-radius: 5px;
-        height: 25px;
-        border: 1px solid;
       }
       .item-text {
         width: 100%;
@@ -114,17 +104,20 @@
       }
       &--title {
         display: flex;
-        .equired {
+        align-items: center;
+        margin-top: 30px;
+        .required {
           display: block;
+          margin-left: 10px;
           font-size: 14px;
           height: 20px;
           background-color: red;
           border-radius: 5px;
-          margin-left: 5px;
           color: white;
         }
         .arbitrary {
           border: 1px solid;
+          font-size: 14px;
           border-radius: 5px;
           margin-left: 5px;
         }
@@ -132,14 +125,37 @@
       &--fee {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        &--title{
+          display: flex;
+          align-items: center;
+        .required {
+          display: block;
+          margin-left: 10px;
+          font-size: 14px;
+          height: 20px;
+          background-color: red;
+          border-radius: 5px;
+          color: white;
+        }
+        }
       }
       &--price {
+        justify-content: space-between;
+        align-items: center;
         display: flex;
+        .listing-price {
+          font-size: 15px;
+          width: 100%;
+          border-radius: 5px;
+          height: 25px;
+        }
       }
       &--btns {
         width: 100%;
         text-align: center;
-        .btn{
+        .submit-btn{
           width: 100%;
           margin-top: 50px;
           padding: 10px 0;
@@ -165,4 +181,3 @@
       }
     }
   }
-

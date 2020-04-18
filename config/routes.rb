@@ -18,10 +18,9 @@ resources :users do
           get 'likes'
         end
       end
-      get :profile
-      get :address
-      get :logout
       get :support
+      get :logout
+      get :address
       scope :support do
           get :registration_support
           get :defect_support

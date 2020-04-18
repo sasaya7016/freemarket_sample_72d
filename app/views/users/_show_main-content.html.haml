@@ -3,7 +3,7 @@
     =link_to "#", class: ".main-content__user" do
       =image_tag "img01.jpg", class: "user-image"
       %h2.main-content__user__name
-        葵
+        = current_user.nickname
       .main-content__user__number
         .main-content__user__number__evaluation
           評価数  
@@ -22,6 +22,7 @@
           
     .tab__content
       %ul#tab__content-new.tab__content
+        
         %li.tab__content__list
           =link_to "", class: "tab__content__list-box" do
             =image_tag "sample_item_list_img01.jpg", alt: "",id: "",class: "list-image"
