@@ -59,7 +59,6 @@ resources :users do
     end
     resources :comments, only: :create
   end
-
   resources :categories do
     collection do
       get :get_toppage_category, defaults: { format: 'json' }
