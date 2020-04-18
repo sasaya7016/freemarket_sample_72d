@@ -1,7 +1,37 @@
+# トップページ（始まり）
 crumb :root do
   link "トップページ", root_path
 end
 
+# サインイン
+crumb :sign_up do
+  link "新規登録",new_user_registration_path
+  parent :root
+end
+
+crumb :new_address do
+  link "住所登録",addresses_path
+  parent :sign_up
+end
+
+crumb :subscribed do
+  link "登録完了",categories_path
+  parent :new_address
+end
+
+# ログイン
+crumb :login do
+  link "ログイン",new_user_session_path
+  parent :root
+end
+
+# マイページ
+crumb :mypage do
+  link "マイページ",new_user_session_path
+  parent :root
+end
+
+# 商品一覧
 crumb :category do
   link "カテゴリー一覧",categories_path
   parent :root
@@ -24,6 +54,12 @@ crumb :parent do
   end
 end
 
+# 出品
 crumb :list do
-  link "出品", category_new_path
+  link "出品", new_item_path
+  parent :root
 end
+
+# 詳細
+# 編集
+# マイページ

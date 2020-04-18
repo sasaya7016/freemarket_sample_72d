@@ -1,4 +1,9 @@
 = link_to (image_tag 'logo.png' , class: "main__logo" ),root_path 
+.nav-category
+  .ul.nav-category__lists
+    .li.nav-category__lists__list
+      - breadcrumb :list
+      = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumb"
 .listing
   =form_with model: [@item],data: { remote: false } , class: "listing__box" do |f|
     .listing__box--title
