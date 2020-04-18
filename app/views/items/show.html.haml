@@ -10,7 +10,7 @@
             =image_tag image.image_url,class:"detail-product__image__main"
             - if @item.buyer_id.present?
               .items-box_photo__sold
-                .items-box_photo__sold__inner 
+                .items-box_photo__sold__inner
                   SOLD
       %ul.thumb.thumbnail
         -@item.item_images.each do |image|
@@ -61,11 +61,10 @@
           ="#{@item.preparation_day}~#{@item.preparation_day.to_i+3}日で発送"
     .detail-product__btn
       .detail-product__btn__like
-        %i.fa.fa-star
-        お気に入り
+        = render partial: 'items/favorite', locals: { item: @item}
       .detail-product__btn__report
         %i.fa.fa-flag
-        不適切な商品の通報
+        %span 不適切な商品の通報
     - if @item.buyer_id.nil?
       - if !user_signed_in?
       -elsif current_user.id == @item.exhibitor_id
@@ -101,7 +100,6 @@
         相手のことを考え適切なコメントを心がけましょう。
         %br>/
         不快な言葉遣胃などは利用制限や退会処分となることがあります。
-        コメントする
       - if user_signed_in?
         %button{type:"submit"}
           %i.fa.fa-comment

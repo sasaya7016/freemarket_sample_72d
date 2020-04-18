@@ -105,10 +105,13 @@
               %p.name=item.name 
               .pickup-category__product__main__list__text__details
                 .ul
-                  .li=(item.price * 1.1).floor
+                  .li=item.price
                   .li 
-                    .icon ★ 0
+                    %span.icon ♡
+                    %span.favorite
+                    = item.favorites.count
                 %p (税込)
+
 
 .section.pickup-bland
   .pickup-bland__message
@@ -127,5 +130,7 @@
                 .ul
                   .li=(pickup_item.price * 1.1).floor
                   .li 
-                    .icon ★ 0
+                    %span.icon ♡ 
+                    %apan.favorite
+                      = pickup_item.favorites.count
                 %p (税込)

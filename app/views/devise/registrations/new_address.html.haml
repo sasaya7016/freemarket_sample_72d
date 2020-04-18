@@ -1,6 +1,11 @@
 .add-regi
   .add-regi__header
     = render 'header'
+    .nav-category
+      .ul.nav-category__lists
+        .li.nav-category__lists__list
+          - breadcrumb :new_address
+          %p= breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumb"
   .add-regi__main
     %h1 住所登録情報
     .add-regi__main__panel

@@ -1,6 +1,11 @@
 .login
   .login__header
     = render 'header'
+    .nav-category
+      .ul.nav-category__lists
+        .li.nav-category__lists__list
+          - breadcrumb :login
+          = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumb"
   .login__main
     %h1 ログイン画面
     .login__main__panel

@@ -17,8 +17,8 @@ CarrierWave.configure do |config|
       
 #要入力！
     #本番環境のS3ホストを記入して下さい
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/google-storage'
-    config.fog_directory  = 'teamdbucket' #本番環境のS3のバケット名
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/teamd72bucket'
+    config.fog_directory  = 'teamd72bucket' #本番環境のS3のバケット名
     config.fog_public = true
     config.fog_provider = 'fog/aws'
     else

@@ -1,6 +1,11 @@
 .signup
   .signup__header    
     = render 'header'
+    .nav-category
+      .ul.nav-category__lists
+        .li.nav-category__lists__list
+          - breadcrumb :sign_up
+          = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumb"
   .signup__main
     %h1 新規登録画面
     .signup__main__panel
