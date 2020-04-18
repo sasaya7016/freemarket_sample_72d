@@ -1,65 +1,50 @@
 .wrapper
   = render "header"
 
-
 .search
   -# -----サイドバー-----
   .search__sidebar
     = search_form_for @q,url:search_items_path, class:"search__form" do |f|
       .search__sidebar__select
-        %h3.search__sidebar__select__title 並び替え
-        = f.select( :sorts, { '---': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} )
-    
+        %h2.search__sidebar__select__title 並び替え
+        = f.select( :sorts, { '登録順': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] })
+
       .search__sidebar__box
-        %h4.search__sidebar__box__title 詳細検索
+        %h2.search__sidebar__box__title 詳細検索
+
         .input-form-box
           %label 
-            = icon('far', 'fa-laugh-beam', class: 'fa-laugh-beam') 
-            %span キーワードを入力
+          = icon('far', 'fa-laugh-beam', class: 'fa-laugh-beam') 
+          %span キーワードを入力
           = f.text_field :name_cont, placeholder: "何かお探しですか？",class:'input__form'
 
         .input-form-box
           %label 
-            = icon('fas', 'fa-magic', class: 'fa-magic') 
-            %span ブランド名から探す
+          = icon('fas', 'fa-magic', class: 'fa-magic') 
+          %span ブランド名から探す
           = f.text_field :brand_cont,class:'search__form', placeholder:'例)シャネル'
 
-        -# .input-form-box
-        -#   %label 
-        -#     = icon('fas', 'fa-magic', class: 'fa-magic') 
-        -#     %span カテゴリーを選択する 
-        -#     = f.collection_select :category_id_eq_any, Category.where(ancestry: nil), :id, :name, {prompt: "---"}
-
-
-
-          -# = f.collection_select :category_id_eq, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, class: 'input-form', id: 'parent_category'
-          -# .listing-child
-          -# .listing-grandchild
-          -# .listing-size
-          -# .listing__box--title
-        
-        
         .input-form-box
           %label 
             = icon('fas', 'fa-search-dollar', class: 'fa-search-dollar') 
             %span 価格を指定する (数字のみ)
           %br/
-          -# =f.select :price, ['300〜1000', '1000〜5000', '5000〜10000', '10000〜30000', '30000〜50000', '50000〜'], include_blank: '選択してください', class: "search__form",value:@price
+          = collection_select :price, :select, Price.all, :id, :name, {prompt: "---"},class:'search__form'
           .input-form-box__price
-            = f.number_field :price_gteq,class:'search__form__small',placeholder:'¥ 300  (Min)'
+            = f.text_field :price_gteq,class:'search__form__small',placeholder:'例)¥ 300  (Min)'
             %span.spacer ~
-            = f.number_field :price_gteq,class:"search__form__big",placeholder:'¥ 1000  (Max)'
+            = f.text_field :price_lteq,class:"search__form__big",placeholder:'¥ 1000  (Max)'
 
         .input-form-box
           %label
             = icon('fas', 'fa-lightbulb', class: 'fa-lightbulb') 
             %span 商品の状態
-            =f.select :status_cont, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "listing-select"
+            =f.select :status_cont, ['新品', '未使用', '未使用に近い', '目立った傷や汚れなし', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い'], include_blank: '選択してください', class: "search__form__select"
       
       .input-btn  
-        %button.btn-default.btn-gray{id:"search-clear"} 
+        %button.search__clear-btn{id:"search-clear"} 
           =link_to 'クリア', '/items/search?utf8=✓&q%5Bname_cont%5D=&commit=検索'
-        =f.submit "完了", class: 'btn-default btn-red',id:'search_submit'
+        =f.submit "完了", class: '.search__red-btn',id:'search_submit'
 
 
   -# -----サーチカテゴリ-----
@@ -67,14 +52,17 @@
     .container
       //-----商品のタイトルとリスト-----
       .container__title
-        - unless @keyword == nil
-          - if @page == nil
-            =@keyword + "の検索結果"
-            ="1-#{@search.count}件表示"
-          - else
-            =@keyword + "の検索結果(" + @page + "ページ目)"
-            .search-result-number
-              ="1-#{@search.count}件表示"
+        - if @search.present?
+          = "#{@keyword + ' 検索結果'}" 
+          %h2.search__result__head
+          %span
+          
+          = "検索結果 1-#{@search.length} 件"
+        - else 
+          %h2.search__result__head 検索結果 0件
+          %p.search__result__description 該当する商品が見つかりません。
+       
+          
 
 
       .container__table
@@ -84,7 +72,7 @@
               = link_to item_path(item.id) do
                 %li.item__list
                   .item__list__img-box
-                    =image_tag "category/close1.jpg", class:"close1.jpg"
+                    -# =image_tag "category/close1.jpg", class:"close1.jpg"
                     .item__list__img-box__price
                       %span= "¥#{item.price}"
                   .item__list__text-box
@@ -93,24 +81,15 @@
                       = link_to "" do
                         = icon('far', 'fa-heart', class: 'fa-heart')          
                       .item__list__text-box__like__icon
-                      -# %span あとで反映させる
-                      
-        -# .contents__all-items-category
-        -#   %h2.contents__all-items__head-caterory
-        -#     - unless @keyword == nil
-        -#       - if @page == nil
-        -#         =@keyword + "の検索結果"
-        -#       - else
-        -#         =@keyword + "の検索結果(" + @page + "ページ目)"
-        
+
 
       //-----ページボタン-----   
       .pager
         .page-btn
-          = paginate @items,window:2
+          = paginate @search,window:2
 
-.footer
-  =render"footer"
+
+=render"footer"
 
 
 

@@ -1,7 +1,9 @@
 .search {
+  width: 100%;
+  height: 100%;
   background-color: #EEEEEE;
   color: #333333;
-  padding: 30px 100px;
+  padding: 30px 70px;
   display: flex;
   // -----サイドバー-----
   &__sidebar{
@@ -111,6 +113,7 @@
     }
     .container {
       margin-top: 45px;
+      padding-left: 50px;
       ul {
         list-style: none;
       }
@@ -131,10 +134,8 @@
           width:  100%;
           text-align: center;
           margin: 0 auto;
-          
           &__list{
-            max-width: 160px;
-            min-width: 140px;
+            min-width: 160px;
             float:left;
             margin: 0px 10px 20px 10px;
             background-color:#999999;

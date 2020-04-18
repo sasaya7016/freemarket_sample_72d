@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
    
   def set_search
     @q = Item.ransack(params[:q])
-    @search = @q.result(distinct: true)
+    @search = @q.result(distinct: true).page(params[:page]).per(20)  
   end
 
   private

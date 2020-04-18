@@ -100,13 +100,7 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
-    @items = Item.page(params[:page]).per(1)  #ページネーションで必要
-    @keyword =  search_params[:name_cont]
-    if params[:search] != nil
-      @order_id = params[:search][:search_order].to_i
-      order_name = SearchOrder.find(@order_id).name
-      order_name != nil ? @q.sorts = order_name : @q.sorts =[]
-    end
+    @keyword = search_params[:name_cont]
   end
 
   
