@@ -1,0 +1,69 @@
+= render "items/header"
+.mypage
+  .container
+    %main.main-container
+      / 以下サイドバーの部分テンプレート
+      = render partial: "show_sidebar", locals: {}
+      -# --------ここから発送元・お届け先住所変更--------
+      .adress
+        .register-address
+          .register-address__header
+            %span.top 発送元・お届け先住所変更
+          .register-address__contents
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title お名前
+                .require 必須
+              .register-address__contents__form
+                %input.input-text{:name => "name", :placeholder => "例)田中", :value => "", :type => "text"}/
+              .register-address__contents__form
+                %input.input-text{:name => "name", :placeholder => "例)彩", :value => ""}/
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title お名前カナ
+                .require 必須
+              .register-address__contents__form
+                %input.input-text{:name => "name", :placeholder => "例)タナカ", :value => ""}/
+              .register-address__contents__form
+                %input.input-text{:name => "name", :placeholder => "例)アヤ", :value => ""}/
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title 郵便番号
+                .require 必須
+              .register-address__contents__form
+                %input.input-text{:name => "address-number", :placeholder => "例)123-4567", :value => ""}/
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title 都道府県
+                .require 必須
+              .register-address__contents__form
+              =form_with do |f|
+                =f.select :prefecture_id, Prefecture.all.map{|pre| [pre.name,pre.id]}, include_blank: '選択してください', class: "listing-select"
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title 市区町村
+                .require 必須
+              .register-address__contents__form
+                %input.input-text{:name => "street-address", :placeholder => "例)横浜市緑区", :value => ""}/
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title 番地
+                .require 必須
+              .register-address__contents__form
+                %input.input-text{:name => "address", :placeholder => "例)青山1-1-1", :value => ""}/
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title 建物名
+                .optional 任意
+              .register-address__contents__form
+                %input.input-text{:name => "building", :placeholder => "例)柳ビル103", :value => ""}/
+            .register-address__contents__name
+              .register-address__contents__name__require
+                .title 電話
+                .optional 任意
+              .register-address__contents__form
+                %input.input-text{:name => "phonenumber", :placeholder => "例)09012345678", :value => ""}/
+            .register-address__contents__button
+            = link_to '#', class:"confirm-btn" do
+              %input.submit.btn{:name => "confirm", :type => "submit", :value => "変更する"}
+= render "items/footer"

@@ -2,114 +2,95 @@ $font_color_white: white;
 $font_color_black: black;
 $font_color_oceanblue:#3CCACE;
 $background-color_section:#eeeeee;
+$background-color_footer: #272727;
 
 
 // _footer.html.haml ---------------
 
-.article-bottom {
-  height: 400px;
-  width: 100%;
-  background: image-url("bg-appBanner-pict.jpg");
-  background-size: cover; 
-  &__message {
-    text-align: center;
-    padding-top: 100px;
-    &__title{
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-weight: bold;
-      line-height: 1.4;
-      color: $font_color_white;
-      h2 {
-        font-size: 26px;
-        line-height: 26px;
-      }
-      h3 {
-        font-size: 30px;
-        line-height: 30px;
-      }
-    }
-    &__btn {
-      display: flex;
-      justify-content: center;
-      .apple-store {
-        width: 200px;
-        height: 80px;
-        margin-right: 10px;
-      }
-      .google-play {
-        width: 200px;
-        height: 80px;
-      }
-    }
-  }
-}
-
-
-.footer {
-  padding: 60px 0;
-  width: 100%;
-  color: $font_color_white;
-  background-color: #272727;
-  text-align: center;
-  &__lists {
-    margin: 0 auto;
-    &__list {
-      display: flex;
-      justify-content: space-evenly;
-      a {
-        text-decoration: none;
-        color: $font_color_white;
-      }
-      ul {
-        h3 {
-          font-size: 15px;
-          font-weight: bold;
-          margin-bottom: 20px;
-        }
-        li {
-          margin-bottom: 20px;
-          list-style-type: none;
-          p {
-            font-size: 13px;
-          }    
-          }
-      }
-    }
-  }
-  .footer__logo {
+.bottom__contents{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  .article-bottom {
+    height: 400px;
     width: 100%;
-    margin: 0 auto;
-    color: $font_color_white;
-    text-align: center;
-    .logo {
-      width: 150px;
+    background: image-url("bg-appBanner-pict.jpg");
+    background-size: cover; 
+    &__message {
+      text-align: center;
+      padding-top: 100px;
+      &__title{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-weight: bold;
+        line-height: 1.4;
+        color: $font_color_white;
+        h2 {
+          font-size: 26px;
+          line-height: 26px;
+        }
+        h3 {
+          font-size: 30px;
+          line-height: 30px;
+        }
+      }
+      &__btn {
+        display: flex;
+        justify-content: center;
+        .apple-store {
+          width: 200px;
+          height: 80px;
+          margin-right: 10px;
+        }
+        .google-play {
+          width: 200px;
+          height: 80px;
+        }
+      }
     }
   }
-}
 
 
-// _exhibition.html.haml (side-btn)---------------
-.exhibition-btn {
-  width: 100px;
-  height: 100px;
-  background: $font_color_oceanblue;
-  text-align: center;
-  border-radius: 4%;
-  bottom: 32px;
-  right: 32px;
-  position: fixed;
-  padding: 15px;
-  &__text{
-    color: #fff;
-    display: block;
-    font-size: 18px;
-    text-decoration: none;
-    margin-bottom: 5px;
-  }
-  &__icon{
-    .icon-camera {
-      width: 20px;
-      height: 20px;
+  .footer {
+    padding: 60px 0;
+    width: 100%;
+    color: $font_color_white;
+    background-color: $background-color_footer;
+    text-align: center;
+    &__lists {
+      background-color: $background-color_footer;
+      margin: 0 auto;
+      &__list {
+        display: flex;
+        justify-content: space-evenly;
+        a {
+          text-decoration: none;
+          color: $font_color_white;
+        }
+        ul {
+          background-color: $background-color_footer;
+          h3 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 20px;
+          }
+          li {
+            margin-bottom: 20px;
+            list-style-type: none;
+            p {
+              font-size: 13px;
+            }    
+            }
+        }
+      }
+    }
+    .footer__logo {
+      width: 100%;
+      margin: 0 auto;
+      color: $font_color_white;
+      text-align: center;
+      .logo {
+        width: 150px;
+      }
     }
   }
 }

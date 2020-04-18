@@ -1,2 +1,8 @@
-%h2 登録終わりました
-= link_to "トップへ戻る", root_path
+.login-confirm
+  .login-confirm__header
+    = render 'header'
+    %h1 登録終わりました
+    = link_to "トップへ戻る", root_path, class: "home"
+  .login-confirm__main
+  .login-confirm__footer
+  = render 'items/footer'
