@@ -22,8 +22,18 @@
             %br/
             = "**** **** **** #{@default_card_information.last4}"
           .detail-credit-card__box__inner__show-icon
-            -# %i.fab.fa-cc-visa.fa-2x
-            = image_tag "credit_card_logo/Visa.svg", class: "visa card"
+            - if @default_card_information.brand == "Visa"
+              = image_tag "credit_card_logo/Visa.svg", class: "visa card"
+            - elsif @default_card_information.brand == "MasterCard"
+              = image_tag "credit_card_logo/Mastercard.svg", class: "mastercard card"
+            - elsif @default_card_information.brand == "JCB"
+              = image_tag "credit_card_logo/JCB.svg", class: "jcb card"
+            - elsif @default_card_information.brand == "American Express"
+              = image_tag "credit_card_logo/American_Express.svg", class:"american-express card"
+            - elsif @default_card_information.brand == "Diners Club"
+              = image_tag "credit_card_logo/diners-club.svg", class: "diners-club card"
+            - elsif @default_card_information.brand == "Discover"
+              = image_tag "credit_card_logo/UnionPay.svg", class: "union-pay card"
           .detail-credit-card__box__inner__show-expire 
             有効期限
             %br/
