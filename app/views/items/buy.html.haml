@@ -20,13 +20,31 @@
         - if @default_card_information.blank?
           =link_to "クレジットカードを登録する",new_credit_card_path
         - else
-          = "**** **** **** " + @default_card_information.last4
-          %br/
-          %i.fab.fa-cc-visa.fa-2x
-          %br/
-          - exp_month = @default_card_information.exp_month.to_s
-          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-          = exp_month + " / " + exp_year
+          .card_number
+            カードナンバー
+            %br/
+            = "**** **** **** " + @default_card_information.last4
+          .card_icon
+            カード会社
+            %br/
+            - if @default_card_information.brand == "Visa"
+              = image_tag "credit_card_logo/Visa.svg", class: "visa card"
+            - elsif @default_card_information.brand == "MasterCard"
+              = image_tag "credit_card_logo/Mastercard.svg", class: "mastercard card"
+            - elsif @default_card_information.brand == "JCB"
+              = image_tag "credit_card_logo/JCB.svg", class: "jcb card"
+            - elsif @default_card_information.brand == "American Express"
+              = image_tag "credit_card_logo/American_Express.svg", class:"american-express card"
+            - elsif @default_card_information.brand == "Diners Club"
+              = image_tag "credit_card_logo/diners-club.svg", class: "diners-club card"
+            - elsif @default_card_information.brand == "Discover"
+              = image_tag "credit_card_logo/UnionPay.svg", class: "union-pay card"
+          .card_expire
+            有効期限
+            %br/
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
     .buy_verification__box--shipping_address 
       %p.title 配達先
       %p.detail 
