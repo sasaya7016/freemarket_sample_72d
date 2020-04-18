@@ -17,10 +17,9 @@ resources :users do
           post 'delete', to: 'credit_cards#delete'
         end
       end
-      get :profile
-      get :address
-      get :logout
       get :support
+      get :logout
+      get :address
       scope :support do
           get :registration_support
           get :defect_support
