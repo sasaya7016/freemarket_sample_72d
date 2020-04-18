@@ -21,7 +21,7 @@
     .detail-product__sub
       （税込）送料込み
     .detail-product__introduction
-      =@item.introduction
+      = safe_join(@item.introduction.split("\n"),tag(:br))
     %table.detail-product__table
       %tr
         %th
@@ -58,7 +58,7 @@
       %tr
         %th 発送元の目安
         %td
-          ="#{@item.preparation_day}日で発送"
+          ="#{@item.preparation_day}~#{@item.preparation_day.to_i+3}日で発送"
     .detail-product__btn
       .detail-product__btn__like
         %i.fa.fa-star
@@ -119,4 +119,5 @@
 
   .detail-category
     =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
+= render "exhibition"
 = render "footer"
