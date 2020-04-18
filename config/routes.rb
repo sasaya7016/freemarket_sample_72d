@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
+  resources :users do
+    collection do
+      get 'likes'
+    end
+  end
   resources :items do
     member do
       get 'buy', to: 'items#buy'
