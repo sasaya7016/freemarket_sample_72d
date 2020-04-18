@@ -12,6 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date :birth_date,           null: false
       t.string :icon_image
       t.string :background_image
+      t.text :profile
       t.string :email,              null: false, default: "", unique: true
       t.string :encrypted_password, null: false, default: ""
 
