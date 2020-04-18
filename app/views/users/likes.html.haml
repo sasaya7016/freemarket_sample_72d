@@ -1,0 +1,22 @@
+= render "items/header"
+.section.pickup-category
+  .pickup-category__message
+    %h2 お気に入り一覧
+  .pickup-category__product
+    .pickup-category__product__main
+      - current_user.favorite_items.each do |item|
+        .pickup-category__product__main__list
+          .pickup-category__product__main__list__img
+            =link_to image_tag("product3.png",class:"product-img"),""
+          .pickup-category__product__main__list__text
+            = item.name
+            .pickup-category__product__main__list__text__details
+              .ul
+                .li=(item.price * 1.1).floor
+                .li 
+                  %span.icon ♡ 
+                  %span.favorite
+                    = item.favorites.count
+              %p (税込)
+= render "items/exhibition"
+= render "items/footer"
