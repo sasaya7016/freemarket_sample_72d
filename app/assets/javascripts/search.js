@@ -42,8 +42,6 @@ $(document).on('change', '#price_select', function () {
 $('#search-clear').click(function(e){
   $('.search__sidebar__box').find('#q_name_cont').val("");
   $('.search__sidebar__box').find('input').val("");
-  // $('.middle-category').css('display','none');
-  // $('.small-category').css('display','none');
   $('#search_submit').val("完了");
   e.preventDefault();
   return false;
