@@ -69,3 +69,16 @@ input[type="number"] {
   }
 }
 
+.btn{
+  background-color: $sky-blue !important;
+  border-bottom: 4px solid $sky-blue-btn-bottom;
+  color: $sky-blue-btn-text;
+  text-decoration: none;
+  text-align: center;
+  &:active{
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+  }
+}
