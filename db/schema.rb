@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.integer "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
+    t.integer "buyer_id_status"
     t.string "delivery_fee", null: false
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.date "birth_date", null: false
     t.string "icon_image"
     t.string "background_image"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
