@@ -46,20 +46,6 @@ $background-color_footer: #272727;
 }
 
 
-.footer {
-  padding: 60px 0;
-  width: 100%;
-  color: $font_color_white;
-  background-color: #272727;
-  text-align: center;
-  &__lists {
-    margin: 0 auto;
-    &__list {
-      display: flex;
-      justify-content: space-evenly;
-      a {
-        text-decoration: none;
-=======
 .bottom__contents{
   display: flex;
   flex-direction: column;
