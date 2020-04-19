@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   include CommonModuleForControllers
   before_action :authenticate_user!
   before_action :set_item, only: [:edit, :show, :update]
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :reject_non_authenticate_user,only: [:show, :edit]
+  before_action :set_user
+  before_action :reject_non_authenticate_user,only: [:show, :edit, :update]
   before_action :set_category
   before_action :user_params, only: [:update]
   before_action :user_show_info, only: [:show ,:edit ]
@@ -60,6 +60,7 @@ class UsersController < ApplicationController
   end
 
   def likes
+
   end
   
   def user_show_info
