@@ -15,6 +15,9 @@ class User < ApplicationRecord
   mount_uploader :icon_image, UserIconUploader
   mount_uploader :background_image, UserBackgroundImageUploader
 
+  include Common_Module
+  include ClassMethods
+
   devise :database_authenticatable, :registerable,
 
          :recoverable, :rememberable, :validatable, password_length: 7..100
