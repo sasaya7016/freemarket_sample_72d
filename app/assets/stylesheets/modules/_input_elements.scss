@@ -3,7 +3,7 @@ select {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  width: 200px;
+  width: 100px;
   color: rgba(69, 69, 69,0.9);
   border: none;
   border-bottom: 2px solid rgba(152, 152, 152, 0.8);
@@ -15,7 +15,10 @@ select {
     outline: 0;
   }
   }
-input{
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"]{
   resize: none;
   width: 100%;
   padding: 10px 15px;
