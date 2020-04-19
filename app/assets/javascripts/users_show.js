@@ -1,7 +1,9 @@
 //下記if構文は"users/:id/show"のみにJSを適用させるためのもの。
+//下記if構文は"users/:id/"のみにJSを適用させるためのもの。
 if (document.location.href.match(/\/users\/\d+/)) {
   //UserMyPageのタブ機能
   window.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     let mypageTabHeadSell = document.getElementById("mypage-tab__list-new");
     let mypageTabHeadSold = document.getElementById("mypage-tab__list-old");
     //Tab部分のactiveと非activeの操作
@@ -19,5 +21,6 @@ if (document.location.href.match(/\/users\/\d+/)) {
       activeTab.classList.toggle("display--none");
       inactiveTab.classList.toggle("display--none");
     };
+  });
     });
   }
