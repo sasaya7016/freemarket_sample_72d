@@ -76,7 +76,9 @@
                     = "#{item.name}"
                     .table-item__list__text-box__like
                       = link_to "" do
-                        = icon('far', 'fa-heart', class: 'fa-heart')          
+                        = icon('far', 'fa-heart', class: 'fa-heart')
+                        %apan.favorite
+                          = item.favorites.count         
                       .table-item__list__text-box__like__icon
 
       //-----ページボタン-----   
