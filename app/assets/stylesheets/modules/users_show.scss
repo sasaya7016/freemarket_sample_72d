@@ -44,8 +44,8 @@
               box-sizing: border-box;
               pointer-events: auto;
               width: 350px;
-              height: 74px;
-              line-height: 74px;
+              height: $main-list--height;
+              line-height: $main-list--height;
               font-size: 18px;
               text-align: center;
               color: $text-black;
@@ -68,10 +68,10 @@
               border-left: 1px solid rgb(120, 120, 120);
             }
             &__head{
-              line-height: 74px;
+              line-height: $main-list--height;
               padding: 0 16px;
               font-size: 16px;
-              height: 74px;
+              height: $main-list--height;
               color: $text-black;
               font-weight: bold;
               }
@@ -158,7 +158,7 @@
   }
 
   .tab__content__list{
-    width: 700px;
+    width: $main-content--width;
     height: 80px;
     background-color: rgb(250, 250, 250);
     color: $text-black;
