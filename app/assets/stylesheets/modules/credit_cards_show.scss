@@ -1,24 +1,69 @@
-.credit-card__box__inner{
-  &__show-number{
-    margin-top: 30px;
-  }
-  &__show-icon{
-    margin-top:10px;
-    i{
-      color:#3CCACE;
+.detail-credit_card{
+  width: $main-content--width;
+  margin: 0 60px 300px;
+  background-color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .detail-credit-card__box{
+    width: 90%;
+    height: 90%;
+    background-color: rgba(207, 227, 244, 0.5);
+    display: block;
+    padding:0 10px;
+    &__title{
+      margin: 40px 0;
+      text-align: center;
     }
-    
-  }
-  &__show-expire{
-    margin-top:40px;
-  }
-  &__show-delete{
-    margin-top: 50px;
-    width:15%;
-    padding:10px;
-    font-size: 20px;
-    background-color: red;
-    color:#fff;
-    cursor: pointer;
+    h1{
+      font-size:26px;
+    }
+    &__inner{
+      margin: 40px 0;
+      align-items: center;
+      width: 100%;
+      .detail-card-notification{
+        text-align: center;
+      }
+      .detail-card-icons{
+        margin: 0px 10px 40px;
+        .card{
+          margin: 7px;
+          width: 50px;
+        }
+        .visa{
+          width: 70px;
+        }
+      }
+      &__show-number{
+        margin-top: 30px;
+      }
+      &__show-icon{
+        margin-top:10px;
+        .card{
+          width:70px;
+        }
+        i{
+          color:#3CCACE;
+        }
+        
+      }
+      &__show-expire{
+        margin-top:40px;
+      }
+      &__show-delete{
+        margin: 60px auto;
+        width:50%;
+        font-size: 20px;
+        padding:10px;
+        background-color: gray;
+        color: white;
+        cursor: pointer;
+      }
+      .center{
+        text-align: center;
+      }
+    }
   }
 }

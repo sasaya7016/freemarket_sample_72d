@@ -34,7 +34,13 @@
         %ul.header__nav__list__right__serect
           %li.header__nav__list__right__serect__login
             %h4
-              = link_to "ログイン",new_user_session_path
+            - if user_signed_in?
+              =  link_to "ログアウト", destroy_user_session_path, method: :delete
+            - else
+              =  link_to "ログイン", new_user_session_path, method: :get
           %li.header__nav__list__right__serect__new
-            %h4
-              = link_to "新規登録会員",new_user_registration_path
+            - if user_signed_in?
+              = link_to "マイページ", user_path(current_user.id)
+            - else
+              %h4
+                = link_to "新規登録会員",new_user_registration_path

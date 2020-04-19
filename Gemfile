@@ -80,18 +80,25 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
-
 gem 'font-awesome-sass'
 gem 'sprockets'
 gem 'jquery-rails'
 gem 'kaminari'
+
+# for image uploader with AWS S3
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+#---------------
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'ancestry'
 gem 'active_hash'
-gem 'turbolinks', '~> 5'
+gem 'turbolinks'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
 gem "gretel"
+
 gem 'ransack'

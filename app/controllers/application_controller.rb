@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     @search = @q.result(distinct: true).page(params[:page]).per(20)  
   end
 
+
+  
   private
 
   def production?

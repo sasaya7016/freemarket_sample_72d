@@ -1,0 +1,8 @@
+
+= render "items/header"
+.mypage
+  .container
+    %main.main-container
+      = render partial: "show_sidebar", locals: {}
+      = link_to "ログアウト" , "",class: "logout-btn"
+= render "items/footer"

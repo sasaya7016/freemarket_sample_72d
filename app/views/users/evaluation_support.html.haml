@@ -1,0 +1,30 @@
+//問合せの発送・受取・評価について
+= render "items/header"
+.mypage
+  .container
+    %main.main-container
+      = render partial: "users/show_sidebar", locals: {}
+      .main
+        .evaluation_enquiry_contact
+          %p.evaluation_enquiry_contact__title 発送・受取・評価について
+          .evaluation_enquiry_contact__content
+            .evaluation_enquiry_contact__content--box
+              %p.cautions 商品が届かない、受取評価をしてもらえないなどの場合、まずは取引メッセージを送ってください。 返信がない、解決しない場合は下記のフォームよりお問い合わせください。
+              %p.cautions「商品が届かない！」「返信がない！」など短いコメントでは事務局で状況が把握できず結果的に解決まで時間がかかってしまいます。詳細な内容を記載するようにしてください。
+              .id
+                .id__box
+                  %h1.title 商品ID
+                  %p.required 必須
+                %input.content{:type => "text", :placeholder => "m123456789"}
+              .position
+                %h1.title 購入者側／出品者側どちらですか？
+                %input.content{:type => "text", :placeholder => "購入者or出品者"}
+              .description
+                .description__box
+                  %h1.title お問い合わせの内容
+                  %p.required 必須
+                %input.description__content{:type => "text", :placeholder => "例:本物のトラクターを頼んだのにミニカーのトラクターが届いた"}
+              .form
+                = link_to "#" do
+                  %input.submit.btn{:type => "submit", :value => "送信する"}
+= render "items/footer"

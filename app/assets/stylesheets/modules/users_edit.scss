@@ -1,0 +1,14 @@
+.main-content{
+
+  &__head{
+    box-sizing: border-box;
+    padding: 10px;
+    width: inherit;
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    font-size: 20px;
+  }
+  &__user{
+  }
+}

@@ -34,6 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user.build_address(@address.attributes)
     @user.save
+    session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
 

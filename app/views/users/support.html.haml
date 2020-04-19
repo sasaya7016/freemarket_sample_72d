@@ -1,0 +1,42 @@
+= render "items/header"
+.mypage
+  .container
+    %main.main-container
+      = render partial: "show_sidebar", locals: {}
+      %ul.nav-list.support
+        %li
+          .nav-list__item.head
+            お問い合わせ項目
+        %li
+          =link_to registration_support_user_path, class: "nav-list__item" do
+            会員登録・ログインについて
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to buy_support_user_path, class: "nav-list__item" do
+            購入・支払いについて
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to evaluation_support_user_path, class: "nav-list__item" do
+            発送・受取・評価について
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to trouble_support_user_path, class: "nav-list__item" do
+            トラブルがあった
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to request_support_user_path, class: "nav-list__item" do
+            機能要望
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to defect_support_user_path, class: "nav-list__item" do
+            不具合の報告
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to withdraw_support_user_path, class: "nav-list__item" do
+            退会したい
+            %i.fas.fa-chevron-right.nav-icon
+        %li
+          =link_to other_support_user_path, class: "nav-list__item" do
+            その他
+            %i.fas.fa-chevron-right.nav-icon
+= render "items/footer"
