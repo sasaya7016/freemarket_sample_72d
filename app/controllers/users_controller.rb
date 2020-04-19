@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   before_action :user_params, only: [:update]
   before_action :user_show_info, only: [:likes ,:show ,:edit ,:update]
   def show
-
+    
   end
 
   def edit
@@ -63,12 +63,6 @@ class UsersController < ApplicationController
 
   end
   
-  def user_show_info
-    @exhibitor = User.where(id: @item.exhibitor_id).first
-    @items = Item.where(exhibitor_id: @user)
-    @evaluations = Item.where(buyer_id_status: @user)
-  end
-
   def reject_non_authenticate_user
     if @user.id != current_user.id
       redirect_to user_session_path
