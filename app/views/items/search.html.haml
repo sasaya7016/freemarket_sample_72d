@@ -69,8 +69,7 @@
               = link_to item_path(item.id) do
                 %li.table-item__list
                   .table-item__list__img-box
-                    -# =image_tag "category/close1.jpg", class:"close1.jpg"
-                    -# = image_tag item.item_images[0].image.url, class:"product-img"
+                    = image_tag item.item_images[0].image.url, class:"product-img"
                     .table-item__list__img-box__price
                       %span= "¥#{item.price}"
                   .table-item__list__text-box
@@ -86,28 +85,6 @@
           = paginate @search,window:2
           
 =render"footer"
-
-
-
-.section.pickup-category
-  .pickup-category__message
-    %h2 検索結果一覧
-  .pickup-category__product
-    .pickup-category__product__main
-      -@items.reverse.each do |item|
-        .pickup-category__product__main__list
-          .pickup-category__product__main__list__img
-            =link_to image_tag item.item_images[0].image_url
-          .pickup-category__product__main__list__text
-            %p.name=item.name 
-            .pickup-category__product__main__list__text__details
-              .ul
-                .li=(item.price * 1.1).floor
-                .li 
-                  .icon ★ 0
-              %p (税込)
-
-.footer
-  =render"footer"
-  = render "exhibition"
+= render "exhibition"
+ 
 
