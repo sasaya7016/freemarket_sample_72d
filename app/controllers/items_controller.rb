@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     end
 
   def index
-    @items = Item.all
+    @items = Item.all.includes(:user)
     has_brand_items = Item.where.not(brand: nil)
     if has_brand_items.sample != nil
       @pickup_brand = has_brand_items.sample.brand
