@@ -16,7 +16,7 @@
             = image_tag "credit_card_logo/JCB.svg", class: "jcb card"
             = image_tag "credit_card_logo/Mastercard.svg", class: "mastercard card"
             = image_tag "credit_card_logo/Visa.svg", class: "visa card"
-            = image_tag "credit_card_logo/UnionPay.svg", class: "union-pay card"
+            = image_tag "credit_card_logo/Discover.svg", class: "Discover card"
           .detail-credot-card__box__inner__show-number 
             カードナンバー 
             %br/
@@ -33,7 +33,7 @@
             - elsif @default_card_information.brand == "Diners Club"
               = image_tag "credit_card_logo/diners-club.svg", class: "diners-club card"
             - elsif @default_card_information.brand == "Discover"
-              = image_tag "credit_card_logo/UnionPay.svg", class: "union-pay card"
+              = image_tag "credit_card_logo/Discover.svg", class: "Discover card"
           .detail-credit-card__box__inner__show-expire 
             有効期限
             %br/
