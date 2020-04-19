@@ -4,53 +4,28 @@
     %main.main-container
       = render "show_sidebar"
       .main-content
-        %section.main-content__user#main-content__user
-          =link_to "#", class: ".main-content__user" do
-            .main-content__user__bg-image
-              - if @user.background_image.present?
-                = image_tag @user.background_image.url, class:"bg-image"
-              - else
-                = image_tag "user_image01.jpg", class: "bg-image"
-            .main-content__user__icon
-              - if @user.icon_image.present?
-                = image_tag @user.icon_image.url, class: "user-image"
-              - else
-                = image_tag "img01.jpg", class: "user-image"
-              %h2.main-content__user__name.targets
-                = @user.nickname
-                .main-content__user__number
-                  .main-content__user__number__evaluation.targets
-                    評価数  
-                    %span
-                      = @evaluations.length
-                  .main-content__user__number__up.targets
-                    出品数
-                    %span
-                      = @items.length
-            .main-content__blank
-            .main-content__blank
-          %section.main-content__mypage-tab__container
-            %ul.mypage-tab
-              %li.tab-active
-                =link_to "お気に入り一覧" ,"#" , class: "mypage-tab__list" ,id:"mypage-tab__list-new"
-      
-            .tab__content
-              %ul#tab__content-new.tab__content
-                - current_user.favorite_items.each do |item|
-                  %li.tab__content__list
-                    =link_to item_path(item.id), class: "tab__content__list-box" do
-                      =image_tag item.item_images[0].image.url, alt: "",id: "",class: "list-image"
-                      .list-text
-                        = item.name
-                        .li 
-                          %span.icon ♡ 
-                          %span.favorite
-                            = item.favorites.count
-                        .list-text-icon
-                          = item.price
-                          %span
-                            円
-                      %i.fas.fa-chevron-right.nav-icon
+        = render "show_user_info"
+        
+        %section.main-content__favorite
+          .favorite__head
+            お気に入り一覧
+          .tab__content.favorite__lists
+            %ul.tab__content.favorite__lists
+              - current_user.favorite_items.each do |item|
+                %li.tab__content__list
+                  =link_to item_path(item.id), class: "tab__content__list-box" do
+                    =image_tag item.item_images[0].image.url, alt: "",id: "",class: "list-image"
+                    .list-text
+                      = item.name
+                      .li 
+                        %span.icon ♡ 
+                        %span.favorite
+                          = item.favorites.count
+                      .list-text-icon
+                        = item.price
+                        %span
+                          円
+                    %i.fas.fa-chevron-right.nav-icon
 
 = render "items/exhibition"
 
