@@ -3,6 +3,7 @@
   height:100%;
   background-color: #f8f8f8;
   padding:40px;
+  display: inline-block;
 }
 
 .detail-product{
@@ -19,16 +20,14 @@
   &__image{
     &__main{
       width:100%;
-      height:400px;
       margin:0 auto;
     }
     &__sub{
       margin-top: 20px;
       width:140px;
-      height:140px;
     }
   }
-  
+
   &__price{
     text-align: center;
     font-size: 46px;
@@ -158,7 +157,7 @@
       margin:10px 0;
       text-align: left;
     }
-    
+
     textarea{
       width:100%;
       font-size:16px;
@@ -238,6 +237,7 @@
     padding-left: 80px;
     padding-right:80px;
     .items-box_photo__sold{
+      margin-left:80px;
       width: 0;
       height: 0;
       border-width: 120px 120px 0 0;
@@ -245,6 +245,7 @@
       display: block;
       position: absolute;
       top: 0;
+      left:0;
       z-index: 1;
       border-style: solid;
       &__inner{
@@ -259,5 +260,9 @@
         font-weight: 600;
       }
     }
-    
+  }
+  
+.slick-initialized .slick-slide{
+  display: flex;
+  justify-content: center;
 }

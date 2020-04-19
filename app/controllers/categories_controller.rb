@@ -15,6 +15,9 @@ class CategoriesController < ApplicationController
     @category_children = Category.find(params[:parent_id]).children
   end
 
+  def category_scroll
+  end
+
   private
   def set_parents
     @parents = Category.where(ancestry: nil)

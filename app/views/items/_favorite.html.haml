@@ -1,0 +1,17 @@
+
+- if user_signed_in? 
+  - if item.favorited_by?(current_user)
+    = link_to unlike_item_favorite_path(@item.id),method: :delete, class: "favorite red", remote: true do
+      = icon('fas', 'heart')
+      お気に入り
+      = item.favorites.count
+  - else
+    = link_to like_item_favorite_path(@item.id), method: :post, class: "favorite", remote: true do
+      = icon('far', 'heart')
+      お気に入り
+      = item.favorites.count
+- else
+  = link_to new_user_session_path, class: "favorite", remote: false do
+    = icon('far', 'heart')
+    お気に入り
+    = item.favorites.count

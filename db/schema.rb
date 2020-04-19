@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "item_id", null: false
-    t.string "url", null: false
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,11 +85,12 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.integer "category_id", null: false
     t.string "item_size"
     t.string "status", null: false
+    t.integer "favorites_count"
     t.integer "preparation_day", null: false
     t.integer "exhibitor_id"
     t.integer "buyer_id"
+    t.integer "buyer_id_status"
     t.string "delivery_fee", null: false
-    t.string "prefecture", null: false
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.date "birth_date", null: false
     t.string "icon_image"
     t.string "background_image"
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

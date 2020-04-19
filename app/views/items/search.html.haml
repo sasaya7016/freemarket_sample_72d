@@ -89,3 +89,25 @@
 
 
 
+.section.pickup-category
+  .pickup-category__message
+    %h2 検索結果一覧
+  .pickup-category__product
+    .pickup-category__product__main
+      -@items.reverse.each do |item|
+        .pickup-category__product__main__list
+          .pickup-category__product__main__list__img
+            =link_to image_tag item.item_images[0].image_url
+          .pickup-category__product__main__list__text
+            %p.name=item.name 
+            .pickup-category__product__main__list__text__details
+              .ul
+                .li=(item.price * 1.1).floor
+                .li 
+                  .icon ★ 0
+              %p (税込)
+
+.footer
+  =render"footer"
+  = render "exhibition"
+

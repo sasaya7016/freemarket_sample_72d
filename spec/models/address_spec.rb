@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe Address do
   describe '#create' do
-    it "postalcode, prefecture_id, first_address, second_addressがある場合登録できる"　do
+    it "postalcode, prefecture_id, first_address, second_addressがある場合登録できる" do
       user = build(:user)
       address = build(:address)
       expect(address).to be valid

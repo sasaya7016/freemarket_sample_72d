@@ -9,12 +9,14 @@
 @import "modules/items_buy";
 @import "modules/flash";
 @import "modules/search";
+@import "modules/exhibition";
 
 html,body,ul {
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
+  background-color: rgb(245,245,245);
 }
 
 table {
@@ -97,6 +99,7 @@ $background-color_section:#eeeeee;
           display: flex;
           &__category{
             margin-right: 40px;
+            position: static;
           }
         }
       }
