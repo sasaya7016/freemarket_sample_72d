@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   private
   def user_params
     reject = %w()
-    #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
+    #Modelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
     columns = User.column_symbolized_names(reject)
     params.require(:user).permit(*columns)
   end
