@@ -51,6 +51,9 @@ class UsersController < ApplicationController
 
   def other_support
   end
+
+  def likes
+  end
   
 
   def reject_non_authenticate_user
