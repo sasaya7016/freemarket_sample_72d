@@ -22,5 +22,19 @@ if (document.location.href.match(/\/users\/\d+/)) {
       inactiveTab.classList.toggle("display--none");
     };
   });
+  //BG画像のDOM
+  const buildBGImg = (url) => {
+    const html =`
+    <img class="bg-image" id="new-bg-image" src="${url}" width="700px" height="190px">
+    `
+    return html;
+  }
+  const buildIconImg = (url) => {
+    const html = `
+    <img class="user-image" id="new-user-icon" src="${url}">
+    `
+    return html;
+  }
+
     });
   }
