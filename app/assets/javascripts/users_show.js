@@ -36,9 +36,12 @@ if (document.location.href.match(/\/users\/\d+/)) {
     return html;
   }
 
+  delegateEvent(document,'change','.bg-img-file',function(e) {
+    let previousBGImage = document.getElementById('new-bg-image');
     let userBGImage = document.getElementById('user-bg-image');
     const file =  e.target.files[0];
     const blobURL = window.URL.createObjectURL(file);
-    const newBGImageStyles = {
-    });
+    previousBGImage.remove();
+    userBGImage.insertAdjacentHTML('afterbegin',buildBGImg(blobURL));
+  });
   }
