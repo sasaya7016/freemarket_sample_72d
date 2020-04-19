@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
+   
+  def set_search
+    @q = Item.ransack(params[:q])
+    @search = @q.result(distinct: true).page(params[:page]).per(20)  
+  end
 
 
   

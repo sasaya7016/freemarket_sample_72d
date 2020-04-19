@@ -58,6 +58,9 @@ class UsersController < ApplicationController
 
   def other_support
   end
+
+  def likes
+  end
   
   def user_show_info
     @exhibitor = User.where(id: @item.exhibitor_id).first

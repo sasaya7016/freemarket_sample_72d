@@ -8,6 +8,7 @@
 @import "font-awesome";
 @import "modules/items_buy";
 @import "modules/flash";
+@import "modules/search";
 @import "modules/exhibition";
 
 html,body,ul {
@@ -98,6 +99,7 @@ $background-color_section:#eeeeee;
           display: flex;
           &__category{
             margin-right: 40px;
+            position: static;
           }
         }
       }

@@ -49,6 +49,17 @@
       .title {
         margin-top: 1rem;
       }
+      .card_number{
+        margin:10px 0;
+      }
+      .card_icon{
+        .card{
+          width:50px;
+        }
+      }
+      .card_expire{
+        margin:10px 0;
+      }
     }
     &--shipping_address{
       border-top: 1px solid #f5f5f5;

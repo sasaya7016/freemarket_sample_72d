@@ -31,11 +31,17 @@ class ItemsController < ApplicationController
       currency: 'jpy',
       )
     end
-      if @item.update( buyer_id: current_user.id)
-        redirect_to root_path , notice: '購入完了しました'
-      else
-        redirect_to item_path(@item.id), alert: "購入に失敗しました"
-      end
+    @item.buyer_id = current_user.id
+    if @item.save
+      redirect_to root_path, notice: '購入完了しました'
+    else
+      redirect_to item_path(@item.id), alert: "購入に失敗しました"
+    end
+      # if @item.update( buyer_id: current_user.id)
+      #   redirect_to root_path , notice: '購入完了しました'
+      # else
+      #   redirect_to item_path(@item.id), alert: "購入に失敗しました"
+      # end
     end
 
   def index
@@ -133,7 +139,7 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
-    @items = Item.search(params[:keyword])
+    @keyword = search_params[:name_cont]
   end
 
   def set_category
@@ -166,6 +172,10 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont,:brand_cont,:price_gteq,:price_lteq,:status_cont)
   end
 
   def sold_out

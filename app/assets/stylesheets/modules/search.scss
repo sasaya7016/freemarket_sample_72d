@@ -1,0 +1,324 @@
+.search {
+  width: 100%;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 30px 70px;
+  display: flex;
+  // -----サイドバー-----
+  &__sidebar{
+    max-width: 300px;
+    min-width: 250px;
+    height: 100%;
+    background-color: #FFF;
+    margin: 80px 30px 0 0;
+    padding: 20px;
+    border-radius: 10px;
+    &__select{
+      width: 100%;
+      &__title {
+        font-size: 17px;
+      }
+      select {
+        width: 100%;
+        height: 40px;
+        border-radius: 1px;
+        border: 1px solid;
+        font-size: 15px;
+        color: #777;
+        margin-bottom: 20px;
+      }
+    }
+    &__box{
+      width: 100%;
+      margin-top: 40px;
+      &__title {
+        font-size: 17px;
+      }
+      input {
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        border: 1px solid;
+        font-size: 15px;
+        color: #999;
+      }
+      select {
+        width: 100%;
+        height: 40px;
+        border-radius: 2px;
+        border: 1px solid;
+        font-size: 15px;
+        color: #999;
+      }
+      .input-form-box {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 40px;
+        &__price {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 10px;
+          input {
+            width: 100%;
+            margin: 0 3px;
+            text-align: center;
+           color: #999;
+          }
+        } 
+      }
+    }
+    .input-btn {
+      display: flex;
+      justify-content: space-evenly;
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      button {
+        width: 100%;
+        width: 100%;
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        background-color: #888;
+        color: white;
+        border-radius: 3px;
+        font-size: medium;
+        margin-right: 30px;
+      }
+      input {
+        width: 100%;
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        background-color: red;
+        color: white;
+        border-radius: 3px;
+        font-size: medium;
+      }
+    }
+  }
+
+ 
+
+
+// -----サーチカテゴリ-----
+  &__main {
+    background-color: #EEEEEE;
+    width: 90%;
+    a {
+      text-decoration: none;
+    }
+    &__container {
+      margin-top: 45px;
+      padding-left: 50px;
+      ul {
+        list-style: none;
+      }
+      //-----商品のタイトルとリスト-----
+      &__title {
+        clear: left;
+        margin-bottom: 10px;
+        h2 {
+          text-align: left;
+          font-size: 17px;
+        }
+      }
+      &__table {
+        background-color: gray;
+        .table-item {
+          width:  100%;
+          text-align: center;
+          margin: 0 auto;
+          &__list{
+            min-width: 160px;
+            float:left;
+            margin: 0px 10px 20px 10px;
+            background-color:#999999;
+            &__img-box {
+              background-color: #DDDDDD;
+              width: 100%;
+              height: 160px;
+              position: relative;
+              img {
+                height:160px;
+                width: 160px;
+              }
+              &__price {
+                top: 120px;
+                left: 0;
+                width: 40%;
+                font-size: 12px;
+                padding: 4px 12px 4px 8px;
+                border-radius: 0 16px 16px 0;
+                font-weight: 600;
+                color: #fff;
+                opacity: 0.6;
+                background-color: rgba(0,0,0,0.3);
+                z-index: 2;
+                position: absolute;
+              }
+            }
+            &__text-box{
+              background-color: #fff;
+              height: 50px;
+              padding: 5px;
+              overflow: hidden;
+              position: relative;
+              font-size: 14px;
+              font-weight: 300;
+              line-height: 1.5;
+              text-align: left;
+              word-break: break-word;
+              white-space: normal;
+              a {
+                text-decoration: none;
+                color: black;
+              }
+              &__like { 
+                position: absolute;
+                right: 3px;
+                bottom: 0px;
+                padding-left: 40px;
+                font-size: 16px;
+                background: linear-gradient(to right, rgba(255,255,255,0), #fff 24px);
+                a {
+                  text-decoration: none;
+                  color: gray;
+                }
+                &__icon{
+                  display: inline-block;
+                  font-family: 'icon-font';
+                  speak: none;
+                  font-style: normal;
+                  font-weight: 400;
+                  font-variant: normal;
+                  text-transform: none;
+                  line-height: 1;
+                  :before {
+                  }
+                }
+              }
+            }
+          }
+        }
+      } 
+      
+      //-----ページボタン-----  
+      .pager{
+        clear: left;
+        width: 100%;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        .page-btn{
+          .pagenation{
+            min-width: 400px;
+            margin: 40px 0 30px;
+            text-align: center;
+            position: relative;
+            &__numbers{
+            max-width: 220px;
+            min-width: 100px;
+            margin: 0 auto;
+              &__box{
+                display: flex;
+                justify-content: center;
+                &__cell{
+                  display: inline-block;
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 4px;
+                  background: #fff;
+                  border: 1px solid #ccc;
+                  font-size: 14px;
+                  line-height: 46px;
+                  :hover{
+                    background-color: #ddd;
+                  }
+                  a{
+                    display: block;
+                  }
+                }
+                .now{
+                  background: #ea352d;
+                  :hover{
+                    background-color: #ea352d;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                  }
+                  a{
+                    color: white;
+                  }
+                }
+              }
+            }
+            &__leftarrows{
+              position: absolute;
+              left: 0;
+              top: 0;
+              &__box{
+                display: flex;
+                &__cell{
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 4px;
+                  background: #fff;
+                  border: 1px solid #ccc;
+                  font-size: 14px;
+                  line-height: 46px;
+                  :hover{
+                    background-color: #ddd;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                  }
+                  i{
+                    font-size: 24px;
+                    line-height: 46px;
+                    a{
+                      display: block;
+                    }
+                  }
+                }
+              }
+            }
+            &__rightarrows{
+              position: absolute;
+              top: 0;
+              right: 0;
+              &__box{
+                display: flex;
+                &__cell{
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 4px;
+                  background: #fff;
+                  border: 1px solid #ccc;
+                  font-size: 14px;
+                  line-height: 42px;
+                  :hover{
+                    background-color: #ddd;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                  }
+                  a{
+                    display: block;
+                    i{
+                      font-size: 24px;
+                      line-height: 46px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
