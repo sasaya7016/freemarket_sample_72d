@@ -1,4 +1,7 @@
 $main-content--width: 700px;
+$main-user-image-height: 190px;
+$main-list--height: 74px;
+$side-bar--height: 80px;
 $text-black: rgba(70,70,70,1.0);
 $text-black-hover: rgba(120,120,120,1.0);
 $mypage-tab-color: rgba(191, 191, 191, 0.995);
@@ -14,6 +17,7 @@ $account-delete-btn:rgb(255,54,54);
 $account-delete-btn-shadow:rgb(176, 26, 26);
 $logout-btn:rgb(195, 211, 216);
 $logout-btn-shadow:rgb(141, 161, 165);
+$main-list-color:rgba(220, 220, 220, 0.999);
 //背景カラーの設定
 body,html{
   background-color: rgba(245,245,245,1);
