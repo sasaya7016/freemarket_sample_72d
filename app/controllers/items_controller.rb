@@ -147,7 +147,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit!
+    params.require(:q).permit(:name_cont,:brand_cont,:price_gteq,:price_lteq,:status_cont)
   end
 
   def sold_out
