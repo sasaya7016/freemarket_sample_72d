@@ -59,6 +59,11 @@ class UsersController < ApplicationController
   def other_support
   end
   
+  def user_show_info
+    @exhibitor = User.where(id: @item.exhibitor_id).first
+    @items = Item.where(exhibitor_id: @user)
+    @evaluations = Item.where(buyer_id_status: @user)
+  end
 
   def reject_non_authenticate_user
     if @user.id != current_user.id
