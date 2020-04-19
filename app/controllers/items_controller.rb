@@ -140,7 +140,7 @@ class ItemsController < ApplicationController
   end
 
   def search #商品検索機能
-    @items = Item.search(params[:keyword])
+    @keyword = search_params[:name_cont]
   end
 
   def set_category
@@ -177,6 +177,10 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont,:brand_cont,:price_gteq,:price_lteq,:status_cont)
   end
 
   def sold_out

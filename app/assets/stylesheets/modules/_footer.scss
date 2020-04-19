@@ -7,6 +7,59 @@ $background-color_footer: #272727;
 
 // _footer.html.haml ---------------
 
+.article-bottom {
+  height: 400px;
+  width: 100%;
+  background: image-url("bg-appBanner-pict.jpg");
+  background-size: cover; 
+  &__message {
+    text-align: center;
+    padding-top: 100px;
+    &__title{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-weight: bold;
+      line-height: 1.4;
+      color: $font_color_white;
+      h2 {
+        font-size: 26px;
+        line-height: 26px;
+      }
+      h3 {
+        font-size: 30px;
+        line-height: 30px;
+      }
+    }
+    &__btn {
+      display: flex;
+      justify-content: center;
+      .apple-store {
+        width: 200px;
+        height: 80px;
+        margin-right: 10px;
+      }
+      .google-play {
+        width: 200px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+
+.footer {
+  padding: 60px 0;
+  width: 100%;
+  color: $font_color_white;
+  background-color: #272727;
+  text-align: center;
+  &__lists {
+    margin: 0 auto;
+    &__list {
+      display: flex;
+      justify-content: space-evenly;
+      a {
+        text-decoration: none;
+=======
 .bottom__contents{
   display: flex;
   flex-direction: column;

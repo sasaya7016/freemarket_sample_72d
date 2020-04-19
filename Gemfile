@@ -101,3 +101,4 @@ gem 'devise-i18n-views'
 
 gem "gretel"
 
+gem 'ransack'
