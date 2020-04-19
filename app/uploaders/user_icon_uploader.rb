@@ -1,8 +1,8 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class UserIconUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_fit: [400, 400]
+  process resize_to_fit: [100, 100]
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development?
     storage :file
@@ -35,9 +35,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
-    process resize_to_fit: [200, 200]
-  end
+  # version :thumb do
+  #   process resize_to_fit: [50, 50]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -51,4 +51,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     "#{Time.zone.now.strftime('%Y%m%d%H%M')}.jpg" if original_filename.present?
   end
+
 end

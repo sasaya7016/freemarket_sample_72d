@@ -11,7 +11,12 @@ class User < ApplicationRecord
   has_many :favorite_items, through: :favorites, source: :item
   has_one :credit_card
   has_one :address
-       
+  
+  mount_uploader :icon_image, UserIconUploader
+  mount_uploader :background_image, UserBackgroundImageUploader
+
+  include Common_Module
+  include ClassMethods
 
   devise :database_authenticatable, :registerable,
 

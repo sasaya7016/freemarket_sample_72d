@@ -1,5 +1,4 @@
 .main-content{
-
   &__head{
     box-sizing: border-box;
     padding: 10px;
@@ -8,7 +7,98 @@
     text-align: center;
     background-color: white;
     font-size: 20px;
+    font-weight: bold;
+  }
+  &__blank{
+    display: block;
+    width: 700px;
+    height: calc(190px / 2);
   }
   &__user{
+    width: inherit;
+    height: inherit;
+    position: relative;
+    &__bg-image{
+      position: relative;
+      .bg-image{
+        position: absolute;
+        left: 0;
+        top: calc( 50px * 2 );
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        display: block;
+        width: 700px;
+        height: 190px;
+        object-fit: cover;
+        opacity: 0.5;
+        &-upload{
+          position: absolute;
+          left: 0;
+          top: calc( 50px * 2 );
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          display: block;
+          width: 700px;
+          height: 190px;
+          object-fit: cover;
+        }
+      }
+    }
+    &__icon{
+      position: relative;
+      .user-image{
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        &:hover{
+        }
+      }
+    }
+    &__name{
+      position: absolute;
+      left: 0;
+      top: 100px;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 200px;
+      .user-name{
+        text-align: center;
+      }
+    }
+    &__text{
+      .profile__text{
+        height: 300px;
+        overflow-y: scroll;
+      }
+      
+    }
   }
+  .form{
+    .submit-btn{
+      margin-top: 20px;
+      display: block;
+      height:40px;
+      width: 700px;
+    }
+    .btn-back{
+      margin-top: 20px;
+      display: block;
+      height:40px;
+      width: 700px;
+      line-height: 40px;
+    }
+  }
+}
+.opacity{
+  opacity:0;
 }

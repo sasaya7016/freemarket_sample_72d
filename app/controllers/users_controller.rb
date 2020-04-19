@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   include CommonModuleForControllers
   before_action :authenticate_user!
+  before_action :set_item, only: [:edit, :show, :update]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :reject_non_authenticate_user,only: [:show, :edit]
   before_action :set_category
+  before_action :user_params, only: [:update]
+  before_action :user_show_info, only: [:show ,:edit ]
   def show
-    
+
   end
 
   def edit
@@ -13,7 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      redirect_to edit_user_path(@user.id)
+    end
   end
 
   def profile
@@ -55,6 +62,11 @@ class UsersController < ApplicationController
   def likes
   end
   
+  def user_show_info
+    @exhibitor = User.where(id: @item.exhibitor_id).first
+    @items = Item.where(exhibitor_id: @user)
+    @evaluations = Item.where(buyer_id_status: @user)
+  end
 
   def reject_non_authenticate_user
     if @user.id != current_user.id
@@ -62,4 +74,11 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+  def user_params
+    reject = %w()
+    #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
+    columns = User.column_symbolized_names(reject)
+    params.require(:user).permit(*columns)
+  end
 end

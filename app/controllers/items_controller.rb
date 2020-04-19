@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
     end
 
   def index
-    @items = Item.all
+    @items = Item.all.includes(:user)
     has_brand_items = Item.where.not(brand: nil)
     if has_brand_items.sample != nil
       @pickup_brand = has_brand_items.sample.brand
@@ -67,7 +67,6 @@ class ItemsController < ApplicationController
   def create
     if params[:item][:item_images_attributes] != nil?
       @item = Item.new(item_params.merge(exhibitor_id: current_user.id))
-      #deviseが未実装でcurrent_userが未定義のため仮にid:1を代入
       @category = Category.where(ancestry: nil).order("id ASC").limit(13)
         if @item.save
           redirect_to root_path
@@ -149,10 +148,6 @@ class ItemsController < ApplicationController
 
 
   private
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
 
   def not_buy
     if current_user.id == @item.exhibitor_id

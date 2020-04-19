@@ -3,7 +3,7 @@ select {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  width: 200px;
+  width: 100px;
   color: rgba(69, 69, 69,0.9);
   border: none;
   border-bottom: 2px solid rgba(152, 152, 152, 0.8);
@@ -15,7 +15,10 @@ select {
     outline: 0;
   }
   }
-input{
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"]{
   resize: none;
   width: 100%;
   padding: 10px 15px;
@@ -51,3 +54,31 @@ input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-in
 input[type="number"] { 
   -moz-appearance:textfield; 
 } 
+
+.btn-back{
+  background-color: $btn-back-main-color !important;
+  border-bottom: 4px solid $btn-back-main-color-bottom;
+  color: $btn-back-text-color;
+  text-decoration: none;
+  text-align: center;
+  &:active{
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+  }
+}
+
+.btn{
+  background-color: $sky-blue !important;
+  border-bottom: 4px solid $sky-blue-btn-bottom;
+  color: $sky-blue-btn-text;
+  text-decoration: none;
+  text-align: center;
+  &:active{
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+  }
+}
