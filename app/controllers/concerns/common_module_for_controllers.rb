@@ -18,4 +18,9 @@ module CommonModuleForControllers
       @item = Item.find(params[:id])
     end
     
+    def user_show_info
+      @items = Item.where(exhibitor_id: @user)
+      @evaluations = Item.where(buyer_id_status: @user)
+    end
+    
 end
