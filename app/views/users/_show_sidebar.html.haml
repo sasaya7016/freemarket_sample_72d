@@ -3,10 +3,11 @@
     %ul.nav-list
       %li
         =link_to user_path , class: "nav-list__item" do
+        =link_to user_path(@user.id) , class: "nav-list__item" do
           マイページ
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to likes_user_path , class: "nav-list__item" do
+        =link_to likes_user_path(@user.id) , class: "nav-list__item" do
           お気に入り一覧
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -33,11 +34,11 @@
           プロフィール
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to address_user_path, class: "nav-list__item" do
+        =link_to address_user_path(@user.id), class: "nav-list__item" do
           発送元・お届け先情報
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to credit_cards_path, class: "nav-list__item" do
+        =link_to user_credit_cards_path(@user.id), class: "nav-list__item" do
           支払方法
           %i.fas.fa-chevron-right.nav-icon
       %li
