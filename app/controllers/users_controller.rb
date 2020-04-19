@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   before_action :user_params, only: [:update]
   before_action :user_show_info, only: [:show ,:edit ]
   def show
-    
+
   end
 
   def edit
@@ -16,7 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      redirect_to edit_user_path(@user.id)
+    end
   end
 
   def profile
