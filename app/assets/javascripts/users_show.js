@@ -44,4 +44,14 @@ if (document.location.href.match(/\/users\/\d+/)) {
     previousBGImage.remove();
     userBGImage.insertAdjacentHTML('afterbegin',buildBGImg(blobURL));
   });
+
+  delegateEvent(document, 'change', '.icon-img-file', function(e) {
+    let previousUserIcon = document.getElementById('new-user-icon');
+    let userIcon = document.getElementById('user-icon');
+    const file =  e.target.files[0];
+    const blobURL = window.URL.createObjectURL(file);
+    previousUserIcon.remove();
+    userIcon.insertAdjacentHTML('afterbegin',buildIconImg(blobURL));
+  });
+
   }
