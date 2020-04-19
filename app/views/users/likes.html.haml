@@ -26,8 +26,8 @@
               %ul#tab__content-new.tab__content
                 - current_user.favorite_items.each do |item|
                   %li.tab__content__list
-                    =link_to "", class: "tab__content__list-box" do
-                      =image_tag "sample_item_list_img01.jpg", alt: "",id: "",class: "list-image"
+                    =link_to item_path(item.id), class: "tab__content__list-box" do
+                      =image_tag item.item_images[0].image.url, alt: "",id: "",class: "list-image"
                       .list-text
                         = item.name
                         .li 
@@ -39,7 +39,7 @@
                           %span
                             円
                       %i.fas.fa-chevron-right.nav-icon
-                      
+
 = render "items/exhibition"
 
 = render "items/footer"
