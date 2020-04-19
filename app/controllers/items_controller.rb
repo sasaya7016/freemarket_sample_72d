@@ -144,10 +144,6 @@ class ItemsController < ApplicationController
 
   private
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
   def not_buy
     if current_user.id == @item.exhibitor_id
       redirect_to root_path
