@@ -98,6 +98,7 @@ $background-color_section:#eeeeee;
           display: flex;
           &__category{
             margin-right: 40px;
+            position: static;
           }
         }
       }
