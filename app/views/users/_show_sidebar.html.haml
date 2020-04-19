@@ -2,7 +2,6 @@
   %nav.sidebar__mypage-nav
     %ul.nav-list
       %li
-        =link_to user_path , class: "nav-list__item" do
         =link_to user_path(@user.id) , class: "nav-list__item" do
           マイページ
           %i.fas.fa-chevron-right.nav-icon
