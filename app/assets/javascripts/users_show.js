@@ -36,12 +36,6 @@ if (document.location.href.match(/\/users\/\d+/)) {
     return html;
   }
 
-  delegateEvent(document,'change','.img-file',function(e) {
-    let newBGImage = document.getElementById('new-bg-image');
-    let newUserIcon = document.getElementById('new-user-icon');
-    let previousBGImage = document.getElementById('previous-bg-image');
-    let previousIcon = document.getElementById('previous-user-icon');
-    let userIcon = document.getElementById('user-icon');
     let userBGImage = document.getElementById('user-bg-image');
     const file =  e.target.files[0];
     const blobURL = window.URL.createObjectURL(file);
