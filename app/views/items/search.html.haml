@@ -47,48 +47,44 @@
         =f.submit "完了", class: '.search__red-btn',id:'search_submit'
 
 
-  -# -----サーチカテゴリ-----
-  .search-category
-    .container
-      //-----商品のタイトルとリスト-----
-      .container__title
+  -# -----サーチメイン-----
+  .search__main
+    .search__main__container 
+      //-----検索結果 -----
+      .search__main__container__title
         - if @search.present?
           = "#{@keyword + ' 検索結果'}" 
           %h2.search__result__head
           %span
-          
           = "検索結果 1-#{@search.length} 件"
         - else 
           %h2.search__result__head 検索結果 0件
           %p.search__result__description 該当する商品が見つかりません。
-       
-          
 
-
-      .container__table
-        %ul.item
+      -# -----検索表示-----
+      .search__main__container__table
+        %ul.table-item
           -@search.each do |item|
             - if item.buyer_id.nil?
               = link_to item_path(item.id) do
-                %li.item__list
-                  .item__list__img-box
+                %li.table-item__list
+                  .table-item__list__img-box
                     -# =image_tag "category/close1.jpg", class:"close1.jpg"
-                    .item__list__img-box__price
+                    -# = image_tag item.item_images[0].image.url, class:"product-img"
+                    .table-item__list__img-box__price
                       %span= "¥#{item.price}"
-                  .item__list__text-box
+                  .table-item__list__text-box
                     = "#{item.name}"
-                    .item__list__text-box__like
+                    .table-item__list__text-box__like
                       = link_to "" do
                         = icon('far', 'fa-heart', class: 'fa-heart')          
-                      .item__list__text-box__like__icon
-
+                      .table-item__list__text-box__like__icon
 
       //-----ページボタン-----   
       .pager
         .page-btn
           = paginate @search,window:2
-
-
+          
 =render"footer"
 
 
