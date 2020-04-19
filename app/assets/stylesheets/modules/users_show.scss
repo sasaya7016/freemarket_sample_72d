@@ -14,7 +14,6 @@
           text-align: center;
           width: inherit;
           padding: 40px 0;
-          background: image-url("user_image01.jpg");
           .user-image{
             width: 60px;
             height: 60px;
@@ -42,6 +41,7 @@
             justify-content: space-evenly;
             background-color: $mypage-tab-color;
             &__list{
+              box-sizing: border-box;
               pointer-events: auto;
               width: 350px;
               height: 74px;
