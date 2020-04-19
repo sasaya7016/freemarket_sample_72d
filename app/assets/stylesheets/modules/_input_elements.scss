@@ -54,3 +54,18 @@ input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-in
 input[type="number"] { 
   -moz-appearance:textfield; 
 } 
+
+.btn-back{
+  background-color: $btn-back-main-color !important;
+  border-bottom: 4px solid $btn-back-main-color-bottom;
+  color: $btn-back-text-color;
+  text-decoration: none;
+  text-align: center;
+  &:active{
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+  }
+}
+
