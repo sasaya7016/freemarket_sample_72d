@@ -61,6 +61,7 @@ class ItemsController < ApplicationController
     @parent = @item.category
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+    
   end
 
 
@@ -99,7 +100,9 @@ class ItemsController < ApplicationController
   end
   
   def update
+    
     if @item.update(item_params)
+      
       redirect_to root_path, notice: '編集完了しました'
     else 
       redirect_to edit_item_path, alert: '商品の編集に失敗しました'
@@ -166,7 +169,7 @@ class ItemsController < ApplicationController
   def item_params
     #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
     reject = %w(buyer_id)
-    columns = Item.column_symbolized_names(reject).push(item_images_attributes: [ :id ,:image ,:_destroy])
+    columns = Item.column_symbolized_names(reject).push(item_images_attributes: [ :id ,:image ,:_destroy]).push(:prefecture_id)
     params.require(:item).permit(*columns)
   end
 
