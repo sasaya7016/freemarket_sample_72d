@@ -1,7 +1,10 @@
 class CreditCardsController < ApplicationController
+  include CommonModuleForControllers
   before_action :authenticate_user!, only: [:new, :show, :delete, :pay]
   before_action :set_card, only: [:new, :delete, :show]
   before_action :set_category
+  before_action :set_user
+  
   require "payjp"
 
   def new
