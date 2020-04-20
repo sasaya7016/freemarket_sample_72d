@@ -101,6 +101,10 @@ class UsersController < ApplicationController
     @bought_transaction_items = @total_bought_items.where(buyer_id_status: nil)
       #@user.idが過去に購入した商品のうち取引が完了した商品
     @bought_transaction_end_items = @bought_transaction_items.where.not(buyer_id_status: nil)
+      #購入後buyer_id_statusにbuyer_idと同じ値が入ることによって取引が終わる
+    
+  end
+
   private
   def user_params
     reject = %w()
