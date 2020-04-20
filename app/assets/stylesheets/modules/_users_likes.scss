@@ -1,0 +1,22 @@
+.main-content__favorite{
+  width: $main-content--width;
+  background-color: $mypage-tab-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .favorite__head{
+    text-align: center;
+    line-height: $main-list--height;
+    color: $text-black;
+    font-size: 18px;
+    font-weight: lighter;
+    width: inherit;
+    height: $main-list--height;
+    background-color: $main-list-color;
+    border-bottom: 2px solid $text-black;
+  }
+  .favorite__lists{
+    width: $main-content--width;
+  }
+}

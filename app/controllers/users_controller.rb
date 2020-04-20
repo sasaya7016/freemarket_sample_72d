@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   before_action :user_show_info, only: [:likes ,:show ,:edit ,:update]
   def show
     
+    #@sold_items = Items.where()
+    #取引完了 buyer_id not null かつ buyer_id_status not null
+    #取引中 buyer_id not null
+
   end
 
   def edit

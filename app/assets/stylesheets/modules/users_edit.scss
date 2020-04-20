@@ -11,39 +11,32 @@
   }
   &__blank{
     display: block;
-    width: 700px;
-    height: calc(190px / 2);
+    width: $main-content--width;
+    height: calc(190px);
   }
+
   &__user{
-    width: inherit;
-    height: inherit;
+    width: $main-content--width;
+    height: $main-user-image-height;
     position: relative;
+    padding: 0!important;
+    margin: 0;
     &__bg-image{
       position: relative;
       .bg-image{
+        padding: 0;
+        margin: 0;
         position: absolute;
         left: 0;
-        top: calc( 50px * 2 );
-        bottom: 0;
+        top: 0;
+        bottom: calc($main-user-image-height / 2);
         right: 0;
         margin: auto;
         display: block;
-        width: 700px;
-        height: 190px;
+        width: $main-content--width;
+        height: $main-user-image-height;
         object-fit: cover;
         opacity: 0.5;
-        &-upload{
-          position: absolute;
-          left: 0;
-          top: calc( 50px * 2 );
-          bottom: 0;
-          right: 0;
-          margin: auto;
-          display: block;
-          width: 700px;
-          height: 190px;
-          object-fit: cover;
-        }
       }
     }
     &__icon{
@@ -52,7 +45,7 @@
         padding: 0;
         position: absolute;
         left: 0;
-        top: 0;
+        top: 100px;
         bottom: 0;
         right: 0;
         margin: auto;
@@ -60,6 +53,7 @@
         height: inherit;
         border-radius: inherit;
         &:hover{
+          
         }
       }
     }
@@ -67,7 +61,7 @@
       position: absolute;
       left: 0;
       top: 100px;
-      bottom: 0;
+      bottom: calc($main-user-image-height / 2);
       right: 0;
       margin: auto;
       width: 200px;
