@@ -25,6 +25,7 @@
     - else
       .tab__display__empty
         = image_tag "" , class: "empty__logo"
+        NODATA
   %ul.tab__content.display--none#tab__content-transaction
     - if @sold_transaction_items.present?
       - @sold_transaction_items.each do |item|
@@ -49,7 +50,7 @@
     - else
       .tab__display__empty
         = image_tag "" , class: "empty__logo"
-
+        NODATA
   %ul.tab__content.display--none#tab__content-old
     - if @transaction_end_items.present?
       - @transaction_end_items.last(5).each do |item|
@@ -74,3 +75,4 @@
     - else
       .tab__display__empty
         = image_tag "" , class: "empty__logo"
+        NODATA
