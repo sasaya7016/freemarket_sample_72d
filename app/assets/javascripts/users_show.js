@@ -47,6 +47,21 @@ if (document.location.href.match(/\/users\/\d+/)) {
       tabContentOld.classList.remove("display--none");
     };
 
+    function tabActionPair01 () {
+      mypageTabBuyNew.parentNode.classList.add("tab-active");
+      mypageTabBoughtOld.parentNode.classList.remove("tab-active");
+      tabBuyTransaction.classList.remove("display--none");
+      tabBuyTransactionEnd.classList.add("display--none");
+    };
+
+    function tabActionPair02 () {
+      mypageTabBuyNew.parentNode.classList.remove("tab-active");
+      mypageTabBoughtOld.parentNode.classList.add("tab-active");
+      tabBuyTransaction.classList.add("display--none");
+      tabBuyTransactionEnd.classList.remove("display--none");
+    };
+
+
   });
   //BG画像のDOM
   const buildBGImg = (url) => {
