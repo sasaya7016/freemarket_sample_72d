@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
   before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit]
   before_action :not_buy, only: [:buy]
-  before_action :set_prefecture, only: [:show, :edit]
+  before_action :set_prefecture, only: [:show, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
   before_action :set_category
