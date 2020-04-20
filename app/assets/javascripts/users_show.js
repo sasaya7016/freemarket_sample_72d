@@ -5,16 +5,9 @@ if (document.location.href.match(/\/users\/\d+/)) {
     let mypageTabHeadSell = document.getElementById("mypage-tab__list-new");
     let mypageTabHeadTransaction = document.getElementById("mypage-tab__list-transaction");
     let mypageTabHeadSold = document.getElementById("mypage-tab__list-old");
-    //Tab部分のactiveと非activeの操作
-    mypageTabHeadSell.addEventListener('click',() => {
-      tabAction01();
-    });
-    mypageTabHeadTransaction.addEventListener('click',() => {
-      tabAction02();
-    });
-    mypageTabHeadSold.addEventListener('click',() => {
-      tabAction03();
-    });
+    let mypageTabBuyNew = document.getElementById("mypage-tab__list-buy-new");
+    let mypageTabBoughtOld = document.getElementById("mypage-tab__list-bought-old");
+    
     let tabContentNew = document.getElementById("tab__content-new");
     let tabContentTransaction = document.getElementById("tab__content-transaction");
     let tabContentOld = document.getElementById("tab__content-old");
