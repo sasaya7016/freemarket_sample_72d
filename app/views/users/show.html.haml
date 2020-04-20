@@ -3,8 +3,8 @@
 .container
   %main.main-container
     / 以下サイドバーの部分テンプレート
-    = render partial: "show_sidebar", locals: {}
+    = render "show_sidebar"
     / 以下メインメニューの部分テンプレート
-    = render partial: "show_main-content", locals: {}
+    = render "show_main-content"
 = render "items/exhibition"
 = render "items/footer"
