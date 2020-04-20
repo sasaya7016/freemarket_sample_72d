@@ -9,25 +9,24 @@
         %section.main-content__favorite
           .favorite__head
             お気に入り一覧
-          .tab__content.favorite__lists
-            %ul.tab__content.favorite__lists
-              - @user.favorite_items.each do |item|
-                %li.tab__content__list
-                  =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
-                    .list-image
-                      =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
-                      .list-text
-                        .list-text-price
-                          %span ¥
-                          = item.price
-                        .list-text-icon
-                          %span.icon ♡ 
-                          %span.favorite
-                          = item.favorites.count
-                      .list-text-name
-                        = item.name.truncate(40, omission: '...')
-                        .list-text-name-introduction
-                          = item.introduction.truncate(50, omission: '...')
-                    %i.fas.fa-chevron-right.nav-icon
+          %ul.tab__content.favorite__lists
+            - @user.favorite_items.each do |item|
+              %li.tab__content__list
+                =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+                  .list-image
+                    =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+                    .list-text
+                      .list-text-price
+                        %span ¥
+                        = item.price
+                      .list-text-icon
+                        %span.icon ♡ 
+                        %span.favorite
+                        = item.favorites.count
+                    .list-text-name
+                      = item.name.truncate(40, omission: '...')
+                      .list-text-name-introduction
+                        = item.introduction.truncate(50, omission: '...')
+                  %i.fas.fa-chevron-right.nav-icon
 = render "items/exhibition"
 = render "items/footer"
