@@ -34,6 +34,14 @@ if (document.location.href.match(/\/users\/\d+/)) {
       tabContentTransaction.classList.add("display--none");
       tabContentOld.classList.add("display--none");
       };
+    function tabAction02 () {
+      mypageTabHeadSell.parentNode.classList.remove("tab-active-three");
+      mypageTabHeadTransaction.parentNode.classList.add("tab-active-three");
+      mypageTabHeadSold.parentNode.classList.remove("tab-active-three");
+      tabContentNew.classList.add("display--none");
+      tabContentTransaction.classList.remove("display--none");
+      tabContentOld.classList.add("display--none");
+    };
     };
   });
   //BG画像のDOM
