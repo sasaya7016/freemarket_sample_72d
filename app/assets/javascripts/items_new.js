@@ -57,9 +57,10 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
       const hiddenCheck = document.querySelector(`input[data-index="${targetIndex}"].hidden-destroy`);
       if (hiddenCheck) hiddenCheck.checked = 'true';
       this.parentNode.remove();
-      const divDataIndex = document.querySelector(`div[data-index="${targetIndex}"]`);
-      divDataIndex.remove();
-
+      const divDataIndex = document.querySelectorAll(`div[data-index="${targetIndex}"]`);
+      for( i = 0; i < divDataIndex.length; i++){
+      divDataIndex[i].remove();
+      }
       //画像投入エリアが必ず1個以上ある
       if (imageFile.length == 0) {
         for(let i = 0; i < imageBoxUploaderLabel.length; i++){
