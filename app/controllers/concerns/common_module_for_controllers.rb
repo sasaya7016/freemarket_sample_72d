@@ -24,4 +24,5 @@ module CommonModuleForControllers
       @evaluations = Item.where(buyer_id_status: @user)
     end
     
+
 end
