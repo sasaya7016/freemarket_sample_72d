@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
     else
       redirect_to item_path(@item.id), alert: "購入に失敗しました"
     end
+  end
 
   def index
     @items = Item.all.includes(:user)
