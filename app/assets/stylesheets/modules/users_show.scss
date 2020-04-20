@@ -160,6 +160,14 @@
     z-index: 100;
   }
 
+  .tab-active-three{
+    border-top: 2px solid $sky-blue;
+    width: calc($main-content--width/3);
+    height: 74px;
+    background-color: $mypage-tab-active;
+    z-index: 100;
+  }
+
   .tab__content__list{
     width: $main-content--width;
     height: 80px;
