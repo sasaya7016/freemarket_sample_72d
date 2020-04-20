@@ -22,6 +22,9 @@ if (document.location.href.match(/\/users\/\d+/)) {
       mypageTabHeadSold.parentNode.classList.toggle("tab-active");
       activeTab.classList.toggle("display--none");
       inactiveTab.classList.toggle("display--none");
+    let tabContentNew = document.getElementById("tab__content-new");
+    let tabContentTransaction = document.getElementById("tab__content-transaction");
+    let tabContentOld = document.getElementById("tab__content-old");
     };
   });
   //BG画像のDOM
