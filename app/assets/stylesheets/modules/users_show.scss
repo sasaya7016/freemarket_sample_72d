@@ -318,3 +318,14 @@
   }
   
 
+.three-tabs-list{
+  width: calc( 700px / 3)!important;
+}
+.transaction-end{
+  background-color: $text-black-hover!important;
+  width: 70px!important;
+}
+.transaction{
+  background-color: $sky-blue!important;
+  width: 70px!important;
+}
