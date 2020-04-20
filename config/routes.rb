@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       get 'likes'
     end
+    member do
         resources :credit_cards, only: [:new,:show] do
           collection do
             post 'show', to: 'credit_cards#show'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
             post 'delete', to: 'credit_cards#delete'
           end
         end
+      end
       member do
         get :support
         get :logout
