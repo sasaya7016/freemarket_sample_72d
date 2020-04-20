@@ -3,7 +3,7 @@ class CreditCardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :delete, :pay]
   before_action :set_card, only: [:new, :delete, :show]
   before_action :set_category
-  before_action :set_user
+  before_action :set_current_user
   
   require "payjp"
 
@@ -54,6 +54,10 @@ class CreditCardsController < ApplicationController
   end
 
   private
+
+  def set_current_user
+    @user = User.find_by(id: current_user.id)
+  end
   def set_card
     @card = CreditCard.where(user_id: current_user.id).first
   end
