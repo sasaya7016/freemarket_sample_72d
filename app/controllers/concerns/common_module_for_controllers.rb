@@ -11,7 +11,7 @@ module CommonModuleForControllers
     end
     
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:current_id])
     end
     
     def set_item
