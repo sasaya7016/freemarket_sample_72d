@@ -25,6 +25,15 @@ if (document.location.href.match(/\/users\/\d+/)) {
     let tabContentNew = document.getElementById("tab__content-new");
     let tabContentTransaction = document.getElementById("tab__content-transaction");
     let tabContentOld = document.getElementById("tab__content-old");
+    function tabAction01 () {
+      //let tabActiveThree = document.getElementsByClassName("tab-active-three");
+      mypageTabHeadSell.parentNode.classList.add("tab-active-three");
+      mypageTabHeadTransaction.parentNode.classList.remove("tab-active-three");
+      mypageTabHeadSold.parentNode.classList.remove("tab-active-three");
+      tabContentNew.classList.remove("display--none");
+      tabContentTransaction.classList.add("display--none");
+      tabContentOld.classList.add("display--none");
+      };
     };
   });
   //BG画像のDOM
