@@ -3,13 +3,17 @@ if (document.location.href.match(/\/users\/\d+/)) {
   //UserMyPageのタブ機能
   document.addEventListener('DOMContentLoaded', () => {
     let mypageTabHeadSell = document.getElementById("mypage-tab__list-new");
+    let mypageTabHeadTransaction = document.getElementById("mypage-tab__list-transaction");
     let mypageTabHeadSold = document.getElementById("mypage-tab__list-old");
     //Tab部分のactiveと非activeの操作
     mypageTabHeadSell.addEventListener('click',() => {
-      tabAction();
+      tabAction01();
+    });
+    mypageTabHeadTransaction.addEventListener('click',() => {
+      tabAction02();
     });
     mypageTabHeadSold.addEventListener('click',() => {
-      tabAction();
+      tabAction03();
     });
     function tabAction () {
       let activeTab = document.getElementById("tab__content-new");
