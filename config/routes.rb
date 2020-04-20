@@ -23,6 +23,11 @@ Rails.application.routes.draw do
     #member do
      # end
       member do
+        get :sell_transaction
+        get :sold
+        get :selling
+        get :bought
+        get :buy_transaction
         get :support
         get :logout
         get :address
