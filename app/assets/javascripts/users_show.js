@@ -11,6 +11,9 @@ if (document.location.href.match(/\/users\/\d+/)) {
     let tabContentNew = document.getElementById("tab__content-new");
     let tabContentTransaction = document.getElementById("tab__content-transaction");
     let tabContentOld = document.getElementById("tab__content-old");
+    let tabBuyTransaction = document.getElementById("tab__buy-transaction");
+    let tabBuyTransactionEnd = document.getElementById("tab__buy-transaction-end");
+  
     function tabAction01 () {
       //let tabActiveThree = document.getElementsByClassName("tab-active-three");
       mypageTabHeadSell.parentNode.classList.add("tab-active-three");
