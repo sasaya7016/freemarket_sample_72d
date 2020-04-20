@@ -1,5 +1,5 @@
 .tab__content.favorite__lists
-  %ul.tab__content#tab__content-transaction
+  %ul.tab__content#tab__buy-transaction
     - if @bought_transaction_items.present?
       - @bought_transaction_items.last(5).each do |item|
         %li.tab__content__list
@@ -24,7 +24,7 @@
       .tab__display__empty
         = image_tag "", class: "empty__logo"
 
-  %ul.tab__content.display--none#tab__content-old
+  %ul.tab__content.display--none#tab__buy-transaction-end
     - if @bought_transaction_end_items.present?
       - @bought_transaction_end_items.last(5).each do |item|
         %li.tab__content__list
