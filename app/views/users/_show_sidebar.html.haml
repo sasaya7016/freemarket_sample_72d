@@ -29,7 +29,7 @@
       設定
     %ul.nav-list
       %li
-        =link_to edit_user_path, class: "nav-list__item" do
+        =link_to edit_user_path(@user.id), class: "nav-list__item" do
           プロフィール
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -37,7 +37,7 @@
           発送元・お届け先情報
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to credit_card_path(@user.id), class: "nav-list__item" do
+        =link_to credit_cards_path, class: "nav-list__item" do
           支払方法
           %i.fas.fa-chevron-right.nav-icon
       %li
@@ -45,10 +45,10 @@
           メール/パスワード
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to support_user_path ,class: "nav-list__item" do
+        =link_to support_user_path(@user.id) ,class: "nav-list__item" do
           お問い合わせ
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to logout_user_path,class: "nav-list__item" do
+        =link_to logout_user_path(@user.id),class: "nav-list__item" do
           ログアウト
           %i.fas.fa-chevron-right.nav-icon
