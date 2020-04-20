@@ -8,19 +8,20 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   
+  resources :credit_cards, only: [:new,:show] do
+    collection do
+      post 'show', to: 'credit_cards#show'
+      post 'pay', to: 'credit_cards#pay'
+      post 'delete', to: 'credit_cards#delete'
+    end
+  end
+  
   resources :users do
     member do
       get 'likes'
     end
-    member do
-        resources :credit_cards, only: [:new,:show] do
-          collection do
-            post 'show', to: 'credit_cards#show'
-            post 'pay', to: 'credit_cards#pay'
-            post 'delete', to: 'credit_cards#delete'
-          end
-        end
-      end
+    #member do
+     # end
       member do
         get :support
         get :logout
