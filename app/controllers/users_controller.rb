@@ -11,11 +11,21 @@ class UsersController < ApplicationController
   before_action :items_status
   
   def show
-    
-    #@sold_items = Items.where()
-    #取引完了 buyer_id not null かつ buyer_id_status not null
-    #取引中 buyer_id not null
+  end
 
+  def selling
+  end
+
+  def sold
+  end
+
+  def sell_transaction
+  end
+
+  def buy_transaction
+  end
+
+  def bought
   end
 
   def edit
