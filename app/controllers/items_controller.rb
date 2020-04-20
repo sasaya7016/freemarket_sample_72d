@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:buy, :pay]
   before_action :sold_out, only: [:buy, :pay]
   before_action :set_category
-
+  
   require "payjp"
 
   def buy #クレジット購入
