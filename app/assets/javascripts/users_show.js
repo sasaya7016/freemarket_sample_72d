@@ -15,13 +15,6 @@ if (document.location.href.match(/\/users\/\d+/)) {
     mypageTabHeadSold.addEventListener('click',() => {
       tabAction03();
     });
-    function tabAction () {
-      let activeTab = document.getElementById("tab__content-new");
-      let inactiveTab = document.getElementById("tab__content-old");
-      mypageTabHeadSell.parentNode.classList.toggle("tab-active");
-      mypageTabHeadSold.parentNode.classList.toggle("tab-active");
-      activeTab.classList.toggle("display--none");
-      inactiveTab.classList.toggle("display--none");
     let tabContentNew = document.getElementById("tab__content-new");
     let tabContentTransaction = document.getElementById("tab__content-transaction");
     let tabContentOld = document.getElementById("tab__content-old");
