@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_005200) do
     t.integer "exhibitor_id"
     t.integer "buyer_id"
     t.integer "buyer_id_status"
+    t.integer "purchaser_id"
     t.string "delivery_fee", null: false
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
