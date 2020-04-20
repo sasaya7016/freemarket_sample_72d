@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   before_action :reject_non_authenticate_user,only: [:show, :edit, :update]
   before_action :set_category
   before_action :user_params, only: [:update]
-  before_action :user_show_info, only: [:likes ,:show ,:edit ,:update]
+  before_action :user_show_info, only: [:selling,:sold , 
+  :sell_transaction, :buy_transaction,
+  :bought  ,:likes ,:show ,:edit ,:update]
+  before_action :items_status
+  
   def show
     
     #@sold_items = Items.where()
