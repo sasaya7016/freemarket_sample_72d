@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
       )
     end
     @item.buyer_id = current_user.id
-    if @item.save
+    if @item.save!
       redirect_to root_path, notice: '購入完了しました'
     else
       redirect_to item_path(@item.id), alert: "購入に失敗しました"
