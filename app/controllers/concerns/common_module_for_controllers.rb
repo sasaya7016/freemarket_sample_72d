@@ -7,7 +7,8 @@ module CommonModuleForControllers
     end
     
     def set_prefecture
-      @prefecture = Prefecture.find(params[:id])
+      set_item
+      @prefecture = Prefecture.find_by(id: @item.prefecture_id)
     end
     
     def set_user

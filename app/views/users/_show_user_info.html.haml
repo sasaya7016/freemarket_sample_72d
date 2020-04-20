@@ -1,0 +1,23 @@
+%section.main-content__user#main-content__user
+  =link_to "#", class: ".main-content__user" do
+    .main-content__user__bg-image
+      - if @user.background_image.present?
+        = image_tag @user.background_image.url, class:"bg-image"
+      - else
+        = image_tag "user_image01.jpg", class: "bg-image"
+    .main-content__user__icon
+      - if @user.icon_image.present?
+        = image_tag @user.icon_image.url, class: "user-image"
+      - else
+        = image_tag "img01.jpg", class: "user-image"
+      %h2.main-content__user__name.targets
+        = @user.nickname
+        .main-content__user__number
+          .main-content__user__number__evaluation.targets
+            評価数  
+            %span
+              = @evaluations.length
+          .main-content__user__number__up.targets
+            出品数
+            %span
+              = @items.length

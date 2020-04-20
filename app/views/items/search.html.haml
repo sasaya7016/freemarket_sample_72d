@@ -31,9 +31,9 @@
           %br/
           = collection_select :price, :select, Price.all, :id, :name, {prompt: "---"},class:'search__form'
           .input-form-box__price
-            = f.text_field :price_gteq,class:'search__form__small',placeholder:'例)¥ 300  (Min)'
+            = f.text_field :price_gteq,class:'search__form__small',placeholder:'例)¥ 300'
             %span.spacer ~
-            = f.text_field :price_lteq,class:"search__form__big",placeholder:'¥ 1000  (Max)'
+            = f.text_field :price_lteq,class:"search__form__big",placeholder:'¥ 1000 '
 
         .input-form-box
           %label
