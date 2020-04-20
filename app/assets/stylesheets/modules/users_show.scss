@@ -170,26 +170,51 @@
       text-decoration: none;
       color: $text-black;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
       .list-image{
-        width: 48px;
-        height: 48px;
-        padding: 5px;
-      }
-      .list-text{
-        padding: 5px;
-        font-size: 12px;
-        &-icon{
-          padding: 2px 5px;
-          width: fit-content;
-          background-color: $transaction-icon-red;
-          color: white;
-          font-weight: bold;
-          border-radius: 5px;
+        display: flex;
+        justify-content: flex-start;
+        .item-thumbnail{
+          width: 60px;
+          height: 60px;
+          margin: 5px;
         }
-        .transaction-end{
-          background-color: $text-black-hover;
+        .list-text{
+          width: 100px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          margin: 5px;
+          font-size: 14px;
+          &-price{
+            font-size: 12px;
+          }
+          &-icon{
+            text-align: center;
+            padding: 2px 5px;
+            width: 50px;
+            background-color: $transaction-icon-red;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+          }
+          &-name{
+            margin: 5px 5px 5px 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            &-introduction{
+              margin: 5px 5px 5px 10px;
+              font-size: 12px;
+            }
+          }
+          .transaction-end{
+            background-color: $text-black-hover;
+          }
         }
       }
       .nav-icon{
