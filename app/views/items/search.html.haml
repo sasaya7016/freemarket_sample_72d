@@ -65,7 +65,7 @@
       .search__main__container__table
         %ul.table-item
           -@search.each do |item|
-            - if item.buyer_id.nil?
+            - if item.purchaser_id.nil?
               = link_to item_path(item.id) do
                 %li.table-item__list
                   .table-item__list__img-box

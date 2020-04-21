@@ -178,7 +178,7 @@ class ItemsController < ApplicationController
 
   def sold_out
     @item = Item.find(params[:id])
-    if @item.buyer_id.present?
+    if @item.purchaser_id.present?
       redirect_to root_path
     end
   end

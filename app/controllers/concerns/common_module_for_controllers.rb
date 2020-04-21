@@ -21,7 +21,7 @@ module CommonModuleForControllers
     
     def user_show_info
       @items = Item.where(exhibitor_id: @user)
-      @evaluations = Item.where(buyer_id_status: @user)
+      @evaluations = Item.where(purchaser_id_status: @user)
     end
     
 end

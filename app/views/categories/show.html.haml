@@ -28,7 +28,7 @@
     .container__table
       %ul.item
         - @items.each do |item|
-          - if item.buyer_id.nil?
+          - if item.purchaser_id.nil?
             = link_to item_path(item.id) do
               %li.item__list
                 .item__list__img-box
