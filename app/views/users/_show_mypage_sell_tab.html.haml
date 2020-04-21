@@ -24,8 +24,8 @@
           =link_to "一覧を見る", selling_user_path, class: "tab__content__list__index-btn"
     - else
       .tab__display__empty
-        = image_tag "" , class: "empty__logo"
-        NODATA
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません
   %ul.tab__content.display--none#tab__content-transaction
     - if @sold_transaction_items.present?
       - @sold_transaction_items.each do |item|
@@ -49,8 +49,8 @@
           =link_to "一覧を見る", sell_transaction_user_path, class: "tab__content__list__index-btn"
     - else
       .tab__display__empty
-        = image_tag "" , class: "empty__logo"
-        NODATA
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません
   %ul.tab__content.display--none#tab__content-old
     - if @transaction_end_items.present?
       - @transaction_end_items.last(5).each do |item|
@@ -74,5 +74,5 @@
             =link_to "一覧を見る", sold_user_path, class: "tab__content__list__index-btn"
     - else
       .tab__display__empty
-        = image_tag "" , class: "empty__logo"
-        NODATA
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません
