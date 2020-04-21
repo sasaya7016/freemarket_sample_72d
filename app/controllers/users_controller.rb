@@ -89,19 +89,19 @@ class UsersController < ApplicationController
     #過去@user.id全ての出品した商品
     @total_sold_items = Item.where(exhibitor_id: @user.id)
     #過去@user.id出品した商品のうち、現在出品中の商品
-    @selling_items = @total_sold_items.where(buyer_id: nil)
+    @selling_items = Item.where(exhibitor_id: @user.id , buyer_id: nil)
     #@user.id出品して売れた商品のうち、取引中のもの
-    @sold_transaction_items = @selling_items.where(buyer_id_status: nil)
+    @sold_transaction_items = Item.where(exhibitor_id: @user.id, buyer_id_status: nil).where.not(buyer_id: nil)
     #@user.id出品して売れた商品が取引終了したもの
-    @sold_transaction_end_items = @sold_transaction_items.where.not(buyer_id_status: nil)
+    @sold_transaction_end_items = Item.where(exhibitor_id: @user.id,).where.not(buyer_id: nil , buyer_id_status: nil)
 
     #過去@user.idが購入した全ての購入済み商品
     @total_bought_items = Item.where(buyer_id: @user.id)
-      #過去全ての購入済み商品のうち取引中の商品
-    @bought_transaction_items = @total_bought_items.where(buyer_id_status: nil)
-      #@user.idが過去に購入した商品のうち取引が完了した商品
-    @bought_transaction_end_items = @bought_transaction_items.where.not(buyer_id_status: nil)
-      #購入後buyer_id_statusにbuyer_idと同じ値が入ることによって取引が終わる
+    #過去全ての購入済み商品のうち取引中の商品
+    @bought_transaction_items = Item.where(buyer_id: @user.id , buyer_id_status: nil)
+    #@user.idが過去に購入した商品のうち取引が完了した商品
+    @bought_transaction_end_items = Item.where(buyer_id: @user.id ).where.not(buyer_id_status: nil)
+    #購入後buyer_id_statusにbuyer_idと同じ値が入ることによって取引が終わる
     
   end
 
