@@ -23,5 +23,7 @@
         .actions
           = f.submit "ログイン", class: "login-btn"
       = render "devise/shared/links"
+      .actions
+        =link_to " Googleでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "fab fa-google"
   .login__footer
     = render 'items/footer'

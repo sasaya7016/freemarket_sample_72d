@@ -1,6 +1,6 @@
 .signup
-  .signup__header    
-    = render 'header'
+  .signup__header
+    = link_to image_tag("logo.png",class:"logo-head"),""
     .nav-category
       .ul.nav-category__lists
         .li.nav-category__lists__list
@@ -23,18 +23,21 @@
             .field__box__hissu 必須
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "user-textform",placeholder:"@が必要です"
-        .field
-          .field__box
-            .field__box__title パスワード（7文字以上）
-            .field__box__hissu 必須
-          %br/
-          = f.password_field :password, autocomplete: "new-password", class: "user-textform",placeholder: "7文字以上で設定してください"
-        .field
-          .field__box
-            .field__box__title パスワード再入力
-            .field__box__hissu 必須
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記と同様に入力してください", class: "user-textform"
+        - if @sns_id.present?
+          = hidden_field_tag :sns_auth, true
+        - else
+          .field
+            .field__box
+              .field__box__title パスワード（7文字以上）
+              .field__box__hissu 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password", class: "user-textform",placeholder: "7文字以上で設定してください"
+          .field
+            .field__box
+              .field__box__title パスワード再入力
+              .field__box__hissu 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記と同様に入力してください", class: "user-textform"
         .zenkaku-onamae
           .field
             .field__box
@@ -68,6 +71,7 @@
           = f.date_select :birth_date, use_month_numbers: true ,start_year: 1920, end_year: (Time.now.year - 15), default: Date.new(1992,1,1),class:"birth-select"
         .actions
           = f.submit "次へ",class:"login-btn"
+          = link_to ' Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class: "fab fa-google"
           
       
   .signup__footer
