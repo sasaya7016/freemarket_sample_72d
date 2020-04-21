@@ -329,3 +329,23 @@
   background-color: $sky-blue!important;
   width: 70px!important;
 }
+
+.mypage__tab__container-box{
+  width: $main-content--width;
+  height: calc(86px * 6);
+}
+.tab__display__empty{
+  width: $main-content--width;
+  height:250px;
+  background-color: $tab-display-empty-color;
+  font-size: 14px;
+  color: $text-black-hover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  .empty__logo{
+    width: 200px;
+    opacity: 0.3;
+  }
+}
