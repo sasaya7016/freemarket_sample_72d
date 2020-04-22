@@ -16,6 +16,23 @@ if (document.location.href.match(/\/users\/\d+/)) {
     let tabBuyTransaction = document.getElementById("tab__buy-transaction");
     let tabBuyTransactionEnd = document.getElementById("tab__buy-transaction-end");
     
+    let threeTabsList = document.getElementsByClassName('three-tabs-list');
+    let twoTabsList = document.getElementsByClassName('two-tabs-list');
+    //Tab部分のactiveと非activeの操作
+    if (threeTabsList.length != 0  && twoTabsList.length != 0){
+      mypageTabHeadSell.addEventListener('click', tabAction01 );
+      mypageTabHeadTransaction.addEventListener('click', tabAction02 );
+      mypageTabHeadSold.addEventListener('click', tabAction03 );
+      mypageTabBuyNew.addEventListener('click', tabActionPair01 );
+      mypageTabBoughtOld.addEventListener('click', tabActionPair02 );
+    }else if (threeTabsList.length != 0){
+      mypageTabHeadSell.addEventListener('click', tabAction01 );
+      mypageTabHeadTransaction.addEventListener('click', tabAction02 );
+      mypageTabHeadSold.addEventListener('click', tabAction03 );
+    }else if(twoTabsList.length != 0){
+      mypageTabBuyNew.addEventListener('click', tabActionPair01 );
+      mypageTabBoughtOld.addEventListener('click', tabActionPair02 );
+    }
     function tabAction01 () {
       //let tabActiveThree = document.getElementsByClassName("tab-active-three");
       mypageTabHeadSell.parentNode.classList.add("tab-active-three");
