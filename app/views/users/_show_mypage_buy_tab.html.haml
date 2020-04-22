@@ -1,0 +1,52 @@
+.tab__content.favorite__lists
+  %ul.tab__content#tab__buy-transaction
+    - if @bought_transaction_items.present?
+      - @bought_transaction_items.last(5).each do |item|
+        %li.tab__content__list
+          =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+            .list-image
+              =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+              .list-text
+                .list-text-price
+                  %span ¥
+                  = item.price
+                .list-text-icon.transaction
+                  %span.icon 取引中 
+              .list-text-name
+                = item.name.truncate(40, omission: '...')
+                .list-text-name-introduction
+                  = item.introduction.truncate(50, omission: '...')
+            %i.fas.fa-chevron-right.nav-icon
+      %li.tab__content__list
+        .tab__content__list__index
+          =link_to "一覧を見る", buy_transaction_user_path, class: "tab__content__list__index-btn"
+    - else
+      .tab__display__empty
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません
+
+  %ul.tab__content.display--none#tab__buy-transaction-end
+    - if @bought_transaction_end_items.present?
+      - @bought_transaction_end_items.last(5).each do |item|
+        %li.tab__content__list
+          =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+            .list-image
+              =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+              .list-text
+                .list-text-price
+                  %span ¥
+                  = item.price
+                .list-text-icon.transaction-end
+                  %span.icon 取引完了 
+              .list-text-name
+                = item.name.truncate(40, omission: '...')
+                .list-text-name-introduction
+                  = item.introduction.truncate(50, omission: '...')
+            %i.fas.fa-chevron-right.nav-icon
+      %li.tab__content__list
+        .tab__content__list__index
+          =link_to "一覧を見る", sold_user_path, class: "tab__content__list__index-btn"
+    - else
+      .tab__display__empty
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません

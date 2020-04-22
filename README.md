@@ -38,6 +38,7 @@
 |purchaser_id|integer||
 |delivery_fee|string|null:false|
 |prefecture_id|integer|null:false|
+
 ### Association
 - belongs_to_active_hash :prefecture
 - has_many :favorites, dependent: :destroy

@@ -1,4 +1,5 @@
 class AddressController < ApplicationController
+  before_action :set_address
   def index
   end
 

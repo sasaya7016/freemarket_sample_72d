@@ -19,9 +19,24 @@ document.addEventListener(
             $("#exp_year").removeAttr("name");
             $("#card_token").append($('<input type="hidden" name="payjp-token">').val(response.id));
             document.inputForm.submit();
-            alert("登録が完了しました");
+            let options = {
+              title: "カードの登録が完了しました",
+              type: "info",  // warning, info, error
+              showConfirmButton : true,
+              confirmButtonText : '確認しました。'
+            }
+            swal.fire(options);
           } else {
-            alert("カード情報が正しくありません。");
+            let options = {
+              title: "カード情報が正しくありません。",
+              text: "正しいカード情報を入力してください",
+              type: "warning", // warning, info, error
+              showConfirmButton : true,
+              confirmButtonText : '確認しました。',
+              showCancelButton : true,
+              cancelButtonText : '登録をやめる'
+              }
+          swal.fire(options);
           }
         });
       });

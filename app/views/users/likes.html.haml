@@ -9,8 +9,8 @@
         %section.main-content__favorite
           .favorite__head
             お気に入り一覧
-          .tab__content.favorite__lists
-            %ul.tab__content.favorite__lists
+          %ul.tab__content.favorite__lists
+            - if @user.favorite_items.present?
               - @user.favorite_items.each do |item|
                 %li.tab__content__list
                   =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
@@ -29,5 +29,9 @@
                         .list-text-name-introduction
                           = item.introduction.truncate(50, omission: '...')
                     %i.fas.fa-chevron-right.nav-icon
+            - else
+              .tab__display__empty
+                = image_tag "mypage/triangles.png" , class: "empty__logo"
+                商品がありません
 = render "items/exhibition"
 = render "items/footer"

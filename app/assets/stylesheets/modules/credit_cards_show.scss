@@ -12,22 +12,32 @@
     background-color: rgba(207, 227, 244, 0.5);
     display: block;
     padding:0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     &__title{
       margin: 40px 0;
+
       text-align: center;
     }
     h1{
+      margin-top: 30px;
       font-size:26px;
     }
     &__inner{
       margin: 40px 0;
       align-items: center;
       width: 100%;
+      text-align: center;
+      color: $text-black;
+      font-weight: bold;
       .detail-card-notification{
         text-align: center;
       }
       .detail-card-icons{
         margin: 0px 10px 40px;
+        text-align: center;
         .card{
           margin: 7px;
           width: 50px;
@@ -41,8 +51,10 @@
       }
       &__show-number{
         margin-top: 30px;
+        text-align: center;
       }
       &__show-icon{
+        text-align: center;
         margin-top:10px;
         .card{
           width:70px;
@@ -53,6 +65,7 @@
         
       }
       &__show-expire{
+        text-align: center;
         margin-top:40px;
       }
       &__show-delete{

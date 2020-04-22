@@ -13,8 +13,21 @@
                 .reason__box
                   %h1.title 退会の理由
                   %p.required 必須
-                %input.reason__content{type: "text", placeholder: "100文字以上ご記入ください。"}
+                %textarea#withdraw-reasons.reason__content{type: "text", placeholder: "100文字以上ご記入ください。"}
+                
               .form
-                = link_to root_path do
-                  %input.submit.btn{type: "submit", value: "上記に同意して退会する"}
+                = button_tag "上記に同意して退会する", type: 'button',class: "account-delete-btn" ,id: "account-delete-button"
+                = link_to "戻る" , user_path(@user.id) , class: "btn-back"
+
 = render "items/footer"
+.modal#modal__background.display--none
+  .modal__background
+    .model__window
+      .modal__window-text
+        =image_tag "icons/caution.svg", class: "caution-icon" 
+        .caution-text
+          アカウントが削除されます。よろしいですか？
+      .modal__window__button#modal__window__button-text
+        =link_to "上記に同意して退会する" ,user_path(@user.id) , method: :delete, class: "delete-button", id: "delete-button"
+        .btn-back#back__button
+          戻る

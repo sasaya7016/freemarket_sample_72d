@@ -1,0 +1,61 @@
+= render "items/header"
+.container
+  %main.main-container
+    = render "show_sidebar"
+    .main-content
+      = render "show_user_info"
+      %section.main-content__mypage-tab__container.mypage__tab__container-box
+        %h2.mypage-tab__head
+          購入した商品
+        %ul.mypage-tab
+          %li.tab-active
+            =link_to "取引中" ,"#bought-transaction-now" , class: "mypage-tab__list two-tabs-list" ,id:"mypage-tab__list-buy-new"
+          %li
+            =link_to "過去の取引","#previouus-bought" , class: "mypage-tab__list two-tabs-list" ,id:"mypage-tab__list-bought-old"
+
+        .tab__content.favorite__lists
+          %ul.tab__content#tab__buy-transaction
+            - if @bought_transaction_items.present?
+              - @bought_transaction_items.each do |item|
+                %li.tab__content__list
+                  =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+                    .list-image
+                      =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+                      .list-text
+                        .list-text-price
+                          %span ¥
+                          = item.price
+                        .list-text-icon.transaction
+                          %span.icon 取引中 
+                      .list-text-name
+                        = item.name.truncate(40, omission: '...')
+                        .list-text-name-introduction
+                          = item.introduction.truncate(50, omission: '...')
+                    %i.fas.fa-chevron-right.nav-icon
+            - else
+              .tab__display__empty
+                = image_tag "mypage/triangles.png" , class: "empty__logo"
+                商品がありません
+
+          %ul.tab__content.display--none#tab__buy-transaction-end
+            - if @bought_transaction_end_items.present?
+              - @bought_transaction_end_items.each do |item|
+                %li.tab__content__list
+                  =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+                    .list-image
+                      =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+                      .list-text
+                        .list-text-price
+                          %span ¥
+                          = item.price
+                        .list-text-icon.transaction-end
+                          %span.icon 取引完了 
+                      .list-text-name
+                        = item.name.truncate(40, omission: '...')
+                        .list-text-name-introduction
+                          = item.introduction.truncate(50, omission: '...')
+                    %i.fas.fa-chevron-right.nav-icon
+            - else
+              .tab__display__empty
+                = image_tag "mypage/triangles.png" , class: "empty__logo"
+                商品がありません

@@ -2,20 +2,38 @@ class UsersController < ApplicationController
   include CommonModuleForControllers
   before_action :authenticate_user!
   before_action :set_user
-  before_action :reject_non_authenticate_user,only: [:show, :edit, :update]
+  before_action :reject_non_authenticate_user,only: [:show, :edit, :update , :delete]
   before_action :set_category
   before_action :user_params, only: [:update]
-  before_action :user_show_info, only: [:likes ,:show ,:edit ,:update]
-  def show
-    
-    #@sold_items = Items.where()
-    #取引完了 purchaser_id not null かつ buyer_id_status not null
-    #取引中 purchaser_id not null
+  before_action :user_show_info, only: [:selling,:sold , 
+  :sell_transaction, :buy_transaction,
+  :bought  ,:likes ,:show ,:edit ,:update]
+  before_action :items_status
+  
+  def destroy
+    @user.destroy
+    redirect_to root_path
+  end
 
+  def show
+  end
+
+  def selling
+  end
+
+  def sold
+  end
+
+  def sell_transaction
+  end
+
+  def buy_transaction
+  end
+
+  def bought
   end
 
   def edit
-    
   end
 
   def update
@@ -63,13 +81,24 @@ class UsersController < ApplicationController
   end
 
   def likes
-
   end
   
   def reject_non_authenticate_user
     if @user.id != current_user.id
       redirect_to user_session_path
     end
+  end
+
+  def items_status
+    @total_sold_items = Item.where(exhibitor_id: @user.id)
+    @selling_items = Item.where(exhibitor_id: @user.id , purchaser_id: nil)
+    @sold_transaction_items = Item.where(exhibitor_id: @user.id, purchaser_id_status: nil).where.not(purchaser_id: nil)
+    @sold_transaction_end_items = Item.where(exhibitor_id: @user.id,).where.not(purchaser_id: nil , purchaser_id_status: nil)
+    
+    @total_bought_items = Item.where(purchaser_id: @user.id)
+    @bought_transaction_items = Item.where(purchaser_id: @user.id , purchaser_id_status: nil)
+    @bought_transaction_end_items = Item.where(purchaser_id: @user.id ).where.not(purchaser_id_status: nil)
+    
   end
 
   private

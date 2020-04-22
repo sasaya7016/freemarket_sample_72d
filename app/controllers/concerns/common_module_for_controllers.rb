@@ -24,4 +24,8 @@ module CommonModuleForControllers
       @evaluations = Item.where(purchaser_id_status: @user)
     end
     
+    def set_address
+      @address = Adress.find(params[:id])
+    end
+
 end

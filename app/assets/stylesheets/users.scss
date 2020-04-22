@@ -1,5 +1,5 @@
 @import "modules/users_show";
-@import "modules/users_show_adress";
+@import "modules/users_show_address";
 @import "modules/users_edit";
 @import "modules/users_registration_support";
 @import "modules/users_defect_support";
@@ -136,7 +136,7 @@ table {
         font-size: 15px;
         }
         #user_birth_date_1i {
-          width: 80px;
+          width: 55px;
         }
         #user_birth_date_2i {
           width: 40px;

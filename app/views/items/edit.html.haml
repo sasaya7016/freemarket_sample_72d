@@ -88,4 +88,4 @@
       %p#inner-benefit= "#{@item.price - (@item.price * 0.1).floor}円"
     .listing__box--btns
       =f.submit class: "btn submit-btn", value: "編集する"
-      =link_to "戻る","#", class: "btn-back", type: "submit"
+      =link_to "戻る", item_path(@item.id), class: "btn-back", type: "submit"

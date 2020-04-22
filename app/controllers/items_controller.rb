@@ -21,23 +21,22 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    if @card.blank?
-      redirect_to new_credit_card_path 
-    else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      Payjp::Charge.create(
-      amount: @item.price, 
-      customer: @card.customer_id, 
-      currency: 'jpy',
-      )
-    end
-    # @item.buyer_id = current_user.id
-    # if @item.save
-    if @item.update( purchaser_id: current_user.id)
-      redirect_to root_path, notice: '購入完了しました'
-    else
-      redirect_to item_path(@item.id), alert: "購入に失敗しました"
-    end
+      if @card.blank?
+        redirect_to new_credit_card_path 
+      else
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        Payjp::Charge.create(
+        amount: @item.price, 
+        customer: @card.customer_id, 
+        currency: 'jpy',
+        )
+      end
+    
+      if @item.update( purchaser_id: current_user.id)
+        redirect_to root_path , notice: '購入完了しました'
+      else
+        redirect_to item_path(@item.id), alert: "購入に失敗しました"
+      end
   end
 
   def index
@@ -163,7 +162,7 @@ class ItemsController < ApplicationController
 
   def item_params
     #ItemModelでインクルードしたモジュールメソッドを使う(他のモデルで流用可能)
-    reject = %w(buyer_id)
+    reject = %w(purchaser_id)
     columns = Item.column_symbolized_names(reject).push(item_images_attributes: [ :id ,:image ,:_destroy]).push(:prefecture_id)
     params.require(:item).permit(*columns)
   end
