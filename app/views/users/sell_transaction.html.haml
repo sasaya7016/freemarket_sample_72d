@@ -1,8 +1,8 @@
+//取引中ページ
 = render "items/header"
 .container
   %main.main-container
-    / 以下サイドバーの部分テンプレート
-    = render partial: "show_sidebar", locals: {}
+    = render "show_sidebar"
     .main-content
       = render "show_user_info"
       %section.main-content__mypage-tab__container
@@ -10,14 +10,39 @@
           出品した商品
         %ul.mypage-tab
           %li
-            =link_to "出品中" ,"#" , class: "mypage-tab__list three-tabs-list" ,id:"mypage-tab__list-new"
+            =link_to "出品中" ,"#selling-now", class: "mypage-tab__list three-tabs-list" ,id:"mypage-tab__list-new"
           %li.tab-active-three
-            =link_to "取引中",sell_transaction_user_path , class: "mypage-tab__list three-tabs-list" ,id:"mypage-tab__list-transaction"
+            =link_to "取引中","#sold-transaction-now" , class: "mypage-tab__list three-tabs-list" ,id:"mypage-tab__list-transaction"
           %li
-            =link_to "過去の取引",sold_user_path , class: "mypage-tab__list three-tabs-list" ,id:"mypage-tab__list-old"
+            =link_to "過去の取引","#previous-sold" , class: "mypage-tab__list three-tabs-list" ,id:"mypage-tab__list-old"
         
         .tab__content.favorite__lists
-          %ul.tab__content#tab__content-transaction.display--none
+          %ul.tab__content.favorite__lists#tab__content-new.display--none
+            - if @selling_items.present?
+              - @selling_items.each do |item|
+                %li.tab__content__list
+                  =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+                    .list-image
+                      = image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+                      .list-text
+                        .list-text-price
+                          %span ¥
+                          = item.price
+                        .list-text-icon
+                          %span.icon
+                          %span.favorite
+                            出品中
+                      .list-text-name
+                        = item.name.truncate(40, omission: '...')
+                        .list-text-name-introduction
+                          = item.introduction.truncate(50, omission: '...')
+                    %i.fas.fa-chevron-right.nav-icon
+            - else
+              .tab__display__empty
+                = image_tag "mypage/triangles.png" , class: "empty__logo"
+                商品がありません
+
+          %ul.tab__content#tab__content-transaction
             - if @sold_transaction_items.present?
               - @sold_transaction_items.each do |item|
                 %li.tab__content__list
@@ -37,8 +62,32 @@
                     %i.fas.fa-chevron-right.nav-icon
             - else
               .tab__display__empty
-                NO DATA
-                = image_tag "" , class: "empty__logo"
+                = image_tag "mypage/triangles.png" , class: "empty__logo"
+                商品がありません
+
+          %ul.tab__content#tab__content-old.display--none
+            - if @transaction_end_items.present?
+              - @transaction_end_items.each do |item|
+                %li.tab__content__list
+                  =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
+                    .list-image
+                      =image_tag item.item_images[0].image.url, alt: "",id: "",class: "item-thumbnail"
+                      .list-text
+                        .list-text-price
+                          %span ¥
+                          = item.price
+                        .list-text-icon.transaction-end
+                          %span.icon 取引完了
+                      .list-text-name
+                        = item.name.truncate(40, omission: '...')
+                        .list-text-name-introduction
+                          = item.introduction.truncate(50, omission: '...')
+                    %i.fas.fa-chevron-right.nav-icon 
+            - else
+              .tab__display__empty
+                = image_tag "mypage/triangles.png" , class: "empty__logo"
+                商品がありません
+
 
 = render "items/exhibition"
 = render "items/footer"
