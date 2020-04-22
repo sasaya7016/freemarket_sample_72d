@@ -26,6 +26,7 @@ class Item < ApplicationRecord
     validates :exhibitor_id
     validates :delivery_fee
     validates :prefecture_id
+    validates :item_images
   end
   with_options numericality: {
     greater_than_or_equal_to: 100,
