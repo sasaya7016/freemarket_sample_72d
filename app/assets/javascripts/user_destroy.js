@@ -5,3 +5,4 @@ document.addEventListener('DOMContentLoaded' , () => {
 
   let modalBG = document.getElementById('modal__background');
   let modalWindowButtonBack = document.getElementById('back__button')
+  modalWindowButtonBack.addEventListener( 'click' , modalWindowUnlock );
