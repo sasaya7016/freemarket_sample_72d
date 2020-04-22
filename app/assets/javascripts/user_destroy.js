@@ -8,3 +8,19 @@ document.addEventListener('DOMContentLoaded' , () => {
   accountDeleteButton.addEventListener( 'click' , deleteAlert, { passive: false } ); 
 
   modalWindowButtonBack.addEventListener( 'click' , modalWindowUnlock );
+    function deleteAlert(e){
+      if ( withdrawReasons.value.length <= 100 ){
+        let options = {
+            title: "退会理由を入力してください",
+            text: "退会理由を100文字以上で入力してください",
+            type: "warning", // warning, info, error
+            showConfirmButton : true,
+            confirmButtonText : '確認しました。',
+            showCancelButton : true,
+            cancelButtonText : '退会しない'
+          }
+        swal.fire(options);
+      }else{
+        fadeIn(modalBG , 700);
+      }
+    };
