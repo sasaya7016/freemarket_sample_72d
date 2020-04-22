@@ -28,7 +28,8 @@
 |condition|string|null:false|
 |preparation_day|string|null:false|
 |exhibitor|integer|foreign_key: true|
-|buyer|integer|foreign_key: true|
+|purchaser_id|integer||
+|purchaser_id_status|integer||
 ### Association
 - has_many :favorites
 - has_many :comments
