@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_103505) do
     t.integer "favorites_count"
     t.integer "preparation_day", null: false
     t.integer "exhibitor_id"
-
     t.integer "purchaser_id"
     t.integer "purchaser_id_status"
     t.string "delivery_fee", null: false
