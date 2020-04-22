@@ -19,6 +19,7 @@ $account-delete-btn-shadow:rgb(176, 26, 26);
 $logout-btn:rgb(195, 211, 216);
 $logout-btn-shadow:rgb(141, 161, 165);
 $main-list-color:rgba(255, 255, 255, 0.999);
+$caution-red:rgba(228, 0, 23,0.9);
 //背景カラーの設定
 body,html{
   background-color: rgba(245,245,245,1);
@@ -31,3 +32,5 @@ $background-color_section:#eeeeee;
 $btn-back-main-color: rgba(135, 135, 135, 0.8);
 $btn-back-main-color-bottom: rgba(57, 57, 57, 0.8);
 $btn-back-text-color: rgba(237, 237, 237, 0.872);
+$modal-bg-color-gray: rgba(230, 230, 230, 0.591);
+$modal-window-color: rgba(200,234,255,0.8);
