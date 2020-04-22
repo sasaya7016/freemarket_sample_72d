@@ -29,3 +29,7 @@ document.addEventListener('DOMContentLoaded' , () => {
       modalBG.style.display = "";
     }
 
+    function modalWindowUnlock (){
+      modalBG.style.display = 'none';
+    }
+    
