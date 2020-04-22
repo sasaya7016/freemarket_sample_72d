@@ -11,13 +11,9 @@
         margin: 0 60px;
         text-decoration: none;
         &__user{
-          text-align: center;
-          width: inherit;
-          padding: 40px 0;
-          .user-image{
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+          &__icon{
+            .user-image{
+            }
           }
           &__name{
             color:$text-black;
@@ -26,6 +22,7 @@
             color:$text-black;
             display: flex;
             justify-content: center;
+            align-items: center;
             &__evaluation{
               span{font-weight: bold;}
               }
