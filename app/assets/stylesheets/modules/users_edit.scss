@@ -9,59 +9,72 @@
     font-size: 20px;
     font-weight: bold;
   }
-  &__blank{
-    display: block;
-    width: $main-content--width;
-    height: calc(190px);
-  }
-
   &__user{
-    width: $main-content--width;
-    height: $main-user-image-height;
+    width: inherit;
+    height: 190px;
+    text-align: center;
+    width: inherit;
     position: relative;
-    padding: 0!important;
-    margin: 0;
     &__bg-image{
       position: relative;
+      width: inherit;
+      height: inherit;
       .bg-image{
-        padding: 0;
-        margin: 0;
-        position: absolute;
+        position: relative;
         left: 0;
         top: 0;
-        bottom: calc($main-user-image-height / 2);
-        right: 0;
-        margin: auto;
-        display: block;
-        width: $main-content--width;
-        height: $main-user-image-height;
-        object-fit: cover;
-        opacity: 0.5;
-      }
-    }
-    &__icon{
-      position: relative;
-      .user-image{
-        padding: 0;
-        position: absolute;
-        left: 0;
-        top: 100px;
         bottom: 0;
         right: 0;
         margin: auto;
-        width: inherit;
-        height: inherit;
-        border-radius: inherit;
-        &:hover{
-          
+        display: block;
+        width: 700px;
+        height: 190px;
+        object-fit: cover;
+        opacity: 0.5;
+        &:active{
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+        }
+        &-upload{
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          display: block;
+          width: 700px;
+          height: 190px;
+          object-fit: cover;
+          &:active{
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+          }
+        }
+      }
+    }
+    &__icon{
+      .user-image{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: calc( 190px / 4 );
+        right: 0;
+        margin: auto;
+        &:active{
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);
         }
       }
     }
     &__name{
       position: absolute;
       left: 0;
-      top: 100px;
-      bottom: calc($main-user-image-height / 2);
+      top: 115px;
+      bottom: calc( 190px / 4 );
       right: 0;
       margin: auto;
       width: 200px;
