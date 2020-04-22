@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   include CommonModuleForControllers
-  before_action :set_item , only: [:update,:show, :buy, :edit, :destroy, :pay]
+  before_action :set_item , only: [:update,:show, :buy, :edit, :destroy, :pay, :evaluate, :evaluate_delete]
   before_action :move_to_index, only: [:edit, :destroy]
-  before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit]
+  before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit, :evaluate]
   before_action :not_buy, only: [:buy]
   before_action :set_prefecture, only: [:show, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
@@ -10,6 +10,30 @@ class ItemsController < ApplicationController
   before_action :set_category
   
   require "payjp"
+
+  def evaluate_delete
+    if @item.purchaser_id_status == current_user.id
+      if @item.update( purchaser_id_status: nil)
+        redirect_to item_path(@item.id), alert: "出品者の評価を取り消しました"
+      else
+        redirect_to item_path(@item.id), alert: "出品者評価を取り消しできません"
+      end
+    else
+      redirect_to item_path(@item.id), alert: "購入者のみが出品者評価を取り消しできます"
+    end
+  end
+
+  def evaluate
+    if @item.purchaser_id == current_user.id
+      if @item.update( purchaser_id_status: @item.purchaser_id)
+        redirect_to item_path(@item.id), alert: "出品者を評価しました"
+      else
+        redirect_to item_path(@item.id), alert: "出品者を評価できません"
+      end
+    else
+      redirect_to item_path(@item.id), alert: "購入者のみが出品者を評価できます"
+    end
+  end
 
   def buy #クレジット購入
     @image = ItemImage.where(item_id: @item.id).first

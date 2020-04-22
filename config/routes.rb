@@ -49,6 +49,8 @@ Rails.application.routes.draw do
         get 'buy', to: 'items#buy'
         post 'pay', to: 'items#pay'
         get  'done', to: 'items#done'
+        post :evaluate
+        post :evaluate_delete
         get :buy
         get :get_category_children, defaults: { format: 'json' }
         get :get_category_grandchildren, defaults: { format: 'json' }

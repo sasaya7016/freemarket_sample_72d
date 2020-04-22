@@ -84,9 +84,13 @@
         .detail-product__link__buy
           =link_to "商品を購入する", buy_item_path(@item.id)
     - else 
-      .detail-product__sold-out
+      .detail-product__sold-out.btn-back
         この商品は売り切れました
-
+      - if @item.purchaser_id == current_user.id
+        - if @item.purchaser_id_status == current_user.id
+          = link_to "評価を取り消す", evaluate_delete_item_path(@item.id),method: :post ,class: "detail-product__sold-out btn evaluation-btn"
+        - else
+          = link_to "評価する", evaluate_item_path(@item.id),method: :post ,class: "detail-product__sold-out btn evaluation-btn"
   .detail-comment-box
     ＜コメント一覧＞
     .detail-comment-box__wrap
