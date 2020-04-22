@@ -6,4 +6,5 @@ document.addEventListener('DOMContentLoaded' , () => {
   let modalBG = document.getElementById('modal__background');
   let modalWindowButtonBack = document.getElementById('back__button')
   accountDeleteButton.addEventListener( 'click' , deleteAlert, { passive: false } ); 
+
   modalWindowButtonBack.addEventListener( 'click' , modalWindowUnlock );
