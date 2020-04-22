@@ -14,29 +14,26 @@
           出品する
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to selling_user_path ,class: "nav-list__item" do
+        =link_to selling_user_path(@user.id) ,class: "nav-list__item" do
           出品した商品-出品中
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to sell_transaction_user_path ,class: "nav-list__item" do
+        =link_to sell_transaction_user_path(@user.id) ,class: "nav-list__item" do
           出品した商品-取引中
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to sold_user_path ,class: "nav-list__item" do
+        =link_to sold_user_path(@user.id) ,class: "nav-list__item" do
           出品した商品-過去の取引
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "#" ,class: "nav-list__item" do
+        =link_to buy_transaction_user_path(@user.id) ,class: "nav-list__item" do
           購入した商品-取引中
           %i.fas.fa-chevron-right.nav-icon
       %li
-        =link_to "#" ,class: "nav-list__item" do
+        =link_to bought_user_path(@user.id) ,class: "nav-list__item" do
           購入した商品-過去の取引
           %i.fas.fa-chevron-right.nav-icon
-      %li
-        =link_to "#" ,class: "nav-list__item" do
-          評価
-          %i.fas.fa-chevron-right.nav-icon
+
     %h3.nav-list__head
       設定
     %ul.nav-list
