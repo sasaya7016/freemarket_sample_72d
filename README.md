@@ -11,7 +11,7 @@
 >> Ruby on Rails,Javascript,SCSS,Mysql,AWS
 
 ## 制作背景
->> フリーマーケットアプリの制作を通して
+>> フリーマーケットアプリの制作を通してフロントからサーバーサイドまでの技術理解を満遍なく深めるために作成した。
  
 ### usersテーブル
 |Column|Type|Options|
@@ -43,14 +43,13 @@
 |price|integer|null: false|
 |brand|string||
 |category_id|integer|null:false|
-|items_size|string||
+|item_size|string||
 |status|string|null:false|
 |favorites_count|integer||
 |preparation_day|integer|null:false|
 |exhibitor_id|integer||
-|buyer_id|integer||
-|buyer_id_status|integer||
 |purchaser_id|integer||
+|purchaser_id_status|integer||
 |delivery_fee|string|null:false|
 |prefecture_id|integer|null:false|
 ### Association
