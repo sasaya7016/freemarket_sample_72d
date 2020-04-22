@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many :comments
   has_many :item_images, dependent: :destroy
   
-  belongs_to :user, optional: true
+  belongs_to :user, foreign_key: "exhibitor_id",class_name: "User"
   belongs_to :category, optional: true
   
   #ActiveHashのアソシエーション
@@ -15,8 +15,8 @@ class Item < ApplicationRecord
   include ItemsShowMethods
 
   #出品時のvalidation
-  # accepts_nested_attributes_for :item_images , allow_destroy: true , reject_if: :all_blank
-  # validates :item_images , presence: true
+  accepts_nested_attributes_for :item_images , allow_destroy: true , reject_if: :all_blank
+  validates :item_images , presence: true
   with_options presence: true do
     validates :name
     validates :introduction
