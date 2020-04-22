@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
         currency: 'jpy',
         )
       end
-    
+      @item.purchaser_id = current_user.id
       if @item.update( purchaser_id: current_user.id)
         redirect_to root_path , notice: '購入完了しました'
       else
