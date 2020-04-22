@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   include CommonModuleForControllers
-  before_action :set_item , only: [:update,:show, :buy, :edit, :destroy, :pay]
+  before_action :set_item , only: [:update,:show, :buy, :edit, :destroy, :pay, :evaluate, :evaluate_delete]
   before_action :move_to_index, only: [:edit, :destroy]
-  before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit]
+  before_action :authenticate_user! ,only: [:buy, :pay, :new, :edit, :evaluate]
   before_action :not_buy, only: [:buy]
   before_action :set_prefecture, only: [:show, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
@@ -10,6 +10,8 @@ class ItemsController < ApplicationController
   before_action :set_category
   
   require "payjp"
+
+  end
 
   def buy #クレジット購入
     @image = ItemImage.where(item_id: @item.id).first
