@@ -24,3 +24,8 @@ document.addEventListener('DOMContentLoaded' , () => {
         fadeIn(modalBG , 700);
       }
     };
+
+    function modalWindowCaution (){
+      modalBG.style.display = "";
+    }
+
