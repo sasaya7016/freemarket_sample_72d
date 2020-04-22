@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded' , () => {
+if (document.location.href.match(/\/users\/\d+\/support\/withdraw_support/)){
+  document.addEventListener('DOMContentLoaded' , () => {
 
   let accountDeleteButton = document.getElementById('account-delete-button');
   let withdrawReasons = document.getElementById('withdraw-reasons');
