@@ -11,6 +11,17 @@ class ItemsController < ApplicationController
   
   require "payjp"
 
+  def evaluate_delete
+    if @item.purchaser_id_status == current_user.id
+      if @item.update( purchaser_id_status: nil)
+        redirect_to item_path(@item.id), alert: "出品者の評価を取り消しました"
+      else
+        redirect_to item_path(@item.id), alert: "出品者評価を取り消しできません"
+      end
+    else
+      redirect_to item_path(@item.id), alert: "購入者のみが出品者評価を取り消しできます"
+    end
+  end
   end
 
   def buy #クレジット購入
