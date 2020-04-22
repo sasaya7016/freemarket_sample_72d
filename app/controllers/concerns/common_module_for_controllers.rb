@@ -20,9 +20,12 @@ module CommonModuleForControllers
     end
     
     def user_show_info
-      @items = Item.where(exhibitor_id: @user)
-      @evaluations = Item.where(buyer_id_status: @user)
+      @items = Item.where(exhibitor_id: @user.id)
+      @evaluations = Item.where(purchaser_id_status: @user.id)
     end
     
+    def set_address
+      @address = Adress.find(params[:id])
+    end
 
 end
