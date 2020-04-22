@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :item_images, dependent: :destroy
   
   # belongs_to :user, optional: true
-  belongs_to :user, foreign_key: "buyer_id",class_name: "User",optional: true
+  # belongs_to :user, foreign_key: "buyer_id",class_name: "User",optional: true
   belongs_to :category, optional: true
   
   #ActiveHashのアソシエーション
