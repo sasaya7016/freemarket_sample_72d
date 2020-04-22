@@ -9,12 +9,14 @@
 |birth_date|date|null:false|
 |icon_image|string||
 |background_image|string||
-|email|text|null: false|
-|password|text|null: false|
+|profile|text||
+|email|string|null: false|
+|password|string|null: false|
 ### Association
-- has_many :items through: :comments
-- has_many :comments
-- has_many :favorites
+- has_many :items
+- has_many :comments, through: :comments
+- has_many :favorites, dependent: :destroy
+- has_many :favorite_items, through: :favorites, source: :item
 - has_one :credit_card
 - has_one :address
 
@@ -25,16 +27,26 @@
 |introduction|text|null: false|
 |price|integer|null: false|
 |brand|string||
-|condition|string|null:false|
-|preparation_day|string|null:false|
-|exhibitor|integer|foreign_key: true|
+|category_id|integer|null:false|
+|items_size|string||
+|status|string|null:false|
+|favorites_count|integer||
+|preparation_day|integer|null:false|
+|exhibitor_id|integer||
+|buyer_id|integer||
+|buyer_id_status|integer||
 |purchaser_id|integer||
-|purchaser_id_status|integer||
+|delivery_fee|string|null:false|
+|prefecture_id|integer|null:false|
+
 ### Association
-- has_many :favorites
+- belongs_to_active_hash :prefecture
+- has_many :favorites, dependent: :destroy
 - has_many :comments
 - has_many :item_images
-- belongs_to :user
+- accepts_nested_attributes_for :item_images, allow_destroy: true
+- belongs_to :user, foreign_key: "buyer_id", class_name: "User",optional: true
+- belongs_to :category, optional: true
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -43,8 +55,8 @@
 |item_id|integer|null:false, foreign_key: true|
 |message|text|null:false|
 ### Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to :user, optional: true
+- belongs_to :item, optional: true
 
 ## favoritesテーブル
 |Column|Type|Options|
@@ -59,31 +71,69 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|integer|null:false, foreign_key: true|
-|url|string|null:false|
+|image|string|null:false|
 ### Association
 - belongs_to :item
+
+## item_sizesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_size|string|null :false|
+|ancestry|string||
+### Association
+- has_many :items
+- has_many :category_sizes
+- has_many :categories, through: :category_sizes
+- has_ancestry
 
 ## credit_cardsデーブル
 |Column|Type|Options|
 |------|----|-------|
-|card＿number|integer|null: false|
-|expiration_month|integer|null: false|
-|expiration_year|integer|ull: false|
-|security_code|integer|ull: false|
+|customer_id|string|null: false|
+|card_id|string|null :false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+- belongs_to :user, optional true
 
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |first_address|string|null: false|
 |second_address|string|null: false|
 |third_address|string||
 |phone_number|integer||
-|user|references||
+|user_id|references||
 ### Association
 - belongs_to :user, optional: true
+- belongs_to_active_hash :prefecture
 
+## categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null :false|
+|ancestry|string||
+### Association
+- has_many :items
+- has_many :category_sizes
+- has_many :item_sizes, through: :category_sizes
+- has_ancestry
+
+## category_sizeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category_id|integer|null :false|
+|item_size_id|integer|null :false|
+### Association
+- belongs_to :category
+- belongs_to :item_size
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|bigint||
+### Association
+- belongs_to :user, optional: true

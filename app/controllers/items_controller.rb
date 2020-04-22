@@ -21,30 +21,23 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    if @card.blank?
-      redirect_to new_credit_card_path 
-    else
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      Payjp::Charge.create(
-      amount: @item.price, 
-      customer: @card.customer_id, 
-      currency: 'jpy',
-      )
-    end
-=begin
-    @item.purchaser_id = current_user.id
-    if @item.save
-      redirect_to root_path, notice: '購入完了しました'
-    else
-      redirect_to item_path(@item.id), alert: "購入に失敗しました"
-    end
-=end
+      if @card.blank?
+        redirect_to new_credit_card_path 
+      else
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        Payjp::Charge.create(
+        amount: @item.price, 
+        customer: @card.customer_id, 
+        currency: 'jpy',
+        )
+      end
+    
       if @item.update( purchaser_id: current_user.id)
         redirect_to root_path , notice: '購入完了しました'
       else
         redirect_to item_path(@item.id), alert: "購入に失敗しました"
       end
-    end
+  end
 
   def index
     @items = Item.all.includes(:user)
@@ -59,7 +52,6 @@ class ItemsController < ApplicationController
     @item_images = @item.item_images
     @exhibitor = User.where(id: @item.exhibitor_id).first
     @image = ItemImage.where(item_id: @item.id).first
-    #@address = Address.where(id: @user.id).first
     @parent = @item.category
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
