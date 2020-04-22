@@ -88,7 +88,14 @@ $(function(){
         appendChidrenBox(insertHTML);
       })
       .fail(function(){
-        alert('通信エラー');
+        let options = {
+          title: "通信エラー",
+          text: "接続状態を確認してください",
+          type: "error", // warning, info, error
+          showConfirmButton : true,
+          confirmButtonText : 'OK!'
+        }
+        swal.fire(options);
       })
     } else {
       $('#children_wrapper').remove();
@@ -121,7 +128,14 @@ $(function(){
           }
         })
         .fail (function(){
-          alert('通信エラー')
+          let options = {
+            title: "通信エラー",
+            text: "接続状態を確認してください",
+            type: "error", // warning, info, error
+            showConfirmButton : true,
+            confirmButtonText : 'OK!'
+          }
+          swal.fire(options);
         })
       } else {
         $('#grandchildren_wrapper').remove();
@@ -152,7 +166,14 @@ $(function(){
         }
       })
       .fail(function(){
-        alert('通信エラー');
+        let options = {
+          title: "通信エラー",
+          text: "接続状態を確認してください",
+          type: "error", // warning, info, error
+          showConfirmButton : true,
+          confirmButtonText : 'OK!'
+        }
+        swal.fire(options);
       })
     } else {
       $('#size_wrapper').remove();
