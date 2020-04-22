@@ -4,8 +4,8 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments
   has_many :item_images, dependent: :destroy
-
-  belongs_to :user, optional: true
+  
+  belongs_to :user, foreign_key: "exhibitor_id",class_name: "User",optional: true
   belongs_to :category, optional: true
   
   #ActiveHashのアソシエーション
