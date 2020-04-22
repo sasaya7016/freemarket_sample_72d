@@ -8,7 +8,12 @@
 >> 商品の検索、商品購入の際クレジットカードを登録させて購入
 
 ## 使用した技術
-> Ruby on Rails,Javascript,SCSS,Mysql,AWS
+* 言語:  Haml/SCSS/Javascript,Ruby/SQL
+* FW:  Ruby on Rails
+* DB:  MySQL
+* AWS:  EC2,S3,Route 53
+* ミドルウェア:  Unicorn,Nginx
+  
 
 ## 制作背景
 > フリーマーケットアプリの制作を通してフロントからサーバーサイドまでの技術理解を満遍なく深めるために作成した。
