@@ -31,14 +31,18 @@
       %tr
         %th カテゴリー
         %td
-          =link_to category_path(@item.category.parent.parent.id) do
-            %span= @item.category.parent.parent.name
-          %br/
-          =link_to category_path(@item.category.parent.id) do
-            %span= @item.category.parent.name
-          %br/
-          =link_to category_path(@item.category.id) do
-            %span= @item.category.name
+          - if @item.category.present?
+            =link_to category_path(@item.category.id) do
+              %span= @item.category.name
+            %br/
+            - if @item.category.parent.present?
+              =link_to category_path(@item.category.parent.id) do
+                %span= @item.category.parent.name
+              %br/
+              - if @item.category.parent.parent.present?
+                =link_to category_path(@item.category.parent.parent.id) do
+                  %span= @item.category.parent.parent.name
+          
       %tr
         %th ブランド
         %td
