@@ -16,7 +16,7 @@
             .field__box__title 郵便番号(ハイフンを付けない)
             .field__box__hissu 必須
           %br/
-          = f.text_field :postalcode, class: "user-textform", placeholder: "例）111-0001"
+          = f.text_field :postalcode, class: "user-textform", placeholder: "例）1110001"
         .field
           .field__box
             .field__box__title 都道府県
@@ -46,7 +46,7 @@
             .field__box__title 電話番号（ハイフンを付けない）
             .field__box__ninni 任意
           %br/
-          =f.text_field :phone_number, class: "user-textform", placeholder: "例）090-5555-5555"
+          =f.text_field :phone_number, class: "user-textform", placeholder: "例）09055555555"
         .actions
           = f.submit "新規登録", class:"login-btn"    
   .add-regi__footer
