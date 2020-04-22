@@ -1,3 +1,18 @@
+# フリーマーケットアプリ
+
+## 概要
+> ### このアプリでできること
+>> ユーザーの登録、削除、ログイン、ログアウト
+>> ユーザー登録後に商品の出品、購入、削除、お気に入り、パンクズ、商品に対するコメント
+>> マイページ機能から購入履歴の確認、ユーザー登録情報の変更、退会
+>> 商品の検索、商品購入の際クレジットカードを登録させて購入
+
+## 使用した技術
+>> Ruby on Rails,Javascript,SCSS,Mysql,AWS
+
+## 制作背景
+>> フリーマーケットアプリの制作を通して
+ 
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -38,7 +53,6 @@
 |purchaser_id|integer||
 |delivery_fee|string|null:false|
 |prefecture_id|integer|null:false|
-
 ### Association
 - belongs_to_active_hash :prefecture
 - has_many :favorites, dependent: :destroy
