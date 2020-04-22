@@ -8,7 +8,7 @@
         -@item.item_images.each do |image|
           %li
             =image_tag image.image_url,class:"detail-product__image__main"
-            - if @item.buyer_id.present?
+            - if @item.purchaser_id.present?
               .items-box_photo__sold
                 .items-box_photo__sold__inner
                   SOLD
@@ -65,7 +65,7 @@
       .detail-product__btn__report
         %i.fa.fa-flag
         %span 不適切な商品の通報
-    - if @item.buyer_id.nil?
+    - if @item.purchaser_id.nil?
       - if !user_signed_in?
       -elsif current_user.id == @item.exhibitor_id
         .detail-product__link
@@ -82,6 +82,7 @@
     - else 
       .detail-product__sold-out
         この商品は売り切れました
+
   .detail-comment-box
     ＜コメント一覧＞
     .detail-comment-box__wrap
@@ -116,6 +117,9 @@
         =link_to "後ろの商品>", item_path(@item.next.id)
 
   .detail-category
-    =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
+    - if @item.category.present?
+      =link_to "#{@item.category.name}をもっと見る", category_path(@item.category.id)
+    - else
+      カテゴリがありません
 = render "exhibition"
 = render "footer"
