@@ -46,7 +46,14 @@ if (document.location.href.match(/\/items\/\d+/)){
           $('.form__submit').prop('disabled', false);
         })
         .fail(function () {
-          alert('error');
+          let options = {
+            title: "エラー",
+            text: "コメントが投稿できませんでした",
+            type: "error", // warning, info, error
+            showConfirmButton : true,
+            confirmButtonText : 'OK!'
+          }
+          swal.fire(options);
         })
     });
   });
