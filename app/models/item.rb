@@ -15,8 +15,8 @@ class Item < ApplicationRecord
   include ItemsShowMethods
 
   #出品時のvalidation
-  accepts_nested_attributes_for :item_images , allow_destroy: true , reject_if: :all_blank
-  validates :item_images , presence: true
+  # accepts_nested_attributes_for :item_images , allow_destroy: true , reject_if: :all_blank
+  # validates :item_images , presence: true
   with_options presence: true do
     validates :name
     validates :introduction
