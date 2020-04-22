@@ -22,7 +22,8 @@
           =link_to "一覧を見る", buy_transaction_user_path, class: "tab__content__list__index-btn"
     - else
       .tab__display__empty
-        = image_tag "", class: "empty__logo"
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません
 
   %ul.tab__content.display--none#tab__buy-transaction-end
     - if @bought_transaction_end_items.present?
@@ -47,4 +48,5 @@
           =link_to "一覧を見る", sold_user_path, class: "tab__content__list__index-btn"
     - else
       .tab__display__empty
-        = image_tag "" , class: "empty__logo"
+        = image_tag "mypage/triangles.png" , class: "empty__logo"
+        商品がありません
