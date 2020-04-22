@@ -22,6 +22,17 @@ class ItemsController < ApplicationController
       redirect_to item_path(@item.id), alert: "購入者のみが出品者評価を取り消しできます"
     end
   end
+
+  def evaluate
+    if @item.purchaser_id == current_user.id
+      if @item.update( purchaser_id_status: @item.purchaser_id)
+        redirect_to item_path(@item.id), alert: "出品者を評価しました"
+      else
+        redirect_to item_path(@item.id), alert: "出品者を評価できません"
+      end
+    else
+      redirect_to item_path(@item.id), alert: "購入者のみが出品者を評価できます"
+    end
   end
 
   def buy #クレジット購入
