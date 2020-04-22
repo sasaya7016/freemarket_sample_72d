@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   has_many :favorites, dependent: :destroy
   has_many :comments
-  has_many :item_images
-  accepts_nested_attributes_for :item_images, allow_destroy: true
+  has_many :item_images, dependent: :destroy
+  
   # belongs_to :user, optional: true
   belongs_to :user, foreign_key: "buyer_id",class_name: "User",optional: true
   belongs_to :category, optional: true
@@ -16,6 +16,8 @@ class Item < ApplicationRecord
   include ItemsShowMethods
 
   #出品時のvalidation
+  accepts_nested_attributes_for :item_images , allow_destroy: true , reject_if: :all_blank
+  validates :item_images , presence: true
   with_options presence: true do
     validates :name
     validates :introduction
@@ -26,7 +28,6 @@ class Item < ApplicationRecord
     validates :exhibitor_id
     validates :delivery_fee
     validates :prefecture_id
-    validates :item_images
   end
   with_options numericality: {
     greater_than_or_equal_to: 100,
