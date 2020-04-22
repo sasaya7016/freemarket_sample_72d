@@ -19,7 +19,7 @@
         .tab__content.favorite__lists
           %ul.tab__content.favorite__lists#tab__content-new.display--none
             - if @selling_items.present?
-              - @selling_items.each do |item|
+              - @selling_items.last(20).each do |item|
                 %li.tab__content__list
                   =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
                     .list-image
@@ -44,7 +44,7 @@
 
           %ul.tab__content.display--none#tab__content-transaction
             - if @sold_transaction_items.present?
-              - @sold_transaction_items.each do |item|
+              - @sold_transaction_items.last(20).each do |item|
                 %li.tab__content__list
                   =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
                     .list-image
@@ -67,7 +67,7 @@
 
           %ul.tab__content#tab__content-old
             - if @sold_transaction_end_items.present?
-              - @sold_transaction_end_items.each do |item|
+              - @sold_transaction_end_items.last(20).each do |item|
                 %li.tab__content__list
                   =link_to item_path(item.id), class: "tab__content__list-box favorite__lists" do
                     .list-image
