@@ -100,7 +100,8 @@
         = link_to item_path(item.id) do
           .pickup-category__product__main__list
             .pickup-category__product__main__list__img
-              = image_tag item.item_images[0].image.url, class:"product-img"
+              - if item.item_images[0].image.present?
+                = image_tag item.item_images[0].image.url, class:"product-img"
             .pickup-category__product__main__list__text
               %p.name=item.name 
               .pickup-category__product__main__list__text__details
@@ -123,7 +124,8 @@
         = link_to item_path(pickup_item.id) do
           .pickup-bland__product__main__list
             .pickup-bland__product__main__list__img
-              = image_tag pickup_item.item_images[0].image.url, class:"product-img"
+              - if item.item_images[0].image.present?
+                = image_tag pickup_item.item_images[0].image.url, class:"product-img"
             .pickup-bland__product__main__list__text
               %p.name=pickup_item.name
               .pickup-bland__product__main__list__text__details
