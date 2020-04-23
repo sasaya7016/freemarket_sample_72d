@@ -86,11 +86,11 @@
     - else 
       .detail-product__sold-out.btn-back
         この商品は売り切れました
-      - if @item.purchaser_id == @purchaser.id
-        - if @item.purchaser_id_status == @purchaser.id
-          = link_to "評価を取り消す", evaluate_delete_item_path(@item.id),method: :post ,class: "detail-product__sold-out btn evaluation-btn"
-        - else
+      - if user_signed_in?
+        - if @item.purchaser_id_status.nil? && @item.purchaser_id == current_user.id
           = link_to "評価する", evaluate_item_path(@item.id),method: :post ,class: "detail-product__sold-out btn evaluation-btn"
+        - elsif @item.purchaser_id_status == current_user.id && @item.purchaser_id_status.present?
+          = link_to "評価を取り消す", evaluate_delete_item_path(@item.id),method: :post ,class: "detail-product__sold-out btn evaluation-btn"
   .detail-comment-box
     ＜コメント一覧＞
     .detail-comment-box__wrap
