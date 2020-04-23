@@ -75,6 +75,7 @@ class ItemsController < ApplicationController
   def show
     @item_images = @item.item_images
     @exhibitor = User.where(id: @item.exhibitor_id).first
+    @purchaser = User.where(id: @item.purchaser_id).first
     @image = ItemImage.where(item_id: @item.id).first
     @parent = @item.category
     @comment = Comment.new
