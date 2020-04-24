@@ -1,7 +1,7 @@
 .header
   .header__inner
     .header__inner__icon
-      = link_to image_tag("http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg",class:"header__inner__icon__top") ,root_path
+      = link_to image_tag("logo.png",class:"header__inner__icon__top") ,root_path,class: "logo"
     .header__inner__search
       .header__inner__search__form
         = search_form_for @q, url: search_items_path do |f|
