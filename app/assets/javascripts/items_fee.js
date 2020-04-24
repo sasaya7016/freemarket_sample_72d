@@ -25,13 +25,13 @@ if (document.location.href.match(/\/items\/new/) || document.location.href.match
         }
       }else{
         let options = {
-          title: "エラーが発生しました",
-          text: "金額は¥ 0 ~ 9999999 円の範囲で設定して下さい。",
-          icon: "info", // warning, info, error
-          timer: 3000, // 3秒後に自動的にアラートを閉じる
-          buttons: false,
-      }
-      swal(options)
+          title: "金額エラー",
+          text: "金額は¥100~¥9999999",
+          type: "info", // warning, info, error
+          showConfirmButton : true,
+          confirmButtonText : '確認しました'
+        }
+      swal.fire(options);
       }
     };
   }); 

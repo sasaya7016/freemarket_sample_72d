@@ -23,7 +23,7 @@ document.addEventListener(
               title: "カードの登録が完了しました",
               type: "info",  // warning, info, error
               showConfirmButton : true,
-              confirmButtonText : '確認しました。'
+              confirmButtonText : '確認しました'
             }
             swal.fire(options);
           } else {
@@ -32,7 +32,7 @@ document.addEventListener(
               text: "正しいカード情報を入力してください",
               type: "warning", // warning, info, error
               showConfirmButton : true,
-              confirmButtonText : '確認しました。',
+              confirmButtonText : '確認しました',
               showCancelButton : true,
               cancelButtonText : '登録をやめる'
               }

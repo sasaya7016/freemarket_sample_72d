@@ -16,7 +16,7 @@ if (document.location.href.match(/\/users\/\d+\/support\/withdraw_support/)){
               text: "退会理由を100文字以上で入力してください",
               type: "warning", // warning, info, error
               showConfirmButton : true,
-              confirmButtonText : '確認しました。',
+              confirmButtonText : '確認しました',
               showCancelButton : true,
               cancelButtonText : '退会しない'
             }
