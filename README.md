@@ -1,6 +1,6 @@
-# フリーマーケットアプリ
+# Hash-Literal(フリーマーケットアプリ)
 ![hashliteral](https://user-images.githubusercontent.com/61730661/85028823-86aefa80-b1b6-11ea-9f03-53fbec7f08a6.jpg)
-
+## http://www.hash-literal.com
 
 ## 概要
 > ### このアプリでできること
@@ -20,7 +20,17 @@
 ## 制作背景
 > フリーマーケットアプリの制作を通してフロントからサーバーサイドまでの技術理解を満遍なく深めるために作成した。
 
-
+## テスト用アカウント 
+### 購入者用  
+メールアドレス：emicca105@gmail.com  
+パスワード：emicca105
+### 購入用カード情報  
+番号：30569309025904  
+期限：10/25  
+セキュリティコード：6894
+### 出品者用  
+メールアドレス：shiomi912@gmail.com  
+パスワード：shiomi912
 
 
 ## データベース設計 
@@ -38,6 +48,8 @@
 |profile|text||
 |email|string|null: false|
 |password|string|null: false|
+
+
 ### Association
 - has_many :items
 - has_many :comments, through: :comments
