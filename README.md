@@ -1,4 +1,6 @@
 # フリーマーケットアプリ
+![hashliteral](https://user-images.githubusercontent.com/61730661/85028823-86aefa80-b1b6-11ea-9f03-53fbec7f08a6.jpg)
+
 
 ## 概要
 > ### このアプリでできること
